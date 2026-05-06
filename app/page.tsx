@@ -911,52 +911,16 @@ function whatsappLink(message: string) {
 /* Applied when <html> has class "dark". Uses !important to win over Tailwind utilities. */
 
 const darkModeCss = `
-  html.dark { color-scheme: dark; }
-  html.dark body { background-color: #0a0a08; }
+  /* Site is dark-first — these styles polish the experience */
+  html { color-scheme: dark; }
+  html, body { background-color: #0B0E16; }
 
-  /* Page-level surfaces */
-  html.dark .bg-\\[\\#FAFAF7\\] { background-color: #0a0a08 !important; }
-  html.dark .bg-\\[\\#FAFAF7\\]\\/85 { background-color: rgba(15, 15, 12, 0.92) !important; }
-
-  /* Lifted card surfaces */
-  html.dark .bg-white { background-color: #171717 !important; }
-
-  /* Separators */
-  html.dark .bg-neutral-200 { background-color: #262626 !important; }
-
-  /* Subtle blue accent backgrounds need extra lift in dark */
-  html.dark .bg-\\[\\#1E3A8A\\]\\/\\[0\\.03\\] { background-color: rgba(60, 95, 200, 0.12) !important; }
-
-  /* Text */
-  html.dark .text-neutral-950 { color: #fafafa !important; }
-  html.dark .text-neutral-900 { color: #f5f5f5 !important; }
-  html.dark .text-neutral-800 { color: #e5e5e5 !important; }
-  html.dark .text-neutral-700 { color: #d4d4d4 !important; }
-  html.dark .text-neutral-600 { color: #a3a3a3 !important; }
-  html.dark .text-neutral-500 { color: #737373 !important; }
-  html.dark .text-neutral-400 { color: #525252 !important; }
-
-  /* Borders */
-  html.dark .border-neutral-200 { border-color: #262626 !important; }
-  html.dark .border-neutral-200\\/80 { border-color: rgba(38, 38, 38, 0.85) !important; }
-  html.dark .border-neutral-300 { border-color: #404040 !important; }
-  html.dark .divide-neutral-200 > :not([hidden]) ~ :not([hidden]) { border-color: #262626 !important; }
-
-  /* Hover states */
-  html.dark .hover\\:border-neutral-900:hover { border-color: #fafafa !important; }
-  html.dark .hover\\:text-neutral-950:hover { color: #fafafa !important; }
-  html.dark .hover\\:bg-neutral-100:hover { background-color: #262626 !important; }
-  html.dark .hover\\:border-neutral-300:hover { border-color: #525252 !important; }
-
-  /* Lighten the primary blue text in dark mode for readability */
-  html.dark .text-\\[\\#1E3A8A\\] { color: #6b8eef !important; }
-
-  /* Smooth toggle */
+  /* Smooth color transitions for any toggle or hover */
   body, main, header, footer, section, article, div, nav, h1, h2, h3, h4, p, span, a, button, summary, details, figure, figcaption, blockquote, ul, li, input, textarea {
     transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease;
   }
 
-  /* Theme toggle / install icon button base styles */
+  /* Theme toggle / install icon button — premium soft style */
   .sn-icon-btn {
     display: inline-flex;
     align-items: center;
@@ -964,20 +928,36 @@ const darkModeCss = `
     height: 2.25rem;
     width: 2.25rem;
     border-radius: 9999px;
-    border: 1px solid #e5e5e5;
-    background-color: #ffffff;
-    color: #404040;
+    border: 1px solid #2A3142;
+    background-color: #1A1F2E;
+    color: #A8AEBC;
     transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
   }
-  .sn-icon-btn:hover { border-color: #171717; color: #171717; }
-  html.dark .sn-icon-btn { background-color: #171717; border-color: #262626; color: #d4d4d4; }
-  html.dark .sn-icon-btn:hover { border-color: #fafafa; color: #fafafa; }
+  .sn-icon-btn:hover {
+    border-color: #4F7DFF;
+    color: #F5F6F8;
+    background-color: #232B3D;
+  }
 
   /* Install banner + pill: hidden by default; JS shows when relevant */
   #sn-install-banner { display: none; }
   #sn-install-banner.is-visible { display: block; }
   .sn-install-pill { display: none; }
   .sn-install-pill.is-visible { display: inline-flex; }
+
+  /* Custom scrollbar for premium feel */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #0B0E16; }
+  ::-webkit-scrollbar-thumb { background: #2A3142; border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: #4F7DFF; }
+
+  /* Selection color */
+  ::selection { background-color: #4F7DFF; color: #ffffff; }
+
+  /* Subtle glow on hover for premium cards */
+  .premium-glow:hover {
+    box-shadow: 0 0 40px -10px rgba(79, 125, 255, 0.3);
+  }
 `;
 
 /* ----------------------------- THEME INIT (RUNS BEFORE PAINT) ----------------------------- */
@@ -985,13 +965,8 @@ const darkModeCss = `
 const themeInitScript = `
   (function() {
     try {
-      var stored = null;
-      try { stored = localStorage.getItem('iptvffusa-theme'); } catch (e) {}
-      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var isDark = stored ? stored === 'dark' : !!prefersDark;
-      if (isDark) {
-        document.documentElement.classList.add('dark');
-      }
+      // Always force dark mode — site is designed dark-first for premium feel
+      document.documentElement.classList.add('dark');
     } catch (e) {}
   })();
 `;
@@ -1187,7 +1162,7 @@ const pwaAndUiScript = `
         meta.name = 'theme-color';
         document.head.appendChild(meta);
       }
-      meta.content = isDark ? '#0a0a08' : '#1E3A8A';
+      meta.content = '#0B0E16';
     }
     syncThemeColor();
 
@@ -1622,7 +1597,7 @@ export default function Page() {
 
   return (
     <main
-      className="font-[family-name:var(--font-body)] bg-[#FAFAF7] dark:bg-[#0a0a08] text-neutral-900 dark:text-neutral-100 antialiased"
+      className="font-[family-name:var(--font-body)] bg-[#0B0E16] text-[#F5F6F8] antialiased"
     >
       {/* JSON-LD structured data — single graph with all schemas (FAQ, HowTo, Product, Org, etc.) */}
       <script
@@ -1648,7 +1623,7 @@ export default function Page() {
       {/* ============================ INSTALL BANNER ============================ */}
       <div
         id="sn-install-banner"
-        className="bg-[#1E3A8A] px-5 py-2.5 text-white md:px-8"
+        className="bg-[#1A1F2E] border-b border-[#2A3142] px-5 py-2.5 text-white md:px-8"
       >
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 text-sm">
           <span className="flex items-center gap-2">
@@ -1661,7 +1636,7 @@ export default function Page() {
           <div className="flex shrink-0 items-center gap-2">
             <button
               data-install-trigger
-              className="rounded-full bg-white px-3 py-1 text-xs font-medium text-[#1E3A8A] transition hover:bg-neutral-100"
+              className="rounded-full bg-[#4F7DFF] px-3 py-1 text-xs font-medium text-white transition hover:bg-[#3D6BEE]"
             >
               Install
             </button>
@@ -1677,7 +1652,7 @@ export default function Page() {
       </div>
 
       {/* ============================ HEADER ============================ */}
-      <header className="sticky top-0 z-50 border-b border-neutral-200/80 bg-[#FAFAF7]/85 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-[#1F2433] bg-[#0B0E16]/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
           <Link href="/" className="flex items-center gap-2.5">
             <span className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-xl bg-gradient-to-br from-[#1E3A8A] to-[#0F1B3D] text-white shadow-[0_4px_12px_-4px_rgba(30,58,138,0.5)]">
@@ -1711,14 +1686,14 @@ export default function Page() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 text-sm text-neutral-700 md:flex">
-            <a href="#premium-channels" className="font-semibold text-[#DC2626] transition hover:text-[#B91C1C]">Get IPTV $12</a>
-            <a href="#nfl-iptv" className="transition hover:text-neutral-950">🏈 NFL</a>
-            <a href="#setup" className="transition hover:text-neutral-950">Setup</a>
-            <a href="#cable-vs-iptv" className="transition hover:text-neutral-950">vs Cable</a>
-            <a href="#us-channels" className="transition hover:text-neutral-950">US Channels</a>
-            <a href="#apps" className="transition hover:text-neutral-950">Best Apps</a>
-            <a href="#faq" className="transition hover:text-neutral-950">FAQ</a>
+          <nav className="hidden items-center gap-6 text-sm text-[#A8AEBC] md:flex">
+            <a href="#premium-channels" className="font-semibold text-[#FF4D5C] transition hover:text-[#E63946]">Get IPTV $12</a>
+            <a href="#nfl-iptv" className="transition hover:text-[#F5F6F8]">🏈 NFL</a>
+            <a href="#setup" className="transition hover:text-[#F5F6F8]">Setup</a>
+            <a href="#cable-vs-iptv" className="transition hover:text-[#F5F6F8]">vs Cable</a>
+            <a href="#us-channels" className="transition hover:text-[#F5F6F8]">US Channels</a>
+            <a href="#apps" className="transition hover:text-[#F5F6F8]">Best Apps</a>
+            <a href="#faq" className="transition hover:text-[#F5F6F8]">FAQ</a>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -1775,7 +1750,7 @@ export default function Page() {
 
             <a
               href="#setup"
-              className="rounded-full bg-[#1E3A8A] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#172E6E]"
+              className="rounded-full bg-[#4F7DFF] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#3D6BEE]"
             >
               Start Setup
             </a>
@@ -1786,31 +1761,31 @@ export default function Page() {
       {/* ============================ HERO ============================ */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#1E3A8A]/5 blur-3xl" />
-          <div className="absolute right-0 top-40 h-96 w-96 rounded-full bg-[#DC2626]/5 blur-3xl" />
+          <div className="absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#4F7DFF]/[0.08] blur-3xl" />
+          <div className="absolute right-0 top-40 h-96 w-96 rounded-full bg-[#FF4D5C]/[0.08] blur-3xl" />
         </div>
 
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 py-16 md:grid-cols-12 md:gap-8 md:px-8 md:py-24 lg:py-32">
           <div className="md:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#DC2626]/30 bg-[#DC2626]/5 px-3 py-1 text-xs font-semibold tracking-wide text-[#DC2626]">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#DC2626]" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-3 py-1 text-xs font-semibold tracking-wide text-[#FF4D5C]">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FF4D5C]" />
               ★ #1 IPTV FOR FIRESTICK USA 2026 · CUT THE CORD · NFL READY · 4K
             </span>
 
-            <h1 className="mt-6 font-[family-name:var(--font-display)] text-4xl font-normal leading-[1.02] tracking-tight text-neutral-950 md:text-6xl lg:text-7xl">
+            <h1 className="mt-6 font-[family-name:var(--font-display)] text-4xl font-normal leading-[1.02] tracking-tight text-[#F5F6F8] md:text-6xl lg:text-7xl">
               Cancel cable.{" "}
-              <span className="italic text-[#1E3A8A]">Save $1,764</span>{" "}
+              <span className="italic text-[#4F7DFF]">Save $1,764</span>{" "}
               <br className="hidden md:block" />a year. From{" "}
-              <span className="text-[#DC2626]">$12</span>.
+              <span className="text-[#FF4D5C]">$12</span>.
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-neutral-700 md:text-xl">
-              <strong className="text-neutral-950">America&rsquo;s #1 IPTV for Firestick subscription</strong> —{" "}
-              <strong className="text-neutral-950">50,000+ live channels in 4K UHD</strong>, every NFL game,
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#A8AEBC] md:text-xl">
+              <strong className="text-[#F5F6F8]">America&rsquo;s #1 IPTV for Firestick subscription</strong> —{" "}
+              <strong className="text-[#F5F6F8]">50,000+ live channels in 4K UHD</strong>, every NFL game,
               NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, full 100,000+ VOD library.
-              <strong className="text-neutral-950"> Anti-Freeze 6.0 technology</strong> — zero buffering on NFL Sundays.
+              <strong className="text-[#F5F6F8]"> Anti-Freeze 6.0 technology</strong> — zero buffering on NFL Sundays.
               Activated on WhatsApp in 5 minutes flat. Trusted by{" "}
-              <span className="font-medium text-neutral-950">12,400+ US households</span> from New York to Los Angeles.
+              <span className="font-medium text-[#F5F6F8]">12,400+ US households</span> from New York to Los Angeles.
             </p>
 
             {/* Killer trust strip — futuristic stats */}
@@ -1823,7 +1798,7 @@ export default function Page() {
               ].map((x) => (
                 <div
                   key={x.t}
-                  className="flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-[12px] font-medium text-neutral-800"
+                  className="flex items-center gap-2 rounded-xl border border-[#2A3142] bg-[#141824] px-3 py-2.5 text-[12px] font-medium text-[#F5F6F8]"
                 >
                   <span className="text-base" aria-hidden>{x.i}</span>
                   <span>{x.t}</span>
@@ -1834,7 +1809,7 @@ export default function Page() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#premium-channels"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#DC2626] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(220,38,38,0.6)] transition hover:bg-[#B91C1C]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#FF4D5C] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(255,77,92,0.5)] transition hover:bg-[#E63946]"
               >
                 Get IPTV from $12 — Activate in 5 mins
                 <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
@@ -1852,14 +1827,14 @@ export default function Page() {
               </a>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-neutral-500">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-[#A8AEBC]">
               <span className="flex items-center gap-2">
-                <span className="text-[#1E3A8A]">★★★★★</span>
-                <span><strong className="text-neutral-800">4.8 / 5</strong> · 12,400+ US households</span>
+                <span className="text-[#F5B643]">★★★★★</span>
+                <span><strong className="text-[#F5F6F8]">4.8 / 5</strong> · 12,400+ US households</span>
               </span>
-              <span className="hidden h-1 w-1 rounded-full bg-neutral-300 sm:block" />
+              <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
               <span>✅ Anti-freeze servers</span>
-              <span className="hidden h-1 w-1 rounded-full bg-neutral-300 sm:block" />
+              <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
               <span>✅ No 24-month contract</span>
             </div>
           </div>
@@ -1867,7 +1842,7 @@ export default function Page() {
           {/* Hero visual: stylized Firestick "screen" */}
           <div className="md:col-span-5">
             <div className="relative mx-auto max-w-sm">
-              <div className="rounded-3xl border border-neutral-200 bg-white p-3 shadow-[0_30px_80px_-30px_rgba(30,58,138,0.25)]">
+              <div className="rounded-3xl border border-[#2A3142] bg-[#141824] p-3 shadow-[0_30px_80px_-30px_rgba(79,125,255,0.4)]">
                 <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-[#0F1B3D] via-[#1E3A8A] to-[#0F1B3D] p-5 text-white">
                   <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-white/60">
                     <span>Fire TV · Live</span>
@@ -1899,7 +1874,7 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 rounded-xl border border-neutral-200 bg-white px-3 py-2 text-xs font-medium shadow-sm">
+              <div className="absolute -bottom-4 -right-4 rounded-xl border border-[#2A3142] bg-[#1A1F2E] px-3 py-2 text-xs font-medium text-[#F5F6F8] shadow-lg">
                 ⚡ Setup in &lt; 7 min
               </div>
             </div>
@@ -1908,26 +1883,26 @@ export default function Page() {
       </section>
 
       {/* ============================ TRUST STRIP ============================ */}
-      <section className="border-y border-neutral-200 bg-white">
+      <section className="border-y border-[#1F2433] bg-[#0E1119]">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-5 py-10 md:grid-cols-4 md:px-8">
           {trustStats.map((s) => (
             <div key={s.label}>
-              <div className="font-[family-name:var(--font-display)] text-3xl font-normal text-neutral-950">
+              <div className="font-[family-name:var(--font-display)] text-3xl font-normal text-[#F5F6F8]">
                 {s.value}
               </div>
-              <div className="mt-1 text-sm text-neutral-500">{s.label}</div>
+              <div className="mt-1 text-sm text-[#A8AEBC]">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ============================ WHY SWITCH NOW — CONVERSION ENGINE ============================ */}
-      <section className="bg-gradient-to-br from-[#0F1B3D] via-[#1E3A8A] to-[#0F1B3D] py-20 text-white md:py-24">
+      <section className="bg-gradient-to-br from-[#0B0E16] via-[#1A1F2E] to-[#0B0E16] py-20 text-white md:py-24 border-y border-[#1F2433]">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#DC2626]/40 bg-[#DC2626]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#DC2626]" />
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/40 bg-[#FF4D5C]/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FF4D5C]" />
                 The $147/month con job
               </span>
               <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl lg:text-[3.4rem]">
@@ -1957,7 +1932,7 @@ export default function Page() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#premium-channels"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#DC2626] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(220,38,38,0.7)] transition hover:bg-[#B91C1C]"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FF4D5C] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(255,77,92,0.5)] transition hover:bg-[#E63946]"
                 >
                   See plans from $12 →
                 </a>
@@ -1976,7 +1951,7 @@ export default function Page() {
             <div className="md:col-span-5">
               <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur">
                 <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-wider text-white/60">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#DC2626]" />
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#FF4D5C]" />
                   Saturday · 3:00 PM kickoff
                 </div>
                 <div className="mt-4 font-[family-name:var(--font-display)] text-2xl font-normal leading-tight text-white md:text-3xl">
@@ -1990,7 +1965,7 @@ export default function Page() {
                   &rdquo;
                 </div>
                 <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
-                  <div className="grid h-9 w-9 place-items-center rounded-full bg-[#1E3A8A] text-sm font-semibold">
+                  <div className="grid h-9 w-9 place-items-center rounded-full bg-[#4F7DFF] text-sm font-semibold">
                     DH
                   </div>
                   <div>
@@ -2026,23 +2001,23 @@ export default function Page() {
       <section className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
               The basics
             </span>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
               What is IPTV, and why pair it with a Firestick?
             </h2>
           </div>
-          <div className="space-y-5 text-[17px] leading-relaxed text-neutral-700 md:col-span-7">
+          <div className="space-y-5 text-[17px] leading-relaxed text-[#A8AEBC] md:col-span-7">
             <p>
-              <strong className="text-neutral-950">IPTV</strong> stands for
+              <strong className="text-[#F5F6F8]">IPTV</strong> stands for
               Internet Protocol Television — the same technology that powers
               Comcast X1, Spectrum TV, DirecTV Stream, YouTube TV, Hulu Live and many free
               services like Pluto TV and Tubi. Instead of broadcasting channels through a
               satellite dish or coax cable, IPTV streams them over your home broadband.
             </p>
             <p>
-              The <strong className="text-neutral-950">Amazon Firestick</strong>{" "}
+              The <strong className="text-[#F5F6F8]">Amazon Firestick</strong>{" "}
               is the most popular streaming device in the USA because it&rsquo;s
               affordable, sold on Amazon.com, Walmart, Best Buy and Target, and
               it runs Fire OS — a flexible Android-based system that supports
@@ -2062,16 +2037,16 @@ export default function Page() {
       </section>
 
       {/* ============================ SETUP STEPS ============================ */}
-      <section id="setup" className="bg-white py-20 md:py-28">
+      <section id="setup" className="bg-[#0E1119] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-2xl">
-            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
               How to install
             </span>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
               Set up IPTV on your Firestick in three steps.
             </h2>
-            <p className="mt-4 text-lg text-neutral-600">
+            <p className="mt-4 text-lg text-[#A8AEBC]">
               No computer, no cables, no terminal commands. The whole process
               uses only your Firestick remote and takes most American users less
               than ten minutes.
@@ -2082,34 +2057,34 @@ export default function Page() {
             {setupSteps.map((step) => (
               <article
                 key={step.n}
-                className="group relative rounded-2xl border border-neutral-200 bg-[#FAFAF7] p-7 transition hover:border-neutral-300 hover:shadow-sm"
+                className="group relative rounded-2xl border border-[#2A3142] bg-[#141824] p-7 transition hover:border-[#4F7DFF]/50 hover:bg-[#1A1F2E]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-[family-name:var(--font-display)] text-5xl font-normal text-[#1E3A8A]/90">
+                  <span className="font-[family-name:var(--font-display)] text-5xl font-normal text-[#4F7DFF]/90">
                     {step.n}
                   </span>
                   <span className="text-2xl" aria-hidden>
                     {step.icon}
                   </span>
                 </div>
-                <h3 className="mt-6 font-[family-name:var(--font-display)] text-xl font-medium text-neutral-950">
+                <h3 className="mt-6 font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8]">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-neutral-600">
+                <p className="mt-3 text-[15px] leading-relaxed text-[#A8AEBC]">
                   {step.body}
                 </p>
               </article>
             ))}
           </div>
 
-          <div className="mt-10 rounded-2xl border border-neutral-200 bg-[#FAFAF7] p-6 md:p-8">
+          <div className="mt-10 rounded-2xl border border-[#2A3142] bg-[#141824] p-6 md:p-8">
             <div className="flex items-start gap-4">
               <span className="text-2xl" aria-hidden>💡</span>
               <div>
                 <h4 className="font-[family-name:var(--font-display)] text-lg font-medium">
                   About Downloader codes
                 </h4>
-                <p className="mt-2 text-[15px] leading-relaxed text-neutral-600">
+                <p className="mt-2 text-[15px] leading-relaxed text-[#A8AEBC]">
                   Many guides circulate &ldquo;Downloader codes&rdquo; — short numeric
                   shortcuts that point to an APK URL. We recommend always
                   typing the full URL of the official source for the player
@@ -2121,16 +2096,16 @@ export default function Page() {
           </div>
 
           {/* ============================ DOWNLOADER CODES DIRECTORY ============================ */}
-          <section id="downloader-codes" className="mt-10 rounded-3xl border border-neutral-200 bg-white p-6 md:p-8">
+          <section id="downloader-codes" className="mt-10 rounded-3xl border border-[#2A3142] bg-[#141824] p-6 md:p-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+                <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
                   Firestick codes
                 </span>
-                <h3 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-medium text-neutral-950 md:text-3xl">
+                <h3 className="mt-2 font-[family-name:var(--font-display)] text-2xl font-medium text-[#F5F6F8] md:text-3xl">
                   Popular Firestick Downloader Codes
                 </h3>
-                <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-neutral-600">
+                <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[#A8AEBC]">
                   Many American Firestick users search for downloader code firestick,
                   IPTV Smarters code, TiviMate downloader code, XCIPTV code, and app
                   install codes. This quick directory helps UK users find common app
@@ -2140,7 +2115,7 @@ export default function Page() {
 
               <a
                 href="#faq"
-                className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-900 transition hover:border-neutral-900"
+                className="inline-flex items-center justify-center rounded-full border border-[#2A3142] bg-[#1A1F2E] px-4 py-2 text-sm font-medium text-[#F5F6F8] transition hover:border-[#4F7DFF]"
               >
                 Read FAQ
               </a>
@@ -2150,33 +2125,33 @@ export default function Page() {
               {downloaderCodes.map((item) => (
                 <article
                   key={`${item.name}-${item.code}`}
-                  className={`rounded-2xl border p-5 transition hover:shadow-sm ${
+                  className={`rounded-2xl border p-5 transition hover:shadow-lg ${
                     item.highlight
-                      ? "border-[#1E3A8A] bg-[#1E3A8A]/[0.03]"
-                      : "border-neutral-200 bg-[#FAFAF7]"
+                      ? "border-[#4F7DFF]/40 bg-[#4F7DFF]/[0.08]"
+                      : "border-[#2A3142] bg-[#1A1F2E]"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-neutral-500">
+                      <p className="text-xs font-medium uppercase tracking-wider text-[#6E7585]">
                         {item.category}
                       </p>
-                      <h4 className="mt-2 font-[family-name:var(--font-display)] text-lg font-medium text-neutral-950">
+                      <h4 className="mt-2 font-[family-name:var(--font-display)] text-lg font-medium text-[#F5F6F8]">
                         {item.name}
                       </h4>
                     </div>
                     {item.highlight && (
-                      <span className="rounded-full bg-[#DC2626] px-2 py-1 text-[10px] font-medium uppercase text-white">
+                      <span className="rounded-full bg-[#FF4D5C] px-2 py-1 text-[10px] font-medium uppercase text-white">
                         Popular
                       </span>
                     )}
                   </div>
 
-                  <div className="mt-5 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-center">
-                    <p className="text-xs uppercase tracking-wider text-neutral-500">
+                  <div className="mt-5 rounded-xl border border-[#2A3142] bg-[#0E1119] px-4 py-3 text-center">
+                    <p className="text-xs uppercase tracking-wider text-[#6E7585]">
                       Downloader Code
                     </p>
-                    <p className="mt-1 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-wide text-[#1E3A8A]">
+                    <p className="mt-1 font-[family-name:var(--font-display)] text-3xl font-semibold tracking-wide text-[#4F7DFF]">
                       {item.code}
                     </p>
                   </div>
@@ -2188,44 +2163,44 @@ export default function Page() {
       </section>
 
       {/* ============================ PREMIUM CHANNELS / PURCHASE ============================ */}
-      <section id="premium-channels" className="relative overflow-hidden bg-[#FAFAF7] py-20 md:py-28">
+      <section id="premium-channels" className="relative overflow-hidden bg-[#0E1119] py-20 md:py-28">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -right-24 top-20 h-80 w-80 rounded-full bg-[#1E3A8A]/5 blur-3xl" />
-          <div className="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-[#DC2626]/5 blur-3xl" />
+          <div className="absolute -right-24 top-20 h-80 w-80 rounded-full bg-[#4F7DFF]/[0.08] blur-3xl" />
+          <div className="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-[#FF4D5C]/[0.08] blur-3xl" />
         </div>
 
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           {/* Section heading */}
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-medium text-neutral-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#DC2626]" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#2A3142] bg-[#141824] px-3 py-1 text-xs font-medium text-[#A8AEBC]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#FF4D5C]" />
               Premium IPTV subscription USA · Activation by WhatsApp
             </span>
 
-            <h2 className="mt-5 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+            <h2 className="mt-5 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
               Get Premium Live TV{" "}
-              <span className="italic text-[#1E3A8A]">Channels</span> on Firestick.
+              <span className="italic text-[#4F7DFF]">Channels</span> on Firestick.
             </h2>
 
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-600">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#A8AEBC]">
               Need a premium IPTV subscription? Want stable live TV channels on
               Firestick — ESPN, FOX Sports, NFL, NBA League Pass,
               HBO Max, NBC, ABC, CBS, FOX and more? Choose a package below
               and contact us on WhatsApp for activation.{" "}
-              <span className="text-neutral-900">Fast US setup support included.</span>
+              <span className="text-[#F5F6F8]">Fast US setup support included.</span>
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-500">
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#A8AEBC]">
               <span className="flex items-center gap-2">
                 <span aria-hidden>🔒</span>
                 <span>Secure activation</span>
               </span>
-              <span className="hidden h-1 w-1 rounded-full bg-neutral-300 sm:block" />
+              <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
               <span className="flex items-center gap-2">
                 <span aria-hidden>⚡</span>
                 <span>Activated in minutes</span>
               </span>
-              <span className="hidden h-1 w-1 rounded-full bg-neutral-300 sm:block" />
+              <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
               <span className="flex items-center gap-2">
                 <span aria-hidden>🇺🇸</span>
                 <span>US customer support</span>
@@ -2240,52 +2215,52 @@ export default function Page() {
               return (
                 <article
                   key={plan.name}
-                  className={`relative flex flex-col rounded-2xl border bg-white p-6 transition hover:shadow-md ${
+                  className={`relative flex flex-col rounded-2xl border p-6 transition hover:shadow-2xl ${
                     isFeatured
-                      ? "border-[#1E3A8A] ring-1 ring-[#1E3A8A]/20 shadow-sm"
-                      : "border-neutral-200"
+                      ? "border-[#4F7DFF] bg-gradient-to-b from-[#1A1F2E] to-[#141824] ring-1 ring-[#4F7DFF]/30 shadow-[0_20px_60px_-20px_rgba(79,125,255,0.3)]"
+                      : "border-[#2A3142] bg-[#141824]"
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span
                       className={`rounded-full px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider ${
                         isFeatured
-                          ? "bg-[#DC2626] text-white"
-                          : "border border-neutral-200 bg-[#FAFAF7] text-neutral-700"
+                          ? "bg-[#FF4D5C] text-white"
+                          : "border border-[#2A3142] bg-[#1A1F2E] text-[#A8AEBC]"
                       }`}
                     >
                       {plan.badge}
                     </span>
-                    <span className="text-xs font-medium uppercase tracking-wider text-neutral-400">
+                    <span className="text-xs font-medium uppercase tracking-wider text-[#6E7585]">
                       Plan
                     </span>
                   </div>
 
-                  <h3 className="mt-5 font-[family-name:var(--font-display)] text-2xl font-medium text-neutral-950">
+                  <h3 className="mt-5 font-[family-name:var(--font-display)] text-2xl font-medium text-[#F5F6F8]">
                     {plan.name}
                   </h3>
 
                   <div className="mt-2 flex items-baseline gap-1.5">
-                    <span className="font-[family-name:var(--font-display)] text-4xl font-normal text-[#1E3A8A]">
+                    <span className="font-[family-name:var(--font-display)] text-4xl font-normal text-[#4F7DFF]">
                       {plan.price}
                     </span>
                   </div>
 
-                  <p className="mt-4 flex-1 text-[14px] leading-relaxed text-neutral-600">
+                  <p className="mt-4 flex-1 text-[14px] leading-relaxed text-[#A8AEBC]">
                     {plan.description}
                   </p>
 
-                  <ul className="mt-5 space-y-2 text-[13px] text-neutral-700">
+                  <ul className="mt-5 space-y-2 text-[13px] text-[#A8AEBC]">
                     <li className="flex items-start gap-2">
-                      <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
+                      <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>✓</span>
                       <span>Premium US live TV channels</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
+                      <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>✓</span>
                       <span>NFL, NBA, MLB, NHL, ESPN, FOX Sports</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
+                      <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>✓</span>
                       <span>Firestick compatible</span>
                     </li>
                   </ul>
@@ -2334,13 +2309,13 @@ export default function Page() {
             ].map((b) => (
               <div
                 key={b.title}
-                className="rounded-2xl border border-neutral-200 bg-white p-6"
+                className="rounded-2xl border border-[#2A3142] bg-[#141824] p-6"
               >
                 <span className="text-2xl" aria-hidden>{b.icon}</span>
-                <h4 className="mt-3 font-[family-name:var(--font-display)] text-lg font-medium text-neutral-950">
+                <h4 className="mt-3 font-[family-name:var(--font-display)] text-lg font-medium text-[#F5F6F8]">
                   {b.title}
                 </h4>
-                <p className="mt-2 text-[14px] leading-relaxed text-neutral-600">
+                <p className="mt-2 text-[14px] leading-relaxed text-[#A8AEBC]">
                   {b.body}
                 </p>
               </div>
@@ -2348,10 +2323,10 @@ export default function Page() {
           </div>
 
           {/* Chatbot-style help box */}
-          <div className="mt-12 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm">
+          <div className="mt-12 overflow-hidden rounded-3xl border border-[#2A3142] bg-[#141824] shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-12">
               {/* Left: chat preview */}
-              <div className="border-b border-neutral-200 bg-gradient-to-br from-[#0F1B3D] via-[#1E3A8A] to-[#0F1B3D] p-6 text-white md:col-span-5 md:border-b-0 md:border-r md:p-8">
+              <div className="border-b border-[#2A3142] bg-gradient-to-br from-[#0B0E16] via-[#1A1F2E] to-[#0B0E16] p-6 text-white md:col-span-5 md:border-b-0 md:border-r md:p-8">
                 <div className="flex items-center gap-3">
                   <span className="grid h-10 w-10 place-items-center rounded-full bg-[#25D366] text-white">
                     <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -2382,13 +2357,13 @@ export default function Page() {
 
               {/* Right: copy + CTA */}
               <div className="p-6 md:col-span-7 md:p-10">
-                <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+                <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
                   Need help choosing?
                 </span>
-                <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-medium leading-tight text-neutral-950 md:text-3xl">
+                <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-medium leading-tight text-[#F5F6F8] md:text-3xl">
                   Not sure which IPTV package is right for you?
                 </h3>
-                <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
+                <p className="mt-4 text-[15px] leading-relaxed text-[#A8AEBC]">
                   Message us on WhatsApp and we&rsquo;ll help you choose the best
                   premium IPTV channel plan for your Firestick. Whether you&rsquo;re
                   shopping for an IPTV channel package, comparing IPTV USA prices, or
@@ -2396,21 +2371,21 @@ export default function Page() {
                   in plain English.
                 </p>
 
-                <ul className="mt-5 grid grid-cols-1 gap-2 text-[14px] text-neutral-700 sm:grid-cols-2">
+                <ul className="mt-5 grid grid-cols-1 gap-2 text-[14px] text-[#A8AEBC] sm:grid-cols-2">
                   <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
+                    <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>✓</span>
                     <span>Live TV channels Firestick</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
+                    <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>✓</span>
                     <span>IPTV Firestick USA</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
+                    <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>✓</span>
                     <span>Fast US activation support</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
+                    <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>✓</span>
                     <span>NFL, ESPN, FOX Sports</span>
                   </li>
                 </ul>
@@ -2429,13 +2404,13 @@ export default function Page() {
                   </a>
                   <a
                     href="#premium-channels"
-                    className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-900"
+                    className="inline-flex items-center justify-center rounded-full border border-[#2A3142] bg-[#1A1F2E] px-6 py-3 text-sm font-medium text-[#F5F6F8] transition hover:border-[#4F7DFF]"
                   >
                     See pricing again
                   </a>
                 </div>
 
-                <p className="mt-5 text-xs text-neutral-500">
+                <p className="mt-5 text-xs text-[#6E7585]">
                   IPTV subscription USA · premium IPTV channels · live TV channels Firestick · cable alternative · NFL IPTV · IPTV WhatsApp support USA.
                 </p>
               </div>
@@ -2445,23 +2420,23 @@ export default function Page() {
       </section>
 
       {/* ============================ NFL SUNDAY SEO BOMB ============================ */}
-      <section id="nfl-iptv" className="bg-[#FAFAF7] py-20 md:py-28">
+      <section id="nfl-iptv" className="bg-[#0E1119] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#DC2626]/30 bg-[#DC2626]/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#DC2626]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">
               🏈 NFL Sunday · zero blackouts · NFL Sunday Ticket alternative
             </span>
-            <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl">
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl text-[#F5F6F8]">
               Watch every NFL game in 4K.{" "}
-              <span className="italic text-[#1E3A8A]">Even out-of-market.</span>
+              <span className="italic text-[#4F7DFF]">Even out-of-market.</span>
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-neutral-700">
+            <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
               The NFL is the most-watched sports league in America — and watching every
               game traditionally requires <strong>NFL Sunday Ticket</strong> on YouTube TV
               ($389/season) plus <strong>ESPN</strong>, <strong>NFL Network</strong> and{" "}
               <strong>Amazon Prime</strong>, costing well over{" "}
-              <strong className="text-neutral-950">$700/year</strong>. With our IPTV
-              subscription on Firestick, <strong className="text-neutral-950">all 272 regular
+              <strong className="text-[#F5F6F8]">$700/year</strong>. With our IPTV
+              subscription on Firestick, <strong className="text-[#F5F6F8]">all 272 regular
               season games are live in 4K</strong> — including out-of-market games, NFL
               RedZone, Monday Night Football, Thursday Night Football, and the full playoffs.
             </p>
@@ -2508,26 +2483,26 @@ export default function Page() {
             ].map((card) => (
               <article
                 key={card.t}
-                className="group rounded-2xl border border-neutral-200 bg-white p-6 transition hover:border-[#1E3A8A] hover:shadow-md"
+                className="group rounded-2xl border border-[#2A3142] bg-[#141824] p-6 transition hover:border-[#4F7DFF] hover:bg-[#1A1F2E] hover:shadow-2xl"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#DC2626]">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#FF4D5C]">
                     {card.tag}
                   </span>
-                  <span className="rounded-full bg-[#1E3A8A]/[0.06] px-2.5 py-1 text-[10px] font-medium text-[#1E3A8A]">
+                  <span className="rounded-full bg-[#4F7DFF]/[0.12] px-2.5 py-1 text-[10px] font-medium text-[#4F7DFF]">
                     {card.stat}
                   </span>
                 </div>
-                <h3 className="mt-3 font-[family-name:var(--font-display)] text-xl font-medium leading-snug text-neutral-950">
+                <h3 className="mt-3 font-[family-name:var(--font-display)] text-xl font-medium leading-snug text-[#F5F6F8]">
                   {card.t}
                 </h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-neutral-600">{card.b}</p>
+                <p className="mt-3 text-[14px] leading-relaxed text-[#A8AEBC]">{card.b}</p>
               </article>
             ))}
           </div>
 
           {/* Mini stats row */}
-          <div className="mt-12 grid grid-cols-2 gap-4 rounded-2xl border border-neutral-200 bg-white p-6 md:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-4 rounded-2xl border border-[#2A3142] bg-[#141824] p-6 md:grid-cols-4">
             {[
               { v: "272", l: "NFL games/year" },
               { v: "1,230", l: "NBA regular season" },
@@ -2535,15 +2510,15 @@ export default function Page() {
               { v: "0", l: "Per-fight PPV charges" },
             ].map((s) => (
               <div key={s.l} className="text-center">
-                <div className="font-[family-name:var(--font-display)] text-3xl font-normal text-[#1E3A8A] md:text-4xl">
+                <div className="font-[family-name:var(--font-display)] text-3xl font-normal text-[#4F7DFF] md:text-4xl">
                   {s.v}
                 </div>
-                <div className="mt-1 text-[12px] leading-tight text-neutral-600">{s.l}</div>
+                <div className="mt-1 text-[12px] leading-tight text-[#A8AEBC]">{s.l}</div>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 rounded-3xl bg-gradient-to-br from-[#1E3A8A] to-[#0F1B3D] p-7 text-white md:p-10">
+          <div className="mt-10 rounded-3xl border border-[#2A3142] bg-gradient-to-br from-[#1A1F2E] via-[#141824] to-[#0B0E16] p-7 text-white md:p-10 shadow-2xl">
             <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-12">
               <div className="md:col-span-8">
                 <h3 className="font-[family-name:var(--font-display)] text-2xl font-normal leading-tight md:text-3xl">
@@ -2577,27 +2552,27 @@ export default function Page() {
       </section>
 
       {/* ============================ CABLE VS IPTV COST COMPARISON ============================ */}
-      <section id="cable-vs-iptv" className="bg-white py-20 md:py-28">
+      <section id="cable-vs-iptv" className="bg-[#0B0E16] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-3xl">
-            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
               Cable vs IPTV in the USA
             </span>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
               Why thousands of American households cut the cord every month.
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-neutral-600">
+            <p className="mt-4 text-lg leading-relaxed text-[#A8AEBC]">
               Cable and satellite bills keep climbing while channel selection shrinks. A premium IPTV
               subscription on Firestick replaces traditional pay TV from Comcast Xfinity, Spectrum,
               DirecTV and YouTube TV — typically saving American households
-              <strong className="text-neutral-900"> $1,200 to $1,800 a year</strong>. Over 7 million US
+              <strong className="text-[#F5F6F8]"> $1,200 to $1,800 a year</strong>. Over 7 million US
               households have already abandoned traditional pay TV — and the shift is accelerating.
             </p>
           </div>
 
-          <div className="mt-12 overflow-x-auto rounded-2xl border border-neutral-200">
+          <div className="mt-12 overflow-x-auto rounded-2xl border border-[#2A3142]">
             <table className="w-full min-w-[640px] border-collapse text-left text-sm">
-              <thead className="bg-[#FAFAF7] text-neutral-600">
+              <thead className="bg-[#1A1F2E] text-[#A8AEBC]">
                 <tr>
                   <th className="px-5 py-4 font-medium">Provider</th>
                   <th className="px-5 py-4 font-medium">Typical monthly cost</th>
@@ -2605,7 +2580,7 @@ export default function Page() {
                   <th className="px-5 py-4 font-medium">vs IPTV Firestick (~$55/yr)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-neutral-200">
+              <tbody className="divide-y divide-[#2A3142]">
                 {[
                   { p: "Comcast Xfinity (Ultimate TV + Sports)", m: "$130 – $165", y: "$1,560 – $1,980", save: "save up to $1,925" },
                   { p: "Spectrum (TV Select Signature + Sports)", m: "$120 – $165", y: "$1,440 – $1,980", save: "save up to $1,925" },
@@ -2613,12 +2588,12 @@ export default function Page() {
                   { p: "YouTube TV ($82.99 base)", m: "$83 – $108", y: "$996 – $1,296", save: "save up to $1,241" },
                   { p: "Hulu Live TV + Disney+", m: "$83 – $103", y: "$996 – $1,236", save: "save up to $1,181" },
                 ].map((r) => (
-                  <tr key={r.p} className="bg-white">
-                    <td className="px-5 py-4 font-medium text-neutral-950">{r.p}</td>
-                    <td className="px-5 py-4 text-neutral-700">{r.m}</td>
-                    <td className="px-5 py-4 text-neutral-700">{r.y}</td>
+                  <tr key={r.p} className="bg-[#141824]">
+                    <td className="px-5 py-4 font-medium text-[#F5F6F8]">{r.p}</td>
+                    <td className="px-5 py-4 text-[#A8AEBC]">{r.m}</td>
+                    <td className="px-5 py-4 text-[#A8AEBC]">{r.y}</td>
                     <td className="px-5 py-4">
-                      <span className="rounded-full bg-[#1E3A8A]/[0.06] px-3 py-1 text-xs font-medium text-[#1E3A8A]">
+                      <span className="rounded-full bg-[#4F7DFF]/[0.15] px-3 py-1 text-xs font-medium text-[#4F7DFF]">
                         {r.save}
                       </span>
                     </td>
@@ -2628,7 +2603,7 @@ export default function Page() {
             </table>
           </div>
 
-          <p className="mt-6 max-w-3xl text-sm text-neutral-500">
+          <p className="mt-6 max-w-3xl text-sm text-[#6E7585]">
             Estimated 2026 figures based on publicly listed pricing from US pay TV providers, including
             HD/4K channel packs, sports add-ons, regional sports network fees and broadcast TV fees.
             Individual savings vary by household and current contract terms.
@@ -2649,11 +2624,11 @@ export default function Page() {
                 b: "Firestick, Fire TV Cube, Smart TV, Android TV, Roku, iPhone, iPad, laptop — one subscription, every screen in the house.",
               },
             ].map((x) => (
-              <div key={x.t} className="rounded-2xl border border-neutral-200 bg-[#FAFAF7] p-6">
-                <h3 className="font-[family-name:var(--font-display)] text-xl font-medium text-neutral-950">
+              <div key={x.t} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-6">
+                <h3 className="font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8]">
                   {x.t}
                 </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-neutral-600">{x.b}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-[#A8AEBC]">{x.b}</p>
               </div>
             ))}
           </div>
@@ -2663,13 +2638,13 @@ export default function Page() {
       {/* ============================ US CHANNEL DIRECTORY ============================ */}
       <section id="us-channels" className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="max-w-3xl">
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+          <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
             US channel directory
           </span>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
             Every major US channel — covered.
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-neutral-600">
+          <p className="mt-4 text-lg leading-relaxed text-[#A8AEBC]">
             What separates a serious IPTV provider in the USA from a fly-by-night service is the
             depth of American channels. A premium IPTV subscription should include all of the
             major US networks below — without per-channel surcharges or sport-pack add-ons.
@@ -2753,18 +2728,18 @@ export default function Page() {
           ].map((g) => (
             <article
               key={g.title}
-              className="rounded-2xl border border-neutral-200 bg-white p-6"
+              className="rounded-2xl border border-[#2A3142] bg-[#141824] p-6"
             >
-              <span className="rounded-full border border-neutral-200 bg-[#FAFAF7] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-neutral-600">
+              <span className="rounded-full border border-[#2A3142] bg-[#1A1F2E] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-[#A8AEBC]">
                 {g.tag}
               </span>
-              <h3 className="mt-4 font-[family-name:var(--font-display)] text-xl font-medium text-neutral-950">
+              <h3 className="mt-4 font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8]">
                 {g.title}
               </h3>
-              <ul className="mt-4 space-y-2 text-[14px] text-neutral-700">
+              <ul className="mt-4 space-y-2 text-[14px] text-[#A8AEBC]">
                 {g.channels.map((c) => (
                   <li key={c} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>●</span>
+                    <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>●</span>
                     <span>{c}</span>
                   </li>
                 ))}
@@ -2773,7 +2748,7 @@ export default function Page() {
           ))}
         </div>
 
-        <p className="mt-10 max-w-3xl text-sm text-neutral-500">
+        <p className="mt-10 max-w-3xl text-sm text-[#6E7585]">
           Channel availability depends on the IPTV service you choose. Always confirm the specific
           channels you care about (e.g. <em>NFL RedZone for Sunday football</em>,
           ESPN+ for UFC PPV, HBO Max for new film releases) before subscribing.
@@ -2781,16 +2756,16 @@ export default function Page() {
       </section>
 
       {/* ============================ TOP IPTV PROVIDERS / WHY US ============================ */}
-      <section id="top-providers" className="bg-white py-20 md:py-28">
+      <section id="top-providers" className="bg-[#0E1119] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-3xl">
-            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
               How to choose an IPTV provider in the USA
             </span>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
               The 8 criteria that separate the best IPTV USA services from the rest.
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-neutral-600">
+            <p className="mt-4 text-lg leading-relaxed text-[#A8AEBC]">
               The US IPTV market in 2026 is crowded. These are the eight measurable
               criteria we use to evaluate every IPTV provider before recommending it —
               the same ones top Reddit threads on r/IPTV and American cord-cutter
@@ -2843,16 +2818,16 @@ export default function Page() {
             ].map((c) => (
               <li
                 key={c.n}
-                className="flex gap-4 rounded-2xl border border-neutral-200 bg-[#FAFAF7] p-6"
+                className="flex gap-4 rounded-2xl border border-[#2A3142] bg-[#141824] p-6 transition hover:border-[#4F7DFF]/50"
               >
-                <span className="font-[family-name:var(--font-display)] text-3xl font-normal text-[#1E3A8A]/90">
+                <span className="font-[family-name:var(--font-display)] text-3xl font-normal text-[#4F7DFF]/90">
                   {c.n}
                 </span>
                 <div>
-                  <h3 className="font-[family-name:var(--font-display)] text-lg font-medium text-neutral-950">
+                  <h3 className="font-[family-name:var(--font-display)] text-lg font-medium text-[#F5F6F8]">
                     {c.t}
                   </h3>
-                  <p className="mt-1.5 text-[14px] leading-relaxed text-neutral-600">
+                  <p className="mt-1.5 text-[14px] leading-relaxed text-[#A8AEBC]">
                     {c.b}
                   </p>
                 </div>
@@ -2866,14 +2841,14 @@ export default function Page() {
       <section id="apps" className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
-            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
               The shortlist
             </span>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
               The best IPTV apps on Firestick — reviewed by American users.
             </h2>
           </div>
-          <p className="max-w-sm text-sm text-neutral-500">
+          <p className="max-w-sm text-sm text-[#6E7585]">
             We re-test these apps every quarter on a Fire TV Stick 4K Max
             connected to Comcast Xfinity, Spectrum and Verizon Fios. Last
             reviewed this quarter.
@@ -2884,31 +2859,31 @@ export default function Page() {
           {apps.map((app, i) => (
             <article
               key={app.name}
-              className={`flex flex-col rounded-2xl border bg-white p-7 transition hover:shadow-sm ${
+              className={`flex flex-col rounded-2xl border bg-[#141824] p-7 transition hover:shadow-2xl ${
                 i === 1
-                  ? "border-[#1E3A8A] ring-1 ring-[#1E3A8A]/20"
-                  : "border-neutral-200"
+                  ? "border-[#4F7DFF] bg-gradient-to-b from-[#1A1F2E] to-[#141824] ring-1 ring-[#4F7DFF]/30"
+                  : "border-[#2A3142]"
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-medium uppercase tracking-wider text-neutral-500">
+                <span className="text-xs font-medium uppercase tracking-wider text-[#6E7585]">
                   {app.tag}
                 </span>
                 {i === 1 && (
-                  <span className="rounded-full bg-[#1E3A8A] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-white">
+                  <span className="rounded-full bg-[#4F7DFF] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-white">
                     Editor&rsquo;s pick
                   </span>
                 )}
               </div>
-              <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-medium">
+              <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-medium text-[#F5F6F8]">
                 {app.name}
               </h3>
-              <p className="mt-1 text-sm text-neutral-500">{app.best}</p>
+              <p className="mt-1 text-sm text-[#6E7585]">{app.best}</p>
 
               <ul className="mt-6 space-y-3">
                 {app.pros.map((p) => (
-                  <li key={p} className="flex items-start gap-3 text-[15px] text-neutral-700">
-                    <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
+                  <li key={p} className="flex items-start gap-3 text-[15px] text-[#A8AEBC]">
+                    <span className="mt-0.5 text-[#4F7DFF]" aria-hidden>✓</span>
                     <span>{p}</span>
                   </li>
                 ))}
@@ -2916,7 +2891,7 @@ export default function Page() {
 
               <a
                 href="#setup"
-                className="mt-8 inline-flex w-full items-center justify-center rounded-full border border-neutral-300 px-4 py-2.5 text-sm font-medium transition hover:border-neutral-900"
+                className="mt-8 inline-flex w-full items-center justify-center rounded-full border border-[#2A3142] bg-[#1A1F2E] px-4 py-2.5 text-sm font-medium text-[#F5F6F8] transition hover:border-[#4F7DFF]"
               >
                 See setup guide
               </a>
@@ -2926,14 +2901,14 @@ export default function Page() {
       </section>
 
       {/* ============================ ISP COMPATIBILITY ============================ */}
-      <section className="bg-[#0F1B3D] py-20 text-white md:py-28">
+      <section className="bg-[#0B0E16] py-20 text-white md:py-28 border-y border-[#1F2433]">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
             <div className="md:col-span-5">
               <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/60">
                 US broadband providers
               </span>
-              <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+              <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
                 Tested on every major US broadband provider.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-white/70">
@@ -2958,9 +2933,9 @@ export default function Page() {
                 ].map((isp) => (
                   <div
                     key={isp}
-                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm"
+                    className="flex items-center gap-2 rounded-xl border border-[#2A3142] bg-[#141824] px-4 py-3 text-sm transition hover:border-[#4F7DFF]/50 hover:bg-[#1A1F2E]"
                   >
-                    <span className="text-[#DC2626]">●</span>
+                    <span className="text-[#FF4D5C]">●</span>
                     <span>{isp}</span>
                   </div>
                 ))}
@@ -2978,13 +2953,13 @@ export default function Page() {
       {/* ============================ TROUBLESHOOTING ============================ */}
       <section id="troubleshooting" className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="max-w-2xl">
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+          <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
             When things break
           </span>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
             Troubleshooting, the way American viewers actually search for it.
           </h2>
-          <p className="mt-4 text-lg text-neutral-600">
+          <p className="mt-4 text-lg text-[#A8AEBC]">
             Real issues, real fixes. No &ldquo;have you tried turning it off and on
             again&rdquo;. These six cover roughly 98% of the support requests we see.
           </p>
@@ -2994,17 +2969,17 @@ export default function Page() {
           {troubleshooting.map((t) => (
             <article
               key={t.title}
-              className="rounded-2xl border border-neutral-200 bg-white p-6 md:p-7"
+              className="rounded-2xl border border-[#2A3142] bg-[#141824] p-6 md:p-7 transition hover:border-[#4F7DFF]/50"
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-[family-name:var(--font-display)] text-xl font-medium leading-snug text-neutral-950">
+                <h3 className="font-[family-name:var(--font-display)] text-xl font-medium leading-snug text-[#F5F6F8]">
                   {t.title}
                 </h3>
-                <span className="shrink-0 rounded-full border border-neutral-200 bg-[#FAFAF7] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-neutral-600">
+                <span className="shrink-0 rounded-full border border-[#2A3142] bg-[#1A1F2E] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-[#A8AEBC]">
                   {t.tag}
                 </span>
               </div>
-              <p className="mt-3 text-[15px] leading-relaxed text-neutral-600">
+              <p className="mt-3 text-[15px] leading-relaxed text-[#A8AEBC]">
                 {t.fix}
               </p>
             </article>
@@ -3013,25 +2988,25 @@ export default function Page() {
       </section>
 
       {/* ============================ BENEFITS / WHY US ============================ */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-[#0E1119] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-2xl">
-            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
               Why IPTV For Firestick USA
             </span>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
               The IPTV resource American households keep coming back to.
             </h2>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#2A3142] bg-[#2A3142] sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b) => (
-              <div key={b.title} className="bg-white p-7">
+              <div key={b.title} className="bg-[#141824] p-7">
                 <span className="text-2xl" aria-hidden>{b.icon}</span>
-                <h3 className="mt-4 font-[family-name:var(--font-display)] text-xl font-medium">
+                <h3 className="mt-4 font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8]">
                   {b.title}
                 </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-neutral-600">
+                <p className="mt-2 text-[15px] leading-relaxed text-[#A8AEBC]">
                   {b.body}
                 </p>
               </div>
@@ -3043,10 +3018,10 @@ export default function Page() {
       {/* ============================ TESTIMONIALS ============================ */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="max-w-2xl">
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+          <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
             From across the USA
           </span>
-          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+          <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
             What American readers tell us.
           </h2>
         </div>
@@ -3055,15 +3030,15 @@ export default function Page() {
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="flex flex-col rounded-2xl border border-neutral-200 bg-[#FAFAF7] p-7"
+              className="flex flex-col rounded-2xl border border-[#2A3142] bg-[#141824] p-7 transition hover:border-[#F5B643]/50"
             >
-              <div className="text-[#1E3A8A]" aria-hidden>★★★★★</div>
-              <blockquote className="mt-4 flex-1 text-[16px] leading-relaxed text-neutral-800">
+              <div className="text-[#F5B643]" aria-hidden>★★★★★</div>
+              <blockquote className="mt-4 flex-1 text-[16px] leading-relaxed text-[#F5F6F8]">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-6 border-t border-neutral-200 pt-4 text-sm">
-                <div className="font-medium text-neutral-950">{t.name}</div>
-                <div className="text-neutral-500">{t.location}</div>
+              <figcaption className="mt-6 border-t border-[#2A3142] pt-4 text-sm">
+                <div className="font-medium text-[#F5F6F8]">{t.name}</div>
+                <div className="text-[#6E7585]">{t.location}</div>
               </figcaption>
             </figure>
           ))}
@@ -3071,39 +3046,39 @@ export default function Page() {
       </section>
 
       {/* ============================ FAQ ============================ */}
-      <section id="faq" className="bg-white py-20 md:py-28">
+      <section id="faq" className="bg-[#0E1119] py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-5 md:px-8">
           <div className="text-center">
-            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
               FAQ
             </span>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
               Questions American viewers actually ask.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-neutral-600">
+            <p className="mx-auto mt-4 max-w-xl text-[#A8AEBC]">
               Pulled from real Reddit threads, Google&rsquo;s &ldquo;People Also Ask&rdquo;,
               and emails from readers across the East Coast, West Coast, Midwest and South.
             </p>
           </div>
 
-          <div className="mt-12 divide-y divide-neutral-200 rounded-2xl border border-neutral-200">
+          <div className="mt-12 divide-y divide-[#2A3142] rounded-2xl border border-[#2A3142] bg-[#141824]">
             {faqs.map((f, i) => (
               <details
                 key={i}
                 className="group px-6 py-5 [&_summary::-webkit-details-marker]:hidden"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6">
-                  <span className="font-[family-name:var(--font-display)] text-[18px] font-medium leading-snug text-neutral-950">
+                  <span className="font-[family-name:var(--font-display)] text-[18px] font-medium leading-snug text-[#F5F6F8]">
                     {f.q}
                   </span>
                   <span
                     aria-hidden
-                    className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-neutral-200 text-neutral-500 transition group-open:rotate-45 group-open:border-[#1E3A8A] group-open:text-[#1E3A8A]"
+                    className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#2A3142] text-[#A8AEBC] transition group-open:rotate-45 group-open:border-[#4F7DFF] group-open:text-[#4F7DFF]"
                   >
                     +
                   </span>
                 </summary>
-                <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
+                <p className="mt-4 text-[15px] leading-relaxed text-[#A8AEBC]">
                   {f.a}
                 </p>
               </details>
@@ -3114,16 +3089,16 @@ export default function Page() {
 
       {/* ============================ FINAL CTA ============================ */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
-        <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[#1E3A8A] via-[#1E3A8A] to-[#0F1B3D] p-10 text-white md:p-16">
+        <div className="overflow-hidden rounded-3xl border border-[#2A3142] bg-gradient-to-br from-[#1A1F2E] via-[#141824] to-[#0B0E16] p-10 text-white md:p-16 shadow-2xl">
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
             <div className="md:col-span-8">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#DC2626]/40 bg-[#DC2626]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#DC2626]" />
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/40 bg-[#FF4D5C]/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FF4D5C]" />
                 Last step
               </span>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl lg:text-6xl">
                 Stop paying cable $147 a month.{" "}
-                <span className="italic text-[#fca5a5]">Start tonight.</span>
+                <span className="italic text-[#FF4D5C]">Start tonight.</span>
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
                 Test it free for 24 hours — no card, no commitment. Watch the next
@@ -3149,7 +3124,7 @@ export default function Page() {
               </a>
               <a
                 href="#premium-channels"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-[#1E3A8A] transition hover:bg-neutral-100"
+                className="inline-flex items-center justify-center rounded-full bg-[#4F7DFF] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#3D6BEE]"
               >
                 Get IPTV from $12 →
               </a>
@@ -3173,7 +3148,7 @@ export default function Page() {
       </section>
 
       {/* ============================ FOOTER ============================ */}
-      <footer className="border-t border-neutral-200 bg-[#FAFAF7]">
+      <footer className="border-t border-[#1F2433] bg-[#0B0E16]">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-5 py-12 md:grid-cols-4 md:px-8">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5">
@@ -3205,58 +3180,58 @@ export default function Page() {
                 IPTV For Firestick USA<span className="text-[#DC2626]">.</span>
               </span>
             </div>
-            <p className="mt-3 text-xs text-neutral-500">iptvforfirestickusa.com</p>
-            <p className="mt-3 max-w-xs text-sm text-neutral-600">
+            <p className="mt-3 text-xs text-[#6E7585]">iptvforfirestickusa.com</p>
+            <p className="mt-3 max-w-xs text-sm text-[#A8AEBC]">
               America&rsquo;s #1 IPTV resource for Firestick. Cancel cable, save $1,764 a year. Trusted by 12,400+ US households.
             </p>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-neutral-950">Guides</h4>
-            <ul className="mt-3 space-y-2 text-sm text-neutral-600">
-              <li><a className="font-semibold text-[#DC2626] hover:text-[#B91C1C]" href="#premium-channels">Get IPTV from $12 →</a></li>
-              <li><a className="hover:text-neutral-950" href="#nfl-iptv">🏈 NFL IPTV</a></li>
-              <li><a className="hover:text-neutral-950" href="#setup">Firestick setup</a></li>
-              <li><a className="hover:text-neutral-950" href="#apps">Best IPTV apps</a></li>
-              <li><a className="hover:text-neutral-950" href="#cable-vs-iptv">Cable vs IPTV</a></li>
-              <li><a className="hover:text-neutral-950" href="#us-channels">US channels</a></li>
-              <li><a className="hover:text-neutral-950" href="#top-providers">Choosing a provider</a></li>
-              <li><a className="hover:text-neutral-950" href="#troubleshooting">Fix buffering</a></li>
-              <li><a className="hover:text-neutral-950" href="#faq">FAQ</a></li>
+            <h4 className="text-sm font-medium text-[#F5F6F8]">Guides</h4>
+            <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
+              <li><a className="font-semibold text-[#FF4D5C] transition hover:text-[#E63946]" href="#premium-channels">Get IPTV from $12 →</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#nfl-iptv">🏈 NFL IPTV</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#setup">Firestick setup</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#apps">Best IPTV apps</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#cable-vs-iptv">Cable vs IPTV</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#us-channels">US channels</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#top-providers">Choosing a provider</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#troubleshooting">Fix buffering</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#faq">FAQ</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-neutral-950">Regions</h4>
-            <ul className="mt-3 space-y-2 text-sm text-neutral-600">
-              <li><a className="hover:text-neutral-950" href="#">East Coast</a></li>
-              <li><a className="hover:text-neutral-950" href="#">West Coast</a></li>
-              <li><a className="hover:text-neutral-950" href="#">Midwest</a></li>
-              <li><a className="hover:text-neutral-950" href="#">South</a></li>
+            <h4 className="text-sm font-medium text-[#F5F6F8]">Regions</h4>
+            <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
+              <li><a className="transition hover:text-[#F5F6F8]" href="#">East Coast</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#">West Coast</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#">Midwest</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#">South</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-neutral-950">Site</h4>
-            <ul className="mt-3 space-y-2 text-sm text-neutral-600">
-              <li><a className="hover:text-neutral-950" href="#">About</a></li>
-              <li><a className="hover:text-neutral-950" href="#">Editorial standards</a></li>
-              <li><a className="hover:text-neutral-950" href="#">Contact</a></li>
+            <h4 className="text-sm font-medium text-[#F5F6F8]">Site</h4>
+            <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
+              <li><a className="transition hover:text-[#F5F6F8]" href="#">About</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#">Editorial standards</a></li>
+              <li><a className="transition hover:text-[#F5F6F8]" href="#">Contact</a></li>
               <li>
-                <button data-install-trigger className="hover:text-neutral-950">
+                <button data-install-trigger className="transition hover:text-[#F5F6F8]">
                   📱 Install app · Android · Windows
                 </button>
               </li>
               <li>
-                <button data-theme-toggle className="hover:text-neutral-950">
+                <button data-theme-toggle className="transition hover:text-[#F5F6F8]">
                   🌓 Toggle dark / light
                 </button>
               </li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-neutral-200">
-          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-6 text-xs text-neutral-500 md:flex-row md:items-center md:px-8">
+        <div className="border-t border-[#1F2433]">
+          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-6 text-xs text-[#6E7585] md:flex-row md:items-center md:px-8">
             <p>© {year} IPTV For Firestick USA. Independent US publication.</p>
             <p>Made in America · New York · Los Angeles · Dallas</p>
           </div>
