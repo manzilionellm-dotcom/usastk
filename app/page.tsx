@@ -1,18 +1,7 @@
-import { Fraunces, DM_Sans } from "next/font/google";
 import Link from "next/link";
 import Script from "next/script";
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
+/* Fonts loaded in app/layout.tsx — variables --font-display and --font-body are available globally */
 
 /* ----------------------------- SITE CONSTANTS ----------------------------- */
 
@@ -21,8 +10,8 @@ const SITE_NAME = "IPTV For Firestick USA";
 const PAGE_PATH = "/";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`; // 1200×630 recommended
-const PUBLISHED_DATE = "2026-01-10T08:00:00+00:00";
-const MODIFIED_DATE = "2026-05-05T08:00:00+01:00"; // BST
+const PUBLISHED_DATE = "2026-01-10T08:00:00-05:00";
+const MODIFIED_DATE = "2026-05-06T08:00:00-04:00"; // ET
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -674,7 +663,7 @@ const apps = [
       "Excellent video on demand experience",
       "Highly configurable layout",
       "Strong codec support for 4K",
-      "Active UK user community",
+      "Active US user community",
     ],
     best: "Best for 4K streaming",
   },
@@ -693,7 +682,7 @@ const troubleshooting = [
   },
   {
     title: "ISP throttling — Xfinity, Spectrum, AT&T, Verizon",
-    fix: "Some UK broadband providers throttle or interfere with IPTV traffic, especially on NFL Sundays during NFL gamees. A reputable VPN (paid, not free) used at the router or directly on the Firestick typically resolves this. Choose UK or Netherlands servers for the lowest latency.",
+    fix: "Some US broadband providers throttle or interfere with IPTV traffic, especially on NFL Sundays during 1pm and 4:25pm games. A reputable VPN (paid, not free) used at the router or directly on the Firestick typically resolves this. Choose US-based servers for the lowest latency.",
     tag: "ISP issue",
   },
   {
@@ -708,7 +697,7 @@ const troubleshooting = [
   },
   {
     title: "EPG (TV guide) is empty for US channels",
-    fix: "Add a UK EPG XMLTV URL in the player's settings (most legitimate services provide one). Force-refresh the guide and ensure the time zone is set to GMT/BST so NFL kickoff times line up correctly.",
+    fix: "Add a US EPG XMLTV URL in the player's settings (most legitimate services provide one). Force-refresh the guide and ensure the time zone is set to your local US zone (ET, CT, MT, or PT) so NFL kickoff times line up correctly.",
     tag: "Guide data",
   },
 ];
@@ -718,7 +707,7 @@ const benefits = [
     icon: "✅",
     title: "Built for America",
     body:
-      "Tested on BT, Spectrum Internet, Spectrum and Cox — with notes specific to each UK provider and the NFL Sunday peak-load problem.",
+      "Tested on Comcast Xfinity, Spectrum, AT&T Fiber and Verizon Fios — with notes specific to each US provider and the NFL Sunday peak-load problem.",
   },
   {
     icon: "⚡",
@@ -730,13 +719,13 @@ const benefits = [
     icon: "🔥",
     title: "Buffering, fixed",
     body:
-      "Our troubleshooting checklist solves 98% of buffering and freezing issues reported by UK users — including the dreaded NFL Sunday 1pm match kick-off lag.",
+      "Our troubleshooting checklist solves 98% of buffering and freezing issues reported by US users — including the dreaded NFL Sunday 1pm kickoff lag.",
   },
   {
     icon: "🇺🇸",
     title: "All your US channels",
     body:
-      "ESPN, FOX Sports, NBC/Two/iPlayer, ABC/Hulu, CBS, FOX, HBO Max, Showtime — every channel American households actually watch.",
+      "ESPN, FOX Sports, NBC, ABC, CBS, FOX, HBO Max, Showtime, Paramount+, Peacock — every channel American households actually watch.",
   },
   {
     icon: "🛡️",
@@ -755,13 +744,13 @@ const benefits = [
 const testimonials = [
   {
     quote:
-      "Followed the guide on a Saturday morning. Two cups of tea later my Firestick was set up and the United match was streaming in HD. No buffering at all on Spectrum.",
+      "Followed the guide on a Sunday morning. Two cups of coffee later my Firestick was set up and the Giants game was streaming in HD. No buffering at all on Spectrum.",
     name: "James W.",
     location: "New York, NY",
   },
   {
     quote:
-      "Cancelled cable after eleven years paying $147 a month. Set up an IPTV subscription on my Firestick — took eight minutes. Every NFL game, all of NBA Playoffs, NBC, ABC. My bill went from $147 to $12.",
+      "Cancelled cable after eleven years paying $147 a month. Set up an IPTV subscription on my Firestick — took eight minutes. Every NFL game, all of NBA League Pass, NBC, ABC, CBS. My bill went from $147 to $12.",
     name: "Priya S.",
     location: "Dallas, TX",
   },
@@ -776,31 +765,31 @@ const testimonials = [
 const faqs = [
   {
     q: "Is IPTV legal in the USA?",
-    a: "IPTV (Internet Protocol Television) is the underlying technology used by Comcast Xfinity, Spectrum, DirecTV, YouTube TV and many official UK broadcasters — the technology itself is perfectly legal. The legality of any specific service depends on whether it has the rights to redistribute the channels it offers. Always choose a provider you trust and check FCC guidance if you're unsure.",
+    a: "IPTV (Internet Protocol Television) is the underlying technology used by Comcast Xfinity, Spectrum, DirecTV, YouTube TV and many official US broadcasters — the technology itself is perfectly legal. The legality of any specific service depends on whether it has the rights to redistribute the channels it offers. Always choose a provider you trust.",
   },
   {
-    q: "Do I need a Broadcast TV Fee to watch IPTV in the USA?",
-    a: "If you watch any live broadcast TV (including Peacock for live or on-demand) you legally need a Broadcast TV Fee in the USA — currently $169.50 per year. This applies regardless of whether you watch via cable, satellite, an antenna, or an IPTV service. Watching pre-recorded content from streaming services like Netflix, Disney+ or VOD without live TV does not require a licence.",
+    q: "Do I need anything special to watch IPTV in the USA?",
+    a: "No special license is needed in the US. You only need a stable broadband connection (25 Mbps+ recommended) and a streaming device like the Amazon Firestick. There is no equivalent of the UK TV Licence in America.",
   },
   {
     q: "Do I need a special Firestick for IPTV?",
-    a: "Any Amazon Firestick from the last few years works. For 4K streaming during NFL Sundays, the Fire TV Stick 4K Max (2nd gen) is the sweet spot — it has more RAM and a faster Wi-Fi 6E chip, which directly reduces buffering on UK home networks during peak demand.",
+    a: "Any Amazon Firestick from the last few years works. For 4K streaming during NFL Sundays, the Fire TV Stick 4K Max (2nd gen) is the sweet spot — it has more RAM and a faster Wi-Fi 6E chip, which directly reduces buffering on US home networks during peak demand.",
   },
   {
     q: "What's the best IPTV app for Firestick in the USA?",
-    a: "For most UK users starting out, IPTV Smarters Pro is the easiest. If you want the polished, cable-like experience with the best EPG support for US channels (ESPN, FOX Sports, NBC, ABC, CBS), TiviMate is generally considered the gold standard.",
+    a: "For most US users starting out, IPTV Smarters Pro is the easiest. If you want the polished, cable-like experience with the best EPG support for US channels (ESPN, FOX Sports, NBC, ABC, CBS), TiviMate is generally considered the gold standard.",
   },
   {
     q: "How do I cancel cable and switch to IPTV?",
-    a: "Call cable's retention line (1-800-XFINITY) at least 31 days before your contract ends to avoid auto-renewal. Most users save $80–$100 per month by switching to IPTV on Firestick. Keep your broadband line — you can switch broadband provider separately if you want to leave cable entirely.",
+    a: "Call your cable provider's retention line at least 30 days before your contract ends to avoid auto-renewal. Most American users save $80–$130 per month by switching to IPTV on Firestick. Keep your broadband line — you can change ISP separately if you want to leave cable entirely.",
   },
   {
     q: "Why is my IPTV buffering on Xfinity / Spectrum / AT&T?",
-    a: "Three usual causes: (1) congested Wi-Fi during peak hours — try Ethernet via a Firestick adapter, (2) the IPTV server itself is overloaded — common on NFL Sunday 1pm NFL kickoffs, test at off-peak hours, (3) your ISP is throttling streaming traffic — a reputable VPN routed through a UK or Netherlands server often resolves this.",
+    a: "Three usual causes: (1) congested Wi-Fi during peak hours — try Ethernet via a Firestick adapter, (2) the IPTV server itself is overloaded — common on NFL Sunday 1pm NFL kickoffs, test at off-peak hours, (3) your ISP is throttling streaming traffic — a reputable VPN often resolves this.",
   },
   {
     q: "Do I need a VPN for IPTV in the USA?",
-    a: "Not strictly required, but strongly recommended. A VPN protects your privacy from ISP-level monitoring, prevents throttling during big football matches, and stabilises connections to IPTV servers. Avoid free VPNs — they typically cap speeds far below what 1080p streaming needs.",
+    a: "Not strictly required, but strongly recommended. A VPN protects your privacy from ISP-level monitoring, prevents throttling during NFL games, and stabilizes connections to IPTV servers. Avoid free VPNs — they typically cap speeds far below what 1080p streaming needs.",
   },
   {
     q: "What's a Downloader code?",
@@ -812,19 +801,19 @@ const faqs = [
   },
   {
     q: "What broadband speed do I need for IPTV in the USA?",
-    a: "Roughly 10 Mbps for SD, 25 Mbps for 1080p, and 50 Mbps+ for stable 4K. Most UK fibre packages from Xfinity, Spectrum, AT&T and Verizon easily exceed this. The bottleneck is usually Wi-Fi quality at the Firestick — not the broadband package itself.",
+    a: "Roughly 10 Mbps for SD, 25 Mbps for 1080p, and 50 Mbps+ for stable 4K. Most US fiber and cable packages from Xfinity, Spectrum, AT&T Fiber and Verizon Fios easily exceed this. The bottleneck is usually Wi-Fi quality at the Firestick — not the broadband package itself.",
   },
   {
     q: "Why does IPTV Smarters say my licence expired?",
-    a: "This usually means the subscription tied to your M3U URL or Xtream Codes has lapsed — contact your provider. Less often, it's a clock-sync issue on the Firestick: check that the date and time are set automatically (US Eastern Time / American Summer Time).",
+    a: "This usually means the subscription tied to your M3U URL or Xtream Codes has lapsed — contact your provider. Less often, it's a clock-sync issue on the Firestick: check that the date and time are set automatically.",
   },
   {
     q: "Will IPTV work across all 50 states?",
-    a: "Yes — IPTV works the same across AFC East, AFC West, NFC East, NFC West on any UK broadband connection. Channel availability is identical (NBC, ABC, CBS, ESPN, FOX Sports etc. are all national). The setup steps for Firestick are exactly the same.",
+    a: "Yes — IPTV works the same across the East Coast, West Coast, Midwest and South on any US broadband connection. Channel availability is identical (NBC, ABC, CBS, ESPN, FOX Sports etc. are all national). The setup steps for Firestick are exactly the same.",
   },
   {
     q: "How do I add US channels to TiviMate's EPG?",
-    a: "In TiviMate, go to Settings → EPG → Add EPG source, paste the XMLTV URL provided by your IPTV service, save, and force-refresh. Set your time zone to the appropriate US time zone (ET, CT, MT, PT) so kick-off times for NFL gamees and ABC programs line up correctly.",
+    a: "In TiviMate, go to Settings → EPG → Add EPG source, paste the XMLTV URL provided by your IPTV service, save, and force-refresh. Set your time zone to your local US zone (ET, CT, MT, or PT) so kickoff times for NFL games line up correctly.",
   },
   {
     q: "Is free IPTV worth it?",
@@ -836,11 +825,11 @@ const faqs = [
   },
   {
     q: "Can I record live TV with IPTV on Firestick?",
-    a: "Yes, with TiviMate Premium or OTT Navigator Premium. You'll need either a USB drive connected via an OTG adapter or a NAS on your home network. Recording quality matches the live stream — useful for catching Match of the Day if you're out.",
+    a: "Yes, with TiviMate Premium or OTT Navigator Premium. You'll need either a USB drive connected via an OTG adapter or a NAS on your home network. Recording quality matches the live stream — useful for catching games if you're out.",
   },
   {
     q: "Why does my IPTV freeze only at night or on NFL Sundays?",
-    a: "Peak UK hours (NFL Sunday 1pm for NFL, 7–11pm weeknights for primetime) overload both home Wi-Fi and IPTV servers. A wired Ethernet adapter for the Firestick and a VPN routed through a less-congested server typically eliminates the stutter.",
+    a: "Peak US hours (NFL Sunday 1pm and 4:25pm, 7–11pm primetime weeknights) overload both home Wi-Fi and IPTV servers. A wired Ethernet adapter for the Firestick and a VPN routed through a less-congested server typically eliminates the stutter.",
   },
   {
     q: "Does Fire TV Cube work better than the Firestick for IPTV?",
@@ -851,16 +840,16 @@ const faqs = [
     a: "Yes. Everything in our 3-step guide is done from the Firestick itself using only the remote and the Downloader app. No PC, no cables, no ADB sideloading required.",
   },
   {
-    q: "How can I avoid IPTV cuts during NFL gamees?",
-    a: "Four habits eliminate most cuts: (1) Ethernet adapter for your Firestick instead of Wi-Fi, (2) UK or Netherlands VPN server, (3) clear the IPTV app cache weekly, (4) restart the Firestick once a week. Together these cover roughly 95% of the buffering reports we receive from UK users.",
+    q: "How can I avoid IPTV cuts during NFL games?",
+    a: "Four habits eliminate most cuts: (1) Ethernet adapter for your Firestick instead of Wi-Fi, (2) a quality US-based VPN server, (3) clear the IPTV app cache weekly, (4) restart the Firestick once a week. Together these cover roughly 95% of the buffering reports we receive from US users.",
   },
   {
     q: "How often should I update IPTV apps on Firestick?",
     a: "Check for updates roughly once a month. Most apps prompt you automatically. After major Fire OS updates from Amazon, force a reinstall via Downloader to stay on the latest stable build.",
   },
   {
-    q: "What's the difference between FOX Sports and BT Sport?",
-    a: "FOX Sports is the same product — Warner Bros. Discovery rebranded BT Sport to FOX Sports in July 2023. The channel still carries Monday Night Football and Thursday Night Football, all UEFA NBA Playoffs and NHL Playoffs, plus NCAA Football and UFC. A good UK IPTV subscription includes all FOX Sports channels at no extra cost.",
+    q: "What's the difference between ESPN and ESPN+?",
+    a: "ESPN is the traditional cable channel carrying Monday Night Football, NBA, college football and more. ESPN+ is a separate streaming-only service with exclusive UFC PPV events and additional content. A good US IPTV subscription includes both ESPN linear channels and access to ESPN+ content at no extra cost.",
   },
 ];
 
@@ -883,7 +872,7 @@ const channelPlans = [
     price: "$12",
     badge: "Start Here",
     description:
-      "A simple monthly plan for UK viewers who want to try a premium IPTV subscription on Firestick before choosing a longer package.",
+      "A simple monthly plan for US viewers who want to try a premium IPTV subscription on Firestick before choosing a longer package.",
     message: "Hello, I want the 1 month IPTV USA plan for $12.",
   },
   {
@@ -899,7 +888,7 @@ const channelPlans = [
     price: "$30",
     badge: "Best Value",
     description:
-      "Recommended for regular UK viewers — premium IPTV access, all NFL games, NBA Playoffs, HBO Max and a 100,000+ VOD library on Firestick.",
+      "Recommended for regular US viewers — premium IPTV access, all NFL games, NBA League Pass, MLB.TV, HBO Max and a 100,000+ VOD library on Firestick.",
     message: "Hello, I want the 6 month IPTV USA plan for $30.",
   },
   {
@@ -907,7 +896,7 @@ const channelPlans = [
     price: "$55",
     badge: "Best Deal",
     description:
-      "The strongest annual value for American customers who want long-term premium IPTV on Firestick — works out at under $4.60 a month, less than 8% of a typical cable bill.",
+      "The strongest annual value for American customers who want long-term premium IPTV on Firestick — works out at under $4.60 a month, less than 4% of a typical cable bill.",
     message: "Hello, I want the 1 year IPTV USA plan for $55.",
   },
 ];
@@ -1442,7 +1431,7 @@ const jsonLdGraph = {
       url: SITE_URL,
       name: SITE_NAME,
       description:
-        "America's clearest IPTV resource for Amazon Firestick — US setup guides, troubleshooting and premium channel access. Cancel Cable and save $1,500+ a year.",
+        "America's clearest IPTV resource for Amazon Firestick — US setup guides, troubleshooting and premium channel access. Cancel cable and save $1,764 a year.",
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-US",
       potentialAction: {
@@ -1495,7 +1484,7 @@ const jsonLdGraph = {
           "@type": "ListItem",
           position: 2,
           name: "IPTV USA",
-          item: `${SITE_URL}/iptv-uk`,
+          item: `${SITE_URL}/#premium-channels`,
         },
         {
           "@type": "ListItem",
@@ -1527,12 +1516,12 @@ const jsonLdGraph = {
       keywords: [
         "best IPTV USA 2026",
         "IPTV Firestick USA",
-        "cable alternative UK",
+        "cable alternative USA",
         "NFL IPTV",
-        "FOX Sports IPTV",
+        "ESPN IPTV",
         "IPTV Smarters Pro",
         "TiviMate",
-        "premium IPTV channels UK",
+        "premium IPTV channels USA",
       ].join(", "),
     },
     {
@@ -1589,9 +1578,9 @@ const jsonLdGraph = {
     {
       "@type": "Product",
       "@id": `${PAGE_URL}#premium-iptv-product`,
-      name: "Premium IPTV Subscription — UK",
+      name: "Premium IPTV for Firestick Subscription — USA",
       description:
-        "Premium IPTV subscription for American Firestick users — ESPN, FOX Sports, HBO Max, Showtime, NBC, ABC, CBS, FOX plus international channels and a 100,000+ VOD library. Activated by WhatsApp.",
+        "Premium IPTV subscription for American Firestick users — every NFL game, NBA League Pass, MLB.TV, NHL Center Ice, ESPN, FOX Sports, HBO Max, Showtime, NBC, ABC, CBS, FOX, Paramount+, Peacock plus 50,000+ live channels and a 100,000+ VOD library. Anti-Freeze 6.0 technology. Instant 5-minute activation by WhatsApp.",
       brand: { "@type": "Brand", name: SITE_NAME },
       category: "IPTV subscription / Streaming service",
       audience: {
@@ -1633,7 +1622,7 @@ export default function Page() {
 
   return (
     <main
-      className={`${fraunces.variable} ${dmSans.variable} font-[family-name:var(--font-body)] bg-[#FAFAF7] text-neutral-900 antialiased`}
+      className="font-[family-name:var(--font-body)] bg-[#FAFAF7] dark:bg-[#0a0a08] text-neutral-900 dark:text-neutral-100 antialiased"
     >
       {/* JSON-LD structured data — single graph with all schemas (FAQ, HowTo, Product, Org, etc.) */}
       <script
@@ -1738,7 +1727,7 @@ export default function Page() {
               data-install-trigger
               aria-label="Install app"
               className="sn-install-pill sn-icon-btn"
-              title="Installer l'app"
+              title="Install app"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -1752,7 +1741,7 @@ export default function Page() {
               data-theme-toggle
               aria-label="Toggle dark mode"
               className="sn-icon-btn"
-              title="Mode sombre / clair"
+              title="Toggle dark mode"
             >
               <svg
                 data-theme-icon-light
@@ -1988,7 +1977,7 @@ export default function Page() {
               <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur">
                 <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-wider text-white/60">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-[#DC2626]" />
-                  Saturday · 3:00 PM kick-off
+                  Saturday · 3:00 PM kickoff
                 </div>
                 <div className="mt-4 font-[family-name:var(--font-display)] text-2xl font-normal leading-tight text-white md:text-3xl">
                   &ldquo;Cancelled cable after 15 years paying $147 a month. Set up
@@ -2048,9 +2037,9 @@ export default function Page() {
             <p>
               <strong className="text-neutral-950">IPTV</strong> stands for
               Internet Protocol Television — the same technology that powers
-              Comcast X1, Roku TV, Spectrum TV 360, BT TV, YouTube TV and countless free
-              services like Pluto TV USA. Instead of broadcasting channels through a
-              satellite dish or aerial, IPTV streams them over your home broadband.
+              Comcast X1, Spectrum TV, DirecTV Stream, YouTube TV, Hulu Live and many free
+              services like Pluto TV and Tubi. Instead of broadcasting channels through a
+              satellite dish or coax cable, IPTV streams them over your home broadband.
             </p>
             <p>
               The <strong className="text-neutral-950">Amazon Firestick</strong>{" "}
@@ -2062,11 +2051,11 @@ export default function Page() {
             </p>
             <p>
               Together, a Firestick and a quality IPTV subscription replace the
-              traditional Comcast X1 box: every NFL game, all NBA Playoffs
-              and NHL Playoffs fixtures, the NCAA Tournament, College Football rugby, F1, UFC,
+              traditional cable box: every NFL game, NBA League Pass and NHL Center Ice,
+              March Madness, college football, F1, NASCAR, UFC,
               boxing PPVs, Peacock, Hulu, Paramount+, HBO Max, Showtime
-              — all on one small HDMI dongle, for less than the price of a cable
-              Sports day pass.
+              — all on one small HDMI dongle, for less than the price of a single
+              streaming subscription.
             </p>
           </div>
         </div>
@@ -2210,7 +2199,7 @@ export default function Page() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-medium text-neutral-700">
               <span className="h-1.5 w-1.5 rounded-full bg-[#DC2626]" />
-              Premium IPTV subscription UK · Activation by WhatsApp
+              Premium IPTV subscription USA · Activation by WhatsApp
             </span>
 
             <h2 className="mt-5 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
@@ -2220,8 +2209,8 @@ export default function Page() {
 
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-600">
               Need a premium IPTV subscription? Want stable live TV channels on
-              Firestick — ESPN, FOX Sports, NFL, NBA Playoffs,
-              HBO Max, NBC, ABC, CBS and more? Choose a package below
+              Firestick — ESPN, FOX Sports, NFL, NBA League Pass,
+              HBO Max, NBC, ABC, CBS, FOX and more? Choose a package below
               and contact us on WhatsApp for activation.{" "}
               <span className="text-neutral-900">Fast US setup support included.</span>
             </p>
@@ -2239,7 +2228,7 @@ export default function Page() {
               <span className="hidden h-1 w-1 rounded-full bg-neutral-300 sm:block" />
               <span className="flex items-center gap-2">
                 <span aria-hidden>🇺🇸</span>
-                <span>UK customer support</span>
+                <span>US customer support</span>
               </span>
             </div>
           </div>
@@ -2289,11 +2278,11 @@ export default function Page() {
                   <ul className="mt-5 space-y-2 text-[13px] text-neutral-700">
                     <li className="flex items-start gap-2">
                       <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
-                      <span>Premium UK live TV channels</span>
+                      <span>Premium US live TV channels</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
-                      <span>NFL, ESPN, FOX Sports</span>
+                      <span>NFL, NBA, MLB, NHL, ESPN, FOX Sports</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
@@ -2326,21 +2315,21 @@ export default function Page() {
             {[
               {
                 icon: "📺",
-                title: "Thousands of UK live channels",
+                title: "Thousands of US live channels",
                 body:
-                  "Premium IPTV channels including ESPN, FOX Sports, HBO Max, Showtime, NBC/Two, ABC/ABC2, CBS, FOX, plus 20,000+ international channels.",
+                  "Premium IPTV channels including ESPN, FOX Sports, NFL Network, NBA TV, HBO Max, Showtime, NBC, ABC, CBS, FOX, plus 20,000+ international channels.",
               },
               {
                 icon: "🎬",
                 title: "Movies & VOD library",
                 body:
-                  "Massive on-demand library updated daily — latest UK and Hollywood films, complete TV box sets, perfect for American households who want more than just live TV.",
+                  "Massive on-demand library updated daily — latest US and Hollywood films, complete TV box sets, perfect for American households who want more than just live TV.",
               },
               {
                 icon: "💬",
                 title: "Real WhatsApp support",
                 body:
-                  "Real human IPTV WhatsApp support during setup and after activation — replies in minutes, in plain English, premium IPTV subscription UK.",
+                  "Real human IPTV WhatsApp support during setup and after activation — replies in minutes, in plain English, premium IPTV subscription USA.",
               },
             ].map((b) => (
               <div
@@ -2418,7 +2407,7 @@ export default function Page() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
-                    <span>Fast UK activation support</span>
+                    <span>Fast US activation support</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-[#1E3A8A]" aria-hidden>✓</span>
@@ -2447,7 +2436,7 @@ export default function Page() {
                 </div>
 
                 <p className="mt-5 text-xs text-neutral-500">
-                  IPTV subscription UK · premium IPTV channels · live TV channels Firestick · cable alternative · NFL IPTV · IPTV WhatsApp support UK.
+                  IPTV subscription USA · premium IPTV channels · live TV channels Firestick · cable alternative · NFL IPTV · IPTV WhatsApp support USA.
                 </p>
               </div>
             </div>
@@ -2455,66 +2444,66 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============================ PREMIER LEAGUE / SATURDAY 3PM SEO BOMB ============================ */}
+      {/* ============================ NFL SUNDAY SEO BOMB ============================ */}
       <section id="nfl-iptv" className="bg-[#FAFAF7] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#DC2626]/30 bg-[#DC2626]/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#DC2626]">
-              🏈 NFL Sunday 1pm · zero blackouts
+              🏈 NFL Sunday · zero blackouts · NFL Sunday Ticket alternative
             </span>
             <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl">
               Watch every NFL game in 4K.{" "}
-              <span className="italic text-[#1E3A8A]">Even NFL Sunday 1pm.</span>
+              <span className="italic text-[#1E3A8A]">Even out-of-market.</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-neutral-700">
-              The NFL is the most-watched football league on Earth — and watching it
-              legally in the USA requires both <strong>ESPN</strong> and{" "}
-              <strong>FOX Sports</strong>, costing a combined{" "}
-              <strong className="text-neutral-950">$60+ a month</strong>. Plus, the famous{" "}
-              <strong>NFL Sunday 1pm blackout</strong> means you can&rsquo;t watch your team on
-              cable at all. With our IPTV subscription on Firestick,{" "}
-              <strong className="text-neutral-950">all 272 NFL regular season games are live in 4K</strong> —
-              including NFL Sunday 1pm kick-offs via international feeds (beIN Sports, NBC Sports US).
+              The NFL is the most-watched sports league in America — and watching every
+              game traditionally requires <strong>NFL Sunday Ticket</strong> on YouTube TV
+              ($389/season) plus <strong>ESPN</strong>, <strong>NFL Network</strong> and{" "}
+              <strong>Amazon Prime</strong>, costing well over{" "}
+              <strong className="text-neutral-950">$700/year</strong>. With our IPTV
+              subscription on Firestick, <strong className="text-neutral-950">all 272 regular
+              season games are live in 4K</strong> — including out-of-market games, NFL
+              RedZone, Monday Night Football, Thursday Night Football, and the full playoffs.
             </p>
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                tag: "PREMIER LEAGUE",
-                t: "All 272 NFL regular season games · every Saturday",
-                b: "NFL Sunday 9:30 AM ET, 15:00, 17:30 kick-offs all included. 4K HDR. No blackouts. ESPN Main Event, NFL, Football, Action — every feed.",
+                tag: "NFL",
+                t: "All 272 NFL regular season games · every Sunday",
+                b: "NFL Sunday 1:00 PM ET, 4:25 PM ET, 8:20 PM ET kickoffs all included. 4K HDR. ESPN, FOX, CBS, NBC, NFL Network, NFL RedZone — every feed. Includes Monday Night Football and Thursday Night Football.",
                 stat: "272 NFL games/yr",
               },
               {
-                tag: "TNT SPORTS",
-                t: "NBA Playoffs · NHL Playoffs",
-                b: "FOX Sports 1, 2, 3, 4 — formerly BT Sport. Every UCL midweek night, every NHL Playoffs knockout, all NCAA Football, UFC PPV included.",
-                stat: "Paramount+ channels",
+                tag: "NBA & NHL",
+                t: "NBA League Pass · NHL Center Ice",
+                b: "Every NBA regular-season game (82 per team), full NBA Playoffs, full Stanley Cup Playoffs, all NHL Center Ice games. ESPN, TNT, ABC, NBC feeds — no blackouts.",
+                stat: "82 NBA + 82 NHL",
               },
               {
-                tag: "FA CUP · LEAGUE CUP",
-                t: "Domestic cup competitions",
-                b: "Every round of the NCAA Tournament, March Madness, Community Shield. CBS and TBS feeds. College Football, League One, League Two via ESPN Football.",
-                stat: "All cup ties",
+                tag: "MLB · WORLD SERIES",
+                t: "MLB.TV alternative · every team",
+                b: "Full regular season (162 games per team), all playoffs, every World Series game. ESPN, FOX, FS1, MLB Network — including local RSNs (YES, NESN, Bally Sports, SNY).",
+                stat: "162 games/team",
               },
               {
-                tag: "INTERNATIONAL",
-                t: "Super Bowl · Euros · Nations League",
-                b: "AFC and NFC division games. Super Bowl LXI (FOX). NFL Pro Bowl. Friendlies. All in 4K HDR.",
-                stat: "Every NFL match",
+                tag: "COLLEGE",
+                t: "NCAA Football · March Madness",
+                b: "Every NCAA Football game (FBS Power 5 + Group of 5), full NCAA Tournament (March Madness), College World Series, all bowl games. ESPN, CBS, ABC, FOX, TBS, TNT, truTV.",
+                stat: "All bowl games",
               },
               {
                 tag: "F1 · UFC · BOXING",
-                t: "ESPN F1 + every PPV",
-                b: "Every NASCAR weekend — practice, qualifying, race. UFC Fight Night and numbered cards. Tyson Fury, Anthony Joshua, every UK boxing PPV — included, no per-fight charges.",
+                t: "PPV events · NASCAR · F1",
+                b: "Every NASCAR Cup Series race weekend — practice, qualifying, race. F1 Grand Prix on ESPN, every UFC Fight Night and numbered card, every boxing PPV (Fury, Canelo, Spence) — all included, zero per-fight fees.",
                 stat: "Zero PPV fees",
               },
               {
-                tag: "RUGBY · CRICKET",
-                t: "College Football · MLB Playoffs · Tests",
-                b: "College Football on NBC + ABC. NCAA Football on FOX Sports. Bowl Games. ESPN Cricket — all World Series games, MLB Playoffs, MLB Wild Card.",
-                stat: "All US sport",
+                tag: "MLS · INT'L SOCCER",
+                t: "MLS Season Pass · Premier League",
+                b: "Every Major League Soccer match (Apple TV MLS Season Pass equivalent). Champions League, Europa League, Premier League, La Liga, Serie A — all leagues, all matches.",
+                stat: "All major leagues",
               },
             ].map((card) => (
               <article
@@ -2540,9 +2529,9 @@ export default function Page() {
           {/* Mini stats row */}
           <div className="mt-12 grid grid-cols-2 gap-4 rounded-2xl border border-neutral-200 bg-white p-6 md:grid-cols-4">
             {[
-              { v: "380", l: "NFL gamees/year" },
-              { v: "138", l: "UCL & NHL Playoffs nights" },
-              { v: "23", l: "F1 NASCAR Cup races" },
+              { v: "272", l: "NFL games/year" },
+              { v: "1,230", l: "NBA regular season" },
+              { v: "36", l: "NASCAR Cup races" },
               { v: "0", l: "Per-fight PPV charges" },
             ].map((s) => (
               <div key={s.l} className="text-center">
@@ -2562,7 +2551,7 @@ export default function Page() {
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-white/75">
                   Test our anti-freeze servers <strong className="text-white">free for 24 hours</strong> —
-                  ideally on a Saturday, during a 3pm kick-off. If it doesn&rsquo;t hold a clean stream
+                  ideally on a Sunday, during the 1pm kickoff. If it doesn&rsquo;t hold a clean stream
                   through the full 60 minutes, walk away. No card needed. No commitment.
                 </p>
               </div>
@@ -2587,7 +2576,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============================ SKY / CABLE VS IPTV COST COMPARISON ============================ */}
+      {/* ============================ CABLE VS IPTV COST COMPARISON ============================ */}
       <section id="cable-vs-iptv" className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-3xl">
@@ -2595,15 +2584,14 @@ export default function Page() {
               Cable vs IPTV in the USA
             </span>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
-              Why thousands of American households ditch cable for IPTV every month.
+              Why thousands of American households cut the cord every month.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-neutral-600">
               Cable and satellite bills keep climbing while channel selection shrinks. A premium IPTV
-              subscription on Firestick replaces traditional pay TV from Comcast X1, Spectrum, BT TV
-              and Cox TV — typically saving American households
-              <strong className="text-neutral-900"> $900 to $1,400 a year</strong>. According to FCC&rsquo;s
-              Media Nations report, over 4.2 million US households have already abandoned traditional
-              pay TV — and the shift is accelerating.
+              subscription on Firestick replaces traditional pay TV from Comcast Xfinity, Spectrum,
+              DirecTV and YouTube TV — typically saving American households
+              <strong className="text-neutral-900"> $1,200 to $1,800 a year</strong>. Over 7 million US
+              households have already abandoned traditional pay TV — and the shift is accelerating.
             </p>
           </div>
 
@@ -2619,11 +2607,11 @@ export default function Page() {
               </thead>
               <tbody className="divide-y divide-neutral-200">
                 {[
-                  { p: "Comcast X1 (Entertainment + ESPN)", m: "$82 – $105", y: "$984 – $1,260", save: "save up to $1,170" },
-                  { p: "Spectrum (TV Select Signature + Sports)", m: "$75 – $95", y: "$900 – $1,140", save: "save up to $1,050" },
-                  { p: "BT TV (Big Sport pack)", m: "$68 – $88", y: "$816 – $1,056", save: "save up to $966" },
-                  { p: "Cox TV + Sport boost", m: "$55 – $72", y: "$660 – $864", save: "save up to $774" },
-                  { p: "YouTube TV ($82.99 base)", m: "$40 – $60", y: "$480 – $720", save: "save up to $630" },
+                  { p: "Comcast Xfinity (Ultimate TV + Sports)", m: "$130 – $165", y: "$1,560 – $1,980", save: "save up to $1,925" },
+                  { p: "Spectrum (TV Select Signature + Sports)", m: "$120 – $165", y: "$1,440 – $1,980", save: "save up to $1,925" },
+                  { p: "DirecTV Stream (Choice + Sports)", m: "$108 – $164", y: "$1,296 – $1,968", save: "save up to $1,913" },
+                  { p: "YouTube TV ($82.99 base)", m: "$83 – $108", y: "$996 – $1,296", save: "save up to $1,241" },
+                  { p: "Hulu Live TV + Disney+", m: "$83 – $103", y: "$996 – $1,236", save: "save up to $1,181" },
                 ].map((r) => (
                   <tr key={r.p} className="bg-white">
                     <td className="px-5 py-4 font-medium text-neutral-950">{r.p}</td>
@@ -2641,9 +2629,8 @@ export default function Page() {
           </div>
 
           <p className="mt-6 max-w-3xl text-sm text-neutral-500">
-            Estimated 2026 figures based on publicly listed promotional and post-promotional pricing
-            from UK pay TV providers, including HD/4K channel packs and sports add-ons. Broadcast TV Fee
-            ($169.50/year) is required separately for live broadcast viewing in the USA regardless of provider.
+            Estimated 2026 figures based on publicly listed pricing from US pay TV providers, including
+            HD/4K channel packs, sports add-ons, regional sports network fees and broadcast TV fees.
             Individual savings vary by household and current contract terms.
           </p>
 
@@ -2651,15 +2638,15 @@ export default function Page() {
             {[
               {
                 t: "No 24-month contract",
-                b: "IPTV in the USA is month-to-month. No 12 or 24-month cable contracts, no early-exit fees, no Comcast X1 box rental, no engineer install charge.",
+                b: "IPTV in the USA is month-to-month. No 12 or 24-month cable contracts, no early-exit fees, no cable box rental, no technician install charge.",
               },
               {
                 t: "Every channel you actually watch",
-                b: "ESPN 1–5, FOX Sports 1–4, HBO Max, Showtime, NBC/Two, ABC/ABC2/ABC4, CBS, FOX — plus 20,000+ international channels cable bundles never include.",
+                b: "ESPN, FOX Sports, NFL Network, NBA TV, MLB Network, NHL Network, HBO Max, Showtime, NBC, ABC, CBS, FOX — plus 20,000+ international channels cable bundles never include.",
               },
               {
                 t: "Watch on every device",
-                b: "Firestick, Fire TV Cube, Smart TV, Android TV, MAG box, Formuler Z, iPhone, iPad, laptop — one subscription, every screen in the house.",
+                b: "Firestick, Fire TV Cube, Smart TV, Android TV, Roku, iPhone, iPad, laptop — one subscription, every screen in the house.",
               },
             ].map((x) => (
               <div key={x.t} className="rounded-2xl border border-neutral-200 bg-[#FAFAF7] p-6">
@@ -2673,7 +2660,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============================ CANADIAN CHANNEL DIRECTORY ============================ */}
+      {/* ============================ US CHANNEL DIRECTORY ============================ */}
       <section id="us-channels" className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="max-w-3xl">
           <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#1E3A8A]">
@@ -2685,83 +2672,83 @@ export default function Page() {
           <p className="mt-4 text-lg leading-relaxed text-neutral-600">
             What separates a serious IPTV provider in the USA from a fly-by-night service is the
             depth of American channels. A premium IPTV subscription should include all of the
-            major UK networks below — without per-channel surcharges or sport-pack add-ons.
+            major US networks below — without per-channel surcharges or sport-pack add-ons.
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
             {
-              title: "UK sports — NFL, NBA Playoffs",
+              title: "US sports — NFL, NBA, MLB, NHL",
               channels: [
-                "ESPN Main Event, NFL, Football",
-                "ESPN Action, Arena, News",
-                "ESPN Cricket, Golf, F1",
-                "FOX Sports 1 / 2 / 3 / 4 (formerly BT Sport)",
-                "Eurosport 1 & 2",
-                "Premier Sports, beIN Sports, LaLigaTV",
+                "ESPN, ESPN2, ESPNEWS, ESPNU, ESPN Deportes",
+                "FOX Sports 1, FOX Sports 2",
+                "NBC Sports, USA Network",
+                "NFL Network, NFL RedZone",
+                "NBA TV, MLB Network, NHL Network",
+                "TNT, TBS, ABC (sports broadcasts)",
               ],
-              tag: "NFL, UCL, F1, UFC",
+              tag: "NFL, NBA, MLB, NHL",
             },
             {
-              title: "UK national networks (Freeview)",
+              title: "US national networks (Free TV)",
               channels: [
-                "NBC, PBS, NBC Three, NBC Four",
-                "NBC News, NBC Parliament, CBeebies, CNBC",
-                "ABC1, ABC2, ABC3, ABC4, ABCBe",
-                "CBS, More4, E4, Film4, 4Music",
-                "FOX, 5USA, 5STAR, 5Action",
-                "Dave, Yesterday, Drama, Quest",
+                "ABC, CBS, NBC, FOX, The CW",
+                "PBS, PBS Kids, MyNetworkTV",
+                "Telemundo, Univision",
+                "ION, Bounce, Grit, Court TV",
+                "Hallmark, Hallmark Movies",
+                "Lifetime, Lifetime Movies",
               ],
-              tag: "NBC, ABC, CBS, FOX",
+              tag: "ABC, CBS, NBC, FOX",
             },
             {
-              title: "HBO Max & entertainment",
+              title: "Movies & premium entertainment",
               channels: [
-                "Showtime, Starz, AMC",
-                "HBO Max Premiere, Action, Comedy, Drama",
-                "HBO Max Family, Hits, Greats, Animation",
-                "Discovery+, History Channel",
+                "HBO Max (Max), Showtime, Starz",
+                "Cinemax, Epix (MGM+)",
+                "Paramount+, Peacock, Discovery+",
+                "AMC, FX, FXX, USA Network",
+                "TNT, TBS, History, A&E",
                 "Comedy Central, Adult Swim, MTV",
-                "YouTube TV channels included",
               ],
               tag: "HBO Max, Showtime",
             },
             {
-              title: "Rugby, cricket, F1 & boxing PPV",
+              title: "College sports, F1, UFC, boxing",
               channels: [
-                "College Football Rugby (NBC, ABC)",
-                "NCAA Football (FOX Sports)",
-                "Bowl Games",
-                "ESPN Cricket — World Series games, MLB Playoffs",
-                "ESPN F1 — every NASCAR weekend",
-                "DAZN Boxing, UFC Fight Night, PPV events",
+                "ESPN College Football, College GameDay",
+                "Big Ten Network, SEC Network, ACC Network",
+                "Pac-12 Network, Longhorn Network",
+                "ESPN F1 — every Grand Prix weekend",
+                "ESPN+ UFC PPV included",
+                "DAZN Boxing, all major fight nights",
               ],
-              tag: "Rugby, Cricket, F1, Boxing",
+              tag: "NCAA, F1, UFC, Boxing",
             },
             {
-              title: "Movies, lifestyle & kids",
+              title: "Lifestyle, kids & news",
               channels: [
                 "Discovery, Animal Planet, History",
                 "National Geographic, NatGeo Wild",
-                "HGTV UK, Food Network UK, Travel Channel",
+                "HGTV, Food Network, Travel Channel",
                 "Cartoon Network, Boomerang, Nickelodeon",
-                "Disney Channel UK, Disney Junior, Pop",
-                "ABCBe, W, Really, Lifetime",
+                "Disney Channel, Disney Junior, Disney XD",
+                "Fox News, CNN, MSNBC, CNBC, Bloomberg",
               ],
-              tag: "Movies, kids, lifestyle",
+              tag: "Lifestyle, Kids, News",
             },
             {
-              title: "International (multilingual UK)",
+              title: "International (multilingual US)",
               channels: [
-                "RTÉ One & Two (Ireland), S4C (Welsh)",
-                "NBC Alba (Scottish Gaelic)",
-                "Al Jazeera English, MBC, OSN",
-                "TF1, France 24, RAI Uno",
-                "Punjabi, Hindi, Urdu, Tamil, Bengali",
-                "Polish, Romanian, Mandarin, Arabic",
+                "Telemundo, Univision (Spanish)",
+                "TV5 Monde, France 24 (French)",
+                "Rai Italia, Mediaset (Italian)",
+                "ZDF, RTL (German)",
+                "Star India, Sony Asia (Hindi/Tamil)",
+                "Al Jazeera English, MBC, OSN (Arabic)",
               ],
-              tag: "Multicultural UK",
+              tag: "Multicultural US",
             },
           ].map((g) => (
             <article
@@ -2788,8 +2775,8 @@ export default function Page() {
 
         <p className="mt-10 max-w-3xl text-sm text-neutral-500">
           Channel availability depends on the IPTV service you choose. Always confirm the specific
-          channels you care about (e.g. <em>ESPN NFL for NFL Sunday 1pm matches</em>,
-          FOX Sports for NBA Playoffs midweek games, HBO Max for new film releases) before subscribing.
+          channels you care about (e.g. <em>NFL RedZone for Sunday football</em>,
+          ESPN+ for UFC PPV, HBO Max for new film releases) before subscribing.
         </p>
       </section>
 
@@ -2804,7 +2791,7 @@ export default function Page() {
               The 8 criteria that separate the best IPTV USA services from the rest.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-neutral-600">
-              The UK IPTV market in 2026 is crowded. These are the eight measurable
+              The US IPTV market in 2026 is crowded. These are the eight measurable
               criteria we use to evaluate every IPTV provider before recommending it —
               the same ones top Reddit threads on r/IPTV and American cord-cutter
               communities consistently come back to.
@@ -2816,27 +2803,27 @@ export default function Page() {
               {
                 n: "01",
                 t: "Server stability & uptime",
-                b: "Look for 99%+ uptime tested during NFL Sunday 1pm NFL kickoff and weekday primetime (7–11pm GMT). Anti-freeze technology and HEVC compression matter for 4K streams during big football matches and UFC PPVs.",
+                b: "Look for 99%+ uptime tested during NFL Sunday 1pm kickoff and weekday primetime (7–11pm ET). Anti-freeze technology and HEVC compression matter for 4K streams during big games and UFC PPVs.",
               },
               {
                 n: "02",
                 t: "Full US channel depth",
-                b: "ESPN 1–5, FOX Sports 1–4, NBC/Two/iPlayer, ABC/Hulu, CBS, FOX, HBO Max, Showtime — all included, not as add-ons or sport packs.",
+                b: "ESPN family, FOX Sports, NFL Network, NBA TV, MLB Network, NBC, ABC, CBS, FOX, HBO Max, Showtime — all included, not as add-ons or sport packs.",
               },
               {
                 n: "03",
                 t: "Free trial — at least 24 hours",
-                b: "Avoid services with no trial or only a 2-hour preview. A confident UK provider lets you stress-test their service across multiple devices and a full NFL weekend.",
+                b: "Avoid services with no trial or only a 2-hour preview. A confident US provider lets you stress-test their service across multiple devices and a full NFL weekend.",
               },
               {
                 n: "04",
                 t: "Firestick & multi-device support",
-                b: "Compatible with IPTV Smarters Pro, TiviMate, OTT Navigator on Amazon Firestick, Fire TV Cube, Android TV, Samsung & LG Smart TVs, MAG, Formuler Z, iPhone, iPad, Windows.",
+                b: "Compatible with IPTV Smarters Pro, TiviMate, OTT Navigator on Amazon Firestick, Fire TV Cube, Android TV, Samsung & LG Smart TVs, Roku, iPhone, iPad, Windows.",
               },
               {
                 n: "05",
-                t: "Real UK customer support",
-                b: "A real human reachable by WhatsApp, email or live chat — replying within minutes during UK working hours, not a bot or a 48-hour ticket queue.",
+                t: "Real US customer support",
+                b: "A real human reachable by WhatsApp, email or live chat — replying within minutes during US working hours, not a bot or a 48-hour ticket queue.",
               },
               {
                 n: "06",
@@ -2846,12 +2833,12 @@ export default function Page() {
               {
                 n: "07",
                 t: "Reseller-quality EPG",
-                b: "Electronic Program Guide loads correctly for US channels with the right GMT/BST time zone, so ESPN kick-off times, Match of the Day, Coronation Street and Eastenders all show on schedule.",
+                b: "Electronic Program Guide loads correctly for US channels with the right time zone (ET, CT, MT, PT), so NFL kickoff times, primetime shows and late-night lineups all show on schedule.",
               },
               {
                 n: "08",
                 t: "Privacy & VPN-friendly infrastructure",
-                b: "Some US ISPs (BT, Spectrum Internet, Spectrum, Cox) throttle streaming traffic, especially during peak NFL hours. The best IPTV services route well over reputable VPNs without breaking authentication.",
+                b: "Some US ISPs (Comcast Xfinity, Spectrum, AT&T, Cox) throttle streaming traffic, especially during peak NFL hours. The best IPTV services route well over reputable VPNs without breaking authentication.",
               },
             ].map((c) => (
               <li
@@ -2888,7 +2875,7 @@ export default function Page() {
           </div>
           <p className="max-w-sm text-sm text-neutral-500">
             We re-test these apps every quarter on a Fire TV Stick 4K Max
-            connected to BT, Spectrum Internet, Spectrum and Cox. Last
+            connected to Comcast Xfinity, Spectrum and Verizon Fios. Last
             reviewed this quarter.
           </p>
         </div>
@@ -2944,14 +2931,14 @@ export default function Page() {
           <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
             <div className="md:col-span-5">
               <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/60">
-                UK broadband providers
+                US broadband providers
               </span>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl">
-                Tested on every major UK broadband provider.
+                Tested on every major US broadband provider.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-white/70">
                 Each US ISP behaves slightly differently with IPTV traffic —
-                particularly during Saturday NFL Sunday peak load. Our
+                particularly during Sunday NFL peak load. Our
                 guides include provider-specific notes — DNS tweaks, Wi-Fi 6E
                 recommendations, and when a VPN is genuinely helpful versus
                 when it&rsquo;s overkill.
@@ -2960,14 +2947,14 @@ export default function Page() {
             <div className="md:col-span-7">
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
-                  "Xfinity Internet",
+                  "Comcast Xfinity",
                   "Spectrum Internet",
-                  "Spectrum",
-                  "Cox",
+                  "AT&T Fiber",
+                  "Verizon Fios",
+                  "Cox Communications",
                   "CenturyLink",
                   "T-Mobile Home Internet",
-                  "Verizon Home Internet",
-                  "Vodafone",
+                  "Optimum / Frontier",
                 ].map((isp) => (
                   <div
                     key={isp}
@@ -3095,7 +3082,7 @@ export default function Page() {
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-neutral-600">
               Pulled from real Reddit threads, Google&rsquo;s &ldquo;People Also Ask&rdquo;,
-              and emails from readers across AFC East, AFC West, NFC East, NFC West.
+              and emails from readers across the East Coast, West Coast, Midwest and South.
             </p>
           </div>
 
@@ -3148,7 +3135,7 @@ export default function Page() {
                 <span>✅ No card needed</span>
                 <span>✅ 5-min activation</span>
                 <span>✅ Cancel anytime</span>
-                <span>✅ UK WhatsApp support 24/7</span>
+                <span>✅ US WhatsApp support 24/7</span>
               </div>
             </div>
             <div className="flex flex-col gap-3 md:col-span-4">
@@ -3220,7 +3207,7 @@ export default function Page() {
             </div>
             <p className="mt-3 text-xs text-neutral-500">iptvforfirestickusa.com</p>
             <p className="mt-3 max-w-xs text-sm text-neutral-600">
-              America&rsquo;s #1 IPTV resource for Firestick. Cancel Cable, save $1,500 a year. Trusted by 12,400+ US households.
+              America&rsquo;s #1 IPTV resource for Firestick. Cancel cable, save $1,764 a year. Trusted by 12,400+ US households.
             </p>
           </div>
 
@@ -3270,7 +3257,7 @@ export default function Page() {
         </div>
         <div className="border-t border-neutral-200">
           <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-6 text-xs text-neutral-500 md:flex-row md:items-center md:px-8">
-            <p>© {year} IPTV For Firestick USA. Independent UK publication.</p>
+            <p>© {year} IPTV For Firestick USA. Independent US publication.</p>
             <p>Made in America · New York · Los Angeles · Dallas</p>
           </div>
         </div>
