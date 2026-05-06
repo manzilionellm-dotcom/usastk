@@ -870,6 +870,10 @@ const channelPlans = [
   {
     name: "1 Month",
     price: "$12",
+    originalPrice: "$30",
+    monthlyEquivalent: "$12/mo",
+    discount: "60% OFF",
+    saveText: "Save $18 vs cable",
     badge: "Start Here",
     description:
       "A simple monthly plan for US viewers who want to try a premium IPTV subscription on Firestick before choosing a longer package.",
@@ -878,6 +882,10 @@ const channelPlans = [
   {
     name: "3 Months",
     price: "$25",
+    originalPrice: "$75",
+    monthlyEquivalent: "$8.33/mo",
+    discount: "67% OFF",
+    saveText: "Save $50 vs monthly",
     badge: "Popular",
     description:
       "A balanced option for American households who want reliable ESPN, FOX Sports, NBC, ABC and NFL streaming with better value than monthly renewal.",
@@ -886,6 +894,10 @@ const channelPlans = [
   {
     name: "6 Months",
     price: "$30",
+    originalPrice: "$150",
+    monthlyEquivalent: "$5/mo",
+    discount: "80% OFF",
+    saveText: "Save $120 vs monthly",
     badge: "Best Value",
     description:
       "Recommended for regular US viewers — premium IPTV access, all NFL games, NBA League Pass, MLB.TV, HBO Max and a 100,000+ VOD library on Firestick.",
@@ -894,6 +906,10 @@ const channelPlans = [
   {
     name: "1 Year",
     price: "$55",
+    originalPrice: "$300",
+    monthlyEquivalent: "$4.58/mo",
+    discount: "82% OFF",
+    saveText: "Save $1,709 vs Comcast",
     badge: "Best Deal",
     description:
       "The strongest annual value for American customers who want long-term premium IPTV on Firestick — works out at under $4.60 a month, less than 4% of a typical cable bill.",
@@ -958,276 +974,279 @@ const darkModeCss = `
   .premium-glow:hover {
     box-shadow: 0 0 40px -10px rgba(79, 125, 255, 0.3);
   }
-`;
 
-/* ----------------------------- THEME INIT (RUNS BEFORE PAINT) ----------------------------- */
+  /* ============ NFL FOOTBALL FLY ANIMATION ============ */
+  @keyframes nfl-fly {
+    0% {
+      transform: translate(-30px, 60px) rotate(-15deg) scale(0.8);
+      opacity: 0;
+    }
+    15% { opacity: 1; }
+    50% {
+      transform: translate(80px, -20px) rotate(20deg) scale(1.05);
+      opacity: 1;
+    }
+    85% { opacity: 1; }
+    100% {
+      transform: translate(180px, 40px) rotate(45deg) scale(0.85);
+      opacity: 0;
+    }
+  }
 
-const themeInitScript = `
-  (function() {
-    try {
-      // Always force dark mode — site is designed dark-first for premium feel
-      document.documentElement.classList.add('dark');
-    } catch (e) {}
-  })();
+  @keyframes nfl-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes float-bubble {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-6px); }
+  }
+
+  @keyframes stadium-beam-pulse {
+    0%, 100% { opacity: 0.3; transform: rotate(12deg) scaleY(1); }
+    50%      { opacity: 0.7; transform: rotate(8deg) scaleY(1.1); }
+  }
+  @keyframes stadium-beam-pulse-2 {
+    0%, 100% { opacity: 0.3; transform: rotate(-12deg) scaleY(1); }
+    50%      { opacity: 0.7; transform: rotate(-8deg) scaleY(1.1); }
+  }
+
+  @keyframes score-tick {
+    0%, 90%, 100% { transform: scale(1); color: #FAFAF7; }
+    95%           { transform: scale(1.15); color: #FF4D5C; }
+  }
+
+  /* Apply animations */
+  .nfl-ball-fly {
+    animation: nfl-fly 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  .nfl-ball-spin {
+    animation: nfl-spin 1.5s linear infinite;
+  }
+  .float-bubble {
+    animation: float-bubble 3s ease-in-out infinite;
+  }
+  .stadium-beam-1 {
+    animation: stadium-beam-pulse 4s ease-in-out infinite;
+  }
+  .stadium-beam-2 {
+    animation: stadium-beam-pulse-2 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  .score-tick {
+    animation: score-tick 6s ease-in-out infinite;
+  }
+
+  /* ============ BASKETBALL DRIBBLE SECTION ============ */
+  @keyframes basketball-bounce {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    20%      { transform: translateY(20px) scale(1.05, 0.95); }
+    50%      { transform: translateY(-30px) scale(0.97, 1.03); }
+    80%      { transform: translateY(20px) scale(1.05, 0.95); }
+  }
+
+  @keyframes basketball-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes player-run {
+    0%, 100% { transform: translateX(0px); }
+    50%      { transform: translateX(8px); }
+  }
+
+  @keyframes player-arm {
+    0%, 100% { transform: rotate(-15deg); }
+    50%      { transform: rotate(20deg); }
+  }
+
+  @keyframes player-leg-1 {
+    0%, 100% { transform: rotate(-10deg); }
+    50%      { transform: rotate(25deg); }
+  }
+  @keyframes player-leg-2 {
+    0%, 100% { transform: rotate(20deg); }
+    50%      { transform: rotate(-15deg); }
+  }
+
+  .basketball-bounce {
+    animation: basketball-bounce 1.4s ease-in-out infinite;
+    transform-origin: center bottom;
+  }
+  .basketball-spin {
+    animation: basketball-spin 1.4s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  .player-run {
+    animation: player-run 0.8s ease-in-out infinite;
+  }
+  .player-arm-left {
+    animation: player-arm 0.8s ease-in-out infinite;
+    transform-origin: top;
+    transform-box: fill-box;
+  }
+  .player-arm-right {
+    animation: player-arm 0.8s ease-in-out infinite reverse;
+    transform-origin: top;
+    transform-box: fill-box;
+  }
+  .player-leg-1 {
+    animation: player-leg-1 0.8s ease-in-out infinite;
+    transform-origin: top;
+    transform-box: fill-box;
+  }
+  .player-leg-2 {
+    animation: player-leg-2 0.8s ease-in-out infinite;
+    transform-origin: top;
+    transform-box: fill-box;
+  }
+
+  /* ============ STADIUM CROWD ============ */
+  @keyframes crowd-cheer {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-3px); }
+  }
+  .crowd-1 { animation: crowd-cheer 1.2s ease-in-out infinite; }
+  .crowd-2 { animation: crowd-cheer 1.2s ease-in-out infinite; animation-delay: 0.3s; }
+  .crowd-3 { animation: crowd-cheer 1.2s ease-in-out infinite; animation-delay: 0.6s; }
+  .crowd-4 { animation: crowd-cheer 1.2s ease-in-out infinite; animation-delay: 0.9s; }
+
+  /* ============ PRICING CARD CONVERSION ANIMATIONS ============ */
+
+  /* Floating price — gentle bob up and down */
+  @keyframes price-float {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-4px); }
+  }
+  .price-float {
+    animation: price-float 3s ease-in-out infinite;
+    display: inline-block;
+  }
+
+  /* Pulsing discount text (e.g. "60% OFF") */
+  @keyframes pulse-text {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.85; transform: scale(1.05); }
+  }
+  .pulse-text {
+    animation: pulse-text 2s ease-in-out infinite;
+    display: inline-block;
+  }
+
+  /* Discount badge — gentle rotation breathe */
+  @keyframes discount-breathe {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50%      { transform: rotate(-3deg) scale(1.08); }
+  }
+  .discount-badge {
+    animation: discount-breathe 2.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  /* Shimmer for "MOST POPULAR" / "BEST DEAL" ribbons */
+  @keyframes shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  .shimmer-bg {
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Featured card glow — subtle pulsing aura */
+  @keyframes card-glow-blue {
+    0%, 100% { box-shadow: 0 20px 60px -20px rgba(79, 125, 255, 0.4), 0 0 0 0 rgba(79, 125, 255, 0); }
+    50%      { box-shadow: 0 20px 60px -20px rgba(79, 125, 255, 0.5), 0 0 30px 5px rgba(79, 125, 255, 0.15); }
+  }
+  .price-card-featured {
+    animation: card-glow-blue 4s ease-in-out infinite;
+  }
+
+  /* Best deal card glow — golden */
+  @keyframes card-glow-gold {
+    0%, 100% { box-shadow: 0 20px 60px -20px rgba(245, 182, 67, 0.3), 0 0 0 0 rgba(245, 182, 67, 0); }
+    50%      { box-shadow: 0 20px 60px -20px rgba(245, 182, 67, 0.4), 0 0 30px 5px rgba(245, 182, 67, 0.15); }
+  }
+  .price-card-deal {
+    animation: card-glow-gold 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  /* Live spots counter — animated number */
+  @keyframes counter-flicker {
+    0%, 90%, 100% { opacity: 1; }
+    95%           { opacity: 0.5; }
+  }
+  .counter-spots {
+    animation: counter-flicker 4s ease-in-out infinite;
+    display: inline-block;
+    min-width: 1.5em;
+    text-align: center;
+  }
+
+  /* Card entrance — staggered fade-in-up */
+  @keyframes card-entrance {
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .price-card {
+    animation: card-entrance 0.6s ease-out backwards;
+  }
+
+  /* Reduce motion preference — respect users who don't want animations */
+  @media (prefers-reduced-motion: reduce) {
+    .nfl-ball-fly, .nfl-ball-spin, .float-bubble,
+    .stadium-beam-1, .stadium-beam-2, .score-tick,
+    .basketball-bounce, .basketball-spin,
+    .player-run, .player-arm-left, .player-arm-right,
+    .player-leg-1, .player-leg-2,
+    .crowd-1, .crowd-2, .crowd-3, .crowd-4,
+    .price-float, .pulse-text, .discount-badge,
+    .shimmer-bg, .price-card-featured, .price-card-deal,
+    .counter-spots, .price-card {
+      animation: none !important;
+    }
+  }
 `;
 
 /* ----------------------------- PWA + INTERACTIVITY (RUNS ON LOAD) ----------------------------- */
 
 const pwaAndUiScript = `
   (function() {
-    /* ---- 1. Build inline PWA manifest (no extra files needed) ---- */
-    /* PRO LOGO: Bold "IF" monogram on blue gradient — looks great in app drawer at every size.
-       Maskable-safe: design fits within 80% center circle so Android won't crop it. */
-    var iconSvg512 = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3A8A"/><stop offset="1" stop-color="#0F1B3D"/></linearGradient><linearGradient id="acc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DC2626"/><stop offset="1" stop-color="#B91C1C"/></linearGradient></defs><rect width="512" height="512" rx="96" fill="url(#bg)"/><circle cx="256" cy="256" r="200" fill="rgba(255,255,255,0.04)"/><g transform="translate(256 256)"><rect x="-118" y="-90" width="236" height="160" rx="16" fill="#FAFAF7"/><rect x="-100" y="-72" width="200" height="124" rx="6" fill="#0F1B3D"/><g fill="#FAFAF7" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" font-weight="800" text-anchor="middle"><text x="-30" y="22" font-size="96" letter-spacing="-3">I</text><text x="40" y="22" font-size="96" letter-spacing="-3">F</text></g><rect x="-30" y="80" width="60" height="10" rx="5" fill="#FAFAF7"/><rect x="-50" y="100" width="100" height="6" rx="3" fill="#FAFAF7" opacity="0.6"/></g><circle cx="430" cy="430" r="32" fill="url(#acc)"/><circle cx="430" cy="430" r="12" fill="#FAFAF7"/></svg>';
-    var iconSvg192 = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3A8A"/><stop offset="1" stop-color="#0F1B3D"/></linearGradient><linearGradient id="acc2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DC2626"/><stop offset="1" stop-color="#B91C1C"/></linearGradient></defs><rect width="192" height="192" rx="36" fill="url(#bg2)"/><circle cx="96" cy="96" r="76" fill="rgba(255,255,255,0.04)"/><g transform="translate(96 96)"><rect x="-44" y="-34" width="88" height="60" rx="6" fill="#FAFAF7"/><rect x="-37" y="-27" width="74" height="46" rx="2" fill="#0F1B3D"/><g fill="#FAFAF7" font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif" font-weight="800" text-anchor="middle"><text x="-11" y="8" font-size="36" letter-spacing="-1">I</text><text x="15" y="8" font-size="36" letter-spacing="-1">F</text></g><rect x="-11" y="30" width="22" height="4" rx="2" fill="#FAFAF7"/></g><circle cx="161" cy="161" r="12" fill="url(#acc2)"/><circle cx="161" cy="161" r="4.5" fill="#FAFAF7"/></svg>';
-
-    var manifest = {
-      name: "IPTV For Firestick USA — Best IPTV for Firestick 2026",
-      short_name: "IPTV Firestick",
-      description: "Best IPTV for Firestick USA 2026. Cancel cable, save $1,764/yr. 50,000+ channels in 4K UHD — every NFL game, NBA League Pass, MLB.TV, NHL, ESPN, ABC, CBS, NBC, FOX, HBO Max. Anti-Freeze 6.0. From $12/month.",
-      start_url: ".",
-      scope: ".",
-      id: "iptvforfirestickusa",
-      display: "standalone",
-      display_override: ["window-controls-overlay", "standalone", "minimal-ui", "browser"],
-      orientation: "any",
-      background_color: "#FAFAF7",
-      theme_color: "#1E3A8A",
-      lang: "en-US",
-      dir: "ltr",
-      categories: ["entertainment", "utilities", "lifestyle"],
-      prefer_related_applications: false,
-      icons: [
-        /* Will be filled in dynamically with PNG data URIs below */
-      ],
-      shortcuts: [
-        { name: "Setup guide", short_name: "Setup", description: "Install IPTV on Firestick in 3 steps", url: "/#setup" },
-        { name: "Premium channels", short_name: "Channels", description: "View IPTV subscription plans", url: "/#premium-channels" },
-        { name: "Fix buffering", short_name: "Fix", description: "Troubleshooting guide", url: "/#troubleshooting" },
-        { name: "FAQ", short_name: "FAQ", description: "Frequently asked questions", url: "/#faq" }
-      ]
-    };
-
-    /* Render SVG to PNG via canvas — Android & iOS need PNG for proper app drawer/home-screen icons */
-    function svgToPngDataUrl(svgString, size, callback) {
-      try {
-        var canvas = document.createElement('canvas');
-        canvas.width = size;
-        canvas.height = size;
-        var ctx = canvas.getContext('2d');
-        var img = new Image();
-        var svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
-        var url = URL.createObjectURL(svgBlob);
-        img.onload = function() {
-          ctx.drawImage(img, 0, 0, size, size);
-          URL.revokeObjectURL(url);
-          try { callback(canvas.toDataURL('image/png')); } catch (e) { callback(null); }
-        };
-        img.onerror = function() { URL.revokeObjectURL(url); callback(null); };
-        img.src = url;
-      } catch (e) { callback(null); }
-    }
-
-    function buildAndAttachManifest() {
-      svgToPngDataUrl(iconSvg192, 192, function(png192){
-        svgToPngDataUrl(iconSvg512, 512, function(png512){
-          /* Fallback to SVG data URI if canvas conversion failed */
-          var src192 = png192 || ('data:image/svg+xml;base64,' + btoa(iconSvg192));
-          var src512 = png512 || ('data:image/svg+xml;base64,' + btoa(iconSvg512));
-          var pngType = png192 ? 'image/png' : 'image/svg+xml';
-          var pngType512 = png512 ? 'image/png' : 'image/svg+xml';
-
-          manifest.icons = [
-            { src: src192, sizes: "192x192", type: pngType, purpose: "any" },
-            { src: src192, sizes: "192x192", type: pngType, purpose: "maskable" },
-            { src: src512, sizes: "512x512", type: pngType512, purpose: "any" },
-            { src: src512, sizes: "512x512", type: pngType512, purpose: "maskable" }
-          ];
-
-          try {
-            var blob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
-            var manifestUrl = URL.createObjectURL(blob);
-            /* Remove any existing manifest link first */
-            var existing = document.querySelector('link[rel="manifest"]');
-            if (existing) existing.remove();
-            var manifestLink = document.createElement('link');
-            manifestLink.rel = 'manifest';
-            manifestLink.href = manifestUrl;
-            document.head.appendChild(manifestLink);
-
-            /* Apple touch icon — must be PNG for iOS Add to Home Screen */
-            var appleIconSrc = src192;
-            var existingApple = document.querySelector('link[rel="apple-touch-icon"]');
-            if (existingApple) existingApple.remove();
-            var appleIcon = document.createElement('link');
-            appleIcon.rel = 'apple-touch-icon';
-            appleIcon.href = appleIconSrc;
-            document.head.appendChild(appleIcon);
-
-            /* Larger Apple icon variants */
-            [120, 152, 167, 180].forEach(function(s){
-              svgToPngDataUrl(iconSvg512, s, function(png){
-                if (!png) return;
-                var l = document.createElement('link');
-                l.rel = 'apple-touch-icon';
-                l.setAttribute('sizes', s + 'x' + s);
-                l.href = png;
-                document.head.appendChild(l);
-              });
-            });
-
-            /* Standard favicon */
-            svgToPngDataUrl(iconSvg192, 32, function(png){
-              if (!png) return;
-              var existingFav = document.querySelector('link[rel="icon"]');
-              if (existingFav) existingFav.remove();
-              var fav = document.createElement('link');
-              fav.rel = 'icon';
-              fav.type = 'image/png';
-              fav.setAttribute('sizes', '32x32');
-              fav.href = png;
-              document.head.appendChild(fav);
-            });
-
-            var appleCapable = document.createElement('meta');
-            appleCapable.name = 'apple-mobile-web-app-capable';
-            appleCapable.content = 'yes';
-            document.head.appendChild(appleCapable);
-
-            var mobileCapable = document.createElement('meta');
-            mobileCapable.name = 'mobile-web-app-capable';
-            mobileCapable.content = 'yes';
-            document.head.appendChild(mobileCapable);
-
-            var appleTitle = document.createElement('meta');
-            appleTitle.name = 'apple-mobile-web-app-title';
-            appleTitle.content = 'IPTV Firestick';
-            document.head.appendChild(appleTitle);
-
-            var appleStatus = document.createElement('meta');
-            appleStatus.name = 'apple-mobile-web-app-status-bar-style';
-            appleStatus.content = 'black-translucent';
-            document.head.appendChild(appleStatus);
-          } catch (e) {}
-        });
+    /* ---- 1. Service Worker registration (required for PWA install) ---- */
+    /* This points to the REAL /sw.js file in /public — that's what Chrome needs. */
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then(function(reg) {
+            console.log('[PWA] Service worker registered:', reg.scope);
+          })
+          .catch(function(err) {
+            console.log('[PWA] Service worker registration failed:', err);
+          });
       });
     }
 
-    try { buildAndAttachManifest(); } catch (e) {}
-
-    /* ---- 1b. Register an inline Service Worker (required for PWA installability on Android & Windows) ---- */
-    /* Chrome and Edge will only offer the native install prompt if a Service Worker is registered.
-       This SW is minimal: it just caches the page shell so the app can launch offline. */
-    try {
-      if ('serviceWorker' in navigator) {
-        var swCode = [
-          "var CACHE = 'iptvforfirestickusa-v1';",
-          "var SHELL = ['/', '/index.html'];",
-          "self.addEventListener('install', function(e){",
-          "  e.waitUntil(caches.open(CACHE).then(function(c){ return c.addAll(SHELL).catch(function(){}); }));",
-          "  self.skipWaiting();",
-          "});",
-          "self.addEventListener('activate', function(e){",
-          "  e.waitUntil(",
-          "    caches.keys().then(function(keys){",
-          "      return Promise.all(keys.map(function(k){ if (k !== CACHE) return caches.delete(k); }));",
-          "    }).then(function(){ return self.clients.claim(); })",
-          "  );",
-          "});",
-          "self.addEventListener('fetch', function(e){",
-          "  if (e.request.method !== 'GET') return;",
-          "  e.respondWith(",
-          "    fetch(e.request).then(function(res){",
-          "      var clone = res.clone();",
-          "      if (e.request.url.indexOf(self.location.origin) === 0) {",
-          "        caches.open(CACHE).then(function(c){ c.put(e.request, clone); }).catch(function(){});",
-          "      }",
-          "      return res;",
-          "    }).catch(function(){ return caches.match(e.request).then(function(r){ return r || caches.match('/'); }); })",
-          "  );",
-          "});"
-        ].join('\\n');
-        var swBlob = new Blob([swCode], { type: 'application/javascript' });
-        var swUrl = URL.createObjectURL(swBlob);
-        navigator.serviceWorker.register(swUrl, { scope: '/' }).catch(function(){});
-      }
-    } catch (e) {}
-
-    /* ---- 2. Theme-color meta (matches current theme) ---- */
-    function syncThemeColor() {
-      var isDark = document.documentElement.classList.contains('dark');
-      var meta = document.querySelector('meta[name="theme-color"]');
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.name = 'theme-color';
-        document.head.appendChild(meta);
-      }
-      meta.content = '#0B0E16';
-    }
-    syncThemeColor();
-
-    /* ---- 3. Theme toggle wiring ---- */
-    function syncThemeIcons() {
-      var isDark = document.documentElement.classList.contains('dark');
-      document.querySelectorAll('[data-theme-icon-light]').forEach(function(el){
-        el.style.display = isDark ? 'none' : 'inline-block';
-      });
-      document.querySelectorAll('[data-theme-icon-dark]').forEach(function(el){
-        el.style.display = isDark ? 'inline-block' : 'none';
-      });
+    /* ---- 2. Theme color meta ---- */
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (!themeMeta) {
+      themeMeta = document.createElement('meta');
+      themeMeta.name = 'theme-color';
+      themeMeta.content = '#0B0E16';
+      document.head.appendChild(themeMeta);
     }
 
-    /* Use event delegation on document so it works even if React re-renders the button */
-    function setupThemeToggle() {
-      /* Avoid double-binding if init() runs more than once */
-      if (window.__sn_themeBound) { syncThemeIcons(); return; }
-      window.__sn_themeBound = true;
-
-      document.addEventListener('click', function(e){
-        var target = e.target;
-        if (!target || !target.closest) return;
-        var btn = target.closest('[data-theme-toggle]');
-        if (!btn) return;
-        e.preventDefault();
-        var isDark = document.documentElement.classList.toggle('dark');
-        try { localStorage.setItem('iptvffusa-theme', isDark ? 'dark' : 'light'); } catch(e) {}
-        syncThemeIcons();
-        syncThemeColor();
-      }, false);
-
-      syncThemeIcons();
-    }
-
-    /* ---- 4. Auto-follow system if user hasn't picked a preference ---- */
-    try {
-      var mq = window.matchMedia('(prefers-color-scheme: dark)');
-      var listener = function(e) {
-        var hasPref = false;
-        try { hasPref = !!localStorage.getItem('iptvffusa-theme'); } catch(_) {}
-        if (hasPref) return;
-        if (e.matches) document.documentElement.classList.add('dark');
-        else document.documentElement.classList.remove('dark');
-        syncThemeIcons();
-        syncThemeColor();
-      };
-      if (mq.addEventListener) mq.addEventListener('change', listener);
-      else if (mq.addListener) mq.addListener(listener);
-    } catch (e) {}
-
-    /* ---- 5. Install prompt — Android, Windows, iOS, Mac ---- */
+    /* ---- 3. Install prompt logic ---- */
     var deferredPrompt = null;
     var ua = (navigator.userAgent || '').toLowerCase();
     var platform = (navigator.platform || '').toLowerCase();
-
     var isAndroid = ua.indexOf('android') !== -1;
     var isIOS = /iphone|ipad|ipod/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
     var isWindows = ua.indexOf('windows') !== -1 || platform.indexOf('win') === 0;
     var isMac = !isIOS && (platform.indexOf('mac') !== -1);
-    var isMobile = isAndroid || isIOS;
-    var isInstallable = isAndroid || isWindows || isMac; /* Platforms with native install support */
-
-    /* Browser detection (matters for install instructions) */
-    var isEdge = ua.indexOf('edg/') !== -1 || ua.indexOf('edge/') !== -1;
+    var isEdge = ua.indexOf('edg/') !== -1;
     var isChrome = ua.indexOf('chrome/') !== -1 && !isEdge && ua.indexOf('opr/') === -1;
     var isSamsung = ua.indexOf('samsungbrowser') !== -1;
     var isFirefox = ua.indexOf('firefox') !== -1;
@@ -1247,29 +1266,27 @@ const pwaAndUiScript = `
       pillEls().forEach(function(p){ p.classList.remove('is-visible'); });
     }
 
-    /* Show install UI by default on Android and Windows so users can discover the option */
-    if (isAndroid || isWindows) {
-      pillEls().forEach(function(p){ p.classList.add('is-visible'); });
-    }
-    /* On iOS/Mac (Safari), also show the pill — there's no native prompt but we can guide them */
-    if (isIOS || isMac) {
+    /* Show pill on platforms that can install */
+    if (isAndroid || isWindows || isMac || isIOS) {
       pillEls().forEach(function(p){ p.classList.add('is-visible'); });
     }
 
-    window.addEventListener('beforeinstallprompt', function(e){
+    /* Listen for the native install prompt */
+    window.addEventListener('beforeinstallprompt', function(e) {
       e.preventDefault();
       deferredPrompt = e;
       showInstallUI();
+      console.log('[PWA] Install prompt is ready');
     });
 
-    window.addEventListener('appinstalled', function(){
+    /* Already installed? Hide */
+    window.addEventListener('appinstalled', function() {
       deferredPrompt = null;
       hideInstallUI();
       try {
         var t = document.createElement('div');
-        t.setAttribute('role', 'status');
-        t.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9999;background:#1E3A8A;color:#fff;padding:12px 20px;border-radius:999px;font:500 14px system-ui;box-shadow:0 10px 30px rgba(30,58,138,.35)';
-        t.textContent = '\u2713 IPTV For Firestick USA installed — find it in your apps.';
+        t.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9999;background:#4F7DFF;color:#fff;padding:14px 24px;border-radius:999px;font:600 14px system-ui;box-shadow:0 10px 40px rgba(79,125,255,.4)';
+        t.textContent = '✓ IPTV For Firestick USA installed!';
         document.body.appendChild(t);
         setTimeout(function(){ t.style.opacity='0'; t.style.transition='opacity .4s'; }, 2400);
         setTimeout(function(){ t.remove(); }, 3000);
@@ -1278,96 +1295,58 @@ const pwaAndUiScript = `
 
     /* Hide if already running as installed PWA */
     try {
-      if ((window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone) {
+      if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
         hideInstallUI();
       }
     } catch (e) {}
 
     function getInstallMessage() {
-      /* Android — Chrome, Samsung, Edge, Firefox */
       if (isAndroid) {
-        if (isSamsung) {
-          return "Install on Android (Samsung Internet):\n\n1. Tap the menu icon (\u2630) at the bottom\n2. Tap 'Add page to' \u2192 'Home screen'\n3. Confirm 'Add'\n\nIPTV For Firestick USA will appear on your home screen as a real app.";
-        }
-        if (isFirefox) {
-          return "Install on Android (Firefox):\n\n1. Tap the menu (\u22EE) in the top-right\n2. Tap 'Install' or 'Add to Home screen'\n3. Confirm\n\nIPTV For Firestick USA will open like a native Android app.";
-        }
-        return "Install on Android (Chrome/Edge):\n\n1. Tap the menu (\u22EE) in the top-right\n2. Tap 'Install app' or 'Add to Home screen'\n3. Confirm\n\nIPTV For Firestick USA will appear in your app drawer like a normal Android app.";
+        if (isSamsung) return "📱 Install on Samsung Internet:\n\n1. Tap the menu (☰) at the bottom\n2. Tap 'Add page to' → 'Home screen'\n3. Confirm 'Add'";
+        if (isFirefox) return "📱 Install on Firefox Android:\n\n1. Tap the menu (⋮) top-right\n2. Tap 'Install'\n3. Confirm";
+        return "📱 Install on Chrome/Edge Android:\n\n1. Tap the menu (⋮) top-right\n2. Tap 'Install app' or 'Add to Home screen'\n3. Confirm — the app appears in your drawer";
       }
-      /* iOS */
       if (isIOS) {
-        return "Install on iPhone/iPad (Safari):\n\n1. Tap the Share button (square with up-arrow)\n2. Scroll down and tap 'Add to Home Screen'\n3. Tap 'Add'\n\nIPTV For Firestick USA will run full-screen like a native app.";
+        return "📱 Install on iPhone/iPad (Safari only):\n\n1. Tap the Share button (square with up-arrow)\n2. Scroll and tap 'Add to Home Screen'\n3. Tap 'Add' in top-right";
       }
-      /* Windows */
       if (isWindows) {
-        if (isEdge) {
-          return "Install on Windows (Microsoft Edge):\n\n1. Click the install icon (\u229E) in the address bar\nOR\n   Click the menu (\u2026) \u2192 'Apps' \u2192 'Install IPTV For Firestick USA'\n2. Click 'Install'\n\nIPTV For Firestick USA will be added to your Start menu and taskbar as a real Windows app.";
-        }
-        if (isChrome) {
-          return "Install on Windows (Chrome):\n\n1. Click the install icon (\u229E) in the address bar\nOR\n   Click the menu (\u22EE) \u2192 'Install IPTV For Firestick USA\u2026'\n2. Click 'Install'\n\nIPTV For Firestick USA will appear in your Start menu and run like a native Windows app.";
-        }
-        if (isFirefox) {
-          return "Firefox on Windows doesn't support installing web apps natively.\n\nFor the best experience, open this site in Microsoft Edge or Google Chrome \u2014 you'll see an install icon in the address bar.";
-        }
-        return "Install on Windows:\n\nUse Microsoft Edge or Google Chrome \u2192 click the install icon (\u229E) in the address bar, or open the menu and choose 'Install IPTV For Firestick USA'.";
+        if (isEdge) return "💻 Install on Edge Windows:\n\n1. Click the install icon (⊞) in the address bar\nOR menu (…) → 'Apps' → 'Install IPTV For Firestick USA'\n2. Click 'Install'";
+        if (isChrome) return "💻 Install on Chrome Windows:\n\n1. Click the install icon (⊞) in the address bar\nOR menu (⋮) → 'Install IPTV For Firestick USA…'\n2. Click 'Install'";
+        if (isFirefox) return "Firefox doesn't support installing web apps. Please use Microsoft Edge or Chrome instead.";
+        return "💻 Use Microsoft Edge or Chrome → click the install icon in the address bar.";
       }
-      /* macOS */
       if (isMac) {
-        if (isSafari) {
-          return "Install on Mac (Safari 17+):\n\n1. Click the Share button in the toolbar\n2. Choose 'Add to Dock'\n\nIPTV For Firestick USA will appear in your Dock as a real Mac app.";
-        }
-        return "Install on Mac (Chrome/Edge):\n\n1. Click the install icon (\u229E) in the address bar\nOR\n   Open the menu \u2192 'Install IPTV For Firestick USA\u2026'\n2. Click 'Install'\n\nIPTV For Firestick USA will appear in Launchpad like a native Mac app.";
+        if (isSafari) return "💻 Install on Safari Mac:\n\n1. Click the Share button in the toolbar\n2. Choose 'Add to Dock'";
+        return "💻 Install on Chrome/Edge Mac:\n\n1. Click the install icon (⊞) in the address bar\n2. Click 'Install'";
       }
-      return "To install: click the install icon in your browser's address bar, or open the browser menu and choose 'Install IPTV For Firestick USA'.";
+      return "Click the install icon in your browser's address bar.";
     }
 
-    function setupInstallTriggers() {
-      if (window.__sn_installBound) return;
-      window.__sn_installBound = true;
+    /* Wire up install button clicks */
+    document.addEventListener('click', async function(e) {
+      var target = e.target;
+      if (!target || !target.closest) return;
 
-      document.addEventListener('click', async function(e){
-        var target = e.target;
-        if (!target || !target.closest) return;
-
-        /* Install button click */
-        var installBtn = target.closest('[data-install-trigger]');
-        if (installBtn) {
-          e.preventDefault();
-          if (deferredPrompt) {
-            try {
-              deferredPrompt.prompt();
-              await deferredPrompt.userChoice;
-            } catch (err) {}
-            deferredPrompt = null;
-            hideInstallUI();
-            return;
-          }
-          alert(getInstallMessage());
+      var installBtn = target.closest('[data-install-trigger]');
+      if (installBtn) {
+        e.preventDefault();
+        if (deferredPrompt) {
+          try {
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+          } catch (err) {}
+          deferredPrompt = null;
+          hideInstallUI();
           return;
         }
+        alert(getInstallMessage());
+        return;
+      }
 
-        /* Dismiss button click */
-        if (target.id === 'sn-install-dismiss' || (target.closest && target.closest('#sn-install-dismiss'))) {
-          hideInstallUI();
-        }
-      }, false);
-    }
-
-    function init() {
-      setupThemeToggle();
-      setupInstallTriggers();
-    }
-
-    /* Run init now (event delegation works regardless of React hydration timing) */
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-    /* Also run after a tick to handle React hydration that may run after our script */
-    setTimeout(init, 0);
-    /* Re-sync icons after window load (final hydration) */
-    window.addEventListener('load', function(){ syncThemeIcons(); });
+      if (target.id === 'sn-install-dismiss' || target.closest('#sn-install-dismiss')) {
+        hideInstallUI();
+      }
+    }, false);
   })();
 `;
 
@@ -1711,43 +1690,6 @@ export default function Page() {
               </svg>
             </button>
 
-            {/* Theme toggle (sun in light mode, moon in dark mode) */}
-            <button
-              data-theme-toggle
-              aria-label="Toggle dark mode"
-              className="sn-icon-btn"
-              title="Toggle dark mode"
-            >
-              <svg
-                data-theme-icon-light
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
-              >
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-              </svg>
-              <svg
-                data-theme-icon-dark
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
-                style={{ display: "none" }}
-              >
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-              </svg>
-            </button>
-
             <a
               href="#setup"
               className="rounded-full bg-[#4F7DFF] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#3D6BEE]"
@@ -1839,43 +1781,100 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Hero visual: stylized Firestick "screen" */}
+          {/* Hero visual: NFL animated football + live scoreboard */}
           <div className="md:col-span-5">
             <div className="relative mx-auto max-w-sm">
-              <div className="rounded-3xl border border-[#2A3142] bg-[#141824] p-3 shadow-[0_30px_80px_-30px_rgba(79,125,255,0.4)]">
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-[#0F1B3D] via-[#1E3A8A] to-[#0F1B3D] p-5 text-white">
-                  <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-white/60">
-                    <span>Fire TV · Live</span>
-                    <span>1080p</span>
+              {/* Animated NFL football flying across — pure SVG */}
+              <div className="pointer-events-none absolute -top-12 -left-8 z-20 h-44 w-44">
+                <svg viewBox="0 0 200 200" className="h-full w-full nfl-ball-fly" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="ballGrad" cx="35%" cy="35%" r="65%">
+                      <stop offset="0%" stopColor="#A0522D" />
+                      <stop offset="55%" stopColor="#8B4513" />
+                      <stop offset="100%" stopColor="#5C2E0A" />
+                    </radialGradient>
+                  </defs>
+                  <g className="nfl-ball-spin" style={{ transformOrigin: "100px 100px" }}>
+                    <ellipse cx="100" cy="100" rx="50" ry="26" fill="url(#ballGrad)" />
+                    <line x1="85" y1="100" x2="115" y2="100" stroke="#FAFAF7" strokeWidth="2.5" strokeLinecap="round" />
+                    <line x1="90" y1="95" x2="90" y2="105" stroke="#FAFAF7" strokeWidth="1.8" strokeLinecap="round" />
+                    <line x1="97" y1="94" x2="97" y2="106" stroke="#FAFAF7" strokeWidth="1.8" strokeLinecap="round" />
+                    <line x1="104" y1="94" x2="104" y2="106" stroke="#FAFAF7" strokeWidth="1.8" strokeLinecap="round" />
+                    <line x1="111" y1="95" x2="111" y2="105" stroke="#FAFAF7" strokeWidth="1.8" strokeLinecap="round" />
+                    <ellipse cx="58" cy="100" rx="2.5" ry="11" fill="#FAFAF7" opacity="0.85" />
+                    <ellipse cx="142" cy="100" rx="2.5" ry="11" fill="#FAFAF7" opacity="0.85" />
+                    <ellipse cx="85" cy="90" rx="14" ry="4.5" fill="#FAFAF7" opacity="0.18" />
+                  </g>
+                </svg>
+              </div>
+
+              {/* Glow halo */}
+              <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[40px] bg-gradient-to-br from-[#4F7DFF]/20 via-transparent to-[#FF4D5C]/15 blur-2xl" />
+
+              <div className="relative rounded-3xl border border-[#2A3142] bg-[#141824] p-3 shadow-[0_30px_80px_-30px_rgba(79,125,255,0.5)]">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-[#0B1530] via-[#1A2F5C] to-[#0B1530] p-5 text-white">
+                  {/* Stadium light beams */}
+                  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                    <div className="stadium-beam-1 absolute -top-10 left-1/4 h-32 w-2 rotate-12 bg-gradient-to-b from-white/25 to-transparent blur-sm" />
+                    <div className="stadium-beam-2 absolute -top-10 right-1/4 h-32 w-2 -rotate-12 bg-gradient-to-b from-white/25 to-transparent blur-sm" />
                   </div>
-                  <div className="mt-3 grid grid-cols-3 gap-2">
-                    {[
-                      "ESPN",
-                      "FOX Sports",
-                      "NBC",
-                      "ABC",
-                      "CBS",
-                      "FOX",
-                      "HBO Max",
-                      "Showtime",
-                      "Peacock",
-                    ].map((c) => (
+
+                  <div className="relative flex items-center justify-between text-[10px] uppercase tracking-wider text-white/70">
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FF4D5C]" />
+                      LIVE · Sunday 1PM
+                    </span>
+                    <span>4K UHD</span>
+                  </div>
+
+                  {/* NFL scoreboard */}
+                  <div className="relative mt-3 rounded-lg border border-white/10 bg-black/30 p-2.5 backdrop-blur">
+                    <div className="flex items-center justify-between text-[11px]">
+                      <div className="flex items-center gap-2">
+                        <div className="grid h-6 w-6 place-items-center rounded bg-[#FF4D5C] text-[9px] font-bold">KC</div>
+                        <span className="font-semibold">Chiefs</span>
+                      </div>
+                      <span className="font-[family-name:var(--font-display)] text-2xl font-bold tabular-nums score-tick">24</span>
+                    </div>
+                    <div className="mt-1.5 flex items-center justify-between text-[11px]">
+                      <div className="flex items-center gap-2">
+                        <div className="grid h-6 w-6 place-items-center rounded bg-[#4F7DFF] text-[9px] font-bold">BUF</div>
+                        <span className="font-semibold">Bills</span>
+                      </div>
+                      <span className="font-[family-name:var(--font-display)] text-2xl font-bold tabular-nums">21</span>
+                    </div>
+                    <div className="mt-1 text-[9px] text-white/50">Q4 · 2:34 remaining</div>
+                  </div>
+
+                  <div className="relative mt-3 grid grid-cols-3 gap-1.5">
+                    {["ESPN", "NFL Net", "FOX", "CBS", "NBC", "ABC"].map((c) => (
                       <div
                         key={c}
-                        className="rounded-md border border-white/10 bg-white/5 px-2 py-3 text-center text-[10px] font-medium"
+                        className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-center text-[9px] font-medium"
                       >
                         {c}
                       </div>
                     ))}
                   </div>
-                  <div className="mt-4 flex items-center justify-between text-[10px] text-white/50">
-                    <span>● connected</span>
+
+                  <div className="relative mt-3 flex items-center justify-between text-[9px] text-white/60">
+                    <span className="flex items-center gap-1">
+                      <span className="h-1 w-1 rounded-full bg-[#22c55e]" />
+                      connected
+                    </span>
                     <span>0% buffering</span>
                   </div>
                 </div>
               </div>
+
+              {/* Setup pill */}
               <div className="absolute -bottom-4 -right-4 rounded-xl border border-[#2A3142] bg-[#1A1F2E] px-3 py-2 text-xs font-medium text-[#F5F6F8] shadow-lg">
                 ⚡ Setup in &lt; 7 min
+              </div>
+
+              {/* LIVE badge floating */}
+              <div className="absolute -top-3 -right-3 float-bubble rounded-full border border-[#FF4D5C]/40 bg-[#FF4D5C]/15 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#FF4D5C] backdrop-blur">
+                🏈 LIVE
               </div>
             </div>
           </div>
@@ -1896,7 +1895,186 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============================ WHY SWITCH NOW — CONVERSION ENGINE ============================ */}
+      {/* ============================ ANIMATED SPORTS SCENE ============================ */}
+      <section className="relative overflow-hidden bg-[#0E1119] py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="mb-10 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">
+              🏀 LIVE SPORTS · ALL YEAR ROUND
+            </span>
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] text-[#F5F6F8] md:text-5xl">
+              Every game. Every league.{" "}
+              <span className="italic text-[#4F7DFF]">Every season.</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#A8AEBC]">
+              From NFL Sundays to NBA Finals, MLB World Series to NHL Stanley Cup —
+              your Firestick becomes a stadium. In 4K. With zero buffering.
+            </p>
+          </div>
+
+          {/* Basketball court animated scene */}
+          <div className="relative mx-auto overflow-hidden rounded-3xl border border-[#2A3142] bg-gradient-to-b from-[#1A1F2E] via-[#141824] to-[#0B0E16] shadow-2xl">
+            <div className="relative h-[300px] sm:h-[360px] md:h-[420px]">
+              {/* Stadium crowd silhouettes top */}
+              <div className="absolute left-0 right-0 top-0 h-12 overflow-hidden bg-gradient-to-b from-[#0B0E16] to-transparent">
+                <div className="flex justify-around pt-2">
+                  {[...Array(12)].map((_, i) => (
+                    <div
+                      key={i}
+                      className={"h-6 w-4 rounded-t-full bg-[#2A3142] crowd-" + ((i % 4) + 1)}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Stadium light beams */}
+              <div className="pointer-events-none absolute inset-0">
+                <div className="stadium-beam-1 absolute -top-20 left-[15%] h-48 w-1.5 rotate-12 bg-gradient-to-b from-white/30 to-transparent blur-sm" />
+                <div className="stadium-beam-2 absolute -top-20 right-[20%] h-48 w-1.5 -rotate-12 bg-gradient-to-b from-white/30 to-transparent blur-sm" />
+                <div className="stadium-beam-1 absolute -top-20 left-1/2 h-56 w-2 -translate-x-1/2 bg-gradient-to-b from-white/35 to-transparent blur-sm" />
+              </div>
+
+              {/* Court markings + players SVG */}
+              <svg
+                viewBox="0 0 800 400"
+                className="absolute inset-0 h-full w-full"
+                preserveAspectRatio="xMidYMid slice"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="court" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#3a2410" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#1a1006" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
+                <rect x="0" y="180" width="800" height="220" fill="url(#court)" />
+                <g stroke="#FAFAF7" strokeOpacity="0.15" strokeWidth="2" fill="none">
+                  <line x1="0" y1="200" x2="800" y2="200" />
+                  <line x1="400" y1="200" x2="400" y2="400" />
+                  <circle cx="400" cy="200" r="40" />
+                  <ellipse cx="400" cy="320" rx="60" ry="20" />
+                </g>
+
+                {/* Player 1 (blue, attacking) */}
+                <g className="player-run" transform="translate(180 230)">
+                  <ellipse cx="0" cy="0" rx="14" ry="22" fill="#4F7DFF" opacity="0.95" />
+                  <circle cx="0" cy="-30" r="10" fill="#D4A574" />
+                  <text x="0" y="3" textAnchor="middle" fill="#FAFAF7" fontSize="12" fontWeight="900">23</text>
+                  <g className="player-arm-left">
+                    <line x1="-12" y1="-10" x2="-22" y2="10" stroke="#D4A574" strokeWidth="6" strokeLinecap="round" />
+                  </g>
+                  <g className="player-arm-right">
+                    <line x1="12" y1="-10" x2="22" y2="15" stroke="#D4A574" strokeWidth="6" strokeLinecap="round" />
+                  </g>
+                  <g className="player-leg-1">
+                    <line x1="-6" y1="20" x2="-10" y2="48" stroke="#1A1F2E" strokeWidth="7" strokeLinecap="round" />
+                    <ellipse cx="-12" cy="50" rx="6" ry="3" fill="#FAFAF7" />
+                  </g>
+                  <g className="player-leg-2">
+                    <line x1="6" y1="20" x2="10" y2="48" stroke="#1A1F2E" strokeWidth="7" strokeLinecap="round" />
+                    <ellipse cx="12" cy="50" rx="6" ry="3" fill="#FAFAF7" />
+                  </g>
+                </g>
+
+                {/* Bouncing basketball */}
+                <g className="basketball-bounce" transform="translate(220 290)">
+                  <g className="basketball-spin">
+                    <circle cx="0" cy="0" r="14" fill="#E67E22" />
+                    <circle cx="0" cy="0" r="14" fill="none" stroke="#000000" strokeWidth="1.5" opacity="0.6" />
+                    <path d="M -14 0 Q 0 -8 14 0" stroke="#000000" strokeWidth="1.2" fill="none" opacity="0.6" />
+                    <path d="M -14 0 Q 0 8 14 0" stroke="#000000" strokeWidth="1.2" fill="none" opacity="0.6" />
+                    <line x1="0" y1="-14" x2="0" y2="14" stroke="#000000" strokeWidth="1.2" opacity="0.6" />
+                  </g>
+                </g>
+
+                {/* Player 2 (red, defending) */}
+                <g className="player-run" style={{ animationDelay: "0.4s" }} transform="translate(540 240)">
+                  <ellipse cx="0" cy="0" rx="14" ry="22" fill="#FF4D5C" opacity="0.95" />
+                  <circle cx="0" cy="-30" r="10" fill="#8B4513" />
+                  <text x="0" y="3" textAnchor="middle" fill="#FAFAF7" fontSize="12" fontWeight="900">7</text>
+                  <g className="player-arm-right">
+                    <line x1="-12" y1="-15" x2="-24" y2="-22" stroke="#8B4513" strokeWidth="6" strokeLinecap="round" />
+                  </g>
+                  <g className="player-arm-left">
+                    <line x1="12" y1="-15" x2="24" y2="-22" stroke="#8B4513" strokeWidth="6" strokeLinecap="round" />
+                  </g>
+                  <g className="player-leg-2">
+                    <line x1="-6" y1="20" x2="-10" y2="48" stroke="#1A1F2E" strokeWidth="7" strokeLinecap="round" />
+                    <ellipse cx="-12" cy="50" rx="6" ry="3" fill="#FAFAF7" />
+                  </g>
+                  <g className="player-leg-1">
+                    <line x1="6" y1="20" x2="10" y2="48" stroke="#1A1F2E" strokeWidth="7" strokeLinecap="round" />
+                    <ellipse cx="12" cy="50" rx="6" ry="3" fill="#FAFAF7" />
+                  </g>
+                </g>
+
+                {/* Right hoop */}
+                <g transform="translate(720 140)">
+                  <line x1="0" y1="0" x2="0" y2="120" stroke="#A8AEBC" strokeWidth="3" />
+                  <rect x="-5" y="0" width="50" height="35" fill="none" stroke="#FAFAF7" strokeWidth="2" />
+                  <ellipse cx="35" cy="70" rx="20" ry="6" fill="none" stroke="#FF4D5C" strokeWidth="2.5" />
+                  <g stroke="#FAFAF7" strokeOpacity="0.6" strokeWidth="1.2" fill="none">
+                    <line x1="20" y1="70" x2="22" y2="92" />
+                    <line x1="28" y1="73" x2="30" y2="95" />
+                    <line x1="35" y1="74" x2="35" y2="96" />
+                    <line x1="42" y1="73" x2="40" y2="95" />
+                    <line x1="50" y1="70" x2="48" y2="92" />
+                  </g>
+                </g>
+
+                {/* Left hoop */}
+                <g transform="translate(80 140)">
+                  <line x1="0" y1="0" x2="0" y2="120" stroke="#A8AEBC" strokeWidth="3" />
+                  <rect x="-45" y="0" width="50" height="35" fill="none" stroke="#FAFAF7" strokeWidth="2" />
+                  <ellipse cx="-35" cy="70" rx="20" ry="6" fill="none" stroke="#FF4D5C" strokeWidth="2.5" />
+                  <g stroke="#FAFAF7" strokeOpacity="0.6" strokeWidth="1.2" fill="none">
+                    <line x1="-50" y1="70" x2="-48" y2="92" />
+                    <line x1="-42" y1="73" x2="-40" y2="95" />
+                    <line x1="-35" y1="74" x2="-35" y2="96" />
+                    <line x1="-28" y1="73" x2="-30" y2="95" />
+                    <line x1="-20" y1="70" x2="-22" y2="92" />
+                  </g>
+                </g>
+
+                {/* Scoreboard */}
+                <g transform="translate(400 80)">
+                  <rect x="-70" y="-25" width="140" height="50" rx="6" fill="#0B0E16" stroke="#4F7DFF" strokeOpacity="0.4" strokeWidth="1.5" />
+                  <text x="-50" y="-5" fill="#A8AEBC" fontSize="9" fontWeight="600">HOME</text>
+                  <text x="50" y="-5" textAnchor="end" fill="#A8AEBC" fontSize="9" fontWeight="600">AWAY</text>
+                  <text x="-50" y="18" fill="#4F7DFF" fontSize="20" fontWeight="900">87</text>
+                  <text x="50" y="18" textAnchor="end" fill="#FF4D5C" fontSize="20" fontWeight="900">82</text>
+                  <text x="0" y="18" textAnchor="middle" fill="#F5B643" fontSize="11" fontWeight="700">Q4</text>
+                </g>
+              </svg>
+
+              <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-[#2A3142] bg-[#0B0E16]/80 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#A8AEBC] backdrop-blur">
+                NBA · LIVE NOW · 4K UHD
+              </div>
+            </div>
+          </div>
+
+          {/* 4 sport icons */}
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {[
+              { i: "🏈", t: "NFL", d: "Every Sunday" },
+              { i: "🏀", t: "NBA", d: "League Pass" },
+              { i: "⚾", t: "MLB", d: "All teams" },
+              { i: "🏒", t: "NHL", d: "Stanley Cup" },
+            ].map((s) => (
+              <div
+                key={s.t}
+                className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5 text-center transition hover:border-[#4F7DFF]/50 hover:bg-[#1A1F2E]"
+              >
+                <div className="text-3xl">{s.i}</div>
+                <div className="mt-2 font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8]">{s.t}</div>
+                <div className="mt-0.5 text-xs text-[#A8AEBC]">{s.d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+            {/* ============================ WHY SWITCH NOW — CONVERSION ENGINE ============================ */}
       <section className="bg-gradient-to-br from-[#0B0E16] via-[#1A1F2E] to-[#0B0E16] py-20 text-white md:py-24 border-y border-[#1F2433]">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
@@ -2208,31 +2386,78 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Pricing cards */}
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Urgency strip — limited spots today */}
+          <div className="mt-10 flex items-center justify-center gap-3 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-5 py-2.5 mx-auto max-w-md">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF4D5C] opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF4D5C]"></span>
+            </span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">
+              ⚡ LIMITED · Only <span className="counter-spots">47</span> spots left today
+            </span>
+          </div>
+
+          {/* Pricing cards — Conversion optimized */}
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {channelPlans.map((plan, i) => {
               const isFeatured = i === 2; // 6 Months — Best Value
+              const isBestDeal = i === 3; // 1 Year — Best Deal
               return (
                 <article
                   key={plan.name}
-                  className={`relative flex flex-col rounded-2xl border p-6 transition hover:shadow-2xl ${
+                  className={`group price-card relative flex flex-col rounded-2xl border p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${
                     isFeatured
-                      ? "border-[#4F7DFF] bg-gradient-to-b from-[#1A1F2E] to-[#141824] ring-1 ring-[#4F7DFF]/30 shadow-[0_20px_60px_-20px_rgba(79,125,255,0.3)]"
-                      : "border-[#2A3142] bg-[#141824]"
+                      ? "price-card-featured border-[#4F7DFF] bg-gradient-to-b from-[#1A1F2E] to-[#141824] ring-2 ring-[#4F7DFF]/40 shadow-[0_20px_60px_-20px_rgba(79,125,255,0.4)]"
+                      : isBestDeal
+                      ? "price-card-deal border-[#F5B643] bg-gradient-to-b from-[#1F1A14] to-[#141824] ring-1 ring-[#F5B643]/30"
+                      : "border-[#2A3142] bg-[#141824] hover:border-[#4F7DFF]/50"
                   }`}
+                  style={{ animationDelay: `${i * 0.1}s` }}
                 >
+                  {/* Featured "Most Popular" ribbon — only on 6 months */}
+                  {isFeatured && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#FF4D5C] via-[#FF6B7A] to-[#FF4D5C] bg-[length:200%_auto] px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg shimmer-bg">
+                      ★ MOST POPULAR
+                    </div>
+                  )}
+                  {isBestDeal && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#F5B643] via-[#FFD175] to-[#F5B643] bg-[length:200%_auto] px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-[#0B0E16] shadow-lg shimmer-bg">
+                      🏆 BEST DEAL
+                    </div>
+                  )}
+
+                  {/* Discount badge — top right corner */}
+                  <div className="absolute -right-2 -top-2 z-10">
+                    <div className="discount-badge relative">
+                      <div className={`grid h-14 w-14 place-items-center rounded-full text-[10px] font-black leading-tight text-center shadow-xl ${
+                        isFeatured
+                          ? "bg-gradient-to-br from-[#FF4D5C] to-[#E63946] text-white"
+                          : isBestDeal
+                          ? "bg-gradient-to-br from-[#F5B643] to-[#E89B2D] text-[#0B0E16]"
+                          : "bg-gradient-to-br from-[#4F7DFF] to-[#3D6BEE] text-white"
+                      }`}>
+                        <div>
+                          <div className="text-[14px] font-black leading-none">{plan.discount.replace(' OFF', '')}</div>
+                          <div className="text-[8px] font-bold tracking-wider opacity-90">OFF</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="flex items-center justify-between">
                     <span
                       className={`rounded-full px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider ${
                         isFeatured
                           ? "bg-[#FF4D5C] text-white"
+                          : isBestDeal
+                          ? "bg-[#F5B643] text-[#0B0E16]"
                           : "border border-[#2A3142] bg-[#1A1F2E] text-[#A8AEBC]"
                       }`}
                     >
                       {plan.badge}
                     </span>
                     <span className="text-xs font-medium uppercase tracking-wider text-[#6E7585]">
-                      Plan
+                      {plan.monthlyEquivalent}
                     </span>
                   </div>
 
@@ -2240,10 +2465,34 @@ export default function Page() {
                     {plan.name}
                   </h3>
 
-                  <div className="mt-2 flex items-baseline gap-1.5">
-                    <span className="font-[family-name:var(--font-display)] text-4xl font-normal text-[#4F7DFF]">
-                      {plan.price}
-                    </span>
+                  {/* PRICE BLOCK — animated, with strikethrough original */}
+                  <div className="mt-3">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-sm text-[#6E7585] line-through opacity-70">
+                        {plan.originalPrice}
+                      </span>
+                      <span className={`text-[10px] font-bold uppercase ${isBestDeal ? "text-[#F5B643]" : "text-[#FF4D5C]"} pulse-text`}>
+                        {plan.discount}
+                      </span>
+                    </div>
+                    <div className="flex items-baseline gap-1.5 mt-1">
+                      <span className={`font-[family-name:var(--font-display)] text-5xl font-bold price-float ${
+                        isFeatured ? "text-[#4F7DFF]" : isBestDeal ? "text-[#F5B643]" : "text-[#F5F6F8]"
+                      }`}>
+                        {plan.price}
+                      </span>
+                      <span className="text-sm text-[#A8AEBC]">USD</span>
+                    </div>
+                  </div>
+
+                  {/* Savings highlight */}
+                  <div className={`mt-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold ${
+                    isBestDeal
+                      ? "bg-[#F5B643]/15 text-[#F5B643]"
+                      : "bg-[#22c55e]/10 text-[#4ADE80]"
+                  }`}>
+                    <span aria-hidden>💰</span>
+                    {plan.saveText}
                   </div>
 
                   <p className="mt-4 flex-1 text-[14px] leading-relaxed text-[#A8AEBC]">
@@ -2269,7 +2518,11 @@ export default function Page() {
                     href={whatsappLink(plan.message)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-medium text-white transition hover:bg-[#1FB855]"
+                    className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-3.5 text-sm font-semibold text-white transition-all ${
+                      isFeatured || isBestDeal
+                        ? "bg-gradient-to-r from-[#25D366] to-[#1FB855] shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 hover:scale-[1.03]"
+                        : "bg-[#25D366] hover:bg-[#1FB855] hover:scale-[1.02]"
+                    }`}
                   >
                     <svg
                       aria-hidden="true"
@@ -2278,11 +2531,35 @@ export default function Page() {
                     >
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
-                    Get This Plan on WhatsApp
+                    {isBestDeal ? "Lock In $55/year ↓" : isFeatured ? "Get Best Value →" : "Get This Plan"}
                   </a>
+
+                  {/* Trust line under button */}
+                  <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-[#6E7585]">
+                    <span>🔒</span>
+                    <span>Activated in 5 minutes</span>
+                  </div>
                 </article>
               );
             })}
+          </div>
+
+          {/* Trust indicators row below cards */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-[#A8AEBC]">
+            <span className="flex items-center gap-1.5">
+              <span className="text-[#F5B643]">★★★★★</span>
+              <span>4.8 / 5 — 12,400+ reviews</span>
+            </span>
+            <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
+            <span className="flex items-center gap-1.5">
+              <span className="text-[#22c55e]">●</span>
+              <span>Money-back guarantee</span>
+            </span>
+            <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
+            <span className="flex items-center gap-1.5">
+              <span>🛡️</span>
+              <span>SSL secure checkout</span>
+            </span>
           </div>
 
           {/* Why our subscription block */}
@@ -3220,11 +3497,6 @@ export default function Page() {
               <li>
                 <button data-install-trigger className="transition hover:text-[#F5F6F8]">
                   📱 Install app · Android · Windows
-                </button>
-              </li>
-              <li>
-                <button data-theme-toggle className="transition hover:text-[#F5F6F8]">
-                  🌓 Toggle dark / light
                 </button>
               </li>
             </ul>
