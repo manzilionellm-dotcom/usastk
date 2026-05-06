@@ -2080,7 +2080,7 @@ export default function Page() {
                 {/* Main image */}
                 <div className="firestick-float relative">
                   <img
-                    src="/images/firestick-remote.webp"
+                    src="/firestick-remote.webp"
                     alt="Amazon Fire TV Stick with voice remote — works with our IPTV"
                     width="500"
                     height="588"
