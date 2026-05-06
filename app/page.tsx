@@ -1039,80 +1039,31 @@ const darkModeCss = `
     animation: score-tick 6s ease-in-out infinite;
   }
 
-  /* ============ BASKETBALL DRIBBLE SECTION ============ */
-  @keyframes basketball-bounce {
-    0%, 100% { transform: translateY(0px) scale(1); }
-    20%      { transform: translateY(20px) scale(1.05, 0.95); }
-    50%      { transform: translateY(-30px) scale(0.97, 1.03); }
-    80%      { transform: translateY(20px) scale(1.05, 0.95); }
+  /* ============ FIRESTICK SHOWCASE ANIMATIONS ============ */
+  @keyframes firestick-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%      { transform: translateY(-12px) rotate(0.5deg); }
+  }
+  .firestick-float {
+    animation: firestick-float 5s ease-in-out infinite;
   }
 
-  @keyframes basketball-spin {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  @keyframes firestick-glow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.05); }
+  }
+  .firestick-glow {
+    animation: firestick-glow 4s ease-in-out infinite;
   }
 
-  @keyframes player-run {
-    0%, 100% { transform: translateX(0px); }
-    50%      { transform: translateX(8px); }
+  @keyframes firestick-ring {
+    0%   { transform: scale(0.85); opacity: 0.6; }
+    50%  { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(1.15); opacity: 0; }
   }
-
-  @keyframes player-arm {
-    0%, 100% { transform: rotate(-15deg); }
-    50%      { transform: rotate(20deg); }
+  .firestick-ring {
+    animation: firestick-ring 3s ease-out infinite;
   }
-
-  @keyframes player-leg-1 {
-    0%, 100% { transform: rotate(-10deg); }
-    50%      { transform: rotate(25deg); }
-  }
-  @keyframes player-leg-2 {
-    0%, 100% { transform: rotate(20deg); }
-    50%      { transform: rotate(-15deg); }
-  }
-
-  .basketball-bounce {
-    animation: basketball-bounce 1.4s ease-in-out infinite;
-    transform-origin: center bottom;
-  }
-  .basketball-spin {
-    animation: basketball-spin 1.4s linear infinite;
-    transform-origin: center;
-    transform-box: fill-box;
-  }
-  .player-run {
-    animation: player-run 0.8s ease-in-out infinite;
-  }
-  .player-arm-left {
-    animation: player-arm 0.8s ease-in-out infinite;
-    transform-origin: top;
-    transform-box: fill-box;
-  }
-  .player-arm-right {
-    animation: player-arm 0.8s ease-in-out infinite reverse;
-    transform-origin: top;
-    transform-box: fill-box;
-  }
-  .player-leg-1 {
-    animation: player-leg-1 0.8s ease-in-out infinite;
-    transform-origin: top;
-    transform-box: fill-box;
-  }
-  .player-leg-2 {
-    animation: player-leg-2 0.8s ease-in-out infinite;
-    transform-origin: top;
-    transform-box: fill-box;
-  }
-
-  /* ============ STADIUM CROWD ============ */
-  @keyframes crowd-cheer {
-    0%, 100% { transform: translateY(0px); }
-    50%      { transform: translateY(-3px); }
-  }
-  .crowd-1 { animation: crowd-cheer 1.2s ease-in-out infinite; }
-  .crowd-2 { animation: crowd-cheer 1.2s ease-in-out infinite; animation-delay: 0.3s; }
-  .crowd-3 { animation: crowd-cheer 1.2s ease-in-out infinite; animation-delay: 0.6s; }
-  .crowd-4 { animation: crowd-cheer 1.2s ease-in-out infinite; animation-delay: 0.9s; }
 
   /* ============ PRICING CARD CONVERSION ANIMATIONS ============ */
 
@@ -1199,10 +1150,7 @@ const darkModeCss = `
   @media (prefers-reduced-motion: reduce) {
     .nfl-ball-fly, .nfl-ball-spin, .float-bubble,
     .stadium-beam-1, .stadium-beam-2, .score-tick,
-    .basketball-bounce, .basketball-spin,
-    .player-run, .player-arm-left, .player-arm-right,
-    .player-leg-1, .player-leg-2,
-    .crowd-1, .crowd-2, .crowd-3, .crowd-4,
+    .firestick-float, .firestick-glow, .firestick-ring,
     .price-float, .pulse-text, .discount-badge,
     .shimmer-bg, .price-card-featured, .price-card-deal,
     .counter-spots, .price-card {
@@ -1890,166 +1838,164 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============================ ANIMATED SPORTS SCENE ============================ */}
-      <section className="relative overflow-hidden bg-[#0E1119] py-16 md:py-20">
+      {/* ============================ FIRESTICK SHOWCASE ============================ */}
+      <section className="relative overflow-hidden bg-[#0E1119] py-16 md:py-24">
+        {/* Ambient glow background */}
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-radial from-[#4F7DFF]/[0.10] via-[#FF4D5C]/[0.05] to-transparent blur-3xl" />
+        </div>
+
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="mb-10 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">
-              🏀 LIVE SPORTS · ALL YEAR ROUND
-            </span>
-            <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] text-[#F5F6F8] md:text-5xl">
-              Every game. Every league.{" "}
-              <span className="italic text-[#4F7DFF]">Every season.</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#A8AEBC]">
-              From NFL Sundays to NBA Finals, MLB World Series to NHL Stanley Cup —
-              your Firestick becomes a stadium. In 4K. With zero buffering.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12">
+            {/* LEFT: Copy + features */}
+            <div className="md:col-span-6 md:order-1 order-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">
+                🔥 Works on every Fire TV Stick
+              </span>
 
-          {/* Basketball court animated scene */}
-          <div className="relative mx-auto overflow-hidden rounded-3xl border border-[#2A3142] bg-gradient-to-b from-[#1A1F2E] via-[#141824] to-[#0B0E16] shadow-2xl">
-            <div className="relative h-[300px] sm:h-[360px] md:h-[420px]">
-              {/* Stadium crowd silhouettes top */}
-              <div className="absolute left-0 right-0 top-0 h-12 overflow-hidden bg-gradient-to-b from-[#0B0E16] to-transparent">
-                <div className="flex justify-around pt-2">
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={"h-6 w-4 rounded-t-full bg-[#2A3142] crowd-" + ((i % 4) + 1)}
-                    />
-                  ))}
+              <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] text-[#F5F6F8] md:text-5xl">
+                Plug it in.{" "}
+                <span className="italic text-[#4F7DFF]">Stream everything.</span>
+              </h2>
+
+              <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
+                Already own a Fire TV Stick? You&rsquo;re ready. Our IPTV works flawlessly on{" "}
+                <strong className="text-[#F5F6F8]">every Amazon Firestick model</strong> — from the original
+                Fire TV Stick to the latest 4K Max with Wi-Fi 6E. Just install in 5 minutes,
+                sign in once, and watch every NFL game in 4K.
+              </p>
+
+              {/* Compatibility list */}
+              <div className="mt-8 space-y-3">
+                {[
+                  { name: "Fire TV Stick (basic / lite)", spec: "1080p HD, perfect for cable replacement", icon: "📺" },
+                  { name: "Fire TV Stick 4K", spec: "4K UHD + HDR for premium NFL games", icon: "🎬" },
+                  { name: "Fire TV Stick 4K Max (2nd gen)", spec: "Wi-Fi 6E + 16GB — zero buffering", icon: "⚡" },
+                  { name: "Fire TV Cube (3rd gen)", spec: "Hands-free Alexa + full Ethernet", icon: "🔊" },
+                ].map((d) => (
+                  <div
+                    key={d.name}
+                    className="flex items-center gap-4 rounded-xl border border-[#2A3142] bg-[#141824] p-4 transition hover:border-[#4F7DFF]/50 hover:bg-[#1A1F2E]"
+                  >
+                    <span className="text-2xl">{d.icon}</span>
+                    <div className="flex-1">
+                      <div className="text-sm font-semibold text-[#F5F6F8]">{d.name}</div>
+                      <div className="mt-0.5 text-xs text-[#A8AEBC]">{d.spec}</div>
+                    </div>
+                    <span className="rounded-full bg-[#22c55e]/10 px-2 py-1 text-[10px] font-semibold uppercase text-[#4ADE80]">
+                      ✓ Works
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#setup"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#4F7DFF] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#4F7DFF]/30 transition hover:scale-[1.03] hover:bg-[#3D6BEE] hover:shadow-xl hover:shadow-[#4F7DFF]/40"
+                >
+                  See setup guide →
+                </a>
+                <a
+                  href="#premium-channels"
+                  className="inline-flex items-center justify-center rounded-full border border-[#2A3142] bg-[#1A1F2E] px-7 py-3.5 text-sm font-semibold text-[#F5F6F8] transition hover:border-[#4F7DFF]"
+                >
+                  See plans from $12
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT: Firestick image with floating badges */}
+            <div className="md:col-span-6 md:order-2 order-1">
+              <div className="relative mx-auto max-w-md">
+                {/* Glowing aura behind image */}
+                <div className="pointer-events-none absolute inset-0 -z-10">
+                  <div className="absolute left-1/2 top-1/2 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[#4F7DFF]/30 via-[#FF4D5C]/20 to-transparent blur-3xl firestick-glow" />
                 </div>
-              </div>
 
-              {/* Stadium light beams */}
-              <div className="pointer-events-none absolute inset-0">
-                <div className="stadium-beam-1 absolute -top-20 left-[15%] h-48 w-1.5 rotate-12 bg-gradient-to-b from-white/30 to-transparent blur-sm" />
-                <div className="stadium-beam-2 absolute -top-20 right-[20%] h-48 w-1.5 -rotate-12 bg-gradient-to-b from-white/30 to-transparent blur-sm" />
-                <div className="stadium-beam-1 absolute -top-20 left-1/2 h-56 w-2 -translate-x-1/2 bg-gradient-to-b from-white/35 to-transparent blur-sm" />
-              </div>
+                {/* Main image */}
+                <div className="firestick-float relative">
+                  <img
+                    src="/images/firestick-remote.webp"
+                    alt="Amazon Fire TV Stick with voice remote — works with our IPTV"
+                    width="500"
+                    height="588"
+                    loading="lazy"
+                    className="relative z-10 mx-auto h-auto w-full max-w-sm drop-shadow-[0_30px_50px_rgba(0,0,0,0.5)]"
+                  />
+                </div>
 
-              {/* Court markings + players SVG */}
-              <svg
-                viewBox="0 0 800 400"
-                className="absolute inset-0 h-full w-full"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden="true"
-              >
-                <defs>
-                  <linearGradient id="court" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#3a2410" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#1a1006" stopOpacity="0.3" />
-                  </linearGradient>
-                </defs>
-                <rect x="0" y="180" width="800" height="220" fill="url(#court)" />
-                <g stroke="#FAFAF7" strokeOpacity="0.15" strokeWidth="2" fill="none">
-                  <line x1="0" y1="200" x2="800" y2="200" />
-                  <line x1="400" y1="200" x2="400" y2="400" />
-                  <circle cx="400" cy="200" r="40" />
-                  <ellipse cx="400" cy="320" rx="60" ry="20" />
-                </g>
+                {/* Floating badge: 5-min setup */}
+                <div className="float-bubble absolute -left-4 top-12 rounded-2xl border border-[#2A3142] bg-[#141824]/90 p-3 shadow-xl backdrop-blur-sm md:-left-8">
+                  <div className="flex items-center gap-2.5">
+                    <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[#4F7DFF] to-[#3D6BEE] text-base">
+                      ⚡
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">5-min setup</div>
+                      <div className="text-[10px] text-[#A8AEBC]">From plug-in to NFL</div>
+                    </div>
+                  </div>
+                </div>
 
-                {/* Player 1 (blue, attacking) */}
-                <g className="player-run" transform="translate(180 230)">
-                  <ellipse cx="0" cy="0" rx="14" ry="22" fill="#4F7DFF" opacity="0.95" />
-                  <circle cx="0" cy="-30" r="10" fill="#D4A574" />
-                  <text x="0" y="3" textAnchor="middle" fill="#FAFAF7" fontSize="12" fontWeight="900">23</text>
-                  <g className="player-arm-left">
-                    <line x1="-12" y1="-10" x2="-22" y2="10" stroke="#D4A574" strokeWidth="6" strokeLinecap="round" />
-                  </g>
-                  <g className="player-arm-right">
-                    <line x1="12" y1="-10" x2="22" y2="15" stroke="#D4A574" strokeWidth="6" strokeLinecap="round" />
-                  </g>
-                  <g className="player-leg-1">
-                    <line x1="-6" y1="20" x2="-10" y2="48" stroke="#1A1F2E" strokeWidth="7" strokeLinecap="round" />
-                    <ellipse cx="-12" cy="50" rx="6" ry="3" fill="#FAFAF7" />
-                  </g>
-                  <g className="player-leg-2">
-                    <line x1="6" y1="20" x2="10" y2="48" stroke="#1A1F2E" strokeWidth="7" strokeLinecap="round" />
-                    <ellipse cx="12" cy="50" rx="6" ry="3" fill="#FAFAF7" />
-                  </g>
-                </g>
+                {/* Floating badge: 4K UHD */}
+                <div
+                  className="float-bubble absolute -right-2 top-1/3 rounded-2xl border border-[#2A3142] bg-[#141824]/90 p-3 shadow-xl backdrop-blur-sm md:-right-6"
+                  style={{ animationDelay: "0.5s" }}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[#FF4D5C] to-[#E63946] text-base">
+                      🎬
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">4K UHD</div>
+                      <div className="text-[10px] text-[#A8AEBC]">Cinema-grade picture</div>
+                    </div>
+                  </div>
+                </div>
 
-                {/* Bouncing basketball */}
-                <g className="basketball-bounce" transform="translate(220 290)">
-                  <g className="basketball-spin">
-                    <circle cx="0" cy="0" r="14" fill="#E67E22" />
-                    <circle cx="0" cy="0" r="14" fill="none" stroke="#000000" strokeWidth="1.5" opacity="0.6" />
-                    <path d="M -14 0 Q 0 -8 14 0" stroke="#000000" strokeWidth="1.2" fill="none" opacity="0.6" />
-                    <path d="M -14 0 Q 0 8 14 0" stroke="#000000" strokeWidth="1.2" fill="none" opacity="0.6" />
-                    <line x1="0" y1="-14" x2="0" y2="14" stroke="#000000" strokeWidth="1.2" opacity="0.6" />
-                  </g>
-                </g>
+                {/* Floating badge: Anti-Freeze */}
+                <div
+                  className="float-bubble absolute -left-2 bottom-12 rounded-2xl border border-[#2A3142] bg-[#141824]/90 p-3 shadow-xl backdrop-blur-sm md:-left-6"
+                  style={{ animationDelay: "1s" }}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[#22c55e] to-[#16a34a] text-base">
+                      🛡️
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">Anti-Freeze 6.0</div>
+                      <div className="text-[10px] text-[#A8AEBC]">Zero buffering</div>
+                    </div>
+                  </div>
+                </div>
 
-                {/* Player 2 (red, defending) */}
-                <g className="player-run" style={{ animationDelay: "0.4s" }} transform="translate(540 240)">
-                  <ellipse cx="0" cy="0" rx="14" ry="22" fill="#FF4D5C" opacity="0.95" />
-                  <circle cx="0" cy="-30" r="10" fill="#8B4513" />
-                  <text x="0" y="3" textAnchor="middle" fill="#FAFAF7" fontSize="12" fontWeight="900">7</text>
-                  <g className="player-arm-right">
-                    <line x1="-12" y1="-15" x2="-24" y2="-22" stroke="#8B4513" strokeWidth="6" strokeLinecap="round" />
-                  </g>
-                  <g className="player-arm-left">
-                    <line x1="12" y1="-15" x2="24" y2="-22" stroke="#8B4513" strokeWidth="6" strokeLinecap="round" />
-                  </g>
-                  <g className="player-leg-2">
-                    <line x1="-6" y1="20" x2="-10" y2="48" stroke="#1A1F2E" strokeWidth="7" strokeLinecap="round" />
-                    <ellipse cx="-12" cy="50" rx="6" ry="3" fill="#FAFAF7" />
-                  </g>
-                  <g className="player-leg-1">
-                    <line x1="6" y1="20" x2="10" y2="48" stroke="#1A1F2E" strokeWidth="7" strokeLinecap="round" />
-                    <ellipse cx="12" cy="50" rx="6" ry="3" fill="#FAFAF7" />
-                  </g>
-                </g>
+                {/* Floating badge: NFL ready */}
+                <div
+                  className="float-bubble absolute -right-2 bottom-20 rounded-2xl border border-[#FF4D5C]/40 bg-gradient-to-br from-[#1A1F2E] to-[#141824] p-3 shadow-xl backdrop-blur-sm md:-right-8"
+                  style={{ animationDelay: "1.5s" }}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[#F5B643] to-[#E89B2D] text-base">
+                      🏈
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">NFL Sunday</div>
+                      <div className="text-[10px] text-[#A8AEBC]">All 272 games</div>
+                    </div>
+                  </div>
+                </div>
 
-                {/* Right hoop */}
-                <g transform="translate(720 140)">
-                  <line x1="0" y1="0" x2="0" y2="120" stroke="#A8AEBC" strokeWidth="3" />
-                  <rect x="-5" y="0" width="50" height="35" fill="none" stroke="#FAFAF7" strokeWidth="2" />
-                  <ellipse cx="35" cy="70" rx="20" ry="6" fill="none" stroke="#FF4D5C" strokeWidth="2.5" />
-                  <g stroke="#FAFAF7" strokeOpacity="0.6" strokeWidth="1.2" fill="none">
-                    <line x1="20" y1="70" x2="22" y2="92" />
-                    <line x1="28" y1="73" x2="30" y2="95" />
-                    <line x1="35" y1="74" x2="35" y2="96" />
-                    <line x1="42" y1="73" x2="40" y2="95" />
-                    <line x1="50" y1="70" x2="48" y2="92" />
-                  </g>
-                </g>
-
-                {/* Left hoop */}
-                <g transform="translate(80 140)">
-                  <line x1="0" y1="0" x2="0" y2="120" stroke="#A8AEBC" strokeWidth="3" />
-                  <rect x="-45" y="0" width="50" height="35" fill="none" stroke="#FAFAF7" strokeWidth="2" />
-                  <ellipse cx="-35" cy="70" rx="20" ry="6" fill="none" stroke="#FF4D5C" strokeWidth="2.5" />
-                  <g stroke="#FAFAF7" strokeOpacity="0.6" strokeWidth="1.2" fill="none">
-                    <line x1="-50" y1="70" x2="-48" y2="92" />
-                    <line x1="-42" y1="73" x2="-40" y2="95" />
-                    <line x1="-35" y1="74" x2="-35" y2="96" />
-                    <line x1="-28" y1="73" x2="-30" y2="95" />
-                    <line x1="-20" y1="70" x2="-22" y2="92" />
-                  </g>
-                </g>
-
-                {/* Scoreboard */}
-                <g transform="translate(400 80)">
-                  <rect x="-70" y="-25" width="140" height="50" rx="6" fill="#0B0E16" stroke="#4F7DFF" strokeOpacity="0.4" strokeWidth="1.5" />
-                  <text x="-50" y="-5" fill="#A8AEBC" fontSize="9" fontWeight="600">HOME</text>
-                  <text x="50" y="-5" textAnchor="end" fill="#A8AEBC" fontSize="9" fontWeight="600">AWAY</text>
-                  <text x="-50" y="18" fill="#4F7DFF" fontSize="20" fontWeight="900">87</text>
-                  <text x="50" y="18" textAnchor="end" fill="#FF4D5C" fontSize="20" fontWeight="900">82</text>
-                  <text x="0" y="18" textAnchor="middle" fill="#F5B643" fontSize="11" fontWeight="700">Q4</text>
-                </g>
-              </svg>
-
-              <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-[#2A3142] bg-[#0B0E16]/80 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#A8AEBC] backdrop-blur">
-                NBA · LIVE NOW · 4K UHD
+                {/* Pulse rings around the firestick */}
+                <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">
+                  <div className="firestick-ring h-72 w-72 rounded-full border border-[#4F7DFF]/20" />
+                </div>
               </div>
             </div>
           </div>
 
-          {/* 4 sport icons */}
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {/* Sport icons row */}
+          <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { i: "🏈", t: "NFL", d: "Every Sunday" },
               { i: "🏀", t: "NBA", d: "League Pass" },
@@ -2058,7 +2004,7 @@ export default function Page() {
             ].map((s) => (
               <div
                 key={s.t}
-                className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5 text-center transition hover:border-[#4F7DFF]/50 hover:bg-[#1A1F2E]"
+                className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5 text-center transition hover:scale-[1.04] hover:border-[#4F7DFF]/50 hover:bg-[#1A1F2E]"
               >
                 <div className="text-3xl">{s.i}</div>
                 <div className="mt-2 font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8]">{s.t}</div>
@@ -2068,7 +2014,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
             {/* ============================ WHY SWITCH NOW — CONVERSION ENGINE ============================ */}
       <section className="bg-gradient-to-br from-[#0B0E16] via-[#1A1F2E] to-[#0B0E16] py-20 text-white md:py-24 border-y border-[#1F2433]">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
