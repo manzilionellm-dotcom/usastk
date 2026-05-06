@@ -21,7 +21,7 @@ export const metadata = {
     template: "%s | IPTV For Firestick USA",
   },
   description:
-    "★ America's #1 IPTV for Firestick 2026 ★ Cut the cord, save $1,764/year vs Comcast. 50,000+ live channels in 4K UHD — every NFL game, NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, Peacock. Anti-Freeze 6.0 technology, 99.9% uptime, instant 5-minute activation on WhatsApp. Works on Amazon Firestick 4K Max, Smart TV, Android, iPhone, iPad, Windows, Mac. 24-hour free trial — no credit card required. Plans from $12/month, $55/year. Trusted by 12,400+ US households from New York to Los Angeles.",
+    "★ America's #1 IPTV for Firestick 2026 ★ Cut the cord, save $1,764/year vs Comcast. 50,000+ live channels in 4K UHD — every NFL game, NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, Peacock + 100% canales en español: Telemundo, Univision, Liga MX, Canelo Álvarez, telenovelas, El Tri. Anti-Freeze 6.0 technology, 99.9% uptime, instant 5-minute activation on WhatsApp. English, Español & Français support 24/7. Works on Amazon Firestick 4K Max, Smart TV, Android, iPhone, iPad, Windows, Mac. 24-hour free trial — no credit card required. Plans from $12/month, $55/year. Trusted by 12,400+ US households from New York to Los Angeles, Miami to Houston.",
   keywords: [
     // ============ TIER 1: HEAD COMMERCIAL — HIGHEST USA VOLUME ============
     "best iptv usa",
@@ -505,6 +505,169 @@ export const metadata = {
     "iptv vs antenna",
     "best iptv vs best cable",
     "iptv vs cable tv comparison",
+    // ============ TIER 11: HISPANIC / LATINO USA — MASSIVE NICHE (63M+ PEOPLE, $4.1T POWER) ============
+    "iptv español usa",
+    "iptv en español usa",
+    "iptv español estados unidos",
+    "iptv para hispanos usa",
+    "iptv para latinos usa",
+    "mejor iptv usa",
+    "mejor iptv español 2026",
+    "iptv barato usa",
+    "iptv barato español",
+    "iptv firestick español",
+    "iptv firestick en español",
+    "iptv firestick para latinos",
+    "instalar iptv firestick español",
+    "como instalar iptv en firestick",
+    "configurar iptv firestick",
+    "iptv smarters pro español",
+    "tivimate español",
+    "canales en español iptv",
+    "iptv canales latinos",
+    "iptv canales mexicanos",
+    "iptv telemundo",
+    "iptv univision",
+    "iptv univision sin cable",
+    "iptv galavision",
+    "iptv telemundo sin cable",
+    "ver telemundo gratis",
+    "ver univision gratis",
+    "ver univision en vivo",
+    "ver telemundo en vivo",
+    // Liga MX — #1 most watched soccer league in USA
+    "liga mx iptv",
+    "ver liga mx en vivo",
+    "ver liga mx gratis",
+    "liga mx streaming usa",
+    "iptv liga mx",
+    "club america iptv",
+    "club america en vivo",
+    "chivas guadalajara iptv",
+    "chivas en vivo gratis",
+    "cruz azul iptv",
+    "pumas unam iptv",
+    "tigres uanl en vivo",
+    "monterrey rayados iptv",
+    "santos laguna en vivo",
+    "leon fc en vivo",
+    "ver futbol mexicano gratis",
+    "ver futbol en vivo gratis usa",
+    "futbol gratis usa",
+    "futbol mexicano usa",
+    // Mexican national team / Selección
+    "seleccion mexicana iptv",
+    "el tri en vivo",
+    "ver el tri gratis",
+    "mexico vs argentina iptv",
+    "mexico vs estados unidos en vivo",
+    // Copa América / international
+    "copa america iptv",
+    "copa america en vivo gratis",
+    "copa america 2026 streaming",
+    "copa libertadores iptv",
+    "copa libertadores en vivo",
+    "mundial 2026 iptv",
+    "mundial 2026 en vivo",
+    "fifa world cup 2026 spanish",
+    // La Liga / Spanish soccer
+    "la liga español iptv",
+    "real madrid en vivo gratis usa",
+    "barcelona iptv",
+    "el clasico iptv",
+    "el clasico en vivo gratis",
+    "la liga en español",
+    "atletico madrid iptv",
+    // Boxing — huge among Hispanics (Canelo, etc)
+    "canelo alvarez pelea iptv",
+    "canelo alvarez en vivo",
+    "ver canelo gratis",
+    "boxeo iptv español",
+    "boxeo en vivo gratis",
+    "tyson fury vs canelo iptv",
+    "ryan garcia iptv",
+    "david benavidez iptv",
+    "boxeo mexicano iptv",
+    // Telenovelas + entertainment Hispanic
+    "telenovelas iptv",
+    "ver telenovelas gratis",
+    "telenovelas mexicanas iptv",
+    "telenovelas turcas iptv",
+    "novelas en español usa",
+    "caso cerrado iptv",
+    "el chavo del 8 iptv",
+    "rosa de guadalupe iptv",
+    "iptv programas mexicanos",
+    "tv azteca iptv",
+    "azteca uno iptv",
+    "azteca 7 iptv",
+    "canal 5 mexico iptv",
+    "las estrellas iptv",
+    // Hispanic TV shows / news
+    "iptv noticias en español",
+    "noticias telemundo iptv",
+    "noticias univision iptv",
+    "primer impacto iptv",
+    "al rojo vivo iptv",
+    "despierta america iptv",
+    // City-level Hispanic markets
+    "iptv español los angeles",
+    "iptv español miami",
+    "iptv español houston",
+    "iptv español dallas",
+    "iptv español phoenix",
+    "iptv español new york",
+    "iptv español chicago",
+    "iptv español san antonio",
+    "iptv español el paso",
+    "iptv español san diego",
+    // Pricing in Spanish
+    "iptv precio español",
+    "iptv 12 dolares mensual",
+    "suscripcion iptv español",
+    "iptv pago mensual español",
+    "iptv anual español",
+    // Trial in Spanish
+    "iptv prueba gratis español",
+    "iptv prueba 24 horas",
+    "iptv gratis prueba español",
+    "probar iptv antes de comprar",
+    "iptv sin tarjeta de credito",
+    "iptv sin compromiso",
+    // Voice search Spanish
+    "como ver liga mx sin cable",
+    "como ver telemundo sin cable",
+    "como cancelar comcast xfinity",
+    "como ver futbol gratis en estados unidos",
+    "como ver canelo pelea gratis",
+    "cual es el mejor iptv en español",
+    "cuanto cuesta iptv en estados unidos",
+    "donde comprar iptv en estados unidos",
+    "iptv que tiene canales mexicanos",
+    "iptv que tiene liga mx",
+    // ============ TIER 12: BILINGUAL / FRENCH SUPPORT (CARIBBEAN, QUEBEC NEAR USA) ============
+    "iptv francais usa",
+    "iptv français états-unis",
+    "iptv francophone usa",
+    "iptv haitien usa",
+    "iptv en français usa",
+    "tv5 monde iptv",
+    "rfi iptv",
+    "france 24 iptv",
+    "iptv francais haiti",
+    "iptv canadien francais",
+    "tva iptv usa",
+    // ============ TIER 13: TRILINGUAL SUPPORT KEYWORDS ============
+    "iptv multilingual usa",
+    "iptv multilingue usa",
+    "iptv bilingual support",
+    "iptv soporte español",
+    "iptv whatsapp español",
+    "iptv whatsapp en español",
+    "iptv ayuda en español",
+    "iptv atencion al cliente español",
+    "iptv soporte 24 horas español",
+    "iptv asistencia bilingüe",
   ],
   authors: [{ name: "IPTV For Firestick USA Editorial", url: SITE_URL }],
   creator: "IPTV For Firestick USA",
@@ -1611,6 +1774,7 @@ export default function Page() {
           <nav className="hidden items-center gap-6 text-sm text-[#A8AEBC] md:flex">
             <a href="#premium-channels" className="font-semibold text-[#FF4D5C] transition hover:text-[#E63946]">Get IPTV $12</a>
             <a href="#nfl-iptv" className="transition hover:text-[#F5F6F8]">🏈 NFL</a>
+            <a href="#espanol" className="transition hover:text-[#F5B643]">⚽ Español</a>
             <a href="#setup" className="transition hover:text-[#F5F6F8]">Setup</a>
             <a href="#cable-vs-iptv" className="transition hover:text-[#F5F6F8]">vs Cable</a>
             <a href="#us-channels" className="transition hover:text-[#F5F6F8]">US Channels</a>
@@ -3304,7 +3468,394 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============================ FINAL CTA ============================ */}
+      {/* ============================ HISPANIC / LATINO SECTION — 63M+ AUDIENCE ============================ */}
+      <section id="espanol" className="relative overflow-hidden bg-[#0E1119] py-20 md:py-28">
+        {/* Vibrant ambient background */}
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -left-32 top-20 h-96 w-96 rounded-full bg-[#FF4D5C]/[0.10] blur-3xl" />
+          <div className="absolute right-0 bottom-20 h-96 w-96 rounded-full bg-[#F5B643]/[0.10] blur-3xl" />
+        </div>
+
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="max-w-3xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#F5B643]/30 bg-[#F5B643]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#F5B643]">
+              ⚽ HECHO PARA LATINOS · 63M+ AUDIENCE
+            </span>
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] text-[#F5F6F8] md:text-5xl">
+              Todos los canales en español.{" "}
+              <span className="italic text-[#F5B643]">Liga MX. Canelo. Telenovelas.</span>
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
+              <strong className="text-[#F5F6F8]">¡Bienvenidos!</strong> Más de 63 millones de hispanos viven en
+              Estados Unidos, y estamos hechos para ustedes. Disfruta{" "}
+              <strong className="text-[#F5F6F8]">Telemundo, Univision, TUDN, Liga MX</strong> en vivo,
+              Selección Mexicana, todas las peleas de Canelo Álvarez,{" "}
+              <strong className="text-[#F5F6F8]">+5,000 canales en español</strong>, telenovelas mexicanas, turcas y colombianas,
+              series y películas latinas — todo en 4K UHD desde tu Firestick. Soporte 100% en español por WhatsApp.
+            </p>
+          </div>
+
+          {/* Hispanic content categories */}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                tag: "FÚTBOL",
+                icon: "⚽",
+                title: "Liga MX & Selección",
+                items: [
+                  "Liga MX completa (Apertura + Clausura)",
+                  "Club América, Chivas, Cruz Azul",
+                  "Selección Mexicana — El Tri",
+                  "TUDN, Univision Deportes",
+                  "Copa América 2026 en vivo",
+                  "Mundial 2026 — todos los partidos",
+                ],
+                color: "#22c55e",
+              },
+              {
+                tag: "BOXEO",
+                icon: "🥊",
+                title: "Canelo & PPV gratis",
+                items: [
+                  "Todas las peleas de Canelo Álvarez",
+                  "Ryan Garcia, David Benavidez",
+                  "Boxeo mexicano completo",
+                  "ESPN Deportes Boxing",
+                  "DAZN Boxing, Fox Deportes",
+                  "PPV incluidos — sin cargos extra",
+                ],
+                color: "#FF4D5C",
+              },
+              {
+                tag: "NOTICIAS",
+                icon: "📺",
+                title: "Telemundo & Univision",
+                items: [
+                  "Univision en vivo 24/7",
+                  "Telemundo en vivo 24/7",
+                  "Despierta América",
+                  "Primer Impacto",
+                  "Al Rojo Vivo",
+                  "CNN en Español",
+                ],
+                color: "#4F7DFF",
+              },
+              {
+                tag: "NOVELAS",
+                icon: "💕",
+                title: "Telenovelas latinas",
+                items: [
+                  "Las Estrellas, Azteca Uno, Azteca 7",
+                  "Telenovelas mexicanas clásicas",
+                  "Telenovelas turcas dobladas",
+                  "Telenovelas colombianas",
+                  "Caso Cerrado, Rosa de Guadalupe",
+                  "Series Netflix Latina",
+                ],
+                color: "#F5B643",
+              },
+              {
+                tag: "LA LIGA",
+                icon: "🏆",
+                title: "Fútbol europeo",
+                items: [
+                  "La Liga española completa",
+                  "Real Madrid, Barcelona — El Clásico",
+                  "Atlético Madrid, Sevilla",
+                  "Champions League — UEFA",
+                  "Europa League",
+                  "Premier League en español",
+                ],
+                color: "#22c55e",
+              },
+              {
+                tag: "ENTRETENIMIENTO",
+                icon: "🎬",
+                title: "Películas & series",
+                items: [
+                  "Películas mexicanas latest",
+                  "El Chavo del 8 — clásicos",
+                  "Películas latinas en HD",
+                  "Galavisión, Discovery en Español",
+                  "History Channel Latinoamérica",
+                  "Series infantiles — Cartoon Network",
+                ],
+                color: "#FF4D5C",
+              },
+            ].map((cat) => (
+              <article
+                key={cat.title}
+                className="group rounded-2xl border border-[#2A3142] bg-[#141824] p-6 transition hover:border-[#F5B643]/50 hover:bg-[#1A1F2E] hover:shadow-2xl"
+              >
+                <div className="flex items-center justify-between">
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-wider"
+                    style={{ color: cat.color }}
+                  >
+                    {cat.tag}
+                  </span>
+                  <span className="text-2xl" aria-hidden>{cat.icon}</span>
+                </div>
+                <h3 className="mt-3 font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8]">
+                  {cat.title}
+                </h3>
+                <ul className="mt-4 space-y-2 text-[13px] text-[#A8AEBC]">
+                  {cat.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-0.5" style={{ color: cat.color }}>●</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          {/* Hispanic stats banner */}
+          <div className="mt-12 grid grid-cols-2 gap-4 rounded-3xl border border-[#F5B643]/30 bg-gradient-to-r from-[#1F1A14] via-[#141824] to-[#1A1F2E] p-6 md:grid-cols-4 md:p-8">
+            {[
+              { v: "63M+", l: "Hispanos en USA", c: "#F5B643" },
+              { v: "5,000+", l: "Canales en español", c: "#22c55e" },
+              { v: "78%", l: "Usan streaming", c: "#FF4D5C" },
+              { v: "$12/mes", l: "Desde solo", c: "#4F7DFF" },
+            ].map((s) => (
+              <div key={s.l} className="text-center">
+                <div
+                  className="font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl"
+                  style={{ color: s.c }}
+                >
+                  {s.v}
+                </div>
+                <div className="mt-1 text-[12px] leading-tight text-[#A8AEBC]">{s.l}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Spanish CTA */}
+          <div className="mt-10 flex flex-col items-center gap-5 text-center">
+            <p className="max-w-xl text-lg text-[#A8AEBC]">
+              <strong className="text-[#F5F6F8]">Prueba gratis 24 horas.</strong> Sin tarjeta de crédito. Cancela cuando quieras.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href={whatsappLink("¡Hola! Quiero la prueba gratis de 24 horas de IPTV en español por favor.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/30 transition hover:scale-[1.03] hover:bg-[#1FB855]"
+              >
+                💬 Prueba gratis · WhatsApp en español
+              </a>
+              <a
+                href="#premium-channels"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#F5B643]/40 bg-[#F5B643]/[0.08] px-7 py-3.5 text-sm font-semibold text-[#F5B643] transition hover:bg-[#F5B643]/[0.15]"
+              >
+                Ver planes desde $12/mes →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================ TRILINGUAL SUPPORT CHAT — EN/ES/FR ============================ */}
+      <section id="support" className="relative overflow-hidden bg-[#0B0E16] py-20 md:py-24">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-radial from-[#4F7DFF]/[0.08] via-transparent to-transparent blur-3xl" />
+        </div>
+
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="max-w-3xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#4F7DFF]/30 bg-[#4F7DFF]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#4F7DFF]">
+              🌍 24/7 SUPPORT · ENGLISH · ESPAÑOL · FRANÇAIS
+            </span>
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] text-[#F5F6F8] md:text-5xl">
+              Real human support.{" "}
+              <span className="italic text-[#4F7DFF]">In your language.</span>
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
+              No bots. No 48-hour ticket queues. Get help from a real person on WhatsApp —
+              replies within minutes, fluent in <strong className="text-[#F5F6F8]">English, Español and Français</strong>.
+              Setup help, troubleshooting, plan changes — anything you need.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
+            {/* LEFT: Trilingual chat preview */}
+            <div className="md:col-span-7">
+              <div className="overflow-hidden rounded-3xl border border-[#2A3142] bg-gradient-to-br from-[#141824] to-[#0E1119] shadow-2xl">
+                {/* Chat header */}
+                <div className="flex items-center justify-between border-b border-[#2A3142] bg-[#0B0E16] px-5 py-4">
+                  <div className="flex items-center gap-3">
+                    {/* Professional support agent SVG avatar */}
+                    <div className="relative">
+                      <svg viewBox="0 0 60 60" className="h-12 w-12" aria-hidden="true">
+                        <defs>
+                          <linearGradient id="agentBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stopColor="#4F7DFF" />
+                            <stop offset="100%" stopColor="#3D6BEE" />
+                          </linearGradient>
+                        </defs>
+                        <circle cx="30" cy="30" r="30" fill="url(#agentBg)" />
+                        {/* Headset */}
+                        <path
+                          d="M 12 26 Q 12 14 30 14 Q 48 14 48 26"
+                          stroke="#F5F6F8"
+                          strokeWidth="2.5"
+                          fill="none"
+                          strokeLinecap="round"
+                        />
+                        <rect x="9" y="24" width="6" height="10" rx="2" fill="#F5F6F8" />
+                        <rect x="45" y="24" width="6" height="10" rx="2" fill="#F5F6F8" />
+                        {/* Mic boom */}
+                        <line x1="48" y1="30" x2="42" y2="38" stroke="#F5F6F8" strokeWidth="2" strokeLinecap="round" />
+                        <ellipse cx="40" cy="40" rx="3" ry="2" fill="#F5F6F8" />
+                        {/* Smiley face */}
+                        <circle cx="24" cy="32" r="1.8" fill="#0B0E16" />
+                        <circle cx="36" cy="32" r="1.8" fill="#0B0E16" />
+                        <path d="M 23 38 Q 30 44 37 38" stroke="#0B0E16" strokeWidth="2" fill="none" strokeLinecap="round" />
+                      </svg>
+                      <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-[#0B0E16] bg-[#22c55e]" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 text-sm font-semibold text-[#F5F6F8]">
+                        Sofia · Customer Support
+                        <span className="text-[10px] font-normal text-[#A8AEBC]">(Sofia · Soporte)</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-[11px] text-[#A8AEBC]">
+                        <span className="flex items-center gap-1">
+                          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#22c55e]" />
+                          Online · Replies in 2 min avg
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Language badges */}
+                  <div className="hidden sm:flex items-center gap-1.5">
+                    {["EN", "ES", "FR"].map((l) => (
+                      <span
+                        key={l}
+                        className="rounded-md border border-[#2A3142] bg-[#1A1F2E] px-2 py-1 text-[10px] font-bold text-[#A8AEBC]"
+                      >
+                        {l}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Chat messages */}
+                <div className="space-y-3 p-5 sm:p-6">
+                  {/* Customer message in English */}
+                  <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#4F7DFF] px-4 py-2.5 text-[13px] leading-relaxed text-white">
+                    Hi! Does your IPTV include Liga MX in español?
+                  </div>
+                  {/* Sofia reply EN/ES */}
+                  <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#1A1F2E] px-4 py-2.5 text-[13px] leading-relaxed text-[#F5F6F8]">
+                    ¡Hola! 👋 Yes — all Liga MX matches are included. <strong>Club América, Chivas, Cruz Azul, Tigres</strong> — all in 4K UHD via TUDN and Univision Deportes. ¿Necesitas que te ayude a configurar tu Firestick?
+                  </div>
+                  {/* Customer in French */}
+                  <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#4F7DFF] px-4 py-2.5 text-[13px] leading-relaxed text-white">
+                    Bonjour, j&rsquo;ai TV5 Monde dans la liste des chaînes ?
+                  </div>
+                  <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#1A1F2E] px-4 py-2.5 text-[13px] leading-relaxed text-[#F5F6F8]">
+                    Oui absolument ! 🇫🇷 <strong>TV5 Monde, France 24, RFI, BFM TV</strong> — toutes les chaînes francophones sont incluses. Vous avez aussi les chaînes haïtiennes et québécoises (TVA, RDS).
+                  </div>
+                  {/* Customer in Spanish */}
+                  <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#4F7DFF] px-4 py-2.5 text-[13px] leading-relaxed text-white">
+                    ¿Y la pelea de Canelo el sábado? ¿Está incluida?
+                  </div>
+                  <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#1A1F2E] px-4 py-2.5 text-[13px] leading-relaxed text-[#F5F6F8]">
+                    🥊 <strong>¡Por supuesto!</strong> Todas las peleas de <strong>Canelo Álvarez</strong> están incluidas vía DAZN, ESPN Deportes y PPV — <em>sin costo extra</em>. También tienes Ryan Garcia, David Benavidez y todo el boxeo mexicano.
+                  </div>
+                  {/* Typing indicator */}
+                  <div className="flex items-center gap-2 text-[11px] text-[#6E7585]">
+                    <span className="flex gap-1">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4F7DFF]" />
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4F7DFF]" style={{ animationDelay: "0.2s" }} />
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4F7DFF]" style={{ animationDelay: "0.4s" }} />
+                    </span>
+                    <span>Sofia is typing...</span>
+                  </div>
+                </div>
+
+                {/* Action buttons */}
+                <div className="border-t border-[#2A3142] bg-[#0B0E16] px-5 py-4">
+                  <div className="flex flex-col gap-2 sm:flex-row">
+                    <a
+                      href={whatsappLink("Hi! I have a question about your IPTV service.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-[#1FB855]"
+                    >
+                      💬 English
+                    </a>
+                    <a
+                      href={whatsappLink("¡Hola! Tengo una pregunta sobre el servicio IPTV.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#F5B643] px-4 py-2.5 text-xs font-semibold text-[#0B0E16] transition hover:bg-[#E89B2D]"
+                    >
+                      💬 Español
+                    </a>
+                    <a
+                      href={whatsappLink("Bonjour ! J'ai une question sur le service IPTV.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#4F7DFF] px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-[#3D6BEE]"
+                    >
+                      💬 Français
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT: Why our support is different */}
+            <div className="md:col-span-5">
+              <div className="space-y-4">
+                {[
+                  {
+                    icon: "👤",
+                    title: "Real human, not a bot",
+                    body: "Sofia and our team are real people. No scripted answers, no AI loops.",
+                  },
+                  {
+                    icon: "⚡",
+                    title: "2-minute average reply",
+                    body: "WhatsApp messages answered in minutes, not days. 24/7 coverage.",
+                  },
+                  {
+                    icon: "🌍",
+                    title: "Trilingual fluency",
+                    body: "English · Español · Français — the way you speak at home.",
+                  },
+                  {
+                    icon: "🔒",
+                    title: "Privacy first",
+                    body: "Your data stays private. We never sell or share customer info.",
+                  },
+                  {
+                    icon: "💯",
+                    title: "Setup help included",
+                    body: "We walk you through Firestick setup step-by-step until it works.",
+                  },
+                ].map((d) => (
+                  <div
+                    key={d.title}
+                    className="flex items-start gap-4 rounded-xl border border-[#2A3142] bg-[#141824] p-4 transition hover:border-[#4F7DFF]/50 hover:bg-[#1A1F2E]"
+                  >
+                    <span className="text-2xl shrink-0">{d.icon}</span>
+                    <div>
+                      <div className="text-sm font-semibold text-[#F5F6F8]">{d.title}</div>
+                      <div className="mt-0.5 text-xs leading-relaxed text-[#A8AEBC]">{d.body}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            {/* ============================ FINAL CTA ============================ */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="overflow-hidden rounded-3xl border border-[#2A3142] bg-gradient-to-br from-[#1A1F2E] via-[#141824] to-[#0B0E16] p-10 text-white md:p-16 shadow-2xl">
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
