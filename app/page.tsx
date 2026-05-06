@@ -1589,11 +1589,6 @@ export default function Page() {
       {/* Inline dark-mode CSS overrides */}
       <style dangerouslySetInnerHTML={{ __html: darkModeCss }} />
 
-      {/* Theme init — runs as early as possible after React hydration. */}
-      <Script id="theme-init" strategy="afterInteractive">
-        {themeInitScript}
-      </Script>
-
       {/* PWA + interactivity — runs after hydration so listeners attach properly */}
       <Script id="pwa-and-ui" strategy="afterInteractive">
         {pwaAndUiScript}
