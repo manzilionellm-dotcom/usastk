@@ -223,7 +223,7 @@ const benefits = [
     icon: "🇺🇸",
     title: "All your US channels",
     body:
-      "ESPN, FOX Sports, NBC, ABC, CBS, FOX, HBO Max, Showtime, Paramount+, Peacock — every channel American households actually watch.",
+      "ESPN, FOX Sports, NBC, ABC, CBS, FOX plus the premium movie channels — every channel American households actually watch.",
   },
   {
     icon: "🛡️",
@@ -251,7 +251,7 @@ const faqs = [
   },
   {
     q: "Do I need anything special to watch IPTV in the USA?",
-    a: "No special license is needed in the US. You only need a stable broadband connection (25 Mbps+ recommended) and a streaming device like the Amazon Firestick. There is no equivalent of the UK TV Licence in America.",
+    a: "No special license or registration is needed in the US. You only need a stable broadband connection (25 Mbps+ recommended) and a streaming device like the Amazon Firestick.",
   },
   {
     q: "Do I need a special Firestick for IPTV?",
@@ -331,7 +331,7 @@ const faqs = [
   },
   {
     q: "What's the difference between ESPN and ESPN+?",
-    a: "ESPN is the traditional cable channel carrying Monday Night Football, NBA, college football and more. ESPN+ is a separate streaming-only service with exclusive UFC PPV events and additional content. A good US IPTV subscription includes both ESPN linear channels and access to ESPN+ content at no extra cost.",
+    a: "ESPN is the traditional cable channel carrying Monday Night Football, NBA, college football and more. ESPN+ is a separate streaming-only app with its own exclusive content. IPTV services carry linear TV channels like ESPN; app-exclusive events are a different product. If a specific event matters to you, ask on WhatsApp whether it's carried — ideally during your free 24-hour trial — before subscribing.",
   },
 ];
 
@@ -1397,7 +1397,7 @@ export default function Page() {
           <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { i: "🏈", t: "NFL", d: "Every Sunday" },
-              { i: "🏀", t: "NBA", d: "League Pass" },
+              { i: "🏀", t: "NBA", d: "National games" },
               { i: "⚾", t: "MLB", d: "All teams" },
               { i: "🏒", t: "NHL", d: "Stanley Cup" },
             ].map((s) => (
@@ -1536,11 +1536,11 @@ export default function Page() {
             </p>
             <p>
               Together, a Firestick and a quality IPTV subscription replace the
-              traditional cable box: every NFL game, NBA League Pass and NHL Center Ice,
-              March Madness, college football, F1, NASCAR, UFC,
-              boxing PPVs, Peacock, Hulu, Paramount+, HBO Max, Showtime
-              — all on one small HDMI dongle, for less than the price of a single
-              streaming subscription.
+              traditional cable box: NFL on ESPN, FOX, CBS, NBC and NFL Network,
+              NBA and NHL national broadcasts, March Madness, college football,
+              F1, NASCAR, big fight nights and the full run of US entertainment
+              channels — all on one small HDMI dongle, for less than the price
+              of a single streaming subscription.
             </p>
           </div>
         </div>
@@ -1618,8 +1618,8 @@ export default function Page() {
                 <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[#A8AEBC]">
                   Many American Firestick users search for downloader code firestick,
                   IPTV Smarters code, TiviMate downloader code, XCIPTV code, and app
-                  install codes. This quick directory helps UK users find common app
-                  installer shortcuts faster.
+                  install codes. This quick directory helps American users find common
+                  app installer shortcuts faster.
                 </p>
               </div>
 
@@ -1694,10 +1694,10 @@ export default function Page() {
 
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#A8AEBC]">
               Need a premium IPTV subscription? Want stable live TV channels on
-              Firestick — ESPN, FOX Sports, NFL, NBA League Pass,
-              HBO Max, NBC, ABC, CBS, FOX and more? Choose a package below
+              Firestick — ESPN, FOX Sports, NBC, ABC, CBS, FOX, every NFL feed
+              and more? Choose a package below
               and contact us on WhatsApp for activation.{" "}
-              <span className="text-[#F5F6F8]">Fast US setup support included.</span>
+              <span className="text-[#F5F6F8]">Fast setup support included.</span>
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#A8AEBC]">
@@ -1864,7 +1864,7 @@ export default function Page() {
                 icon: "📺",
                 title: "Thousands of US live channels",
                 body:
-                  "Premium IPTV channels including ESPN, FOX Sports, NFL Network, NBA TV, HBO Max, Showtime, NBC, ABC, CBS, FOX, plus 20,000+ international channels.",
+                  "Premium IPTV channels including ESPN, FOX Sports, NFL Network, NBA TV, NBC, ABC, CBS, FOX and the premium movie channels, plus 20,000+ international channels.",
               },
               {
                 icon: "🎬",
@@ -1993,21 +1993,19 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">
-              🏈 NFL Sunday · zero blackouts · NFL Sunday Ticket alternative
+              🏈 NFL Sunday · every broadcast feed · 4K
             </span>
             <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl text-[#F5F6F8]">
-              Watch every NFL game in 4K.{" "}
-              <span className="italic text-[#4F7DFF]">Even out-of-market.</span>
+              Every NFL feed in 4K.{" "}
+              <span className="italic text-[#4F7DFF]">All season long.</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
-              The NFL is the most-watched sports league in America — and watching every
-              game traditionally requires <strong>NFL Sunday Ticket</strong> on YouTube TV
-              ($389/season) plus <strong>ESPN</strong>, <strong>NFL Network</strong> and{" "}
-              <strong>Amazon Prime</strong>, costing well over{" "}
-              <strong className="text-[#F5F6F8]">$700/year</strong>. With our IPTV
-              subscription on Firestick, <strong className="text-[#F5F6F8]">all 272 regular
-              season games are live in 4K</strong> — including out-of-market games, NFL
-              RedZone, Monday Night Football, Thursday Night Football, and the full playoffs.
+              The NFL is the most-watched sports league in America. With our IPTV
+              subscription on Firestick, <strong className="text-[#F5F6F8]">every NFL
+              broadcast feed is live in 4K</strong> — ESPN, FOX, CBS, NBC and NFL
+              Network — Sunday afternoons, Sunday Night Football, Monday Night
+              Football, Thursday Night Football and the full playoffs, from kickoff
+              week to the Super Bowl.
             </p>
           </div>
 
@@ -2015,38 +2013,38 @@ export default function Page() {
             {[
               {
                 tag: "NFL",
-                t: "All 272 NFL regular season games · every Sunday",
-                b: "NFL Sunday 1:00 PM ET, 4:25 PM ET, 8:20 PM ET kickoffs all included. 4K HDR. ESPN, FOX, CBS, NBC, NFL Network, NFL RedZone — every feed. Includes Monday Night Football and Thursday Night Football.",
+                t: "Every NFL broadcast feed · every Sunday",
+                b: "NFL Sunday 1:00 PM ET, 4:25 PM ET and 8:20 PM ET kickoffs in 4K HDR. ESPN, FOX, CBS, NBC, NFL Network — every broadcast feed, including Monday Night Football and Thursday Night Football.",
                 stat: "272 NFL games/yr",
               },
               {
                 tag: "NBA & NHL",
-                t: "NBA League Pass · NHL Center Ice",
-                b: "Every NBA regular-season game (82 per team), full NBA Playoffs, full Stanley Cup Playoffs, all NHL Center Ice games. ESPN, TNT, ABC, NBC feeds — no blackouts.",
-                stat: "82 NBA + 82 NHL",
+                t: "NBA & NHL — full national coverage",
+                b: "NBA and NHL games as broadcast on ESPN, TNT, ABC and NBC — regular season through the full playoffs, including the NBA Finals and the Stanley Cup Final.",
+                stat: "Full playoffs",
               },
               {
                 tag: "MLB · WORLD SERIES",
-                t: "MLB.TV alternative · every team",
-                b: "Full regular season (162 games per team), all playoffs, every World Series game. ESPN, FOX, FS1, MLB Network — including local RSNs (YES, NESN, Bally Sports, SNY).",
+                t: "MLB — every week of the season",
+                b: "Baseball on ESPN, FOX, FS1 and MLB Network — from Opening Day through the playoffs and every World Series game.",
                 stat: "162 games/team",
               },
               {
                 tag: "COLLEGE",
                 t: "NCAA Football · March Madness",
-                b: "Every NCAA Football game (FBS Power 5 + Group of 5), full NCAA Tournament (March Madness), College World Series, all bowl games. ESPN, CBS, ABC, FOX, TBS, TNT, truTV.",
+                b: "College football and the full NCAA Tournament (March Madness) as broadcast on ESPN, CBS, ABC, FOX, TBS, TNT and truTV — plus the bowl games.",
                 stat: "All bowl games",
               },
               {
-                tag: "F1 · UFC · BOXING",
-                t: "PPV events · NASCAR · F1",
-                b: "Every NASCAR Cup Series race weekend — practice, qualifying, race. F1 Grand Prix on ESPN, every UFC Fight Night and numbered card, every boxing PPV (Fury, Canelo, Spence) — all included, zero per-fight fees.",
-                stat: "Zero PPV fees",
+                tag: "F1 · NASCAR · FIGHTS",
+                t: "Motorsport & fight nights",
+                b: "NASCAR Cup Series race weekends and F1 Grand Prix on ESPN, plus big fight nights as broadcast on US sports channels. Care about a specific PPV card? Ask on WhatsApp whether it's carried before you buy.",
+                stat: "Ask about PPVs",
               },
               {
                 tag: "MLS · INT'L SOCCER",
-                t: "MLS Season Pass · Premier League",
-                b: "Every Major League Soccer match (Apple TV MLS Season Pass equivalent). Champions League, Europa League, Premier League, La Liga, Serie A — all leagues, all matches.",
+                t: "Soccer on US channels",
+                b: "MLS and international soccer as carried on FOX, FS1, ESPN, TUDN and Univision — Champions League, Premier League, La Liga and Serie A coverage on US channels.",
                 stat: "All major leagues",
               },
             ].map((card) => (
@@ -2076,7 +2074,7 @@ export default function Page() {
               { v: "272", l: "NFL games/year" },
               { v: "1,230", l: "NBA regular season" },
               { v: "36", l: "NASCAR Cup races" },
-              { v: "0", l: "Per-fight PPV charges" },
+              { v: "24 h", l: "Free trial — no card" },
             ].map((s) => (
               <div key={s.l} className="text-center">
                 <div className="font-[family-name:var(--font-display)] text-3xl font-normal text-[#4F7DFF] md:text-4xl">
@@ -2085,6 +2083,42 @@ export default function Page() {
                 <div className="mt-1 text-[12px] leading-tight text-[#A8AEBC]">{s.l}</div>
               </div>
             ))}
+          </div>
+
+          {/* Season module — the September kickoff is THE moment to prepare for */}
+          <div className="mt-10 rounded-3xl border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.06] p-7 md:p-8">
+            <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-12">
+              <div className="md:col-span-8">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/40 bg-[#FF4D5C]/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">
+                  🏈 2026 season · kickoff September 10
+                </span>
+                <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-normal leading-tight text-[#F5F6F8] md:text-3xl">
+                  The season starts Thursday, September 10.
+                  <span className="italic text-[#FF4D5C]"> Get set up in August.</span>
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-[#A8AEBC]">
+                  Don&rsquo;t wait for Week 1 to find out your setup buffers. Install your
+                  player now, run the free 24-hour trial on a busy evening, and walk into
+                  kickoff week with a stream you&rsquo;ve already stress-tested.
+                </p>
+              </div>
+              <div className="flex flex-col gap-2 md:col-span-4">
+                <a
+                  href={whatsappLink("Hi! I want to get set up before NFL kickoff — free 24-hour trial please. | Ref: home-nfl-kickoff")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
+                >
+                  💬 Get ready for kickoff
+                </a>
+                <a
+                  href="#setup"
+                  className="inline-flex items-center justify-center rounded-full border border-[#2A3142] bg-[#141824] px-6 py-3 text-sm font-medium text-[#F5F6F8] transition hover:border-[#4F7DFF]"
+                >
+                  See the setup guide
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="mt-10 rounded-3xl border border-[#2A3142] bg-gradient-to-br from-[#1A1F2E] via-[#141824] to-[#0B0E16] p-7 text-white md:p-10 shadow-2xl">
@@ -2151,11 +2185,11 @@ export default function Page() {
               </thead>
               <tbody className="divide-y divide-[#2A3142]">
                 {[
-                  { p: "Comcast Xfinity (Ultimate TV + Sports)", m: "$130 – $165", y: "$1,560 – $1,980", save: "save up to $1,925" },
-                  { p: "Spectrum (TV Select Signature + Sports)", m: "$120 – $165", y: "$1,440 – $1,980", save: "save up to $1,925" },
-                  { p: "DirecTV Stream (Choice + Sports)", m: "$108 – $164", y: "$1,296 – $1,968", save: "save up to $1,913" },
-                  { p: "YouTube TV ($82.99 base)", m: "$83 – $108", y: "$996 – $1,296", save: "save up to $1,241" },
-                  { p: "Hulu Live TV + Disney+", m: "$83 – $103", y: "$996 – $1,236", save: "save up to $1,181" },
+                  { p: "Comcast Xfinity (Ultimate TV + Sports)", m: "$130 – $165", y: "$1,560 – $1,980", save: "28× – 36× the price of IPTV" },
+                  { p: "Spectrum (TV Select Signature + Sports)", m: "$120 – $165", y: "$1,440 – $1,980", save: "26× – 36× the price of IPTV" },
+                  { p: "DirecTV Stream (Choice + Sports)", m: "$108 – $164", y: "$1,296 – $1,968", save: "24× – 36× the price of IPTV" },
+                  { p: "YouTube TV ($82.99 base)", m: "$83 – $108", y: "$996 – $1,296", save: "18× – 24× the price of IPTV" },
+                  { p: "Hulu Live TV + Disney+", m: "$83 – $103", y: "$996 – $1,236", save: "18× – 22× the price of IPTV" },
                 ].map((r) => (
                   <tr key={r.p} className="bg-[#141824]">
                     <td className="px-5 py-4 font-medium text-[#F5F6F8]">{r.p}</td>
@@ -2173,9 +2207,12 @@ export default function Page() {
           </div>
 
           <p className="mt-6 max-w-3xl text-sm text-[#6E7585]">
-            Estimated 2026 figures based on publicly listed pricing from US pay TV providers, including
+            Estimated figures as of July 2026, based on publicly listed pricing from US pay TV providers, including
             HD/4K channel packs, sports add-ons, regional sports network fees and broadcast TV fees.
-            Individual savings vary by household and current contract terms.
+            Individual savings vary by household and current contract terms. The single figure used
+            across this site — <strong className="text-[#A8AEBC]">$1,764/year</strong> — is a typical
+            $147/month cable + sports bill × 12, compared with $55/year for the annual IPTV plan.
+            The multiples in the last column are each provider&rsquo;s annual cost ÷ $55.
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -2186,7 +2223,7 @@ export default function Page() {
               },
               {
                 t: "Every channel you actually watch",
-                b: "ESPN, FOX Sports, NFL Network, NBA TV, MLB Network, NHL Network, HBO Max, Showtime, NBC, ABC, CBS, FOX — plus 20,000+ international channels cable bundles never include.",
+                b: "ESPN, FOX Sports, NFL Network, NBA TV, MLB Network, NHL Network, NBC, ABC, CBS, FOX and the premium movie channels — plus 20,000+ international channels cable bundles never include.",
               },
               {
                 t: "Watch on every device",
@@ -2249,14 +2286,14 @@ export default function Page() {
             {
               title: "Movies & premium entertainment",
               channels: [
-                "HBO Max (Max), Showtime, Starz",
-                "Cinemax, Epix (MGM+)",
-                "Paramount+, Peacock, Discovery+",
+                "HBO (Max), Showtime, Starz",
+                "Cinemax, MGM+",
+                "TCM, Sundance TV, IFC",
                 "AMC, FX, FXX, USA Network",
                 "TNT, TBS, History, A&E",
                 "Comedy Central, Adult Swim, MTV",
               ],
-              tag: "HBO Max, Showtime",
+              tag: "Premium movies",
             },
             {
               title: "College sports, F1, UFC, boxing",
@@ -2265,8 +2302,8 @@ export default function Page() {
                 "Big Ten Network, SEC Network, ACC Network",
                 "Pac-12 Network, Longhorn Network",
                 "ESPN F1 — every Grand Prix weekend",
-                "ESPN+ UFC PPV included",
-                "DAZN Boxing, all major fight nights",
+                "Fight nights on ESPN & FOX Sports",
+                "Boxing cards as broadcast on US TV",
               ],
               tag: "NCAA, F1, UFC, Boxing",
             },
@@ -2320,7 +2357,8 @@ export default function Page() {
         <p className="mt-10 max-w-3xl text-sm text-[#6E7585]">
           Channel availability depends on the IPTV service you choose. Always confirm the specific
           channels you care about (e.g. <em>NFL RedZone for Sunday football</em>,
-          ESPN+ for UFC PPV, HBO Max for new film releases) before subscribing.
+          a specific fight card, or a premium movie channel) before subscribing —
+          the free 24-hour trial exists exactly for that.
         </p>
       </section>
 
@@ -2352,7 +2390,7 @@ export default function Page() {
               {
                 n: "02",
                 t: "Full US channel depth",
-                b: "ESPN family, FOX Sports, NFL Network, NBA TV, MLB Network, NBC, ABC, CBS, FOX, HBO Max, Showtime — all included, not as add-ons or sport packs.",
+                b: "ESPN family, FOX Sports, NFL Network, NBA TV, MLB Network, NBC, ABC, CBS, FOX and the premium movie channels — included, not as add-ons or sport packs.",
               },
               {
                 n: "03",
@@ -2676,13 +2714,13 @@ export default function Page() {
             </span>
             <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] text-[#F5F6F8] md:text-5xl">
               Todos los canales en español.{" "}
-              <span className="italic text-[#F5B643]">Liga MX. Canelo. Telenovelas.</span>
+              <span className="italic text-[#F5B643]">Liga MX. Boxeo. Telenovelas.</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
               <strong className="text-[#F5F6F8]">¡Bienvenidos!</strong> Más de 63 millones de hispanos viven en
               Estados Unidos, y estamos hechos para ustedes. Disfruta{" "}
-              <strong className="text-[#F5F6F8]">Telemundo, Univision, TUDN, Liga MX</strong> en vivo,
-              Selección Mexicana, todas las peleas de Canelo Álvarez,{" "}
+              <strong className="text-[#F5F6F8]">Telemundo, Univision y TUDN</strong> en vivo —
+              Liga MX, Selección Mexicana, las grandes noches de boxeo,{" "}
               <strong className="text-[#F5F6F8]">+5,000 canales en español</strong>, telenovelas mexicanas, turcas y colombianas,
               series y películas latinas — todo en 4K UHD desde tu Firestick. Soporte 100% en español por WhatsApp.
             </p>
@@ -2700,22 +2738,22 @@ export default function Page() {
                   "Club América, Chivas, Cruz Azul",
                   "Selección Mexicana — El Tri",
                   "TUDN, Univision Deportes",
-                  "Copa América 2026 en vivo",
-                  "Mundial 2026 — todos los partidos",
+                  "Mundial 2026 — repeticiones y resúmenes",
+                  "Amistosos y eliminatorias del Tri",
                 ],
                 color: "#22c55e",
               },
               {
                 tag: "BOXEO",
                 icon: "🥊",
-                title: "Canelo & PPV gratis",
+                title: "Boxeo en español",
                 items: [
-                  "Todas las peleas de Canelo Álvarez",
-                  "Ryan Garcia, David Benavidez",
-                  "Boxeo mexicano completo",
-                  "ESPN Deportes Boxing",
-                  "DAZN Boxing, Fox Deportes",
-                  "PPV incluidos — sin cargos extra",
+                  "Grandes noches de boxeo en vivo",
+                  "Boxeo mexicano en ESPN Deportes",
+                  "Fox Deportes — carteleras semanales",
+                  "ESPN Knockout y ESPN Deportes",
+                  "Resúmenes y repeticiones",
+                  "¿Una pelea específica? Pregúntanos por WhatsApp",
                 ],
                 color: "#FF4D5C",
               },
@@ -2743,7 +2781,7 @@ export default function Page() {
                   "Telenovelas turcas dobladas",
                   "Telenovelas colombianas",
                   "Caso Cerrado, Rosa de Guadalupe",
-                  "Series Netflix Latina",
+                  "Series latinas en VOD",
                 ],
                 color: "#F5B643",
               },
@@ -2766,7 +2804,7 @@ export default function Page() {
                 icon: "🎬",
                 title: "Películas & series",
                 items: [
-                  "Películas mexicanas latest",
+                  "Películas mexicanas recientes",
                   "El Chavo del 8 — clásicos",
                   "Películas latinas en HD",
                   "Galavisión, Discovery en Español",
@@ -2809,7 +2847,7 @@ export default function Page() {
             {[
               { v: "63M+", l: "Hispanos en USA", c: "#F5B643" },
               { v: "5,000+", l: "Canales en español", c: "#22c55e" },
-              { v: "78%", l: "Usan streaming", c: "#FF4D5C" },
+              { v: "24 h", l: "Prueba gratis, sin tarjeta", c: "#FF4D5C" },
               { v: "$12/mes", l: "Desde solo", c: "#4F7DFF" },
             ].map((s) => (
               <div key={s.l} className="text-center">
@@ -2824,6 +2862,17 @@ export default function Page() {
             ))}
           </div>
 
+          {/* Passerelle vers le champion latino — À ACTIVER dès que le domaine est fourni.
+              Ce site ne chasse plus le SEO español (voir positioning.md) ; la section
+              on-page reste pour servir les visiteurs. Décommenter et remplacer DOMAIN :
+          <p className="mt-8 text-center text-sm text-[#A8AEBC]">
+            ¿Prefieres un sitio 100 % en español?{" "}
+            <a className="underline text-[#F5B643]" href="https://DOMAIN" rel="noopener noreferrer">
+              Visita nuestro sitio hermano en español →
+            </a>
+          </p>
+          */}
+
           {/* Spanish CTA */}
           <div className="mt-10 flex flex-col items-center gap-5 text-center">
             <p className="max-w-xl text-lg text-[#A8AEBC]">
@@ -2831,7 +2880,7 @@ export default function Page() {
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href={whatsappLink("¡Hola! Quiero la prueba gratis de 24 horas de IPTV en español por favor.")}
+                href={whatsappLink("¡Hola! Quiero la prueba gratis de 24 horas de IPTV en español por favor. | Ref: home-espanol-trial")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/30 transition hover:scale-[1.03] hover:bg-[#1FB855]"
