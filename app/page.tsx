@@ -250,6 +250,10 @@ const faqs = [
     a: "IPTV (Internet Protocol Television) is the underlying technology used by Comcast Xfinity, Spectrum, DirecTV, YouTube TV and many official US broadcasters — the technology itself is perfectly legal. The legality of any specific service depends on whether it has the rights to redistribute the channels it offers. Always choose a provider you trust.",
   },
   {
+    q: "How do I pay, and is it safe?",
+    a: "You order in a WhatsApp conversation. Available payment methods are confirmed in the chat before any charge, and you never pay before your free 24-hour trial. There is no auto-renewal: your plan simply ends unless you choose to renew. If the service doesn't work as described and we can't fix it, our refund policy applies.",
+  },
+  {
     q: "Do I need anything special to watch IPTV in the USA?",
     a: "No special license or registration is needed in the US. You only need a stable broadband connection (25 Mbps+ recommended) and a streaming device like the Amazon Firestick.",
   },
@@ -395,6 +399,46 @@ const whatsappNumber = "447307410512";
 
 function whatsappLink(message: string) {
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+/* End-of-section trial pitch — the section helps first, then offers the test.
+   Every instance carries its own Ref so each WhatsApp conversation says which
+   block it came from (attribution: Ref → conversation → sale → review). */
+function TrialCta({
+  refId,
+  title = "Try it this Sunday — free.",
+  body = "Test it free during the 1pm kickoff. If it holds a clean stream through the full 60 minutes, lock in $55/year (≈ $4.58/mo). If not, walk away. No card needed.",
+  cta = "💬 Start the free 24-hr trial",
+  message = "Hi! I'd like the free 24-hour IPTV trial please.",
+}: {
+  refId: string;
+  title?: string;
+  body?: string;
+  cta?: string;
+  message?: string;
+}) {
+  return (
+    <div className="mt-12 rounded-2xl border border-[#25D366]/30 bg-[#25D366]/[0.05] p-6 md:p-8">
+      <div className="flex flex-col items-start justify-between gap-5 md:flex-row md:items-center">
+        <div>
+          <h3 className="font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8] md:text-2xl">
+            {title}
+          </h3>
+          <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-[#A8AEBC]">
+            {body}
+          </p>
+        </div>
+        <a
+          href={whatsappLink(`${message} | Ref: ${refId}`)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
+        >
+          {cta}
+        </a>
+      </div>
+    </div>
+  );
 }
 
 /* ----------------------------- DARK MODE CSS OVERRIDES ----------------------------- */
@@ -1034,10 +1078,12 @@ export default function Page() {
             </button>
 
             <a
-              href="#setup"
-              className="rounded-full bg-[#4F7DFF] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#3D6BEE]"
+              href={whatsappLink("Hi! I'd like the free 24-hour IPTV trial please. | Ref: home-header")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[#25D366] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#1FB855]"
             >
-              Start Setup
+              💬 Free 24-hr Trial
             </a>
           </div>
         </div>
@@ -1093,22 +1139,22 @@ export default function Page() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#premium-channels"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#FF4D5C] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(255,77,92,0.5)] transition hover:bg-[#E63946]"
-              >
-                Get IPTV from $12 — Activate in 5 mins
-                <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
-              </a>
-              <a
-                href={whatsappLink("Hi! I'd like the free 24-hour IPTV trial please.")}
+                href={whatsappLink("Hi! I'd like the free 24-hour IPTV trial please. | Ref: home-hero")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366] bg-[#25D366]/5 px-7 py-4 text-sm font-semibold text-[#1FB855] transition hover:bg-[#25D366]/10"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.6)] transition hover:bg-[#1FB855]"
               >
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
                 Free 24-hr Trial · No Card
+              </a>
+              <a
+                href="#premium-channels"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-[#2A3142] bg-[#1A1F2E] px-7 py-4 text-sm font-semibold text-[#F5F6F8] transition hover:border-[#4F7DFF]"
+              >
+                See plans — $12/mo · $55/yr
+                <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
               </a>
             </div>
 
@@ -1453,7 +1499,7 @@ export default function Page() {
                   See plans from $12 →
                 </a>
                 <a
-                  href={whatsappLink("Hi! I'd like to start the free 24-hour IPTV trial. No card needed?")}
+                  href={whatsappLink("Hi! I'd like to start the free 24-hour IPTV trial. No card needed? | Ref: home-why-switch")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
@@ -1669,6 +1715,13 @@ export default function Page() {
               ))}
             </div>
           </section>
+
+        <TrialCta
+          refId="home-setup-end"
+          title="Player installed? Give it something worth streaming."
+          body="Test the service free for 24 hours on the setup you just built — ideally during a busy evening. If it holds, lock in $55/year (≈ $4.58/mo). If not, walk away. No card needed."
+          message="Hi! I followed the setup guide — I'd like the free 24-hour trial please."
+        />
         </div>
       </section>
 
@@ -1961,7 +2014,7 @@ export default function Page() {
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <a
-                    href={whatsappLink("Hello, I have a question about IPTV channel packages.")}
+                    href={whatsappLink("Hello, I have a question about IPTV channel packages. | Ref: home-plans-help")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-medium text-white transition hover:bg-[#1FB855]"
@@ -2135,7 +2188,7 @@ export default function Page() {
               </div>
               <div className="flex flex-col gap-2 md:col-span-4">
                 <a
-                  href={whatsappLink("Hi! Free 24-hour NFL IPTV trial please.")}
+                  href={whatsappLink("Hi! Free 24-hour NFL IPTV trial please. | Ref: home-nfl-trial")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
@@ -2238,6 +2291,13 @@ export default function Page() {
               </div>
             ))}
           </div>
+
+        <TrialCta
+          refId="home-cable-end"
+          title="Run the numbers on your own TV — free."
+          body="Before you cancel anything, test the service free for 24 hours next to your current cable. If it holds a clean stream through a full game, $55/year does the rest of the math."
+          message="Hi! I'm comparing cable vs IPTV — I'd like the free 24-hour trial please."
+        />
         </div>
       </section>
 
@@ -2360,6 +2420,13 @@ export default function Page() {
           a specific fight card, or a premium movie channel) before subscribing —
           the free 24-hour trial exists exactly for that.
         </p>
+
+      <TrialCta
+        refId="home-channels-end"
+        title="Confirm your must-have channels — on a free trial."
+        body="The honest way to check a channel list is to watch it. Test the service free for 24 hours and pull up every channel you care about before paying anything."
+        message="Hi! I want to confirm my channels are included — free 24-hour trial please."
+      />
       </section>
 
       {/* ============================ TOP IPTV PROVIDERS / WHY US ============================ */}
@@ -2441,6 +2508,13 @@ export default function Page() {
               </li>
             ))}
           </ol>
+
+        <TrialCta
+          refId="home-providers-end"
+          title="Hold us to all 8 criteria — free for 24 hours."
+          body="Stress-test our servers against this exact checklist — uptime, channel depth, EPG, support — during a busy window. If we fail your test, walk away. No card needed."
+          message="Hi! I'd like to test your service against the 8 criteria — free 24-hour trial please."
+        />
         </div>
       </section>
 
@@ -2505,6 +2579,13 @@ export default function Page() {
             </article>
           ))}
         </div>
+
+      <TrialCta
+        refId="home-apps-end"
+        title="Picked your player? Now give it a stream that holds."
+        body="IPTV Smarters, TiviMate or OTT Navigator — any of them is only as good as the service behind it. Test ours free for 24 hours, ideally during the Sunday 1pm kickoff."
+        message="Hi! I have my IPTV player installed — I'd like the free 24-hour trial please."
+      />
       </section>
 
       {/* ============================ ISP COMPATIBILITY ============================ */}
@@ -2592,6 +2673,13 @@ export default function Page() {
             </article>
           ))}
         </div>
+
+      <TrialCta
+        refId="home-troubleshooting-end"
+        title="Tired of fixing someone else’s buffering?"
+        body="If you've tried every fix and your current service still stutters, try one built to hold the kickoff — free for 24 hours, during the busiest window you can find. If it buffers, walk away."
+        message="Hi! My current IPTV keeps buffering — I'd like to test yours free for 24 hours."
+      />
       </section>
 
       {/* ============================ BENEFITS / WHY US ============================ */}
@@ -2696,6 +2784,13 @@ export default function Page() {
               </details>
             ))}
           </div>
+
+        <TrialCta
+          refId="home-faq-end"
+          title="Question answered? Test the service next."
+          body="The FAQ covers the theory — the free 24-hour trial covers your living room. Test it on your own Firestick and your own internet before paying anything."
+          message="Hi! I read the FAQ — I'd like the free 24-hour trial please."
+        />
         </div>
       </section>
 
@@ -3045,8 +3140,45 @@ export default function Page() {
         </div>
       </section>
 
-            {/* ============================ FINAL CTA ============================ */}
+      {/* ============================ FINAL CTA ============================ */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+        {/* How ordering works — 3 steps, zero friction */}
+        <div className="mb-10">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-normal text-[#F5F6F8] md:text-3xl">
+            How ordering works — three steps, no account, no checkout form.
+          </h2>
+          <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {[
+              { n: "1", t: "Message us on WhatsApp", b: "Say which plan you want — or just ask for the free 24-hour trial. The pre-filled message does it for you." },
+              { n: "2", t: "Test free for 24 hours", b: "No card, no commitment. Watch your channels, on your Firestick, on your internet — ideally during a busy window." },
+              { n: "3", t: "Pay & stream in ~5 minutes", b: "Happy with the test? Confirm your plan in the same chat. Payment method is agreed there, activation takes about 5 minutes." },
+            ].map((s) => (
+              <div key={s.n} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-6">
+                <span className="font-[family-name:var(--font-display)] text-3xl font-normal text-[#4F7DFF]">{s.n}</span>
+                <h3 className="mt-2 font-[family-name:var(--font-display)] text-lg font-medium text-[#F5F6F8]">{s.t}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-[#A8AEBC]">{s.b}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Last objections, answered right before the ask */}
+          <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {[
+              { i: "💳", t: "Payment", b: "Methods confirmed in the chat before any charge. You never pay before your trial. No auto-renewal." },
+              { i: "⚖️", t: "Legality", b: "IPTV technology itself is legal in the US — it's what Xfinity and YouTube TV run on. Details in the FAQ above." },
+              { i: "📺", t: "Multiple TVs", b: "Plans cover 1–3 simultaneous connections. Tell us how many screens you need in the chat." },
+            ].map((o) => (
+              <div key={o.t} className="flex items-start gap-3 rounded-xl border border-[#2A3142] bg-[#0E1119] p-4">
+                <span className="text-xl" aria-hidden>{o.i}</span>
+                <div>
+                  <div className="text-sm font-semibold text-[#F5F6F8]">{o.t}</div>
+                  <div className="mt-0.5 text-xs leading-relaxed text-[#A8AEBC]">{o.b}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="overflow-hidden rounded-3xl border border-[#2A3142] bg-gradient-to-br from-[#1A1F2E] via-[#141824] to-[#0B0E16] p-10 text-white md:p-16 shadow-2xl">
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
             <div className="md:col-span-8">
@@ -3073,7 +3205,7 @@ export default function Page() {
             </div>
             <div className="flex flex-col gap-3 md:col-span-4">
               <a
-                href={whatsappLink("Hi! I want to start the free 24-hour IPTV trial — no card needed.")}
+                href={whatsappLink("Hi! I want to start the free 24-hour IPTV trial — no card needed. | Ref: home-final")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.7)] transition hover:bg-[#1FB855]"
@@ -3228,6 +3360,29 @@ export default function Page() {
           </div>
         </div>
       </footer>
+
+      {/* Spacer so the sticky bar never covers footer content on mobile */}
+      <div className="h-16 md:hidden" aria-hidden />
+
+      {/* Sticky mobile CTA bar — real price + one tap to WhatsApp */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#1F2433] bg-[#0B0E16]/95 px-4 py-3 backdrop-blur md:hidden">
+        <div className="flex items-center justify-between gap-3">
+          <div className="leading-tight">
+            <div className="text-sm font-semibold text-[#F5F6F8]">
+              $55/yr <span className="font-normal text-[#A8AEBC]">≈ $4.58/mo</span>
+            </div>
+            <div className="text-[11px] text-[#A8AEBC]">Free 24-hr trial · no card</div>
+          </div>
+          <a
+            href={whatsappLink("Hi! I'd like the free 24-hour IPTV trial please. | Ref: home-sticky")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
+          >
+            💬 WhatsApp
+          </a>
+        </div>
+      </div>
     </main>
   );
 }
