@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalPage } from "../legal";
 
 export const metadata: Metadata = {
@@ -60,7 +61,7 @@ export default function TermsPage() {
 
       <h2>6. Refunds</h2>
       <p>
-        See our <a className="underline hover:text-[#F5F6F8]" href="/refund">Refund Policy</a>.
+        See our <Link className="underline hover:text-[#F5F6F8]" href="/refund">Refund Policy</Link>.
       </p>
 
       <h2>7. Your responsibilities</h2>
@@ -72,7 +73,7 @@ export default function TermsPage() {
       <h2>8. Contact</h2>
       <p>
         Questions about these terms: message us on WhatsApp via the buttons on
-        the <a className="underline hover:text-[#F5F6F8]" href="/">home page</a>.
+        the <Link className="underline hover:text-[#F5F6F8]" href="/">home page</Link>.
       </p>
     </LegalPage>
   );

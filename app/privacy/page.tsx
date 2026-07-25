@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalPage } from "../legal";
 
 export const metadata: Metadata = {
@@ -60,7 +61,7 @@ export default function PrivacyPage() {
       <h2>5. Contact</h2>
       <p>
         Privacy questions: message us on WhatsApp via the buttons on the{" "}
-        <a className="underline hover:text-[#F5F6F8]" href="/">home page</a>.
+        <Link className="underline hover:text-[#F5F6F8]" href="/">home page</Link>.
       </p>
     </LegalPage>
   );
