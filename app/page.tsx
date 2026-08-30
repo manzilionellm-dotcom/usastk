@@ -1,5 +1,9 @@
 import Link from "next/link";
 import Script from "next/script";
+import { whatsappLink } from "@/lib/whatsapp";
+import { StickyCta } from "@/components/sticky-cta";
+import { ComparisonTable } from "@/components/content";
+import { LEGAL_DISCLAIMER } from "@/lib/site";
 
 /* Fonts loaded in app/layout.tsx — variables --font-display and --font-body are available globally */
 
@@ -17,11 +21,11 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Best IPTV for Firestick USA 2026 — $12/mo Cable Alternative · 50,000+ Channels · NFL · NBA · 4K · No Buffering",
+      "IPTV for Firestick USA 2026 — No-Contract Cable Alternative from $12/mo",
     template: "%s | IPTV For Firestick USA",
   },
   description:
-    "★ America's #1 IPTV for Firestick 2026 ★ Cut the cord, save $1,764/year vs Comcast. 50,000+ live channels in 4K UHD — every NFL game, NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, Peacock + 100% canales en español: Telemundo, Univision, Liga MX, Canelo Álvarez, telenovelas, El Tri. Anti-Freeze 6.0 technology, 99.9% uptime, instant 5-minute activation on WhatsApp. English, Español & Français support 24/7. Works on Amazon Firestick 4K Max, Smart TV, Android, iPhone, iPad, Windows, Mac. 24-hour free trial — no credit card required. Plans from $12/month, $55/year. Trusted by 12,400+ US households from New York to Los Angeles, Miami to Houston.",
+    "A no-contract IPTV subscription for Amazon Firestick and Fire TV, optimized for Fire TV devices. A large catalog of live and on-demand entertainment, activated and supported over WhatsApp. Prices in USD from $12/month, cancel anytime. Works on Firestick, Smart TV, Android, iPhone, iPad, Windows, and Mac. Independent service — not affiliated with Amazon, the NFL, NBA, MLB, ESPN, or any cable brand.",
   keywords: [
     // ============ TIER 1: HEAD COMMERCIAL — HIGHEST USA VOLUME ============
     "best iptv usa",
@@ -699,9 +703,9 @@ export const metadata = {
   },
   openGraph: {
     title:
-      "★ Best IPTV for Firestick USA 2026 — Cut the Cord, Save $1,764/yr · 50,000+ Channels in 4K · From $12 | iptvforfirestickusa.com",
+      "IPTV for Firestick USA 2026 — No-Contract Cable Alternative from $12/mo",
     description:
-      "America's #1 IPTV for Firestick subscription 2026. 50,000+ live channels in 4K UHD — every NFL game, NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, Peacock — for less than the price of two streaming subscriptions. Anti-Freeze 6.0 technology, 99.9% uptime, zero buffering on NFL Sundays. Instant 5-minute activation on WhatsApp. Plans from $12/month or $55/year. 24-hour free trial, no credit card required.",
+      "A no-contract IPTV subscription for Amazon Firestick, optimized for Fire TV devices — a large catalog of live and on-demand entertainment, activated over WhatsApp. Prices in USD from $12/month, cancel anytime. Independent service, not affiliated with Amazon, the NFL, NBA, MLB, or ESPN.",
     url: PAGE_URL,
     siteName: SITE_NAME,
     type: "article",
@@ -723,7 +727,7 @@ export const metadata = {
       "Cut the Cord 2026",
       "Cheap IPTV",
       "Cord Cutting USA",
-      "Anti-Freeze 6.0",
+      "No Contract IPTV",
       "4K IPTV",
     ],
     images: [
@@ -731,7 +735,7 @@ export const metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "IPTV For Firestick USA — #1 Best IPTV USA 2026 · NFL Sunday Ticket Alternative · 50,000+ Channels · From $12/month",
+        alt: "IPTV For Firestick USA — no-contract cable alternative from $12/month",
         type: "image/jpeg",
       },
     ],
@@ -739,9 +743,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "★ Best IPTV for Firestick USA 2026 — Save $1,764/yr · 50,000+ Channels · From $12 | iptvforfirestickusa.com",
+      "IPTV for Firestick USA 2026 — no-contract cable alternative from $12",
     description:
-      "America's #1 IPTV for Firestick. 50,000+ channels · Every NFL game · NBA League Pass · MLB.TV · NHL · ESPN · HBO Max · 4K UHD, no buffering · Firestick in 5 mins · 24-hr free trial, no credit card. Plans from $12.",
+      "A no-contract IPTV subscription for Firestick, optimized for Fire TV devices. A large catalog of live and on-demand entertainment, set up over WhatsApp. Prices in USD from $12/month, cancel anytime.",
     creator: "@iptvforfirestickusa",
     site: "@iptvforfirestickusa",
     images: [OG_IMAGE],
@@ -766,10 +770,10 @@ export const metadata = {
 /* ----------------------------- DATA ----------------------------- */
 
 const trustStats = [
-  { value: "50,000+", label: "Live channels in 4K UHD" },
-  { value: "99.9%", label: "Server uptime guarantee" },
-  { value: "5 min", label: "From WhatsApp to streaming" },
-  { value: "$1,764", label: "Saved vs Comcast each year" },
+  { value: "$12", label: "Starting price per month (USD)" },
+  { value: "No", label: "Contract or lock-in" },
+  { value: "Fire TV", label: "Optimized for your Firestick" },
+  { value: "WhatsApp", label: "Setup & support, real people" },
 ];
 
 const setupSteps = [
@@ -880,15 +884,15 @@ const benefits = [
   },
   {
     icon: "🔥",
-    title: "Buffering, fixed",
+    title: "Buffering help",
     body:
-      "Our troubleshooting checklist solves 98% of buffering and freezing issues reported by US users — including the dreaded NFL Sunday 1pm kickoff lag.",
+      "Most buffering comes down to the network between your Firestick and the internet. Our checklist walks through the fixes that resolve the common cases, and support is on WhatsApp if a stream stalls.",
   },
   {
     icon: "🇺🇸",
-    title: "All your US channels",
+    title: "Built for US viewers",
     body:
-      "ESPN, FOX Sports, NBC, ABC, CBS, FOX, HBO Max, Showtime, Paramount+, Peacock — every channel American households actually watch.",
+      "A large catalog of live and on-demand entertainment, optimized for Fire TV devices and the players US viewers already use. Channel availability depends on rights holders.",
   },
   {
     icon: "🛡️",
@@ -901,27 +905,6 @@ const benefits = [
     title: "Always up to date",
     body:
       "Reviewed every quarter. Last updated for Fire OS 8 and the new Fire TV Stick 4K Max (2nd gen).",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Followed the guide on a Sunday morning. Two cups of coffee later my Firestick was set up and the Giants game was streaming in HD. No buffering at all on Spectrum.",
-    name: "James W.",
-    location: "New York, NY",
-  },
-  {
-    quote:
-      "Cancelled cable after eleven years paying $147 a month. Set up an IPTV subscription on my Firestick — took eight minutes. Every NFL game, all of NBA League Pass, NBC, ABC, CBS. My bill went from $147 to $12.",
-    name: "Priya S.",
-    location: "Dallas, TX",
-  },
-  {
-    quote:
-      "Honestly the cleanest IPTV resource I've found in the USA. Most other sites look dodgy — this one feels like a real tech blog. The troubleshooting page alone is worth bookmarking.",
-    name: "Jordan T.",
-    location: "Los Angeles, CA",
   },
 ];
 
@@ -1004,7 +987,7 @@ const faqs = [
   },
   {
     q: "How can I avoid IPTV cuts during NFL games?",
-    a: "Four habits eliminate most cuts: (1) Ethernet adapter for your Firestick instead of Wi-Fi, (2) a quality US-based VPN server, (3) clear the IPTV app cache weekly, (4) restart the Firestick once a week. Together these cover roughly 95% of the buffering reports we receive from US users.",
+    a: "Four habits handle most cuts: (1) an Ethernet adapter for your Firestick instead of Wi-Fi, (2) a quality US-based VPN server, (3) clearing the app cache weekly, (4) restarting the Firestick once a week. If a stream still stalls, message us on WhatsApp and we'll help.",
   },
   {
     q: "How often should I update IPTV apps on Firestick?",
@@ -1012,7 +995,7 @@ const faqs = [
   },
   {
     q: "What's the difference between ESPN and ESPN+?",
-    a: "ESPN is the traditional cable channel carrying Monday Night Football, NBA, college football and more. ESPN+ is a separate streaming-only service with exclusive UFC PPV events and additional content. A good US IPTV subscription includes both ESPN linear channels and access to ESPN+ content at no extra cost.",
+    a: "ESPN is the traditional cable channel carrying Monday Night Football, NBA, college football and more. ESPN+ is a separate streaming-only service with its own exclusive content, such as certain UFC events. They are different products with different rights, so treat any provider's specific channel availability as something to confirm before you buy.",
   },
 ];
 
@@ -1036,11 +1019,12 @@ const channelPlans = [
     originalPrice: "$30",
     monthlyEquivalent: "$12/mo",
     discount: "60% OFF",
-    saveText: "Save $18 vs cable",
+    saveText: "Lowest commitment",
     badge: "Start Here",
     description:
-      "A simple monthly plan for US viewers who want to try a premium IPTV subscription on Firestick before choosing a longer package.",
-    message: "Hello, I want the 1 month IPTV USA plan for $12.",
+      "A simple monthly plan for US viewers who want to try the subscription on Firestick before choosing a longer package. No contract.",
+    message:
+      "Hi, I came from iptvforfirestickusa.com and I want the 1 month plan ($12).",
   },
   {
     name: "3 Months",
@@ -1048,11 +1032,12 @@ const channelPlans = [
     originalPrice: "$75",
     monthlyEquivalent: "$8.33/mo",
     discount: "67% OFF",
-    saveText: "Save $50 vs monthly",
+    saveText: "Better monthly rate",
     badge: "Popular",
     description:
-      "A balanced option for American households who want reliable ESPN, FOX Sports, NBC, ABC and NFL streaming with better value than monthly renewal.",
-    message: "Hello, I want the 3 month IPTV USA plan for $25.",
+      "A balanced option for American households who want a lower effective monthly rate than renewing month to month. No contract.",
+    message:
+      "Hi, I came from iptvforfirestickusa.com and I want the 3 month plan ($25).",
   },
   {
     name: "6 Months",
@@ -1060,11 +1045,12 @@ const channelPlans = [
     originalPrice: "$150",
     monthlyEquivalent: "$5/mo",
     discount: "80% OFF",
-    saveText: "Save $120 vs monthly",
+    saveText: "Strong mid-term value",
     badge: "Best Value",
     description:
-      "Recommended for regular US viewers — premium IPTV access, all NFL games, NBA League Pass, MLB.TV, HBO Max and a 100,000+ VOD library on Firestick.",
-    message: "Hello, I want the 6 month IPTV USA plan for $30.",
+      "Recommended for regular US viewers who want a large catalog of live and on-demand entertainment on Firestick at a lower monthly rate. No contract.",
+    message:
+      "Hi, I came from iptvforfirestickusa.com and I want the 6 month plan ($30).",
   },
   {
     name: "1 Year",
@@ -1072,19 +1058,16 @@ const channelPlans = [
     originalPrice: "$300",
     monthlyEquivalent: "$4.58/mo",
     discount: "82% OFF",
-    saveText: "Save $1,709 vs Comcast",
+    saveText: "Lowest monthly rate",
     badge: "Best Deal",
     description:
-      "The strongest annual value for American customers who want long-term premium IPTV on Firestick — works out at under $4.60 a month, less than 4% of a typical cable bill.",
-    message: "Hello, I want the 1 year IPTV USA plan for $55.",
+      "The strongest annual value for American customers who want long-term IPTV on Firestick — it works out at under $4.60 a month with no contract.",
+    message:
+      "Hi, I came from iptvforfirestickusa.com and I want the 1 year plan ($55).",
   },
 ];
 
-const whatsappNumber = "447307410512";
-
-function whatsappLink(message: string) {
-  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
+/* WhatsApp links are centralized in lib/whatsapp.ts (imported above). */
 
 /* ----------------------------- DARK MODE CSS OVERRIDES ----------------------------- */
 /* Applied when <html> has class "dark". Uses !important to win over Tailwind utilities. */
@@ -1496,7 +1479,7 @@ const jsonLdGraph = {
       url: SITE_URL,
       name: SITE_NAME,
       description:
-        "America's clearest IPTV resource for Amazon Firestick — US setup guides, troubleshooting and premium channel access. Cancel cable and save $1,764 a year.",
+        "US-focused resource for streaming on Amazon Fire TV and Firestick — setup guides, honest comparisons, and a no-contract subscription activated over WhatsApp.",
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "en-US",
       potentialAction: {
@@ -1643,22 +1626,15 @@ const jsonLdGraph = {
     {
       "@type": "Product",
       "@id": `${PAGE_URL}#premium-iptv-product`,
-      name: "Premium IPTV for Firestick Subscription — USA",
+      name: "IPTV for Firestick Subscription — USA",
       description:
-        "Premium IPTV subscription for American Firestick users — every NFL game, NBA League Pass, MLB.TV, NHL Center Ice, ESPN, FOX Sports, HBO Max, Showtime, NBC, ABC, CBS, FOX, Paramount+, Peacock plus 50,000+ live channels and a 100,000+ VOD library. Anti-Freeze 6.0 technology. Instant 5-minute activation by WhatsApp.",
+        "A no-contract IPTV subscription for American Firestick and Fire TV users — a large catalog of live and on-demand entertainment, optimized for Fire TV devices, activated and supported over WhatsApp. Prices in USD, cancel anytime. Independent service; no network or league licenses claimed.",
       brand: { "@type": "Brand", name: SITE_NAME },
       category: "IPTV subscription / Streaming service",
       audience: {
         "@type": "Audience",
         audienceType: "American streaming households",
         geographicArea: { "@type": "Country", name: "United States" },
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "12400",
-        bestRating: "5",
-        worstRating: "1",
       },
       offers: {
         "@type": "AggregateOffer",
@@ -1818,32 +1794,31 @@ export default function Page() {
           <div className="md:col-span-7">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-3 py-1 text-xs font-semibold tracking-wide text-[#FF4D5C]">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FF4D5C]" />
-              ★ #1 IPTV FOR FIRESTICK USA 2026 · CUT THE CORD · NFL READY · 4K
+              IPTV FOR FIRESTICK · USA 2026 · CUT THE CORD · NO CONTRACT
             </span>
 
             <h1 className="mt-6 font-[family-name:var(--font-display)] text-4xl font-normal leading-[1.02] tracking-tight text-[#F5F6F8] md:text-6xl lg:text-7xl">
               Cancel cable.{" "}
-              <span className="italic text-[#4F7DFF]">Save $1,764</span>{" "}
-              <br className="hidden md:block" />a year. From{" "}
-              <span className="text-[#FF4D5C]">$12</span>.
+              <span className="italic text-[#4F7DFF]">Keep the TV.</span>{" "}
+              <br className="hidden md:block" />From{" "}
+              <span className="text-[#FF4D5C]">$12</span> a month.
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#A8AEBC] md:text-xl">
-              <strong className="text-[#F5F6F8]">America&rsquo;s #1 IPTV for Firestick subscription</strong> —{" "}
-              <strong className="text-[#F5F6F8]">50,000+ live channels in 4K UHD</strong>, every NFL game,
-              NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, full 100,000+ VOD library.
-              <strong className="text-[#F5F6F8]"> Anti-Freeze 6.0 technology</strong> — zero buffering on NFL Sundays.
-              Activated on WhatsApp in 5 minutes flat. Trusted by{" "}
-              <span className="font-medium text-[#F5F6F8]">12,400+ US households</span> from New York to Los Angeles.
+              <strong className="text-[#F5F6F8]">A no-contract IPTV subscription for your Firestick</strong> —{" "}
+              a large catalog of live and on-demand entertainment, optimized for Fire TV
+              devices. Works with the players US viewers already use, and it&rsquo;s
+              activated over WhatsApp. Prices in USD, cancel anytime, and real support
+              if a stream ever stalls.
             </p>
 
-            {/* Killer trust strip — futuristic stats */}
+            {/* Trust strip — facts we can support */}
             <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4">
               {[
-                { i: "⚡", t: "5-min setup" },
-                { i: "🛡️", t: "Anti-Freeze 6.0" },
-                { i: "📺", t: "50,000+ channels" },
-                { i: "💵", t: "From $12/mo" },
+                { i: "📝", t: "No contract" },
+                { i: "🔁", t: "Cancel anytime" },
+                { i: "🔥", t: "Fire TV compatible" },
+                { i: "💬", t: "WhatsApp support" },
               ].map((x) => (
                 <div
                   key={x.t}
@@ -1860,31 +1835,30 @@ export default function Page() {
                 href="#premium-channels"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#FF4D5C] px-7 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(255,77,92,0.5)] transition hover:bg-[#E63946]"
               >
-                Get IPTV from $12 — Activate in 5 mins
+                Get IPTV from $12
                 <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
               </a>
               <a
-                href={whatsappLink("Hi! I'd like the free 24-hour IPTV trial please.")}
+                href={whatsappLink()}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#25D366] bg-[#25D366]/5 px-7 py-4 text-sm font-semibold text-[#1FB855] transition hover:bg-[#25D366]/10"
               >
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-current">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
-                Free 24-hr Trial · No Card
+                Message us on WhatsApp
               </a>
             </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-[#A8AEBC]">
-              <span className="flex items-center gap-2">
-                <span className="text-[#F5B643]">★★★★★</span>
-                <span><strong className="text-[#F5F6F8]">4.8 / 5</strong> · 12,400+ US households</span>
-              </span>
+              <span>✅ No contract</span>
               <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
-              <span>✅ Anti-freeze servers</span>
+              <span>✅ Cancel anytime</span>
               <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
-              <span>✅ No 24-month contract</span>
+              <span>✅ Fire TV compatible</span>
+              <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
+              <span>✅ WhatsApp support</span>
             </div>
           </div>
 
@@ -2023,18 +1997,19 @@ export default function Page() {
               </h2>
 
               <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
-                Already own a Fire TV Stick? You&rsquo;re ready. Our IPTV works flawlessly on{" "}
-                <strong className="text-[#F5F6F8]">every Amazon Firestick model</strong> — from the original
-                Fire TV Stick to the latest 4K Max with Wi-Fi 6E. Just install in 5 minutes,
-                sign in once, and watch every NFL game in 4K.
+                Already own a Fire TV Stick? You&rsquo;re ready. The subscription is
+                optimized for{" "}
+                <strong className="text-[#F5F6F8]">recent Amazon Firestick models</strong> — from the
+                original Fire TV Stick to the latest 4K Max with Wi-Fi 6E. Install a
+                player, sign in with the details we send, and watch.
               </p>
 
               {/* Compatibility list */}
               <div className="mt-8 space-y-3">
                 {[
-                  { name: "Fire TV Stick (basic / lite)", spec: "1080p HD, perfect for cable replacement", icon: "📺" },
-                  { name: "Fire TV Stick 4K", spec: "4K UHD + HDR for premium NFL games", icon: "🎬" },
-                  { name: "Fire TV Stick 4K Max (2nd gen)", spec: "Wi-Fi 6E + 16GB — zero buffering", icon: "⚡" },
+                  { name: "Fire TV Stick (basic / lite)", spec: "1080p HD, great for cable replacement", icon: "📺" },
+                  { name: "Fire TV Stick 4K", spec: "4K UHD + HDR support", icon: "🎬" },
+                  { name: "Fire TV Stick 4K Max (2nd gen)", spec: "Wi-Fi 6E + more memory for smoother streams", icon: "⚡" },
                   { name: "Fire TV Cube (3rd gen)", spec: "Hands-free Alexa + full Ethernet", icon: "🔊" },
                 ].map((d) => (
                   <div
@@ -2096,8 +2071,8 @@ export default function Page() {
                       ⚡
                     </div>
                     <div>
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">5-min setup</div>
-                      <div className="text-[10px] text-[#A8AEBC]">From plug-in to NFL</div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">Quick setup</div>
+                      <div className="text-[10px] text-[#A8AEBC]">From plug-in to playback</div>
                     </div>
                   </div>
                 </div>
@@ -2118,7 +2093,7 @@ export default function Page() {
                   </div>
                 </div>
 
-                {/* Floating badge: Anti-Freeze */}
+                {/* Floating badge: Fire TV ready */}
                 <div
                   className="float-bubble absolute -left-2 bottom-12 rounded-2xl border border-[#2A3142] bg-[#141824]/90 p-3 shadow-xl backdrop-blur-sm md:-left-6"
                   style={{ animationDelay: "1s" }}
@@ -2128,8 +2103,8 @@ export default function Page() {
                       🛡️
                     </div>
                     <div>
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">Anti-Freeze 6.0</div>
-                      <div className="text-[10px] text-[#A8AEBC]">Zero buffering</div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">Fire TV ready</div>
+                      <div className="text-[10px] text-[#A8AEBC]">Optimized for Firestick</div>
                     </div>
                   </div>
                 </div>
@@ -2144,8 +2119,8 @@ export default function Page() {
                       🏈
                     </div>
                     <div>
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">NFL Sunday</div>
-                      <div className="text-[10px] text-[#A8AEBC]">All 272 games</div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#F5F6F8]">Live sports</div>
+                      <div className="text-[10px] text-[#A8AEBC]">Fans&rsquo; favorite</div>
                     </div>
                   </div>
                 </div>
@@ -2185,30 +2160,28 @@ export default function Page() {
             <div className="md:col-span-7">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/40 bg-[#FF4D5C]/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#FF4D5C]" />
-                The $147/month con job
+                Cable bills add up fast
               </span>
               <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl lg:text-[3.4rem]">
-                Cable companies have been overcharging American households{" "}
-                <span className="italic text-[#fca5a5]">for decades</span>.
+                Traditional TV is{" "}
+                <span className="italic text-[#fca5a5]">expensive</span>.
                 <br />
-                It&rsquo;s time to stop.
+                It doesn&rsquo;t have to be.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
-                The average cable TV + Sports household pays{" "}
-                <strong className="text-white">$147 a month</strong> — that&rsquo;s{" "}
-                <strong className="text-white">$1,764 a year</strong>, locked into{" "}
-                <strong className="text-white">24-month contracts</strong> with brutal
-                early-exit fees. According to FCC, over{" "}
-                <strong className="text-white">4.2 million US households</strong> have already walked.
-                You can join them in the next ten minutes.
+                Cable-plus-sports packages often run well over a hundred dollars a
+                month once equipment rental and fees are added, frequently on a
+                multi-year contract with early-exit penalties. A no-contract IPTV
+                subscription starts at{" "}
+                <strong className="text-white">$12 a month</strong> in US dollars —
+                and you can cancel any time.
               </p>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
-                A premium IPTV subscription gives you{" "}
-                <strong className="text-white">every NFL game</strong>, all of NFL Network
-                Sports, all of FOX Sports, NBC, ABC, CBS, FOX, HBO Max, Showtime,
-                a 100,000+ VOD library — for{" "}
-                <strong className="text-white">less than 9% of a typical cable bill</strong>. No engineer
-                visit. No equipment rental. No 24-month commitment. Cancel any time.
+                You get a large catalog of live and on-demand entertainment,
+                optimized for Fire TV devices. No engineer visit, no equipment
+                rental, no long commitment. Channel availability depends on rights
+                holders, and we don&rsquo;t promise specific leagues or
+                blackout-free sports.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -2219,59 +2192,51 @@ export default function Page() {
                   See plans from $12 →
                 </a>
                 <a
-                  href={whatsappLink("Hi! I'd like to start the free 24-hour IPTV trial. No card needed?")}
+                  href={whatsappLink()}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
                 >
-                  💬 Start free 24-hr trial
+                  💬 Message us on WhatsApp
                 </a>
               </div>
             </div>
 
-            {/* Right: NFL Sunday 1pm visual */}
+            {/* Right: what you actually get */}
             <div className="md:col-span-5">
               <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur">
                 <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-wider text-white/60">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#FF4D5C]" />
-                  Saturday · 3:00 PM kickoff
+                  <span className="h-2 w-2 rounded-full bg-[#25D366]" />
+                  What you get
                 </div>
-                <div className="mt-4 font-[family-name:var(--font-display)] text-2xl font-normal leading-tight text-white md:text-3xl">
-                  &ldquo;Cancelled cable after 15 years paying $147 a month. Set up
-                  on my Firestick — took 8 minutes. Every NFL game,
-                  all NBA Playoffs, NBC, ABC. Picture quality is genuinely
-                  the same as Comcast X1.
-                  <span className="text-[#fca5a5]">
-                    {" "}My monthly bill went from $147 to $12. I&rsquo;m still slightly stunned.
-                  </span>
-                  &rdquo;
-                </div>
-                <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
-                  <div className="grid h-9 w-9 place-items-center rounded-full bg-[#4F7DFF] text-sm font-semibold">
-                    DH
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-white">David H.</div>
-                    <div className="text-xs text-white/50">Dallas, TX · ★★★★★</div>
-                  </div>
-                </div>
+                <ul className="mt-4 space-y-3 text-[15px] leading-relaxed text-white/85">
+                  <li>✅ A no-contract subscription, cancel anytime</li>
+                  <li>✅ Optimized for Amazon Fire TV and Firestick</li>
+                  <li>✅ A large catalog of live and on-demand entertainment</li>
+                  <li>✅ Setup and support from real people on WhatsApp</li>
+                  <li>✅ Clear pricing in US dollars, from $12/month</li>
+                </ul>
+                <p className="mt-5 border-t border-white/10 pt-4 text-xs text-white/50">
+                  Channel availability depends on rights holders. We don&rsquo;t
+                  claim network or league licenses, or promise blackout-free sports.
+                </p>
               </div>
 
-              {/* Comparative cost mini-card */}
+              {/* Illustrative cost comparison */}
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                  <div className="text-xs uppercase tracking-wider text-white/50">cable TV (typical)</div>
+                  <div className="text-xs uppercase tracking-wider text-white/50">Cable + sports (illustrative)</div>
                   <div className="mt-2 font-[family-name:var(--font-display)] text-3xl font-normal text-white/60 line-through">
-                    $147<span className="text-base">/mo</span>
+                    $100+<span className="text-base">/mo</span>
                   </div>
-                  <div className="mt-1 text-[11px] text-white/40">+ Broadcast TV Fee $14.13/mo</div>
+                  <div className="mt-1 text-[11px] text-white/40">plus equipment &amp; fees</div>
                 </div>
                 <div className="rounded-2xl border border-[#25D366]/40 bg-[#25D366]/10 p-5">
-                  <div className="text-xs uppercase tracking-wider text-[#86efac]">IPTV For Firestick USA</div>
+                  <div className="text-xs uppercase tracking-wider text-[#86efac]">This subscription</div>
                   <div className="mt-2 font-[family-name:var(--font-display)] text-3xl font-normal text-white">
                     $12<span className="text-base">/mo</span>
                   </div>
-                  <div className="mt-1 text-[11px] text-[#86efac]">Same channels. Better.</div>
+                  <div className="mt-1 text-[11px] text-[#86efac]">No contract</div>
                 </div>
               </div>
             </div>
@@ -2307,12 +2272,12 @@ export default function Page() {
               and OTT Navigator.
             </p>
             <p>
-              Together, a Firestick and a quality IPTV subscription replace the
-              traditional cable box: every NFL game, NBA League Pass and NHL Center Ice,
-              March Madness, college football, F1, NASCAR, UFC,
-              boxing PPVs, Peacock, Hulu, Paramount+, HBO Max, Showtime
-              — all on one small HDMI dongle, for less than the price of a single
-              streaming subscription.
+              Together, a Firestick and a quality IPTV subscription can replace the
+              traditional cable box: a large catalog of live and on-demand
+              entertainment on one small HDMI dongle, at a low monthly price.
+              Specific channels, leagues, and events depend on the rights behind
+              each stream, so treat any provider&rsquo;s exact line-up as something
+              to confirm before you buy.
             </p>
           </div>
         </div>
@@ -2641,28 +2606,28 @@ export default function Page() {
                   {/* Trust line under button */}
                   <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] text-[#6E7585]">
                     <span>🔒</span>
-                    <span>Activated in 5 minutes</span>
+                    <span>Activated over WhatsApp</span>
                   </div>
                 </article>
               );
             })}
           </div>
 
-          {/* Trust indicators row below cards */}
+          {/* Trust indicators row below cards — facts we can support */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-[#A8AEBC]">
             <span className="flex items-center gap-1.5">
-              <span className="text-[#F5B643]">★★★★★</span>
-              <span>4.8 / 5 — 12,400+ reviews</span>
+              <span className="text-[#22c55e]">●</span>
+              <span>No contract</span>
             </span>
             <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
             <span className="flex items-center gap-1.5">
               <span className="text-[#22c55e]">●</span>
-              <span>Money-back guarantee</span>
+              <span>Cancel anytime</span>
             </span>
             <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
             <span className="flex items-center gap-1.5">
-              <span>🛡️</span>
-              <span>SSL secure checkout</span>
+              <span>💬</span>
+              <span>WhatsApp support</span>
             </span>
           </div>
 
@@ -2671,15 +2636,15 @@ export default function Page() {
             {[
               {
                 icon: "📺",
-                title: "Thousands of US live channels",
+                title: "A broad live TV catalog",
                 body:
-                  "Premium IPTV channels including ESPN, FOX Sports, NFL Network, NBA TV, HBO Max, Showtime, NBC, ABC, CBS, FOX, plus 20,000+ international channels.",
+                  "A large catalog of live channels across US entertainment, news, and sports, plus international channels. Specific availability depends on rights holders.",
               },
               {
                 icon: "🎬",
                 title: "Movies & VOD library",
                 body:
-                  "Massive on-demand library updated daily — latest US and Hollywood films, complete TV box sets, perfect for American households who want more than just live TV.",
+                  "A large on-demand library of films and TV box sets — handy for American households who want more than just live TV.",
               },
               {
                 icon: "💬",
@@ -2805,21 +2770,21 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF4D5C]/30 bg-[#FF4D5C]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">
-              🏈 NFL Sunday · zero blackouts · NFL Sunday Ticket alternative
+              🏈 Live sports on your Firestick
             </span>
             <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl text-[#F5F6F8]">
-              Watch every NFL game in 4K.{" "}
-              <span className="italic text-[#4F7DFF]">Even out-of-market.</span>
+              Live sports, the way{" "}
+              <span className="italic text-[#4F7DFF]">fans watch.</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
-              The NFL is the most-watched sports league in America — and watching every
-              game traditionally requires <strong>NFL Sunday Ticket</strong> on YouTube TV
-              ($389/season) plus <strong>ESPN</strong>, <strong>NFL Network</strong> and{" "}
-              <strong>Amazon Prime</strong>, costing well over{" "}
-              <strong className="text-[#F5F6F8]">$700/year</strong>. With our IPTV
-              subscription on Firestick, <strong className="text-[#F5F6F8]">all 272 regular
-              season games are live in 4K</strong> — including out-of-market games, NFL
-              RedZone, Monday Night Football, Thursday Night Football, and the full playoffs.
+              Sports is the number-one reason US viewers look at IPTV, and the
+              catalog spans the leagues and events fans care about most. One honest
+              caveat first: US live-sports rights are controlled by the leagues and
+              networks, they change season to season, and blackouts and
+              out-of-market rules exist. So we don&rsquo;t promise a specific game,
+              an out-of-market package, or blackout-free viewing — check what
+              matters to you before you buy. What we can say is that the breadth is
+              wide and it runs on the Firestick you already own.
             </p>
           </div>
 
@@ -2827,39 +2792,39 @@ export default function Page() {
             {[
               {
                 tag: "NFL",
-                t: "All 272 NFL regular season games · every Sunday",
-                b: "NFL Sunday 1:00 PM ET, 4:25 PM ET, 8:20 PM ET kickoffs all included. 4K HDR. ESPN, FOX, CBS, NBC, NFL Network, NFL RedZone — every feed. Includes Monday Night Football and Thursday Night Football.",
-                stat: "272 NFL games/yr",
+                t: "Pro football",
+                b: "Sunday, Monday, and Thursday night football are among the most-watched broadcasts in America. Coverage across the major network feeds is a popular draw. Specific games and out-of-market availability depend on rights and blackout rules.",
+                stat: "Fan favorite",
               },
               {
                 tag: "NBA & NHL",
-                t: "NBA League Pass · NHL Center Ice",
-                b: "Every NBA regular-season game (82 per team), full NBA Playoffs, full Stanley Cup Playoffs, all NHL Center Ice games. ESPN, TNT, ABC, NBC feeds — no blackouts.",
-                stat: "82 NBA + 82 NHL",
+                t: "Basketball & hockey",
+                b: "The NBA and NHL regular seasons and playoffs run for months and draw big audiences. Availability of specific matchups depends on national and regional rights.",
+                stat: "Season-long",
               },
               {
-                tag: "MLB · WORLD SERIES",
-                t: "MLB.TV alternative · every team",
-                b: "Full regular season (162 games per team), all playoffs, every World Series game. ESPN, FOX, FS1, MLB Network — including local RSNs (YES, NESN, Bally Sports, SNY).",
-                stat: "162 games/team",
+                tag: "MLB",
+                t: "Baseball",
+                b: "Baseball's long season is a staple of US TV. National feeds are widely followed; regional and out-of-market games are subject to the leagues' rights and blackout rules.",
+                stat: "Summer staple",
               },
               {
                 tag: "COLLEGE",
-                t: "NCAA Football · March Madness",
-                b: "Every NCAA Football game (FBS Power 5 + Group of 5), full NCAA Tournament (March Madness), College World Series, all bowl games. ESPN, CBS, ABC, FOX, TBS, TNT, truTV.",
-                stat: "All bowl games",
+                t: "College sports",
+                b: "College football Saturdays and the March basketball tournament are cultural events. Coverage spans the major networks that carry them.",
+                stat: "Weekend ritual",
               },
               {
-                tag: "F1 · UFC · BOXING",
-                t: "PPV events · NASCAR · F1",
-                b: "Every NASCAR Cup Series race weekend — practice, qualifying, race. F1 Grand Prix on ESPN, every UFC Fight Night and numbered card, every boxing PPV (Fury, Canelo, Spence) — all included, zero per-fight fees.",
-                stat: "Zero PPV fees",
+                tag: "COMBAT · MOTORSPORT",
+                t: "Racing & fight sports",
+                b: "Motorsport weekends and combat-sports cards have passionate followings. Pay-per-view events in particular are controlled by their promoters and rights holders.",
+                stat: "Event driven",
               },
               {
-                tag: "MLS · INT'L SOCCER",
-                t: "MLS Season Pass · Premier League",
-                b: "Every Major League Soccer match (Apple TV MLS Season Pass equivalent). Champions League, Europa League, Premier League, La Liga, Serie A — all leagues, all matches.",
-                stat: "All major leagues",
+                tag: "SOCCER",
+                t: "Domestic & international soccer",
+                b: "US and international soccer keeps growing with American audiences. League and tournament availability depends on the broadcasters that hold each competition.",
+                stat: "Global game",
               },
             ].map((card) => (
               <article
@@ -2882,13 +2847,13 @@ export default function Page() {
             ))}
           </div>
 
-          {/* Mini stats row */}
+          {/* Mini facts row — supportable */}
           <div className="mt-12 grid grid-cols-2 gap-4 rounded-2xl border border-[#2A3142] bg-[#141824] p-6 md:grid-cols-4">
             {[
-              { v: "272", l: "NFL games/year" },
-              { v: "1,230", l: "NBA regular season" },
-              { v: "36", l: "NASCAR Cup races" },
-              { v: "0", l: "Per-fight PPV charges" },
+              { v: "$12", l: "Starting price / month (USD)" },
+              { v: "No", l: "Contract or lock-in" },
+              { v: "Fire TV", l: "Optimized for Firestick" },
+              { v: "WhatsApp", l: "Setup & support" },
             ].map((s) => (
               <div key={s.l} className="text-center">
                 <div className="font-[family-name:var(--font-display)] text-3xl font-normal text-[#4F7DFF] md:text-4xl">
@@ -2903,22 +2868,23 @@ export default function Page() {
             <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-12">
               <div className="md:col-span-8">
                 <h3 className="font-[family-name:var(--font-display)] text-2xl font-normal leading-tight md:text-3xl">
-                  Sunday is sacred. Don&rsquo;t miss the 4th quarter again.
+                  Sports fan? Ask us what&rsquo;s in the catalog.
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-white/75">
-                  Test our anti-freeze servers <strong className="text-white">free for 24 hours</strong> —
-                  ideally on a Sunday, during the 1pm kickoff. If it doesn&rsquo;t hold a clean stream
-                  through the full 60 minutes, walk away. No card needed. No commitment.
+                  Message us on WhatsApp and tell us which leagues and channels you
+                  care about most. We&rsquo;ll give you a straight answer about
+                  what&rsquo;s available before you commit — no contract, cancel
+                  anytime.
                 </p>
               </div>
               <div className="flex flex-col gap-2 md:col-span-4">
                 <a
-                  href={whatsappLink("Hi! Free 24-hour NFL IPTV trial please.")}
+                  href={whatsappLink()}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
                 >
-                  💬 Free trial on WhatsApp
+                  💬 Ask on WhatsApp
                 </a>
                 <a
                   href="#premium-channels"
@@ -2940,55 +2906,19 @@ export default function Page() {
               Cable vs IPTV in the USA
             </span>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
-              Why thousands of American households cut the cord every month.
+              Why many American households look at cutting the cord.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-[#A8AEBC]">
-              Cable and satellite bills keep climbing while channel selection shrinks. A premium IPTV
-              subscription on Firestick replaces traditional pay TV from Comcast Xfinity, Spectrum,
-              DirecTV and YouTube TV — typically saving American households
-              <strong className="text-[#F5F6F8]"> $1,200 to $1,800 a year</strong>. Over 7 million US
-              households have already abandoned traditional pay TV — and the shift is accelerating.
+              Live-TV bills keep climbing, and cord-cutting has been a clear trend in
+              the US for years. A no-contract IPTV subscription on Firestick starts at{" "}
+              <strong className="text-[#F5F6F8]">$12/month</strong> — well below the
+              published base prices of the mainstream live-TV streaming services.
+              Compare for yourself below; each price links to the operator&rsquo;s own
+              pricing page.
             </p>
           </div>
 
-          <div className="mt-12 overflow-x-auto rounded-2xl border border-[#2A3142]">
-            <table className="w-full min-w-[640px] border-collapse text-left text-sm">
-              <thead className="bg-[#1A1F2E] text-[#A8AEBC]">
-                <tr>
-                  <th className="px-5 py-4 font-medium">Provider</th>
-                  <th className="px-5 py-4 font-medium">Typical monthly cost</th>
-                  <th className="px-5 py-4 font-medium">Annual cost (USD)</th>
-                  <th className="px-5 py-4 font-medium">vs IPTV Firestick (~$55/yr)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#2A3142]">
-                {[
-                  { p: "Comcast Xfinity (Ultimate TV + Sports)", m: "$130 – $165", y: "$1,560 – $1,980", save: "save up to $1,925" },
-                  { p: "Spectrum (TV Select Signature + Sports)", m: "$120 – $165", y: "$1,440 – $1,980", save: "save up to $1,925" },
-                  { p: "DirecTV Stream (Choice + Sports)", m: "$108 – $164", y: "$1,296 – $1,968", save: "save up to $1,913" },
-                  { p: "YouTube TV ($82.99 base)", m: "$83 – $108", y: "$996 – $1,296", save: "save up to $1,241" },
-                  { p: "Hulu Live TV + Disney+", m: "$83 – $103", y: "$996 – $1,236", save: "save up to $1,181" },
-                ].map((r) => (
-                  <tr key={r.p} className="bg-[#141824]">
-                    <td className="px-5 py-4 font-medium text-[#F5F6F8]">{r.p}</td>
-                    <td className="px-5 py-4 text-[#A8AEBC]">{r.m}</td>
-                    <td className="px-5 py-4 text-[#A8AEBC]">{r.y}</td>
-                    <td className="px-5 py-4">
-                      <span className="rounded-full bg-[#4F7DFF]/[0.15] px-3 py-1 text-xs font-medium text-[#4F7DFF]">
-                        {r.save}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="mt-6 max-w-3xl text-sm text-[#6E7585]">
-            Estimated 2026 figures based on publicly listed pricing from US pay TV providers, including
-            HD/4K channel packs, sports add-ons, regional sports network fees and broadcast TV fees.
-            Individual savings vary by household and current contract terms.
-          </p>
+          <ComparisonTable ourPrice="from $12/mo" ourNote="no contract" />
 
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
@@ -2997,8 +2927,8 @@ export default function Page() {
                 b: "IPTV in the USA is month-to-month. No 12 or 24-month cable contracts, no early-exit fees, no cable box rental, no technician install charge.",
               },
               {
-                t: "Every channel you actually watch",
-                b: "ESPN, FOX Sports, NFL Network, NBA TV, MLB Network, NHL Network, HBO Max, Showtime, NBC, ABC, CBS, FOX — plus 20,000+ international channels cable bundles never include.",
+                t: "A broad catalog",
+                b: "A large catalog of US entertainment, news, and sports channels, plus international channels that cable bundles often don't carry. Specific availability depends on rights holders.",
               },
               {
                 t: "Watch on every device",
@@ -3158,18 +3088,18 @@ export default function Page() {
             {[
               {
                 n: "01",
-                t: "Server stability & uptime",
-                b: "Look for 99%+ uptime tested during NFL Sunday 1pm kickoff and weekday primetime (7–11pm ET). Anti-freeze technology and HEVC compression matter for 4K streams during big games and UFC PPVs.",
+                t: "Stability during peak hours",
+                b: "What matters is smooth playback when everyone is watching — Sunday afternoons and weekday primetime. Judge it on your own TV rather than on any uptime figure a provider quotes, since nobody can verify those claims for you.",
               },
               {
                 n: "02",
-                t: "Full US channel depth",
-                b: "ESPN family, FOX Sports, NFL Network, NBA TV, MLB Network, NBC, ABC, CBS, FOX, HBO Max, Showtime — all included, not as add-ons or sport packs.",
+                t: "Channel depth that fits you",
+                b: "A good catalog spans US entertainment, news, and sports without nickel-and-diming you for add-ons. Confirm the specific channels you care about are included before you buy — availability depends on rights holders.",
               },
               {
                 n: "03",
-                t: "Free trial — at least 24 hours",
-                b: "Avoid services with no trial or only a 2-hour preview. A confident US provider lets you stress-test their service across multiple devices and a full NFL weekend.",
+                t: "No contract, so you can leave",
+                b: "The best protection isn't a promised trial — it's month-to-month pricing with no lock-in, so you can start small, test on your own devices, and cancel anytime if it isn't for you.",
               },
               {
                 n: "04",
@@ -3342,7 +3272,8 @@ export default function Page() {
           </h2>
           <p className="mt-4 text-lg text-[#A8AEBC]">
             Real issues, real fixes. No &ldquo;have you tried turning it off and on
-            again&rdquo;. These six cover roughly 98% of the support requests we see.
+            again&rdquo;. These six cover the most common buffering and setup
+            questions US viewers ask.
           </p>
         </div>
 
@@ -3396,32 +3327,38 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============================ TESTIMONIALS ============================ */}
+      {/* ============================ WHY CHOOSE US ============================ */}
       <section className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <div className="max-w-2xl">
           <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
-            From across the USA
+            Why people choose us
           </span>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
-            What American readers tell us.
+            Straightforward, and easy to leave.
           </h2>
+          <p className="mt-4 text-[15px] leading-relaxed text-[#A8AEBC]">
+            We keep the promises we can actually keep. No contract, cancel
+            anytime, and a real person on WhatsApp when you need setup help — so
+            there&rsquo;s no risk in trying it on your Firestick.
+          </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <figure
-              key={t.name}
-              className="flex flex-col rounded-2xl border border-[#2A3142] bg-[#141824] p-7 transition hover:border-[#F5B643]/50"
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-4">
+          {[
+            { t: "No contract", d: "Pay for the plan length you choose. Nothing locks you in." },
+            { t: "Cancel anytime", d: "Stop by not renewing — no early-exit fee, no retention maze." },
+            { t: "Fire TV compatible", d: "Optimized for Firestick and the players US viewers already use." },
+            { t: "WhatsApp support", d: "Setup and help from real people, in plain English." },
+          ].map((x) => (
+            <div
+              key={x.t}
+              className="rounded-2xl border border-[#2A3142] bg-[#141824] p-7"
             >
-              <div className="text-[#F5B643]" aria-hidden>★★★★★</div>
-              <blockquote className="mt-4 flex-1 text-[16px] leading-relaxed text-[#F5F6F8]">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-6 border-t border-[#2A3142] pt-4 text-sm">
-                <div className="font-medium text-[#F5F6F8]">{t.name}</div>
-                <div className="text-[#6E7585]">{t.location}</div>
-              </figcaption>
-            </figure>
+              <h3 className="font-[family-name:var(--font-display)] text-lg font-medium text-[#F5F6F8]">
+                {x.t}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#A8AEBC]">{x.d}</p>
+            </div>
           ))}
         </div>
       </section>
@@ -3482,16 +3419,16 @@ export default function Page() {
               ⚽ HECHO PARA LATINOS · 63M+ AUDIENCE
             </span>
             <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] text-[#F5F6F8] md:text-5xl">
-              Todos los canales en español.{" "}
-              <span className="italic text-[#F5B643]">Liga MX. Canelo. Telenovelas.</span>
+              Canales en español.{" "}
+              <span className="italic text-[#F5B643]">Fútbol. Boxeo. Telenovelas.</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
-              <strong className="text-[#F5F6F8]">¡Bienvenidos!</strong> Más de 63 millones de hispanos viven en
-              Estados Unidos, y estamos hechos para ustedes. Disfruta{" "}
-              <strong className="text-[#F5F6F8]">Telemundo, Univision, TUDN, Liga MX</strong> en vivo,
-              Selección Mexicana, todas las peleas de Canelo Álvarez,{" "}
-              <strong className="text-[#F5F6F8]">+5,000 canales en español</strong>, telenovelas mexicanas, turcas y colombianas,
-              series y películas latinas — todo en 4K UHD desde tu Firestick. Soporte 100% en español por WhatsApp.
+              <strong className="text-[#F5F6F8]">¡Bienvenidos!</strong> Hay millones de
+              hispanohablantes en Estados Unidos, y pensamos en ustedes. Un amplio
+              catálogo de canales en español y contenido en vivo y a la carta —
+              fútbol, boxeo, noticias, telenovelas, series y películas latinas — desde
+              tu Firestick. La disponibilidad de cada canal depende de sus titulares
+              de derechos. Soporte en español por WhatsApp.
             </p>
           </div>
 
@@ -3503,26 +3440,26 @@ export default function Page() {
                 icon: "⚽",
                 title: "Liga MX & Selección",
                 items: [
-                  "Liga MX completa (Apertura + Clausura)",
+                  "Liga MX (Apertura + Clausura)",
                   "Club América, Chivas, Cruz Azul",
                   "Selección Mexicana — El Tri",
                   "TUDN, Univision Deportes",
-                  "Copa América 2026 en vivo",
-                  "Mundial 2026 — todos los partidos",
+                  "Copa América",
+                  "Mundial 2026",
                 ],
                 color: "#22c55e",
               },
               {
                 tag: "BOXEO",
                 icon: "🥊",
-                title: "Canelo & PPV gratis",
+                title: "Boxeo",
                 items: [
-                  "Todas las peleas de Canelo Álvarez",
+                  "Peleas de Canelo Álvarez",
                   "Ryan Garcia, David Benavidez",
-                  "Boxeo mexicano completo",
+                  "Boxeo mexicano",
                   "ESPN Deportes Boxing",
                   "DAZN Boxing, Fox Deportes",
-                  "PPV incluidos — sin cargos extra",
+                  "Eventos según sus titulares de derechos",
                 ],
                 color: "#FF4D5C",
               },
@@ -3531,8 +3468,8 @@ export default function Page() {
                 icon: "📺",
                 title: "Telemundo & Univision",
                 items: [
-                  "Univision en vivo 24/7",
-                  "Telemundo en vivo 24/7",
+                  "Univision en vivo",
+                  "Telemundo en vivo",
                   "Despierta América",
                   "Primer Impacto",
                   "Al Rojo Vivo",
@@ -3614,10 +3551,10 @@ export default function Page() {
           {/* Hispanic stats banner */}
           <div className="mt-12 grid grid-cols-2 gap-4 rounded-3xl border border-[#F5B643]/30 bg-gradient-to-r from-[#1F1A14] via-[#141824] to-[#1A1F2E] p-6 md:grid-cols-4 md:p-8">
             {[
-              { v: "63M+", l: "Hispanos en USA", c: "#F5B643" },
-              { v: "5,000+", l: "Canales en español", c: "#22c55e" },
-              { v: "78%", l: "Usan streaming", c: "#FF4D5C" },
-              { v: "$12/mes", l: "Desde solo", c: "#4F7DFF" },
+              { v: "$12", l: "Desde / mes (USD)", c: "#F5B643" },
+              { v: "Sin", l: "Contrato ni permanencia", c: "#22c55e" },
+              { v: "Fire TV", l: "Optimizado para Firestick", c: "#FF4D5C" },
+              { v: "WhatsApp", l: "Soporte en español", c: "#4F7DFF" },
             ].map((s) => (
               <div key={s.l} className="text-center">
                 <div
@@ -3634,16 +3571,16 @@ export default function Page() {
           {/* Spanish CTA */}
           <div className="mt-10 flex flex-col items-center gap-5 text-center">
             <p className="max-w-xl text-lg text-[#A8AEBC]">
-              <strong className="text-[#F5F6F8]">Prueba gratis 24 horas.</strong> Sin tarjeta de crédito. Cancela cuando quieras.
+              <strong className="text-[#F5F6F8]">Sin contrato.</strong> Cancela cuando quieras. Desde $12 al mes en dólares.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href={whatsappLink("¡Hola! Quiero la prueba gratis de 24 horas de IPTV en español por favor.")}
+                href={whatsappLink("Hi, I came from iptvforfirestickusa.com and I want a subscription. (Español)")}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/30 transition hover:scale-[1.03] hover:bg-[#1FB855]"
               >
-                💬 Prueba gratis · WhatsApp en español
+                💬 Escríbenos por WhatsApp
               </a>
               <a
                 href="#premium-channels"
@@ -3665,15 +3602,15 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#4F7DFF]/30 bg-[#4F7DFF]/[0.08] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#4F7DFF]">
-              🌍 24/7 SUPPORT · ENGLISH · ESPAÑOL · FRANÇAIS
+              🌍 WHATSAPP SUPPORT · ENGLISH · ESPAÑOL · FRANÇAIS
             </span>
             <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] text-[#F5F6F8] md:text-5xl">
               Real human support.{" "}
               <span className="italic text-[#4F7DFF]">In your language.</span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-[#A8AEBC]">
-              No bots. No 48-hour ticket queues. Get help from a real person on WhatsApp —
-              replies within minutes, fluent in <strong className="text-[#F5F6F8]">English, Español and Français</strong>.
+              No bots. Get help from a real person on WhatsApp, in{" "}
+              <strong className="text-[#F5F6F8]">English, Español or Français</strong>.
               Setup help, troubleshooting, plan changes — anything you need.
             </p>
           </div>
@@ -3717,13 +3654,13 @@ export default function Page() {
                     </div>
                     <div>
                       <div className="flex items-center gap-2 text-sm font-semibold text-[#F5F6F8]">
-                        Sofia · Customer Support
-                        <span className="text-[10px] font-normal text-[#A8AEBC]">(Sofia · Soporte)</span>
+                        WhatsApp Support
+                        <span className="text-[10px] font-normal text-[#A8AEBC]">(Soporte · Support)</span>
                       </div>
                       <div className="flex items-center gap-2 text-[11px] text-[#A8AEBC]">
                         <span className="flex items-center gap-1">
                           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#22c55e]" />
-                          Online · Replies in 2 min avg
+                          Online · Fast replies during support hours
                         </span>
                       </div>
                     </div>
@@ -3747,23 +3684,23 @@ export default function Page() {
                   <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#4F7DFF] px-4 py-2.5 text-[13px] leading-relaxed text-white">
                     Hi! Does your IPTV include Liga MX in español?
                   </div>
-                  {/* Sofia reply EN/ES */}
+                  {/* Support reply EN/ES */}
                   <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#1A1F2E] px-4 py-2.5 text-[13px] leading-relaxed text-[#F5F6F8]">
-                    ¡Hola! 👋 Yes — all Liga MX matches are included. <strong>Club América, Chivas, Cruz Azul, Tigres</strong> — all in 4K UHD via TUDN and Univision Deportes. ¿Necesitas que te ayude a configurar tu Firestick?
+                    ¡Hola! 👋 We carry a wide range of Spanish-language sports, including <strong>Liga MX</strong> coverage via TUDN and Univision Deportes. Send us the exact channels you want and we&rsquo;ll confirm what&rsquo;s currently available. ¿Te ayudo a configurar tu Firestick?
                   </div>
                   {/* Customer in French */}
                   <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#4F7DFF] px-4 py-2.5 text-[13px] leading-relaxed text-white">
                     Bonjour, j&rsquo;ai TV5 Monde dans la liste des chaînes ?
                   </div>
                   <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#1A1F2E] px-4 py-2.5 text-[13px] leading-relaxed text-[#F5F6F8]">
-                    Oui absolument ! 🇫🇷 <strong>TV5 Monde, France 24, RFI, BFM TV</strong> — toutes les chaînes francophones sont incluses. Vous avez aussi les chaînes haïtiennes et québécoises (TVA, RDS).
+                    Bonjour ! 🇫🇷 Nous proposons des chaînes francophones comme <strong>TV5 Monde, France 24, RFI</strong>. Dites-nous celles qui vous intéressent et nous vérifions leur disponibilité avant votre achat.
                   </div>
                   {/* Customer in Spanish */}
                   <div className="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#4F7DFF] px-4 py-2.5 text-[13px] leading-relaxed text-white">
                     ¿Y la pelea de Canelo el sábado? ¿Está incluida?
                   </div>
                   <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-[#1A1F2E] px-4 py-2.5 text-[13px] leading-relaxed text-[#F5F6F8]">
-                    🥊 <strong>¡Por supuesto!</strong> Todas las peleas de <strong>Canelo Álvarez</strong> están incluidas vía DAZN, ESPN Deportes y PPV — <em>sin costo extra</em>. También tienes Ryan Garcia, David Benavidez y todo el boxeo mexicano.
+                    🥊 Buena pregunta. Los eventos de boxeo dependen de sus titulares de derechos y cambian cada semana. Escríbenos antes del evento y te confirmamos si está disponible — sin compromiso.
                   </div>
                   {/* Typing indicator */}
                   <div className="flex items-center gap-2 text-[11px] text-[#6E7585]">
@@ -3772,7 +3709,7 @@ export default function Page() {
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4F7DFF]" style={{ animationDelay: "0.2s" }} />
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#4F7DFF]" style={{ animationDelay: "0.4s" }} />
                     </span>
-                    <span>Sofia is typing...</span>
+                    <span>Support is typing...</span>
                   </div>
                 </div>
 
@@ -3815,12 +3752,12 @@ export default function Page() {
                   {
                     icon: "👤",
                     title: "Real human, not a bot",
-                    body: "Sofia and our team are real people. No scripted answers, no AI loops.",
+                    body: "Our support team are real people. No scripted answers, no AI loops.",
                   },
                   {
                     icon: "⚡",
-                    title: "2-minute average reply",
-                    body: "WhatsApp messages answered in minutes, not days. 24/7 coverage.",
+                    title: "Fast WhatsApp replies",
+                    body: "We aim to answer WhatsApp messages quickly during support hours — not days later.",
                   },
                   {
                     icon: "🌍",
@@ -3865,30 +3802,30 @@ export default function Page() {
                 Last step
               </span>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-[1.05] md:text-5xl lg:text-6xl">
-                Stop paying cable $147 a month.{" "}
+                Spend less on TV.{" "}
                 <span className="italic text-[#FF4D5C]">Start tonight.</span>
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-                Test it free for 24 hours — no card, no commitment. Watch the next
-                NFL game on us. If the stream holds clean through the full 60 minutes,
-                lock in <strong className="text-white">$12 a month</strong>. If it doesn&rsquo;t,
-                walk away. That simple.
+                A no-contract subscription for your Firestick from{" "}
+                <strong className="text-white">$12 a month</strong> in US dollars.
+                Message us on WhatsApp, tell us which channels matter to you, and
+                we&rsquo;ll help you set it up. Cancel anytime — no lock-in.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/70">
-                <span>✅ No card needed</span>
-                <span>✅ 5-min activation</span>
+                <span>✅ No contract</span>
                 <span>✅ Cancel anytime</span>
-                <span>✅ US WhatsApp support 24/7</span>
+                <span>✅ Fire TV compatible</span>
+                <span>✅ WhatsApp support</span>
               </div>
             </div>
             <div className="flex flex-col gap-3 md:col-span-4">
               <a
-                href={whatsappLink("Hi! I want to start the free 24-hour IPTV trial — no card needed.")}
+                href={whatsappLink()}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.7)] transition hover:bg-[#1FB855]"
               >
-                💬 Free 24-hr trial · WhatsApp
+                💬 Message us on WhatsApp
               </a>
               <a
                 href="#premium-channels"
@@ -3908,7 +3845,7 @@ export default function Page() {
                 Install the IPTV For Firestick USA app
               </button>
               <p className="mt-1 text-center text-[11px] text-white/50">
-                🇺🇸 Built in America · Updated for Fire OS 8 · Anti-freeze servers
+                🇺🇸 US-focused · Updated for Fire OS 8 · No contract
               </p>
             </div>
           </div>
@@ -3950,7 +3887,8 @@ export default function Page() {
             </div>
             <p className="mt-3 text-xs text-[#6E7585]">iptvforfirestickusa.com</p>
             <p className="mt-3 max-w-xs text-sm text-[#A8AEBC]">
-              America&rsquo;s #1 IPTV resource for Firestick. Cancel cable, save $1,764 a year. Trusted by 12,400+ US households.
+              US-focused help for streaming on Amazon Fire TV and Firestick. No
+              contract, cancel anytime, activated over WhatsApp.
             </p>
           </div>
 
@@ -3970,36 +3908,50 @@ export default function Page() {
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-[#F5F6F8]">Regions</h4>
+            <h4 className="text-sm font-medium text-[#F5F6F8]">Compare</h4>
             <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
-              <li><a className="transition hover:text-[#F5F6F8]" href="#">East Coast</a></li>
-              <li><a className="transition hover:text-[#F5F6F8]" href="#">West Coast</a></li>
-              <li><a className="transition hover:text-[#F5F6F8]" href="#">Midwest</a></li>
-              <li><a className="transition hover:text-[#F5F6F8]" href="#">South</a></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/iptv-for-firestick">IPTV for Firestick</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/how-to-install-iptv-on-firestick">How to install</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/iptv-vs-cable-usa">IPTV vs cable</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/iptv-vs-youtube-tv">IPTV vs YouTube TV</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/cheap-iptv-usa">Cheap IPTV USA</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/iptv-no-contract-usa">No-contract IPTV</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-[#F5F6F8]">Site</h4>
+            <h4 className="text-sm font-medium text-[#F5F6F8]">Legal</h4>
             <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
-              <li><a className="transition hover:text-[#F5F6F8]" href="#">About</a></li>
-              <li><a className="transition hover:text-[#F5F6F8]" href="#">Editorial standards</a></li>
-              <li><a className="transition hover:text-[#F5F6F8]" href="#">Contact</a></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/is-iptv-legal-in-usa">Is IPTV legal?</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/legal/terms">Terms of Service</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/legal/privacy">Privacy Policy</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/legal/disclaimer">Disclaimer</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/references">References &amp; sources</Link></li>
               <li>
-                <button data-install-trigger className="transition hover:text-[#F5F6F8]">
-                  📱 Install app · Android · Windows
-                </button>
+                <a
+                  className="transition hover:text-[#F5F6F8]"
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  💬 Contact on WhatsApp
+                </a>
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-[#1F2433]">
-          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-6 text-xs text-[#6E7585] md:flex-row md:items-center md:px-8">
-            <p>© {year} IPTV For Firestick USA. Independent US publication.</p>
-            <p>Made in America · New York · Los Angeles · Dallas</p>
+          <div className="mx-auto max-w-6xl px-5 py-6 md:px-8">
+            <p className="max-w-4xl text-xs leading-relaxed text-[#6E7585]">
+              {LEGAL_DISCLAIMER}
+            </p>
+            <p className="mt-3 text-xs text-[#6E7585]">
+              © {year} IPTV For Firestick USA. Independent US publication.
+            </p>
           </div>
         </div>
       </footer>
+      <StickyCta />
     </main>
   );
 }
