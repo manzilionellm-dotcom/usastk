@@ -1775,11 +1775,11 @@ export default function Page() {
             <a href="#premium-channels" className="font-semibold text-[#FF4D5C] transition hover:text-[#E63946]">Get IPTV $12</a>
             <a href="#nfl-iptv" className="transition hover:text-[#F5F6F8]">🏈 NFL</a>
             <a href="#espanol" className="transition hover:text-[#F5B643]">⚽ Español</a>
-            <a href="#setup" className="transition hover:text-[#F5F6F8]">Setup</a>
+            <Link href="/firestick" className="transition hover:text-[#F5F6F8]">Setup</Link>
             <a href="#cable-vs-iptv" className="transition hover:text-[#F5F6F8]">vs Cable</a>
             <a href="#us-channels" className="transition hover:text-[#F5F6F8]">US Channels</a>
             <a href="#apps" className="transition hover:text-[#F5F6F8]">Best Apps</a>
-            <a href="#faq" className="transition hover:text-[#F5F6F8]">FAQ</a>
+            <Link href="/faq" className="transition hover:text-[#F5F6F8]">FAQ</Link>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -3959,13 +3959,13 @@ export default function Page() {
             <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
               <li><a className="font-semibold text-[#FF4D5C] transition hover:text-[#E63946]" href="#premium-channels">Get IPTV from $12 →</a></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#nfl-iptv">🏈 NFL IPTV</a></li>
-              <li><a className="transition hover:text-[#F5F6F8]" href="#setup">Firestick setup</a></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/firestick">Firestick setup</Link></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#apps">Best IPTV apps</a></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#cable-vs-iptv">Cable vs IPTV</a></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#us-channels">US channels</a></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#top-providers">Choosing a provider</a></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#troubleshooting">Fix buffering</a></li>
-              <li><a className="transition hover:text-[#F5F6F8]" href="#faq">FAQ</a></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href="/faq">FAQ</Link></li>
             </ul>
           </div>
 
