@@ -1,4 +1,4 @@
-/** Shared HIGH-PPP Firestick FAQ bank — 10 questions, no invented prices, 0 M3U. */
+/** Shared HIGH-PPP Firestick FAQ bank — 10 questions, no invented prices. */
 export const FAQ_TITLE = "IPTV Firestick USA FAQ";
 export const FAQ_H1 = "FAQ — trial & setup";
 export const FAQ_META =
