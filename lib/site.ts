@@ -11,5 +11,5 @@ export function whatsappHref(message: string) {
 export const WA_PREFILL = {
   firestick:
     "Hi — IPTV Firestick USA + 24h trial. City + device:",
-  faq: "Hi — IPTV USA question (trial / Firestick). City + device:",
+  faq: "Hi — IPTV Firestick USA (trial / setup). City + device:",
 } as const;

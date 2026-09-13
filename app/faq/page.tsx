@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
+import { FAQ_BANK, FAQ_H1, FAQ_META, FAQ_TITLE } from "@/lib/faq-bank";
 import {
   OG_IMAGE,
   SITE_NAME,
@@ -12,22 +13,20 @@ import {
 const PAGE_PATH = "/faq";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
-/* Seo Wa paste-ready USA Firestick site — title + meta */
-const TITLE = "IPTV FAQ — 24h trial, Firestick, WhatsApp";
-const META =
-  "Soft IPTV FAQ for Firestick USA: 24h trial, Firestick, 7 MOTION TV, city + device. WhatsApp only.";
-const H1 = "FAQ — 24h trial, Firestick, WhatsApp";
+const TITLE = FAQ_TITLE;
+const META = FAQ_META;
+const H1 = FAQ_H1;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { absolute: TITLE },
   description: META,
   keywords: [
-    "iptv faq",
-    "iptv 24h trial faq",
-    "firestick iptv faq",
-    "whatsapp iptv usa",
     "iptv firestick usa faq",
+    "iptv firestick trial",
+    "firestick iptv setup",
+    "7 motion tv firestick",
+    "iptv vs cable usa",
   ],
   alternates: {
     canonical: PAGE_URL,
@@ -68,39 +67,21 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
     },
   },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
-const faq = [
-  {
-    q: "How do I get the 24h IPTV trial?",
-    a: "Message WhatsApp with your city and device. We start a private 24-hour trial — no credit card, and no public playlist on the site.",
-  },
-  {
-    q: "Does it work on Firestick?",
-    a: "Yes. We walk Firestick setup (home or traveling) in about 5–10 minutes. We prefer 7 MOTION TV.",
-  },
-  {
-    q: "Why 7 MOTION TV and not a public list?",
-    a: "7 MOTION TV stays simple on Firestick. Access stays in the chat. We do not send a public playlist file.",
-  },
-  {
-    q: "What should I write on WhatsApp?",
-    a: "City + device (Firestick, Smart TV, phone…). That is enough to start the 24h trial.",
-  },
-  {
-    q: "Do I need a card to test?",
-    a: "No. The 24h trial is requested on WhatsApp. You pay only if you pick a duration later.",
-  },
-  {
-    q: "I’m traveling — can I still test?",
-    a: "Yes. Tell us the US city where you are watching. A Firestick or a phone is often enough for the trial.",
-  },
-];
+const faq = FAQ_BANK;
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   inLanguage: "en-US",
+  url: PAGE_URL,
+  name: TITLE,
   mainEntity: faq.map((f) => ({
     "@type": "Question",
     name: f.q,
@@ -147,14 +128,15 @@ export default function FaqPage() {
         </nav>
 
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">
-          FAQ · WHATSAPP · 24H TRIAL · FIRESTICK
+          FAQ · TRIAL · FIRESTICK · 7 MOTION · WHATSAPP
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal leading-tight tracking-tight md:text-5xl">
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
-          Six short answers. If yours is not here, WhatsApp with your city and
-          device. Soft start — 24h trial when you want to check it at home.
+          Ten short answers for Firestick buyers in the USA — trial, setup,
+          buffering, cable, sports. If yours is not here, WhatsApp with your
+          city and device.
         </p>
 
         <div className="mt-8">
@@ -162,9 +144,11 @@ export default function FaqPage() {
             href={wa}
             target="_blank"
             rel="noopener noreferrer"
+            data-event="cta_primary"
+            data-surface="faq-hero"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
           >
-            Ask on WhatsApp
+            Ask on WhatsApp — city + device
           </a>
         </div>
 
@@ -206,6 +190,16 @@ export default function FaqPage() {
               <Link href="/" className="hover:underline">
                 → Home — IPTV For Firestick USA
               </Link>
+            </li>
+            <li>
+              <a
+                href={wa}
+                className="hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                → WhatsApp — city + device
+              </a>
             </li>
           </ul>
         </section>

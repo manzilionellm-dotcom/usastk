@@ -246,7 +246,7 @@ export default function FirestickHowToPage() {
             </li>
             <li>
               <Link href="/faq" className="hover:underline">
-                → FAQ — 24h trial, Firestick, WhatsApp
+                → FAQ — trial & setup
               </Link>
             </li>
             <li>
