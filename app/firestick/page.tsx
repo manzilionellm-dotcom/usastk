@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
+import { jsonLdInnerHtml } from "@/lib/json-ld";
 import {
   OG_IMAGE,
   SITE_NAME,
@@ -131,13 +132,13 @@ export default function FirestickHowToPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(howToSchema).replace(/</g, "\\u003c"),
+          __html: jsonLdInnerHtml(howToSchema),
         }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+          __html: jsonLdInnerHtml(breadcrumbSchema),
         }}
       />
 

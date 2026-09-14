@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Script from "next/script";
+import { jsonLdInnerHtml } from "@/lib/json-ld";
 
 /* Fonts loaded in app/layout.tsx — variables --font-display and --font-body are available globally */
 
@@ -21,7 +22,7 @@ export const metadata = {
     template: "%s | IPTV For Firestick USA",
   },
   description:
-    "★ America's #1 IPTV for Firestick 2026 ★ Cut the cord, save $1,764/year vs Comcast. 50,000+ live channels in 4K UHD — every NFL game, NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, Peacock + 100% canales en español: Telemundo, Univision, Liga MX, Canelo Álvarez, telenovelas, El Tri. Anti-Freeze 6.0 technology, 99.9% uptime, instant 5-minute activation on WhatsApp. English, Español & Français support 24/7. Works on Amazon Firestick 4K Max, Smart TV, Android, iPhone, iPad, Windows, Mac. 24-hour free trial — no credit card required. Plans from $12/month, $55/year. Trusted by 12,400+ US households from New York to Los Angeles, Miami to Houston.",
+    "★ America's #1 IPTV for Firestick 2026 ★ Cut the cord, save $1,764/year vs Comcast. 50,000+ live channels in 4K UHD — every NFL game, NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, Peacock + 100% canales en español: Telemundo, Univision, Liga MX, Canelo Álvarez, telenovelas, El Tri. Anti-Freeze 6.0 technology, 99.9% uptime, instant 5-minute activation on WhatsApp. English, Español & Français support 24/7. Works on Amazon Firestick 4K Max, Smart TV, Android, iPhone, iPad, Windows, Mac. 24-hour free trial — no credit card required. Plans from $12/month, $55/year. For US households from New York to Los Angeles, Miami to Houston.",
   keywords: [
     // ============ TIER 1: HEAD COMMERCIAL — HIGHEST USA VOLUME ============
     "best iptv usa",
@@ -1463,7 +1464,8 @@ const pwaAndUiScript = `
 
 /* ----------------------------- JSON-LD STRUCTURED DATA ----------------------------- */
 /* Combines WebSite, Organization, WebPage, BreadcrumbList, HowTo, FAQPage,
-   AggregateRating, and Product offers for the 4 channel plans, in one @graph. */
+   and Product offers for the 4 channel plans, in one @graph.
+   No AggregateRating / Review / invented rating counts (Google penalty risk). */
 
 const jsonLdGraph = {
   "@context": "https://schema.org",
@@ -1653,13 +1655,6 @@ const jsonLdGraph = {
         audienceType: "American streaming households",
         geographicArea: { "@type": "Country", name: "United States" },
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "12400",
-        bestRating: "5",
-        worstRating: "1",
-      },
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "USD",
@@ -1693,7 +1688,7 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLdGraph).replace(/</g, "\\u003c"),
+          __html: jsonLdInnerHtml(jsonLdGraph),
         }}
       />
 
@@ -1833,8 +1828,8 @@ export default function Page() {
               <strong className="text-[#F5F6F8]">50,000+ live channels in 4K UHD</strong>, every NFL game,
               NBA League Pass, MLB.TV, NHL Center Ice, ESPN, ABC, CBS, NBC, FOX, HBO Max, Paramount+, full 100,000+ VOD library.
               <strong className="text-[#F5F6F8]"> Anti-Freeze 6.0 technology</strong> — zero buffering on NFL Sundays.
-              Activated on WhatsApp in 5 minutes flat. Trusted by{" "}
-              <span className="font-medium text-[#F5F6F8]">12,400+ US households</span> from New York to Los Angeles.
+              Activated on WhatsApp in 5 minutes flat. Built for{" "}
+              <span className="font-medium text-[#F5F6F8]">US households</span> from New York to Los Angeles.
             </p>
 
             {/* Killer trust strip — futuristic stats */}
@@ -1877,10 +1872,7 @@ export default function Page() {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-[#A8AEBC]">
-              <span className="flex items-center gap-2">
-                <span className="text-[#F5B643]">★★★★★</span>
-                <span><strong className="text-[#F5F6F8]">4.8 / 5</strong> · 12,400+ US households</span>
-              </span>
+              <span>✅ WhatsApp setup in 5 minutes</span>
               <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
               <span>✅ Anti-freeze servers</span>
               <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
@@ -2651,8 +2643,8 @@ export default function Page() {
           {/* Trust indicators row below cards */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs text-[#A8AEBC]">
             <span className="flex items-center gap-1.5">
-              <span className="text-[#F5B643]">★★★★★</span>
-              <span>4.8 / 5 — 12,400+ reviews</span>
+              <span>⚡</span>
+              <span>Best Firestick IPTV — WhatsApp in 5 minutes</span>
             </span>
             <span className="hidden h-1 w-1 rounded-full bg-[#2A3142] sm:block" />
             <span className="flex items-center gap-1.5">
@@ -3950,7 +3942,7 @@ export default function Page() {
             </div>
             <p className="mt-3 text-xs text-[#6E7585]">iptvforfirestickusa.com</p>
             <p className="mt-3 max-w-xs text-sm text-[#A8AEBC]">
-              America&rsquo;s #1 IPTV resource for Firestick. Cancel cable, save $1,764 a year. Trusted by 12,400+ US households.
+              America&rsquo;s #1 IPTV resource for Firestick. Cancel cable, save $1,764 a year. Best Firestick IPTV for US households.
             </p>
           </div>
 
