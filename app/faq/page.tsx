@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CiteableFaq } from "@/components/citeable-faq";
+import { RelatedGeoLinks } from "@/components/related-links";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
+import { faqPageSchema } from "@/lib/geo-faq";
+import { jsonLdInnerHtml } from "@/lib/json-ld";
+import { organizationSchema, websiteSchema } from "@/lib/motion-path";
 import {
   OG_IMAGE,
   SITE_NAME,
@@ -70,6 +75,7 @@ export const metadata: Metadata = {
   },
 };
 
+/* Keep this 6-Q bank so PR #2 (HIGH-PPP FAQ) can replace it cleanly. */
 const faq = [
   {
     q: "How do I get the 24h IPTV trial?",
@@ -97,16 +103,7 @@ const faq = [
   },
 ];
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  inLanguage: "en-US",
-  mainEntity: faq.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
+const faqSchema = faqPageSchema(PAGE_URL, faq);
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -117,6 +114,11 @@ const breadcrumbSchema = {
   ],
 };
 
+const graph = {
+  "@context": "https://schema.org",
+  "@graph": [organizationSchema(), websiteSchema(), faqSchema, breadcrumbSchema],
+};
+
 const wa = whatsappHref(WA_PREFILL.faq);
 
 export default function FaqPage() {
@@ -125,13 +127,7 @@ export default function FaqPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+          __html: jsonLdInnerHtml(graph),
         }}
       />
 
@@ -192,23 +188,8 @@ export default function FaqPage() {
           <WhatsAppCard prefill={WA_PREFILL.faq} surface="faq-contact" />
         </div>
 
-        <section className="mt-14">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            Related
-          </h2>
-          <ul className="mt-4 space-y-2 text-[#93c5fd]">
-            <li>
-              <Link href="/firestick" className="hover:underline">
-                → IPTV on Firestick — 7 MOTION TV
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className="hover:underline">
-                → Home — IPTV For Firestick USA
-              </Link>
-            </li>
-          </ul>
-        </section>
+        <CiteableFaq title="Citeable answers (AI extraction)" />
+        <RelatedGeoLinks exclude={["faq"]} />
       </article>
 
       <SiteFooter />

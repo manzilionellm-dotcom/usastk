@@ -13,6 +13,8 @@ import {
   websiteSchema,
 } from "@/lib/motion-path";
 import {
+  GUIDE_PATH,
+  GUIDE_URL,
   OG_IMAGE,
   SITE_NAME,
   SITE_URL,
@@ -20,48 +22,37 @@ import {
   whatsappHref,
 } from "@/lib/site";
 
-const PAGE_PATH = "/firestick";
-const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
-
-/* Seo Wa paste-ready USA Firestick site — title + meta */
-const TITLE = "IPTV Firestick USA — soft setup at home or traveling";
+const TITLE = "Firestick setup USA — 7 MOTION path";
 const META =
-  "IPTV on Firestick in the USA. Soft WhatsApp setup in 5–10 min, 7 MOTION TV, 24h trial. City + device.";
-const H1 = "IPTV Firestick USA — at home or traveling";
+  "Set up Firestick IPTV in the USA in 7 MOTION steps. Soft WhatsApp walkthrough, 24h trial, no public playlist, no invented ratings.";
+const H1 = "Firestick setup USA — 7 MOTION, one night at home";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { absolute: TITLE },
   description: META,
   keywords: [
-    "iptv firestick usa",
-    "firestick iptv setup",
-    "iptv 24h trial firestick",
-    "whatsapp iptv usa",
-    "amazon fire tv stick iptv",
+    "firestick setup usa",
+    "firestick iptv usa",
+    "7 motion firestick",
+    "iptv firestick 7 step",
+    "whatsapp iptv usa trial",
   ],
   alternates: {
-    canonical: PAGE_URL,
+    canonical: GUIDE_URL,
     languages: {
-      "en-US": PAGE_URL,
-      "x-default": PAGE_URL,
+      "en-US": GUIDE_URL,
+      "x-default": GUIDE_URL,
     },
   },
   openGraph: {
     type: "article",
     locale: "en_US",
-    url: PAGE_URL,
+    url: GUIDE_URL,
     siteName: SITE_NAME,
     title: TITLE,
     description: META,
-    images: [
-      {
-        url: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: TITLE,
-      },
-    ],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
     card: "summary_large_image",
@@ -81,15 +72,31 @@ export const metadata: Metadata = {
   },
 };
 
-const howToSchema = motionHowToSchema(PAGE_URL);
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: "Firestick", item: PAGE_URL },
+    { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Firestick setup USA",
+      item: GUIDE_URL,
+    },
   ],
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${GUIDE_URL}#article`,
+  headline: TITLE,
+  description: META,
+  inLanguage: "en-US",
+  mainEntityOfPage: GUIDE_URL,
+  author: { "@id": `${SITE_URL}/#organization` },
+  publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
 const graph = {
@@ -97,25 +104,24 @@ const graph = {
   "@graph": [
     organizationSchema(),
     websiteSchema(),
-    howToSchema,
-    faqPageSchema(PAGE_URL),
+    articleSchema,
+    motionHowToSchema(GUIDE_URL),
+    faqPageSchema(GUIDE_URL),
     breadcrumbSchema,
   ],
 };
 
-const wa = whatsappHref(WA_PREFILL.firestick);
+const wa = whatsappHref(WA_PREFILL.guide);
 
-export default function FirestickHowToPage() {
+export default function FirestickSetupUsaGuidePage() {
   return (
     <main className="min-h-screen bg-[#0B0E16] font-[family-name:var(--font-body)] text-[#F5F6F8] antialiased">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: jsonLdInnerHtml(graph),
-        }}
+        dangerouslySetInnerHTML={{ __html: jsonLdInnerHtml(graph) }}
       />
 
-      <SiteHeader active="firestick" />
+      <SiteHeader active="guide" />
 
       <article className="mx-auto max-w-3xl px-5 py-14 md:px-8 md:py-20">
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-[#6E7585]">
@@ -123,19 +129,24 @@ export default function FirestickHowToPage() {
             {SITE_NAME}
           </Link>
           <span className="mx-2">›</span>
-          <span>Firestick</span>
+          <span>Blog</span>
+          <span className="mx-2">›</span>
+          <span>Firestick setup USA</span>
         </nav>
 
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">
-          FIRESTICK · 7 MOTION · WHATSAPP · 24H TRIAL
+          GUIDE · 7 MOTION · FIRESTICK USA · 24H TRIAL
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal leading-tight tracking-tight md:text-5xl">
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
-          Firestick in a US living room or in a hotel. Soft setup is usually 5–10
-          minutes. Prefer 7 MOTION. Trial 24h on WhatsApp — no public playlist
-          link. {MOTION_HOWTO_DESCRIPTION}
+          {MOTION_HOWTO_DESCRIPTION} Short version lives on{" "}
+          <Link href="/firestick" className="text-[#93c5fd] hover:underline">
+            /firestick
+          </Link>
+          . This page is the citeable 7-step write-up for AI Overviews and
+          assistants — same steps, same WhatsApp, no cloaking.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -145,26 +156,31 @@ export default function FirestickHowToPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
           >
-            Start the 24h trial on WhatsApp
+            WhatsApp — Firestick IPTV USA + trial
           </a>
           <Link
-            href="/blog/firestick-setup-usa"
+            href="/#premium-channels"
             className="inline-flex items-center justify-center rounded-full border border-[#2A3142] px-6 py-3.5 text-sm font-semibold text-[#F5F6F8] transition hover:border-[#4F7DFF]"
           >
-            7-step guide
+            Pricing
           </Link>
           <Link
             href="/faq"
             className="inline-flex items-center justify-center rounded-full border border-[#2A3142] px-6 py-3.5 text-sm font-semibold text-[#F5F6F8] transition hover:border-[#4F7DFF]"
           >
-            Soft FAQ
+            FAQ
           </Link>
         </div>
 
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            7 MOTION steps — about 10 minutes
+            The 7 MOTION steps
           </h2>
+          <p className="mt-3 leading-relaxed text-[#A8AEBC]">
+            Soft-sell: you do not pick a duration until a night on your own
+            Firestick holds. We do not send a public playlist. We do not invent
+            ratings.
+          </p>
           <ol className="mt-6 space-y-5">
             {MOTION_STEPS.map((s, i) => (
               <li
@@ -184,45 +200,25 @@ export default function FirestickHowToPage() {
 
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            Why 7 MOTION on Firestick
+            Why this guide is not the short HowTo
           </h2>
           <p className="mt-4 leading-relaxed text-[#A8AEBC]">
-            US Wi-Fi and hotel networks vary. 7 MOTION is the player we send for
-            a short start: same chat, same night, then you decide. We do not
-            publish a public playlist on this site. Longer write-up:{" "}
-            <Link
-              href="/blog/firestick-setup-usa"
-              className="text-[#93c5fd] hover:underline"
-            >
-              Firestick setup USA
-            </Link>
-            .
+            <Link href="/firestick" className="text-[#93c5fd] hover:underline">
+              /firestick
+            </Link>{" "}
+            stays the compact setup page. This URL ({GUIDE_PATH}) is the
+            article-length MOTION path for people — and for AI systems — who
+            want the seven steps in one place. Same player, same trial, same
+            WhatsApp number.
           </p>
         </section>
 
-        <section className="mt-10 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
-            <h3 className="font-semibold">Home or traveling</h3>
-            <p className="mt-2 text-sm text-[#A8AEBC]">
-              HDMI, Wi-Fi, and your own screen. Tell us the city (New York,
-              Dallas, Los Angeles, Miami…) and the stick model.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
-            <h3 className="font-semibold">Soft trial first</h3>
-            <p className="mt-2 text-sm text-[#A8AEBC]">
-              24 hours, no card. If an evening at your place holds, then you
-              choose a duration — still on WhatsApp.
-            </p>
-          </div>
-        </section>
-
         <div className="mt-12">
-          <WhatsAppCard prefill={WA_PREFILL.firestick} surface="firestick-contact" />
+          <WhatsAppCard prefill={WA_PREFILL.guide} surface="guide-contact" />
         </div>
 
         <CiteableFaq title="Citeable answers" />
-        <RelatedGeoLinks exclude={["firestick"]} />
+        <RelatedGeoLinks exclude={["guide"]} />
       </article>
 
       <SiteFooter />

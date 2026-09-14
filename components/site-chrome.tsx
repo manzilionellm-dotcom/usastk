@@ -1,9 +1,13 @@
 import Link from "next/link";
-import { SITE_NAME, WA_PREFILL, whatsappHref } from "@/lib/site";
+import { GUIDE_PATH, PRICING_PATH, SITE_NAME, WA_PREFILL, whatsappHref } from "@/lib/site";
 
 const waFirestick = whatsappHref(WA_PREFILL.firestick);
 
-export function SiteHeader({ active }: { active?: "firestick" | "faq" }) {
+export function SiteHeader({
+  active,
+}: {
+  active?: "firestick" | "faq" | "guide";
+}) {
   return (
     <header className="sticky top-0 z-50 border-b border-[#1F2433] bg-[#0B0E16]/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
@@ -60,6 +64,19 @@ export function SiteHeader({ active }: { active?: "firestick" | "faq" }) {
           >
             FAQ
           </Link>
+          <Link
+            href={GUIDE_PATH}
+            className={
+              active === "guide"
+                ? "font-semibold text-[#F5F6F8]"
+                : "transition hover:text-[#F5F6F8]"
+            }
+          >
+            Guide
+          </Link>
+          <Link href={PRICING_PATH} className="transition hover:text-[#F5F6F8]">
+            Pricing
+          </Link>
           <Link href="/" className="transition hover:text-[#F5F6F8]">
             Home
           </Link>
@@ -111,6 +128,16 @@ export function SiteFooter() {
                 FAQ
               </Link>
             </li>
+            <li>
+              <Link className="transition hover:text-[#F5F6F8]" href={GUIDE_PATH}>
+                Firestick setup USA
+              </Link>
+            </li>
+            <li>
+              <Link className="transition hover:text-[#F5F6F8]" href={PRICING_PATH}>
+                Pricing
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
@@ -119,7 +146,7 @@ export function SiteFooter() {
             <li>
               <a
                 className="transition hover:text-[#F5F6F8]"
-                href={whatsappHref(WA_PREFILL.faq)}
+                href={whatsappHref(WA_PREFILL.guide)}
                 target="_blank"
                 rel="noopener noreferrer"
               >

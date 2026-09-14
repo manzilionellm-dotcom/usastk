@@ -1,5 +1,14 @@
 import Link from "next/link";
 import Script from "next/script";
+import { GEO_FAQ } from "@/lib/geo-faq";
+import { jsonLdInnerHtml } from "@/lib/json-ld";
+import {
+  MOTION_STEPS,
+  motionHowToSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/lib/motion-path";
+import { GUIDE_PATH, PRICING_PATH } from "@/lib/site";
 
 /* Fonts loaded in app/layout.tsx — variables --font-display and --font-body are available globally */
 
@@ -926,6 +935,7 @@ const testimonials = [
 ];
 
 const faqs = [
+  ...GEO_FAQ,
   {
     q: "Is IPTV legal in the USA?",
     a: "IPTV (Internet Protocol Television) is the underlying technology used by Comcast Xfinity, Spectrum, DirecTV, YouTube TV and many official US broadcasters — the technology itself is perfectly legal. The legality of any specific service depends on whether it has the rights to redistribute the channels it offers. Always choose a provider you trust.",
@@ -1462,52 +1472,15 @@ const pwaAndUiScript = `
 `;
 
 /* ----------------------------- JSON-LD STRUCTURED DATA ----------------------------- */
-/* Combines WebSite, Organization, WebPage, BreadcrumbList, HowTo, FAQPage,
-   AggregateRating, and Product offers for the 4 channel plans, in one @graph. */
+/* Combines honest WebSite, Organization, WebPage, BreadcrumbList, HowTo,
+   FAQPage, and Product offers. AggregateRating / Review stay stripped
+   (serialize-time sanitizer; do not re-open PR #3 AR copy strip). */
 
 const jsonLdGraph = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/logo.png`,
-        width: 512,
-        height: 512,
-      },
-      sameAs: [
-        "https://twitter.com/iptvforfirestickusa",
-        "https://www.facebook.com/iptvforfirestickusa",
-        "https://www.youtube.com/@iptvforfirestickusa",
-      ],
-      areaServed: {
-        "@type": "Country",
-        name: "United States",
-      },
-      knowsLanguage: ["en-US"],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      url: SITE_URL,
-      name: SITE_NAME,
-      description:
-        "America's clearest IPTV resource for Amazon Firestick — US setup guides, troubleshooting and premium channel access. Cancel cable and save $1,764 a year.",
-      publisher: { "@id": `${SITE_URL}/#organization` },
-      inLanguage: "en-US",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${SITE_URL}/?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
-    },
+    organizationSchema(),
+    websiteSchema(),
     {
       "@type": "WebPage",
       "@id": `${PAGE_URL}#webpage`,
@@ -1589,47 +1562,7 @@ const jsonLdGraph = {
         "premium IPTV channels USA",
       ].join(", "),
     },
-    {
-      "@type": "HowTo",
-      "@id": `${PAGE_URL}#howto`,
-      name: "How to install IPTV on Amazon Firestick in the USA",
-      description:
-        "Step-by-step US guide to installing IPTV on your Firestick using IPTV Smarters Pro, TiviMate, or OTT Navigator. Setup in under 10 minutes.",
-      totalTime: "PT7M",
-      estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
-      tool: [
-        { "@type": "HowToTool", name: "Amazon Firestick" },
-        { "@type": "HowToTool", name: "Downloader app by AFTVnews" },
-        { "@type": "HowToTool", name: "US broadband (Comcast Xfinity, Spectrum, AT&T Fiber, Verizon Fios, Cox)" },
-      ],
-      supply: [
-        { "@type": "HowToSupply", name: "IPTV subscription credentials (M3U URL or Xtream Codes)" },
-      ],
-      step: [
-        {
-          "@type": "HowToStep",
-          position: 1,
-          name: "Enable Apps from Unknown Sources",
-          text: "On your Firestick, go to Settings → My Fire TV → Developer Options → enable 'Apps from Unknown Sources'. This is required to install any IPTV player on Fire OS.",
-          url: `${PAGE_URL}#setup`,
-        },
-        {
-          "@type": "HowToStep",
-          position: 2,
-          name: "Install the Downloader app",
-          text: "From the Firestick search, find and install the free Downloader app by AFTVnews. This is the standard tool American viewers use to install third-party players safely.",
-          url: `${PAGE_URL}#setup`,
-        },
-        {
-          "@type": "HowToStep",
-          position: 3,
-          name: "Install your IPTV player",
-          text: "Open Downloader, enter the URL of your chosen IPTV player (IPTV Smarters Pro, TiviMate, or OTT Navigator), then sign in with the credentials provided by your service.",
-          url: `${PAGE_URL}#setup`,
-        },
-      ],
-      inLanguage: "en-US",
-    },
+    motionHowToSchema(`${PAGE_URL}`),
     {
       "@type": "FAQPage",
       "@id": `${PAGE_URL}#faq`,
@@ -1693,7 +1626,7 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLdGraph).replace(/</g, "\\u003c"),
+          __html: jsonLdInnerHtml(jsonLdGraph),
         }}
       />
 
@@ -1776,10 +1709,12 @@ export default function Page() {
             <a href="#nfl-iptv" className="transition hover:text-[#F5F6F8]">🏈 NFL</a>
             <a href="#espanol" className="transition hover:text-[#F5B643]">⚽ Español</a>
             <Link href="/firestick" className="transition hover:text-[#F5F6F8]">Setup</Link>
+            <Link href={GUIDE_PATH} className="transition hover:text-[#F5F6F8]">Guide</Link>
             <a href="#cable-vs-iptv" className="transition hover:text-[#F5F6F8]">vs Cable</a>
             <a href="#us-channels" className="transition hover:text-[#F5F6F8]">US Channels</a>
             <a href="#apps" className="transition hover:text-[#F5F6F8]">Best Apps</a>
             <Link href="/faq" className="transition hover:text-[#F5F6F8]">FAQ</Link>
+            <a href={PRICING_PATH} className="transition hover:text-[#F5F6F8]">Pricing</a>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -2315,6 +2250,64 @@ export default function Page() {
               streaming subscription.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ============================ 7 MOTION PATH (AEO / matches HowTo JSON-LD) ============================ */}
+      <section id="motion-path" className="bg-[#0B0E16] py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="max-w-2xl">
+            <span className="text-xs font-medium uppercase tracking-[0.18em] text-[#4F7DFF]">
+              7 MOTION path
+            </span>
+            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-normal leading-tight md:text-5xl text-[#F5F6F8]">
+              Firestick IPTV USA in seven steps.
+            </h2>
+            <p className="mt-4 text-lg text-[#A8AEBC]">
+              Same steps as the HowTo schema and the{" "}
+              <Link href={GUIDE_PATH} className="text-[#93c5fd] hover:underline">
+                Firestick setup USA
+              </Link>{" "}
+              guide. Soft-sell: trial first, no public playlist, no invented
+              ratings.{" "}
+              <a
+                href="https://wa.me/447307410512?text=Hi%20%E2%80%94%20Firestick%20IPTV%20USA%20%2B%20trial.%20City%20%2B%20device%3A"
+                className="text-[#25D366] hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
+              {" · "}
+              <Link href="/faq" className="text-[#93c5fd] hover:underline">
+                FAQ
+              </Link>
+              {" · "}
+              <a href={PRICING_PATH} className="text-[#93c5fd] hover:underline">
+                Pricing
+              </a>
+              .
+            </p>
+          </div>
+          <ol className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
+            {MOTION_STEPS.map((step, i) => (
+              <li
+                key={step.name}
+                id={`step-${i + 1}`}
+                className="rounded-2xl border border-[#2A3142] bg-[#141824] p-6"
+              >
+                <p className="text-xs font-semibold tracking-wide text-[#4F7DFF]">
+                  Step {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-2 font-[family-name:var(--font-display)] text-xl font-medium text-[#F5F6F8]">
+                  {step.name}
+                </h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-[#A8AEBC]">
+                  {step.text}
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -3437,8 +3430,13 @@ export default function Page() {
               Questions American viewers actually ask.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[#A8AEBC]">
-              Pulled from real Reddit threads, Google&rsquo;s &ldquo;People Also Ask&rdquo;,
-              and emails from readers across the East Coast, West Coast, Midwest and South.
+              The first six answers are written answer-first for AI citations
+              (ChatGPT, Perplexity, AI Overviews). Longer notes follow. Same
+              text as the FAQ schema —{" "}
+              <Link href="/faq" className="text-[#93c5fd] hover:underline">
+                full FAQ
+              </Link>
+              .
             </p>
           </div>
 
@@ -3960,6 +3958,17 @@ export default function Page() {
               <li><a className="font-semibold text-[#FF4D5C] transition hover:text-[#E63946]" href="#premium-channels">Get IPTV from $12 →</a></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#nfl-iptv">🏈 NFL IPTV</a></li>
               <li><Link className="transition hover:text-[#F5F6F8]" href="/firestick">Firestick setup</Link></li>
+              <li><Link className="transition hover:text-[#F5F6F8]" href={GUIDE_PATH}>Firestick setup USA (7 MOTION)</Link></li>
+              <li>
+                <a
+                  className="transition hover:text-[#25D366]"
+                  href="https://wa.me/447307410512?text=Hi%20%E2%80%94%20Firestick%20IPTV%20USA%20%2B%20trial.%20City%20%2B%20device%3A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp trial
+                </a>
+              </li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#apps">Best IPTV apps</a></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#cable-vs-iptv">Cable vs IPTV</a></li>
               <li><a className="transition hover:text-[#F5F6F8]" href="#us-channels">US channels</a></li>

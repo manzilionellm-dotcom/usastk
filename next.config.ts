@@ -52,6 +52,28 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/llms.txt",
+        headers: [
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=3600, must-revalidate" },
+          {
+            key: "X-Robots-Tag",
+            value: "index, follow, max-snippet:-1",
+          },
+        ],
+      },
+      {
+        source: "/llms-full.txt",
+        headers: [
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=3600, must-revalidate" },
+          {
+            key: "X-Robots-Tag",
+            value: "index, follow, max-snippet:-1",
+          },
+        ],
+      },
+      {
         source: "/_next/static/(.*)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
