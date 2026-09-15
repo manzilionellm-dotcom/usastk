@@ -7,7 +7,7 @@ export const FAQ_META =
 export const FAQ_BANK: { q: string; a: string }[] = [
   {
     q: "How much does IPTV for Firestick cost in the USA?",
-    a: "We do not publish a price here — durations and household setups differ, so a number on this page would be invented. Message WhatsApp with your city and device after you have seen a night on your own TV. You only pay if a duration fits.",
+    a: "1 month $12, 3 months $25, 6 months $30, 1 year $55. Paid once per term, no auto-renew contract. Message WhatsApp with city + device after the 24h trial if you want to keep it.",
   },
   {
     q: "How do I start the 24-hour trial?",
