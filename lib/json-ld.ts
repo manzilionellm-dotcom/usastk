@@ -50,3 +50,73 @@ export function stripInventedRatings(value: unknown): unknown {
 export function jsonLdInnerHtml(data: unknown): string {
   return JSON.stringify(stripInventedRatings(data)).replace(/</g, "\\u003c");
 }
+
+export function serviceOfferGraph(opts: {
+  siteUrl: string;
+  siteName: string;
+  description: string;
+  whatsappE164: string;
+  plans: ReadonlyArray<{ name: string; price: number; months: number }>;
+  faqs: ReadonlyArray<{ q: string; a: string }>;
+}) {
+  const { siteUrl, siteName, description, whatsappE164, plans, faqs } = opts;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: siteName,
+        url: siteUrl,
+        logo: { "@type": "ImageObject", url: `${siteUrl}/icon`, width: 512, height: 512 },
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: `+${whatsappE164}`,
+          contactType: "customer support",
+          availableLanguage: ["English", "Spanish"],
+          areaServed: { "@type": "Country", name: "United States" },
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: siteName,
+        publisher: { "@id": `${siteUrl}/#organization` },
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "Service",
+        "@id": `${siteUrl}/#service`,
+        name: `${siteName} subscription`,
+        serviceType: "IPTV streaming subscription",
+        description,
+        provider: { "@id": `${siteUrl}/#organization` },
+        areaServed: { "@type": "Country", name: "United States" },
+        url: siteUrl,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "IPTV USA plans",
+          itemListElement: plans.map((p) => ({
+            "@type": "Offer",
+            name: `${p.name} plan`,
+            price: String(p.price),
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            url: `${siteUrl}/#plans`,
+            seller: { "@id": `${siteUrl}/#organization` },
+          })),
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteUrl}/#faq`,
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+    ],
+  };
+}

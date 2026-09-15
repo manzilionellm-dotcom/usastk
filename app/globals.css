@@ -21,19 +21,102 @@ body {
   font-family: var(--font-body), system-ui, -apple-system, sans-serif;
 }
 
-/* PWA standalone mode adjustments */
-@media (display-mode: standalone) {
-  body {
-    overscroll-behavior-y: none;
-    user-select: none;
-  }
-  /* Allow text selection in inputs and content areas */
-  input, textarea, p, span, h1, h2, h3, h4, blockquote, li {
-    user-select: text;
-  }
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #25D366;
+  color: #fff;
+  padding: 8px 12px;
+}
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+}
+
+.wa-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 88px;
+  z-index: 60;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+}
+.wa-fab:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 55;
+  display: none;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(11, 14, 22, 0.94);
+  border-top: 1px solid #2A3142;
+  backdrop-filter: blur(12px);
+}
+@media (max-width: 768px) {
+  .sticky-cta { display: flex; }
+}
+.sticky-cta-primary,
+.sticky-cta-secondary {
+  flex: 1;
+  text-align: center;
+  border-radius: 999px;
+  padding: 12px 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.sticky-cta-primary { background: #25D366; color: #fff; }
+.sticky-cta-secondary { background: #1F2433; color: #F5F6F8; }
+
+.cookie-banner {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 70;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  border: 1px solid #2A3142;
+  border-radius: 16px;
+  background: #141824;
+  color: #A8AEBC;
+  font-size: 13px;
+}
+.cookie-actions { display: flex; gap: 8px; }
+.cookie-actions button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: #1F2433;
+  color: #F5F6F8;
+  cursor: pointer;
+}
+.cookie-accept { background: #25D366 !important; color: #fff !important; }
+
+@media (display-mode: standalone) {
+  body { overscroll-behavior-y: none; }
 }
