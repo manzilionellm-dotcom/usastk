@@ -23,8 +23,10 @@ export function SiteHeader({
 
         <nav className="hidden items-center gap-6 text-sm text-[#A8AEBC] md:flex">
           <Link href="/firestick" className={active === "firestick" ? "font-semibold text-[#F5F6F8]" : "transition hover:text-[#F5F6F8]"}>Firestick</Link>
+          <Link href="/devices" className="transition hover:text-[#F5F6F8]">Devices</Link>
+          <Link href="/cities" className="transition hover:text-[#F5F6F8]">Cities</Link>
           <Link href="/faq" className={active === "faq" ? "font-semibold text-[#F5F6F8]" : "transition hover:text-[#F5F6F8]"}>FAQ</Link>
-          <Link href={GUIDE_PATH} className={active === "guide" ? "font-semibold text-[#F5F6F8]" : "transition hover:text-[#F5F6F8]"}>Guide</Link>
+          <Link href="/refer" className="transition hover:text-[#F5F6F8]">Refer</Link>
           <Link href={PRICING_PATH} className="transition hover:text-[#F5F6F8]">Pricing</Link>
         </nav>
 
@@ -32,6 +34,7 @@ export function SiteHeader({
           href={waFirestick}
           target="_blank"
           rel="noopener noreferrer"
+          data-cta="header"
           className="rounded-full bg-[#25D366] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#1FB855]"
         >
           WhatsApp
@@ -61,6 +64,9 @@ export function SiteFooter() {
             <li><Link className="transition hover:text-[#F5F6F8]" href="/">Home</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/firestick">Firestick setup</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/faq">FAQ</Link></li>
+            <li><Link className="transition hover:text-[#F5F6F8]" href="/devices">Devices</Link></li>
+            <li><Link className="transition hover:text-[#F5F6F8]" href="/cities">Cities</Link></li>
+            <li><Link className="transition hover:text-[#F5F6F8]" href="/refer">Refer a friend</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href={GUIDE_PATH}>Firestick setup USA</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href={PRICING_PATH}>Pricing</Link></li>
           </ul>
@@ -115,6 +121,7 @@ export function WhatsAppCard({
         rel="noopener noreferrer"
         data-event="cta_primary"
         data-surface={surface}
+        data-cta="card"
         className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
       >
         Message WhatsApp

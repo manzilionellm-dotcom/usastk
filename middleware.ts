@@ -7,13 +7,13 @@ export function middleware(req: NextRequest) {
     .trim()
     .toLowerCase();
 
-  if (host.endsWith(".vercel.app")) {
-    const res = NextResponse.next();
+  const res = NextResponse.next();
+
+  if (host.endsWith(".vercel.app") || req.nextUrl.pathname.startsWith("/ops")) {
     res.headers.set("X-Robots-Tag", "noindex, nofollow");
-    return res;
   }
 
-  return NextResponse.next();
+  return res;
 }
 
 export const config = {

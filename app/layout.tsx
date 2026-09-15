@@ -5,6 +5,7 @@ import { AnalyticsGate } from "@/components/conversion/AnalyticsGate";
 import { CookieConsent } from "@/components/conversion/CookieConsent";
 import { StickyCta } from "@/components/conversion/StickyCta";
 import { WhatsAppFab } from "@/components/conversion/WhatsAppFab";
+import { WaClickDelegate } from "@/components/conversion/WaClickDelegate";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -54,6 +55,7 @@ export default function RootLayout({
         {children}
         <WhatsAppFab />
         <StickyCta />
+        <WaClickDelegate />
         <CookieConsent />
         <AnalyticsGate />
       </body>
