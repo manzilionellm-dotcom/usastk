@@ -19,10 +19,10 @@ export function whatsappHref(message: string, ref?: string) {
 }
 
 export const WA_PREFILL = {
-  firestick: "Hi — IPTV Firestick USA + 24h trial. City + device:",
-  faq: "Hi — IPTV USA question (trial / Firestick). City + device:",
-  guide: "Hi — Firestick IPTV USA + trial. City + device:",
-  trial: "Hi — 24h free trial IPTV Firestick USA. City + device:",
+  firestick: "24h trial IPTV Firestick USA. City + device",
+  faq: "24h trial IPTV Firestick USA. City + device",
+  guide: "24h trial IPTV Firestick USA. City + device",
+  trial: "24h trial IPTV Firestick USA. City + device",
   plan1: "Hi — I want the 1 month IPTV USA plan for $12. City + device:",
   plan3: "Hi — I want the 3 month IPTV USA plan for $25. City + device:",
   plan6: "Hi — I want the 6 month IPTV USA plan for $30. City + device:",

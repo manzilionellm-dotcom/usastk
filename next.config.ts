@@ -40,6 +40,16 @@ const nextConfig: NextConfig = {
         destination: "https://iptvforfirestickusa.com/:path*",
         permanent: true,
       },
+      {
+        source: "/setup/:slug",
+        destination: "/devices/:slug",
+        permanent: true,
+      },
+      {
+        source: "/devices/smart-tv",
+        destination: "/devices/samsung",
+        permanent: true,
+      },
     ];
   },
 };
