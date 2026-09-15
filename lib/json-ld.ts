@@ -1,8 +1,3 @@
-/**
- * JSON-LD helpers. Invented AggregateRating / Review markup is a Google
- * penalty risk — strip it at serialize time so page graphs cannot emit it.
- */
-
 const FORBIDDEN_TYPES = new Set(["AggregateRating", "Review"]);
 
 const FORBIDDEN_KEYS = new Set([
@@ -52,7 +47,6 @@ export function stripInventedRatings(value: unknown): unknown {
   return value;
 }
 
-/** Safe `application/ld+json` inner HTML (escapes `<`). */
 export function jsonLdInnerHtml(data: unknown): string {
   return JSON.stringify(stripInventedRatings(data)).replace(/</g, "\\u003c");
 }
