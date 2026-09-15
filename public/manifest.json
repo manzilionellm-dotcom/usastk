@@ -1,69 +1,21 @@
 {
-  "name": "IPTV For Firestick USA — Best IPTV for Firestick 2026",
+  "name": "IPTV For Firestick USA",
   "short_name": "IPTV Firestick",
-  "description": "Best IPTV for Firestick USA 2026. Cancel cable, save $1,764/yr. 50,000+ channels in 4K UHD — every NFL game, NBA League Pass, MLB.TV, NHL, ESPN, ABC, CBS, NBC, FOX, HBO Max. Anti-Freeze 6.0. From $12/month.",
+  "description": "US live TV on Firestick. 24h trial on WhatsApp. From $12/month.",
   "start_url": "/",
   "scope": "/",
   "id": "iptvforfirestickusa",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui", "browser"],
-  "orientation": "any",
   "background_color": "#0B0E16",
   "theme_color": "#0B0E16",
   "lang": "en-US",
-  "dir": "ltr",
-  "categories": ["entertainment", "utilities", "lifestyle"],
-  "prefer_related_applications": false,
   "icons": [
-    {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-192-maskable.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-512-maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
+    { "src": "/icon", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    {
-      "name": "Setup guide",
-      "short_name": "Setup",
-      "description": "Install IPTV on Firestick in 3 steps",
-      "url": "/#setup"
-    },
-    {
-      "name": "Premium channels",
-      "short_name": "Channels",
-      "description": "View IPTV subscription plans",
-      "url": "/#premium-channels"
-    },
-    {
-      "name": "NFL IPTV",
-      "short_name": "NFL",
-      "description": "Watch every NFL game",
-      "url": "/#nfl-iptv"
-    },
-    {
-      "name": "FAQ",
-      "short_name": "FAQ",
-      "description": "Frequently asked questions",
-      "url": "/faq"
-    }
+    { "name": "Plans", "short_name": "Plans", "url": "/#plans" },
+    { "name": "Firestick setup", "short_name": "Setup", "url": "/firestick" },
+    { "name": "FAQ", "short_name": "FAQ", "url": "/faq" }
   ]
 }
