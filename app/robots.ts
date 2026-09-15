@@ -1,32 +1,17 @@
 import type { MetadataRoute } from "next";
+import { headers } from "next/headers";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const host = (await headers()).get("host") || "";
   const baseUrl = "https://iptvforfirestickusa.com";
+
+  if (host.includes("vercel.app")) {
+    return { rules: { userAgent: "*", disallow: "/" } };
+  }
 
   return {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/api/", "/_next/"] },
-      { userAgent: "Googlebot", allow: "/" },
-      { userAgent: "Bingbot", allow: "/" },
-      { userAgent: "GPTBot", allow: "/" },
-      { userAgent: "ChatGPT-User", allow: "/" },
-      { userAgent: "OAI-SearchBot", allow: "/" },
-      { userAgent: "ClaudeBot", allow: "/" },
-      { userAgent: "anthropic-ai", allow: "/" },
-      { userAgent: "Claude-Web", allow: "/" },
-      { userAgent: "PerplexityBot", allow: "/" },
-      { userAgent: "Perplexity-User", allow: "/" },
-      { userAgent: "Google-Extended", allow: "/" },
-      { userAgent: "GoogleOther", allow: "/" },
-      { userAgent: "CCBot", allow: "/" },
-      { userAgent: "YouBot", allow: "/" },
-      { userAgent: "cohere-ai", allow: "/" },
-      { userAgent: "Applebot", allow: "/" },
-      { userAgent: "Applebot-Extended", allow: "/" },
-      { userAgent: "Amazonbot", allow: "/" },
-      { userAgent: "FacebookBot", allow: "/" },
-      { userAgent: "Meta-ExternalAgent", allow: "/" },
-      { userAgent: "DuckAssistBot", allow: "/" },
       { userAgent: "AhrefsBot", disallow: "/" },
       { userAgent: "SemrushBot", disallow: "/" },
     ],
