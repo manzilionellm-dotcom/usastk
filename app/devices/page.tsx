@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Install IPTV — Firestick, Smart TV, Android, iPhone",
+  title: "Install IPTV — Firestick, Samsung, LG, Android, iPhone, MAG, Formuler",
   description: "Device setup for the 24h trial. WhatsApp login. No public playlist.",
   alternates: { canonical: `${SITE_URL}/devices` },
 };

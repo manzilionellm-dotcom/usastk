@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LongformPage } from "@/components/longform-page";
-import { setupBySlug, SETUP_ARTICLES } from "@/lib/content/setup";
+import { FAQ_ARTICLES, faqBySlug } from "@/lib/content/faq-problems";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return SETUP_ARTICLES.map((a) => ({ slug: a.slug }));
+  return FAQ_ARTICLES.map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const article = setupBySlug(slug);
+  const article = faqBySlug(slug);
   if (!article) return {};
   return {
     metadataBase: new URL(SITE_URL),
@@ -26,13 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: article.description,
       locale: "en_US",
     },
-    twitter: { card: "summary_large_image", title: article.title, description: article.description },
   };
 }
 
-export default async function DevicePage({ params }: Props) {
+export default async function FaqProblemPage({ params }: Props) {
   const { slug } = await params;
-  const article = setupBySlug(slug);
+  const article = faqBySlug(slug);
   if (!article) notFound();
   return <LongformPage article={article} />;
 }
