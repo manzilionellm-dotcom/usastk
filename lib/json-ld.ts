@@ -1,6 +1,7 @@
 /**
  * JSON-LD helpers. Invented AggregateRating / Review markup is a Google
  * penalty risk — strip it at serialize time so page graphs cannot emit it.
+ * Coordinates with PR #3 (AR strip); do not re-introduce 4.8 / 12400.
  */
 
 const FORBIDDEN_TYPES = new Set(["AggregateRating", "Review"]);
