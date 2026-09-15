@@ -11,5 +11,13 @@ export function whatsappHref(message: string) {
 export const WA_PREFILL = {
   firestick:
     "Hi — IPTV Firestick USA + 24h trial. City + device:",
-  faq: "Hi — IPTV Firestick USA (trial / setup). City + device:",
+  faq: "Hi — IPTV USA question (trial / Firestick). City + device:",
+  guide: "Hi — Firestick IPTV USA + trial. City + device:",
 } as const;
+
+export const PRICING_PATH = "/#premium-channels";
+export const PRICING_HREF = `${SITE_URL}${PRICING_PATH}`;
+export const GUIDE_PATH = "/blog/firestick-setup-usa";
+export const GUIDE_URL = `${SITE_URL}${GUIDE_PATH}`;
+export const LLMS_TXT_URL = `${SITE_URL}/llms.txt`;
+export const LLMS_FULL_URL = `${SITE_URL}/llms-full.txt`;
