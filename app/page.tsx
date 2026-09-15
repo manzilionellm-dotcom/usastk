@@ -102,6 +102,7 @@ export default function Page() {
                 href={whatsappHref(WA_PREFILL.trial)}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-cta="hero"
                 className="rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white hover:bg-[#1FB855]"
               >
                 Start 24h trial
@@ -147,6 +148,7 @@ export default function Page() {
                   href={whatsappHref(p.prefill)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cta="plan"
                   className="mt-6 rounded-full bg-[#25D366] px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-[#1FB855]"
                 >
                   Buy on WhatsApp
