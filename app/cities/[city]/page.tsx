@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { LongformPage } from "@/components/longform-page";
+import { cityArticleBySlug } from "@/lib/content/cities-long";
 import { CITIES, cityBySlug } from "@/lib/cities";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { SITE_URL, whatsappHref } from "@/lib/site";
 
 type Props = { params: Promise<{ city: string }> };
@@ -13,6 +15,22 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { city } = await params;
+  const long = cityArticleBySlug(city);
+  if (long) {
+    return {
+      metadataBase: new URL(SITE_URL),
+      title: long.title,
+      description: long.description,
+      alternates: { canonical: `${SITE_URL}${long.path}` },
+      openGraph: {
+        type: "article",
+        url: `${SITE_URL}${long.path}`,
+        title: long.title,
+        description: long.description,
+        locale: "en_US",
+      },
+    };
+  }
   const c = cityBySlug(city);
   if (!c) return {};
   const title = `IPTV Firestick ${c.name} — 24h trial from $12/mo`;
@@ -26,11 +44,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CityPage({ params }: Props) {
   const { city } = await params;
+  const long = cityArticleBySlug(city);
+  if (long) return <LongformPage article={long} />;
+
   const c = cityBySlug(city);
   if (!c) notFound();
 
   const href = whatsappHref(
-    `Hi — 24h trial IPTV Firestick USA. City: ${c.name}, ${c.state}. Device:`,
+    `24h trial IPTV Firestick USA. City: ${c.name}, ${c.state}. Device:`,
     `city-${c.slug}`,
   );
 
@@ -46,7 +67,8 @@ export default async function CityPage({ params }: Props) {
         </h1>
         <p className="mt-4 text-lg text-[#A8AEBC]">{c.note}</p>
         <p className="mt-4 text-[#A8AEBC]">
-          Same plans as the rest of the US: $12 / $25 / $30 / $55. 24h trial, no card. Login stays private.
+          Same plans as the rest of the US: $12 / $25 / $30 / $55. 24h trial, no card. Login stays
+          private. For a full city guide see New York, Houston, Los Angeles, Miami, or Chicago.
         </p>
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"
