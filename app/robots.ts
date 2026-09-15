@@ -11,7 +11,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/api/", "/_next/"] },
+      { userAgent: "*", allow: "/", disallow: ["/api/", "/_next/", "/ops"] },
       { userAgent: "AhrefsBot", disallow: "/" },
       { userAgent: "SemrushBot", disallow: "/" },
     ],
