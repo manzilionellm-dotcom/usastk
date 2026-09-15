@@ -31,9 +31,9 @@ const POSTS = [
     blurb: "TV store vs a $25 stick. Same 24h trial, same prices.",
   },
   {
-    href: "/blog/firestick-24h-trial",
-    title: "24h trial — no credit card",
-    blurb: "City + device on WhatsApp. Test tonight. Pay only if it holds.",
+    href: "/blog/whatsapp-24h-trial",
+    title: "What to send on WhatsApp for the 24h trial",
+    blurb: "City + device. Ten minutes. Prices after it holds. Same number.",
   },
 ];
 
