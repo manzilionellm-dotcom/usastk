@@ -6,37 +6,40 @@ export const DEVICES = [
     summary: "Unknown sources → Downloader → player. 24h trial on WhatsApp.",
   },
   {
-    slug: "smart-tv",
-    name: "Smart TV (Samsung / LG)",
-    path: "/devices/smart-tv",
-    summary: "Downloader or the TV’s browser. We send the player on WhatsApp after the trial request.",
-    steps: [
-      "Open the app store on the TV (Samsung / LG / Hisense).",
-      "Install Downloader (or the player we name on WhatsApp).",
-      "Message WhatsApp with city + TV brand. We send the login for the 24h trial.",
-    ],
+    slug: "samsung",
+    name: "Samsung Smart TV (Tizen)",
+    path: "/devices/samsung",
+    summary: "Tizen 2018+ player install. PCM audio first. 24h trial, no card.",
+  },
+  {
+    slug: "lg",
+    name: "LG Smart TV (webOS)",
+    path: "/devices/lg",
+    summary: "Content Store or one-time browser. No developer-mode timer.",
   },
   {
     slug: "android",
     name: "Android TV / phone",
     path: "/devices/android",
-    summary: "Sideload or Play Store player. Trial first, no card.",
-    steps: [
-      "Enable unknown sources if the player is not on Play Store.",
-      "Install the player we send on WhatsApp.",
-      "Paste the login. Test 24h on your own Wi-Fi.",
-    ],
+    summary: "Play Store first, Downloader fallback. Trial on the screen you watch.",
   },
   {
     slug: "iphone",
     name: "iPhone / iPad",
     path: "/devices/iphone",
-    summary: "App Store player + private login. No public playlist.",
-    steps: [
-      "Message WhatsApp: city + iPhone/iPad.",
-      "Install the iOS player we name (no TestFlight required).",
-      "Enter the trial login. If it works, pick a plan.",
-    ],
+    summary: "App Store player only. No TestFlight. No jailbreak.",
+  },
+  {
+    slug: "mag",
+    name: "MAG box (Infomir)",
+    path: "/devices/mag",
+    summary: "MAC whitelist + Stalker portal. Photograph the sticker.",
+  },
+  {
+    slug: "formuler",
+    name: "Formuler (MyTVOnline)",
+    path: "/devices/formuler",
+    summary: "One MyTVOnline line. Ethernet for the 24h trial.",
   },
 ] as const;
 
