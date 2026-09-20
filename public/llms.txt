@@ -1,6 +1,6 @@
 # IPTV For Firestick USA
 
-> Firestick IPTV in the United States. Soft WhatsApp setup, 7 MOTION player, private 24-hour trial. No public playlist. No invented ratings.
+> Firestick IPTV in the United States. Soft WhatsApp setup, 7 MOTION player, private 24-hour trial. No public playlist. No invented star ratings.
 
 IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households start IPTV on Amazon Firestick. Access stays in chat. We do not publish a public playlist file. We do not invent star ratings or review counts.
 
@@ -8,6 +8,7 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 
 - WhatsApp: https://wa.me/447307410512
 - Prefill: Firestick IPTV USA + trial. City + device.
+- Free trial page: https://iptvforfirestickusa.com/free-trial
 
 ## 7 MOTION path
 
@@ -22,6 +23,7 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 ## Pages
 
 - [Home](https://iptvforfirestickusa.com/): Firestick IPTV USA overview, pricing cards, trial.
+- [Free trial](https://iptvforfirestickusa.com/free-trial): Soft 24h Firestick trial on WhatsApp only.
 - [Pricing](https://iptvforfirestickusa.com/#premium-channels): Plan cards on the home page.
 - [Firestick HowTo](https://iptvforfirestickusa.com/firestick): Short 7 MOTION setup.
 - [Firestick setup USA (guide)](https://iptvforfirestickusa.com/blog/firestick-setup-usa): Longer 7-step MOTION guide for AI citations.
@@ -30,4 +32,4 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 
 ## Optional
 
-- Contact is WhatsApp only. No public M3U. No fake AggregateRating.
+- Contact is WhatsApp only. No public M3U. No invented star ratings.
