@@ -22,7 +22,7 @@ export const WA_PREFILL = {
   firestick: "Hi — IPTV Firestick USA + 24h trial. City + device:",
   faq: "Hi — IPTV USA question (trial / Firestick). City + device:",
   guide: "Hi — Firestick IPTV USA + trial. City + device:",
-  trial: "Hi — 24h free trial IPTV Firestick USA. City + device:",
+  trial: "Hi — Firestick USA 24h trial. Device:",
   plan1: "Hi — I want the 1 month IPTV USA plan for $12. City + device:",
   plan3: "Hi — I want the 3 month IPTV USA plan for $25. City + device:",
   plan6: "Hi — I want the 6 month IPTV USA plan for $30. City + device:",

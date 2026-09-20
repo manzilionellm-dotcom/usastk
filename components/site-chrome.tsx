@@ -63,6 +63,7 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
             <li><Link className="transition hover:text-[#F5F6F8]" href="/">Home</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/firestick">Firestick setup</Link></li>
+            <li><Link className="transition hover:text-[#F5F6F8]" href="/free-trial">Free 24h trial</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/faq">FAQ</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/devices">Devices</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/cities">Cities</Link></li>
@@ -75,7 +76,12 @@ export function SiteFooter() {
           <h4 className="text-sm font-medium text-[#F5F6F8]">Start</h4>
           <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
             <li>
-              <a className="transition hover:text-[#F5F6F8]" href={whatsappHref(WA_PREFILL.guide)} target="_blank" rel="noopener noreferrer">
+              <Link className="transition hover:text-[#F5F6F8]" href="/free-trial">
+                Free 24h trial page
+              </Link>
+            </li>
+            <li>
+              <a className="transition hover:text-[#F5F6F8]" href={whatsappHref(WA_PREFILL.trial)} target="_blank" rel="noopener noreferrer">
                 24h trial on WhatsApp
               </a>
             </li>
