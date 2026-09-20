@@ -40,6 +40,11 @@ const nextConfig: NextConfig = {
         destination: "https://iptvforfirestickusa.com/:path*",
         permanent: true,
       },
+      {
+        source: "/trial",
+        destination: "/free-trial",
+        permanent: true,
+      },
     ];
   },
 };
