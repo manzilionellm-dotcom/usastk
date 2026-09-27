@@ -45,6 +45,31 @@ const nextConfig: NextConfig = {
         destination: "/free-trial",
         permanent: true,
       },
+      {
+        source: "/trial/",
+        destination: "/free-trial",
+        permanent: true,
+      },
+      {
+        source: "/contact",
+        destination: "/free-trial",
+        permanent: true,
+      },
+      {
+        source: "/contact/",
+        destination: "/free-trial",
+        permanent: true,
+      },
+      {
+        source: "/setup",
+        destination: "/firestick",
+        permanent: true,
+      },
+      {
+        source: "/setup/",
+        destination: "/firestick",
+        permanent: true,
+      },
     ];
   },
 };
