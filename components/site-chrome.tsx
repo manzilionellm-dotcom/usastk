@@ -25,6 +25,7 @@ export function SiteHeader({
           <Link href="/firestick" className={active === "firestick" ? "font-semibold text-[#F5F6F8]" : "transition hover:text-[#F5F6F8]"}>Firestick</Link>
           <Link href="/devices" className="transition hover:text-[#F5F6F8]">Devices</Link>
           <Link href="/cities" className="transition hover:text-[#F5F6F8]">Cities</Link>
+          <Link href="/blog" className={active === "guide" ? "font-semibold text-[#F5F6F8]" : "transition hover:text-[#F5F6F8]"}>Guides</Link>
           <Link href="/faq" className={active === "faq" ? "font-semibold text-[#F5F6F8]" : "transition hover:text-[#F5F6F8]"}>FAQ</Link>
           <Link href="/refer" className="transition hover:text-[#F5F6F8]">Refer</Link>
           <Link href={PRICING_PATH} className="transition hover:text-[#F5F6F8]">Pricing</Link>
@@ -65,6 +66,7 @@ export function SiteFooter() {
             <li><Link className="transition hover:text-[#F5F6F8]" href="/firestick">Firestick setup</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/free-trial">Free 24h trial</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/faq">FAQ</Link></li>
+            <li><Link className="transition hover:text-[#F5F6F8]" href="/blog">Guides</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/devices">Devices</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/cities">Cities</Link></li>
             <li><Link className="transition hover:text-[#F5F6F8]" href="/refer">Refer a friend</Link></li>

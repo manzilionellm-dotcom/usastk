@@ -40,7 +40,7 @@ const POSTS = [
 export default function BlogIndexPage() {
   return (
     <main className="min-h-screen bg-[#0B0E16] font-[family-name:var(--font-body)] text-[#F5F6F8] antialiased">
-      <SiteHeader />
+      <SiteHeader active="guide" />
       <article className="mx-auto max-w-3xl px-5 py-14 md:px-8 md:py-20">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDES</p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal tracking-tight">Guides</h1>
@@ -58,6 +58,17 @@ export default function BlogIndexPage() {
             </li>
           ))}
         </ul>
+        <p className="mt-8 text-sm text-[#A8AEBC]">
+          Short answers on night freezes:{" "}
+          <Link href="/faq/buffering" className="text-[#93c5fd] hover:underline">
+            Buffering FAQ
+          </Link>
+          . Install steps by device:{" "}
+          <Link href="/devices" className="text-[#93c5fd] hover:underline">
+            Devices
+          </Link>
+          .
+        </p>
       </article>
       <SiteFooter />
     </main>

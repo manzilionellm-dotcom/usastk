@@ -28,13 +28,7 @@ export const metadata: Metadata = {
     "7 motion tv firestick",
     "iptv vs cable usa",
   ],
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "en-US": PAGE_URL,
-      "x-default": PAGE_URL,
-    },
-  },
+  alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -181,6 +175,11 @@ export default function FaqPage() {
             Related
           </h2>
           <ul className="mt-4 space-y-2 text-[#93c5fd]">
+            <li>
+              <Link href="/faq/buffering" className="hover:underline">
+                → Buffering FAQ — freezes after 8pm
+              </Link>
+            </li>
             <li>
               <Link href="/firestick" className="hover:underline">
                 → IPTV on Firestick — 7 MOTION TV

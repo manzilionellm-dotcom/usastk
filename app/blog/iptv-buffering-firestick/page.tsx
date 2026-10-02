@@ -56,12 +56,32 @@ export default function BufferingGuide() {
           24h trial on this Firestick
         </a>
         <p className="mt-8 text-sm">
+          <Link className="text-[#25D366]" href="/faq/buffering">
+            Buffering FAQ — freezes after 8pm
+          </Link>
+          {" · "}
           <Link className="text-[#25D366]" href="/firestick">
-            Setup
+            Firestick setup
+          </Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/devices">
+            Other devices
           </Link>
           {" · "}
           <Link className="text-[#25D366]" href="/blog">
-            Guides
+            All guides
+          </Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/blog/firestick-setup-usa">
+            Firestick setup USA
+          </Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/blog/iptv-smart-tv-usa">
+            Smart TV guide
+          </Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/blog/firestick-24h-trial">
+            24h trial guide
           </Link>
         </p>
       </main>
