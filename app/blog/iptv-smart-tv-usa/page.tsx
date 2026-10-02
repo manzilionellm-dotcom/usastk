@@ -48,9 +48,17 @@ export default function SmartTvGuide() {
           24h trial on this TV
         </a>
         <p className="mt-8 text-sm">
-          <Link className="text-[#25D366]" href="/devices/smart-tv">Smart TV steps</Link>
+          <Link className="text-[#25D366]" href="/devices/smart-tv">Smart TV install steps</Link>
           {" · "}
-          <Link className="text-[#25D366]" href="/firestick">Firestick</Link>
+          <Link className="text-[#25D366]" href="/devices/android">Android TV and phone</Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/devices/iphone">iPhone and iPad</Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/firestick">Firestick setup</Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/faq/buffering">Buffering FAQ — freezes after 8pm</Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/blog">All guides</Link>
         </p>
       </main>
       <SiteFooter />

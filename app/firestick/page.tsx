@@ -31,13 +31,7 @@ export const metadata: Metadata = {
     "whatsapp iptv usa",
     "amazon fire tv stick iptv",
   ],
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "en-US": PAGE_URL,
-      "x-default": PAGE_URL,
-    },
-  },
+  alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "article",
     locale: "en_US",
@@ -248,6 +242,21 @@ export default function FirestickHowToPage() {
             <li>
               <Link href="/faq" className="hover:underline">
                 → FAQ — trial & setup
+              </Link>
+            </li>
+            <li>
+              <Link href="/faq/buffering" className="hover:underline">
+                → Buffering FAQ — freezes after 8pm
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:underline">
+                → Guides — setup, buffering, Smart TV, trial
+              </Link>
+            </li>
+            <li>
+              <Link href="/devices" className="hover:underline">
+                → Other devices — Smart TV, Android, iPhone
               </Link>
             </li>
             <li>

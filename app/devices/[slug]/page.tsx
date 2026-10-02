@@ -58,14 +58,29 @@ export default async function DevicePage({ params }: Props) {
         >
           Send city + {d.name} on WhatsApp
         </a>
-        <p className="mt-8 text-sm">
+        <p className="mt-8 text-sm text-[#A8AEBC]">
+          If the picture freezes, start with the{" "}
+          <Link className="text-[#25D366]" href="/faq/buffering">
+            buffering FAQ
+          </Link>{" "}
+          and the{" "}
+          <Link className="text-[#25D366]" href="/blog/iptv-buffering-firestick">
+            7 buffering checks
+          </Link>
+          .
+        </p>
+        <p className="mt-4 text-sm">
           <Link className="text-[#25D366]" href="/devices">
             All devices
           </Link>
-          {" · "}
-          <Link className="text-[#25D366]" href="/firestick">
-            Firestick
-          </Link>
+          {DEVICES.filter((other) => other.slug !== d.slug).map((other) => (
+            <span key={other.slug}>
+              {" · "}
+              <Link className="text-[#25D366]" href={other.path}>
+                {other.name}
+              </Link>
+            </span>
+          ))}
         </p>
       </main>
       <SiteFooter />
