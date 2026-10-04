@@ -15,6 +15,9 @@ export function AioCitationHooks({
       <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium text-[#F5F6F8]">
         {title}
       </h2>
+      <p className="mt-3 text-sm text-[#A8AEBC]">
+        Direct answers in the page HTML, same wording as the FAQ schema.
+      </p>
       <div className="mt-6 space-y-4">
         {items.map((item) => (
           <div

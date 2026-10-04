@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
 import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { howToNode } from "@/lib/aio";
+import { bufferingFaqItems, howToNode, salesGraph } from "@/lib/aio";
 import { SITE_URL, WA_PREFILL, whatsappHref } from "@/lib/site";
 
 const PATH = "/blog/iptv-buffering-firestick";
@@ -40,6 +41,7 @@ export default function BufferingGuide() {
           steps: CHECKS.map((c) => ({ name: c.t, text: c.d })),
         })}
       />
+      <JsonLd data={salesGraph(pageUrl, bufferingFaqItems())} />
       <SiteHeader active="guide" />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDE · 15 SEP 2026</p>
@@ -55,6 +57,7 @@ export default function BufferingGuide() {
             </li>
           ))}
         </ol>
+        <AioCitationHooks title="Questions" items={bufferingFaqItems()} />
         <p className="mt-8 text-[#A8AEBC]">
           If those seven still fail on a 24h trial, the stick or the ISP is the bottleneck — we don’t invent “anti-freeze 6.0”. Test first.
         </p>

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { faqItems, salesGraph } from "@/lib/aio";
 import { GUIDE_PATH, SITE_URL } from "@/lib/site";
 
 const PAGE_URL = `${SITE_URL}/blog`;
@@ -41,6 +44,7 @@ export default function BlogIndexPage() {
   return (
     <main className="min-h-screen bg-[#0B0E16] font-[family-name:var(--font-body)] text-[#F5F6F8] antialiased">
       <SiteHeader />
+      <JsonLd data={salesGraph(PAGE_URL)} />
       <article className="mx-auto max-w-3xl px-5 py-14 md:px-8 md:py-20">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDES</p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal tracking-tight">Guides</h1>
@@ -58,6 +62,7 @@ export default function BlogIndexPage() {
             </li>
           ))}
         </ul>
+        <AioCitationHooks items={faqItems()} title="Questions" />
       </article>
       <SiteFooter />
     </main>
