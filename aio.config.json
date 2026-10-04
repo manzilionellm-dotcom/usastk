@@ -1,0 +1,138 @@
+{
+  "_doc": "Source unique AIO (llms.txt, FAQPage, Product, Citation Hooks). Ne mettre ici que des faits lisibles sur le site. Toute valeur inconnue = null et listée dans aio.todo.md.",
+  "siteName": "IPTV For Firestick USA",
+  "siteUrl": "https://iptvforfirestickusa.com",
+  "defaultLang": "en",
+  "currency": "USD",
+  "contact": { "whatsapp": "https://wa.me/447307410512" },
+  "lead": "IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households start IPTV on Amazon Firestick. Access stays in chat. We do not publish a public playlist file. We do not invent star ratings or review counts.",
+  "plans": [
+    { "id": "trial-24h", "price": 0, "name": "24 hour trial" },
+    { "id": "1-month", "price": 12, "name": "1 Month" },
+    { "id": "3-months", "price": 25, "name": "3 Months" },
+    { "id": "6-months", "price": 30, "name": "6 Months" },
+    { "id": "1-year", "price": 55, "name": "1 Year" }
+  ],
+  "tech": {
+    "maxResolution": "1080p on a regular Firestick; 4K when the stick, the network, and the feed support it",
+    "devices": ["Amazon Firestick", "Smart TV (Samsung / LG)", "Android TV / phone", "iPhone / iPad"],
+    "activationMinutes": "usually under 10 minutes after the plan is confirmed on WhatsApp, including weekends; setup walkthrough about 5 to 10 minutes",
+    "bitrate": null,
+    "minBandwidth": "15 Mbps for HD and 25 Mbps for one 4K stick",
+    "channelCount": null
+  },
+  "i18n": {
+    "en": {
+      "description": "Firestick IPTV in the United States. Soft WhatsApp setup, 7 MOTION player, private 24-hour trial. No public playlist. No invented star ratings.",
+      "productDescription": "IPTV For Firestick USA subscription, term: {name}. Ordered on WhatsApp. Private access, no public playlist.",
+      "faq": [
+        {
+          "q": "How much does IPTV for Firestick cost in the USA?",
+          "a": "The home page lists four paid terms: 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55. Each term is paid once, with no auto renew contract. A private 24 hour trial starts on WhatsApp and needs no card. You choose a duration only after a night on your own TV."
+        },
+        {
+          "q": "How do I start the 24-hour trial?",
+          "a": "Message WhatsApp with your city and device. A Firestick is enough. You get a private 24 hour test on your screen, with no card and no form. Check it at home or in a hotel before you pick a duration. Access stays in the chat. This site does not publish a public playlist file."
+        },
+        {
+          "q": "How do I set up IPTV on Firestick?",
+          "a": "Setup is walked on WhatsApp in 5 to 10 minutes. After you confirm a plan, activation is usually under 10 minutes, including weekends. The preferred Firestick player is 7 MOTION, and the steps stay in chat. Use a 5 GHz network or a short Ethernet adapter. Lite is fine at 1080p, and a 4K Max is calmer for sport."
+        },
+        {
+          "q": "Why is IPTV buffering on my Firestick?",
+          "a": "Buffering is usually the room network, not the stick. Move to a 5 GHz network, pause other 4K streams, or use a short Ethernet adapter. The buffering guide states 15 Mbps for HD and 25 Mbps for one 4K stick. Try a regular show first on the trial. If it still stutters, stay on the same WhatsApp thread."
+        },
+        {
+          "q": "Is IPTV legal in the USA?",
+          "a": "IPTV is television over your internet connection, the same delivery idea many official US apps already use. Whether a specific catalog is properly licensed depends on the source. This site does not give legal advice. Use the 24 hour trial on your own network and decide if the path feels right for your home."
+        },
+        {
+          "q": "How does Firestick IPTV compare to cable?",
+          "a": "Cable is a contract, a box, and a bill you already know. Firestick IPTV is one stick on your network and a duration you choose after a night at home. This site does not invent a yearly savings figure. Compare the picture and the guide on the trial, then keep or cancel cable on your own timeline."
+        },
+        {
+          "q": "Can I watch live sports on Firestick?",
+          "a": "Many US buyers come for a Sunday game or a playoff night. Availability varies by event and week, and this site does not promise every kickoff or PPV. The honest check is the 24 hour trial on your Firestick, in your city, such as New York, Dallas, Los Angeles, or Miami."
+        },
+        {
+          "q": "Can I use more than one Firestick or TV?",
+          "a": "A living room plus a bedroom is common. How many screens can play at once is set on WhatsApp for your household, and this page does not invent a connection count. Send your city and each device. Credentials stay private in the chat, and the site does not publish a public playlist."
+        },
+        {
+          "q": "How do I pay — and can I switch from another provider?",
+          "a": "Payment stays on WhatsApp after a night on your own TV. There is no card field and no email checkout on this site. You do not need to wipe the Firestick before switching. Send your city and device. The preferred player is 7 MOTION. Start with the 24 hour trial so you are not paying two services the same week."
+        },
+        {
+          "q": "Do I need 4K, a TV guide (EPG), or a VPN?",
+          "a": "4K needs a 4K stick, a strong network, and a 4K feed. A regular Firestick at 1080p is enough for most rooms. 7 MOTION includes an EPG. A VPN is not required to start in a typical US home, does not change legality, and can add delay. A required VPN is a forum myth. Test the trial first without one."
+        }
+      ],
+      "geoFaq": [
+        {
+          "q": "How do I get IPTV on Firestick in the USA?",
+          "a": "Message WhatsApp with your US city and that you have a Firestick. The walkthrough follows the 7 MOTION path in about 5 to 10 minutes and starts a private 24 hour trial. Access stays in the chat. This site does not publish a public playlist, and it does not invent star ratings or review counts."
+        },
+        {
+          "q": "What is the 7 MOTION path?",
+          "a": "The path is seven short steps: message WhatsApp, start the 24 hour trial, prep the Firestick, install 7 MOTION, enter the chat details, watch a night at home, then pick a duration only if it holds. There is no public playlist on this site and no invented star ratings."
+        },
+        {
+          "q": "Do you publish a public playlist or fake ratings?",
+          "a": "No. Access stays in WhatsApp. This site does not publish a public playlist file, and it does not invent star ratings or review counts. Credentials are sent privately after the trial or a paid plan. Do not hunt a playlist file on the open web. The same rule is repeated on the home page, the FAQ, and the setup guide."
+        },
+        {
+          "q": "How do I start the 24-hour Firestick trial?",
+          "a": "WhatsApp is enough: send your city and your device. The 24 hour trial needs no card and no email form. You pay only if a duration fits after a night on your own TV. The home page lists 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55, each paid once."
+        },
+        {
+          "q": "Why 7 MOTION instead of a forum player?",
+          "a": "7 MOTION stays simple on Firestick. The player and the start data stay on the same WhatsApp thread, so you are not sideloading a random file from a forum. The site prefers it for a faster start. You still watch a night at home before you pick a duration."
+        },
+        {
+          "q": "Where do I see pricing and how do I contact you?",
+          "a": "Plan cards are on the home page pricing section at the plans anchor. The published terms are 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55. Questions and the 24 hour trial stay on WhatsApp. Send your city and device. There is no email checkout on this site."
+        }
+      ],
+      "trialFaq": [
+        {
+          "q": "How do I start the 24h Firestick trial?",
+          "a": "Message WhatsApp only. The prefill is ready, so add your device. You get a private 24 hour trial, with no card. Access stays in the chat, and this site does not publish a public playlist. Check a night on your own TV before you pick a duration. The same thread is where the player steps arrive."
+        },
+        {
+          "q": "Is the trial on WhatsApp only?",
+          "a": "Yes. WhatsApp is the only start path for the soft 24 hour Firestick trial. There is no email form and no public playlist download on this site. Send your city and device in that chat. The trial needs no card. You decide on a paid term only after an evening at home holds."
+        },
+        {
+          "q": "What is 7 MOTION and when do I get it?",
+          "a": "On Firestick the site soft sells 7 MOTION when it is offered. It is a short player start on the same WhatsApp thread, preferred for a calmer night at home. You still decide after the trial holds. The player and the steps stay in that chat, with no public playlist to hunt on the open web."
+        },
+        {
+          "q": "Do I need a plan before the trial ends?",
+          "a": "No. Check an evening on your own TV first. If it holds, pick a duration on the same WhatsApp thread, not before. The home page lists 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55, each paid once, with no auto renew contract. The trial itself needs no card."
+        },
+        {
+          "q": "Where is the Firestick setup guide?",
+          "a": "The short Firestick setup is on the firestick page, and the longer 7 MOTION guide is on the Firestick setup USA blog page. The FAQ page answers trial, buffering, devices, and payment. All of them start from WhatsApp with your city and device. This site does not publish a public playlist."
+        }
+      ],
+      "bufferingFaq": [
+        {
+          "q": "Why does it freeze only after 8pm?",
+          "a": "Freezing only after 8pm is usually peak hour wireless and the ISP DNS, not the app. Switch to a 5 GHz network or Ethernet, set the DNS to 1.1.1.1, then retest. The buffering guide says ISP DNS is often slow from 8 to 11pm. Check speed on the same network you watch on."
+        },
+        {
+          "q": "One channel only?",
+          "a": "If only one channel fails, tell WhatsApp which one. The site switches that source. It does not ship a fake anti freeze update, and the buffering guide says not to invent an anti freeze version. When every other channel is fine, the note on WhatsApp is enough. Stay on the same thread."
+        },
+        {
+          "q": "4K Max still buffers?",
+          "a": "Turn the hardware decoder on and the software decoder off. The buffering FAQ states 25 Mbps for one stick, and an Ethernet adapter around $15 fixes most apartments. The guide says a software decoder overheats a 4K Max. Use a 5 GHz network or Ethernet, then retest on the 24 hour trial."
+        },
+        {
+          "q": "Do I need a new Firestick?",
+          "a": "A new Firestick is needed only if the stick is a 2018 second generation model on a 2.4 GHz band. Otherwise trial first on the device you already own. A Lite stick is fine at 1080p and a 4K Max is calmer for sport. Send the model with your city on WhatsApp before you replace it."
+        }
+      ]
+    }
+  }
+}

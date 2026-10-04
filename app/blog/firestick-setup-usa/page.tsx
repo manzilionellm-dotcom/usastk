@@ -4,6 +4,7 @@ import { CiteableFaq } from "@/components/citeable-faq";
 import { RelatedGeoLinks } from "@/components/related-links";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
 import { faqPageSchema } from "@/lib/geo-faq";
+import { productNodes } from "@/lib/aio";
 import { jsonLdInnerHtml } from "@/lib/json-ld";
 import {
   MOTION_HOWTO_DESCRIPTION,
@@ -60,6 +61,7 @@ const graph = {
     },
     motionHowToSchema(GUIDE_URL),
     faqPageSchema(GUIDE_URL),
+    ...productNodes(),
   ],
 };
 

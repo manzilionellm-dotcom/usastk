@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { faqItems, howToNode, salesGraph } from "@/lib/aio";
 import { SITE_URL, whatsappHref } from "@/lib/site";
 
 const PATH = "/blog/iptv-smart-tv-usa";
@@ -23,8 +26,19 @@ const STEPS = [
 ];
 
 export default function SmartTvGuide() {
+  const pageUrl = `${SITE_URL}${PATH}`;
+
   return (
     <>
+      <JsonLd
+        data={howToNode({
+          pageUrl,
+          name: TITLE,
+          description: DESCRIPTION,
+          steps: STEPS.map((c) => ({ name: c.t, text: c.d })),
+        })}
+      />
+      <JsonLd data={salesGraph(pageUrl)} />
       <SiteHeader active="guide" />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDE · 15 SEP 2026</p>
@@ -32,12 +46,13 @@ export default function SmartTvGuide() {
         <p className="mt-4 text-lg text-[#A8AEBC]">{DESCRIPTION}</p>
         <ol className="mt-10 space-y-4">
           {STEPS.map((c, i) => (
-            <li key={c.t} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
+            <li id={`step-${i + 1}`} key={c.t} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
               <h2 className="text-base font-semibold">{i + 1}. {c.t}</h2>
               <p className="mt-2 text-sm text-[#A8AEBC]">{c.d}</p>
             </li>
           ))}
         </ol>
+        <AioCitationHooks items={faqItems()} title="Questions" />
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"
           href={whatsappHref("Hi — 24h trial IPTV USA. Device: Smart TV (Samsung/LG). City:", "blog-smart-tv")}

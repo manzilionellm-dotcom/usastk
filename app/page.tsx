@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
 import { jsonLdInnerHtml, serviceOfferGraph } from "@/lib/json-ld";
+import { faqItems, productNodes } from "@/lib/aio";
 import {
   GUIDE_PATH,
   PLANS,
@@ -37,36 +39,14 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const FAQS = [
-  {
-    q: "How do I start?",
-    a: "Message us on WhatsApp with your city and device. We send a 24h trial — no card. After the trial you pick a plan and we activate the full subscription.",
-  },
-  {
-    q: "Does it work on Firestick?",
-    a: "Yes. The 3-step setup uses the Downloader app on the Firestick itself. Full guide: /firestick and /blog/firestick-setup-usa.",
-  },
-  {
-    q: "What are the prices?",
-    a: "1 month $12, 3 months $25, 6 months $30, 1 year $55. Paid once per term. No auto-renew contract.",
-  },
-  {
-    q: "How fast is activation?",
-    a: "Usually under 10 minutes after you confirm the plan on WhatsApp, including weekends.",
-  },
-  {
-    q: "Do you publish a public playlist?",
-    a: "No. Credentials are sent privately on WhatsApp after the trial or paid plan.",
-  },
-];
-
 const jsonLd = serviceOfferGraph({
   siteUrl: SITE_URL,
   siteName: SITE_NAME,
   description: DESCRIPTION,
   whatsappE164: WHATSAPP_E164,
   plans: PLANS.map((p) => ({ name: p.name, price: p.price, months: p.months })),
-  faqs: FAQS,
+  faqs: faqItems(),
+  products: productNodes(),
 });
 
 const howTo = {
@@ -174,20 +154,10 @@ export default function Page() {
           </p>
         </section>
 
-        <section id="faq" className="mt-20">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-medium">FAQ</h2>
-          <div className="mt-6 space-y-4">
-            {FAQS.map((f) => (
-              <details key={f.q} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
-                <summary className="cursor-pointer font-semibold">{f.q}</summary>
-                <p className="mt-3 text-sm text-[#A8AEBC]">{f.a}</p>
-              </details>
-            ))}
-          </div>
-          <p className="mt-4 text-sm">
-            <Link className="text-[#25D366]" href="/faq">More questions →</Link>
-          </p>
-        </section>
+        <AioCitationHooks id="faq" className="mt-20" title="FAQ" items={faqItems()} />
+        <p className="mt-4 text-sm">
+          <Link className="text-[#25D366]" href="/faq">More questions →</Link>
+        </p>
       </main>
       <SiteFooter />
     </>
