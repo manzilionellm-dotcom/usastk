@@ -11,6 +11,8 @@ import {
   whatsappHref,
 } from "@/lib/site";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { CITIES } from "@/lib/cities";
+import { DEVICES } from "@/lib/devices";
 
 const TITLE = "IPTV for Firestick USA — From $12/mo";
 const DESCRIPTION =
@@ -185,8 +187,86 @@ export default function Page() {
             ))}
           </div>
           <p className="mt-4 text-sm">
-            <Link className="text-[#25D366]" href="/faq">More questions →</Link>
+            <Link className="text-[#25D366]" href="/faq">More questions</Link>
+            {" · "}
+            <Link className="text-[#25D366]" href="/faq/buffering">
+              Buffering FAQ — freezes after 8pm
+            </Link>
           </p>
+        </section>
+
+        <section id="guides" className="mt-20">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-medium">Guides</h2>
+          <p className="mt-2 max-w-2xl text-[#A8AEBC]">
+            Written notes for Firestick setup, night buffering, Smart TV, and the 24h trial.
+          </p>
+          <ul className="mt-6 space-y-2 text-sm">
+            <li>
+              <Link className="text-[#25D366]" href="/blog">
+                All Firestick USA guides
+              </Link>
+            </li>
+            <li>
+              <Link className="text-[#25D366]" href="/blog/firestick-setup-usa">
+                Firestick setup USA — 7 MOTION path
+              </Link>
+            </li>
+            <li>
+              <Link className="text-[#25D366]" href="/blog/iptv-buffering-firestick">
+                Firestick buffering — 7 checks
+              </Link>
+            </li>
+            <li>
+              <Link className="text-[#25D366]" href="/blog/iptv-smart-tv-usa">
+                IPTV on Samsung and LG Smart TV
+              </Link>
+            </li>
+            <li>
+              <Link className="text-[#25D366]" href="/blog/firestick-24h-trial">
+                24h Firestick trial — no credit card
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        <section id="devices" className="mt-20">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-medium">Devices</h2>
+          <p className="mt-2 max-w-2xl text-[#A8AEBC]">
+            The trial request is on WhatsApp. Install steps depend on the device.
+          </p>
+          <ul className="mt-6 space-y-2 text-sm">
+            <li>
+              <Link className="text-[#25D366]" href="/devices">
+                All devices — Firestick, Smart TV, Android, iPhone
+              </Link>
+            </li>
+            {DEVICES.filter((d) => d.slug !== "firestick").map((d) => (
+              <li key={d.slug}>
+                <Link className="text-[#25D366]" href={d.path}>
+                  {d.name} — install steps
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="cities" className="mt-20">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-medium">Cities</h2>
+          <p className="mt-2 max-w-2xl text-[#A8AEBC]">
+            Start the 24h trial on the Wi-Fi you watch from. The plan amounts are the same in each city.{" "}
+            <Link className="text-[#25D366]" href="/cities">
+              All US cities
+            </Link>
+          </p>
+          <ul className="mt-6 grid gap-2 text-sm sm:grid-cols-2">
+            {CITIES.map((c) => (
+              <li key={c.slug}>
+                <Link className="text-[#25D366]" href={`/cities/${c.slug}`}>
+                  Firestick IPTV in {c.name}, {c.state}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
       <SiteFooter />

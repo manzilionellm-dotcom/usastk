@@ -48,9 +48,19 @@ export default function TrialGuide() {
           Request the 24h trial
         </a>
         <p className="mt-8 text-sm">
+          <Link className="text-[#25D366]" href="/free-trial">Free 24h trial page</Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/faq/buffering">Buffering FAQ — freezes after 8pm</Link>
+          {" · "}
           <Link className="text-[#25D366]" href="/refer">Refer a friend</Link>
           {" · "}
           <Link className="text-[#25D366]" href="/faq">FAQ</Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/blog">All guides</Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/blog/firestick-setup-usa">Firestick setup USA</Link>
+          {" · "}
+          <Link className="text-[#25D366]" href="/devices">Devices</Link>
         </p>
       </main>
       <SiteFooter />

@@ -31,6 +31,17 @@ export default function DevicesIndex() {
             </li>
           ))}
         </ul>
+        <p className="mt-8 text-sm text-[#A8AEBC]">
+          If the picture freezes at night, start with the{" "}
+          <Link className="text-[#25D366]" href="/faq/buffering">
+            buffering FAQ
+          </Link>{" "}
+          and the{" "}
+          <Link className="text-[#25D366]" href="/blog">
+            Firestick USA guides
+          </Link>
+          .
+        </p>
       </main>
       <SiteFooter />
     </>

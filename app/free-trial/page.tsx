@@ -33,13 +33,7 @@ export const metadata: Metadata = {
     "7 motion firestick trial",
     "iptv firestick usa trial",
   ],
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "en-US": PAGE_URL,
-      "x-default": PAGE_URL,
-    },
-  },
+  alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -292,6 +286,16 @@ export default function FreeTrialPage() {
             <li>
               <Link href="/faq" className="hover:underline">
                 → FAQ — trial &amp; setup
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/firestick-24h-trial" className="hover:underline">
+                → 24h Firestick trial — no credit card
+              </Link>
+            </li>
+            <li>
+              <Link href="/faq/buffering" className="hover:underline">
+                → Buffering FAQ — freezes after 8pm
               </Link>
             </li>
             <li>
