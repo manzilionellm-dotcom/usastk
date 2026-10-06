@@ -45,12 +45,12 @@ Q: Why 7 MOTION instead of a forum player?
 A: 7 MOTION stays simple on Firestick. The player and start data stay on the same WhatsApp thread, so you are not sideloading a random file from a forum.
 
 Q: Where do I see pricing and how do I contact you?
-A: Plan cards live on the home pricing section (https://iptvforfirestickusa.com/#premium-channels). Questions and the trial stay on WhatsApp at https://wa.me/447307410512 — send city + device.
+A: Plan cards live on the home pricing section (https://iptvforfirestickusa.com/#plans). Questions and the trial stay on WhatsApp at https://wa.me/447307410512 — send city + device.
 
 ## Internal links
 
 - Home: https://iptvforfirestickusa.com/
-- Pricing: https://iptvforfirestickusa.com/#premium-channels
+- Pricing: https://iptvforfirestickusa.com/#plans
 - FAQ: https://iptvforfirestickusa.com/faq
 - Firestick: https://iptvforfirestickusa.com/firestick
 - Guide: https://iptvforfirestickusa.com/blog/firestick-setup-usa

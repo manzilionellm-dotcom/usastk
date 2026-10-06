@@ -58,8 +58,10 @@ export function serviceOfferGraph(opts: {
   whatsappE164: string;
   plans: ReadonlyArray<{ name: string; price: number; months: number }>;
   faqs: ReadonlyArray<{ q: string; a: string }>;
+  /** Product nodes already built (trial + paid terms). Appended once; does not replace OfferCatalog. */
+  products?: readonly object[];
 }) {
-  const { siteUrl, siteName, description, whatsappE164, plans, faqs } = opts;
+  const { siteUrl, siteName, description, whatsappE164, plans, faqs, products = [] } = opts;
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -111,12 +113,14 @@ export function serviceOfferGraph(opts: {
       {
         "@type": "FAQPage",
         "@id": `${siteUrl}/#faq`,
+        inLanguage: "en-US",
         mainEntity: faqs.map((f) => ({
           "@type": "Question",
           name: f.q,
           acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       },
+      ...products,
     ],
   };
 }

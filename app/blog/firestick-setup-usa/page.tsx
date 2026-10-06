@@ -4,6 +4,7 @@ import { CiteableFaq } from "@/components/citeable-faq";
 import { RelatedGeoLinks } from "@/components/related-links";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
 import { faqPageSchema } from "@/lib/geo-faq";
+import { productNodes } from "@/lib/aio";
 import { jsonLdInnerHtml } from "@/lib/json-ld";
 import {
   MOTION_HOWTO_DESCRIPTION,
@@ -60,6 +61,7 @@ const graph = {
     },
     motionHowToSchema(GUIDE_URL),
     faqPageSchema(GUIDE_URL),
+    ...productNodes(),
   ],
 };
 
@@ -72,7 +74,7 @@ export default function FirestickSetupUsaGuidePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdInnerHtml(graph) }}
       />
-      <SiteHeader />
+      <SiteHeader active="guide" />
       <article className="mx-auto max-w-3xl px-5 py-14 md:px-8 md:py-20">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">
           GUIDE · 7 MOTION · FIRESTICK USA · 24H TRIAL
@@ -121,6 +123,21 @@ export default function FirestickSetupUsaGuidePage() {
           <WhatsAppCard prefill={WA_PREFILL.guide} surface="guide-contact" />
         </div>
         <CiteableFaq title="Citeable answers" />
+        <p className="mt-8 text-sm text-[#A8AEBC]">
+          If playback freezes at night, use the{" "}
+          <Link href="/faq/buffering" className="text-[#93c5fd] hover:underline">
+            buffering FAQ
+          </Link>{" "}
+          and the{" "}
+          <Link href="/blog/iptv-buffering-firestick" className="text-[#93c5fd] hover:underline">
+            7 buffering checks
+          </Link>
+          . Index of these notes:{" "}
+          <Link href="/blog" className="text-[#93c5fd] hover:underline">
+            all guides
+          </Link>
+          .
+        </p>
         <RelatedGeoLinks exclude={["guide"]} />
       </article>
       <SiteFooter />

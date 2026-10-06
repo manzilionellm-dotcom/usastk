@@ -1,6 +1,6 @@
 import { GEO_FAQ } from "@/lib/geo-faq";
 
-/** Visible, answer-first FAQ. First sentence is the citeable answer. Matches JSON-LD. */
+/** Visible citation hooks. Each question h3 is followed immediately by its answer paragraph. */
 export function CiteableFaq({
   items = GEO_FAQ,
   title = "Short answers (citeable)",
@@ -9,37 +9,24 @@ export function CiteableFaq({
   title?: string;
 }) {
   return (
-    <section className="mt-14">
+    <section className="mt-14" id="aio-faq">
       <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
         {title}
       </h2>
       <p className="mt-3 text-sm text-[#A8AEBC]">
         First sentence is the answer. Same text as the FAQ schema — no cloaking.
       </p>
-      <dl className="mt-6 space-y-3">
+      <div className="mt-6 space-y-4">
         {items.map((f) => (
           <div
             key={f.q}
-            itemScope
-            itemType="https://schema.org/Question"
             className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5"
           >
-            <dt itemProp="name" className="text-base font-semibold">
-              {f.q}
-            </dt>
-            <dd
-              itemScope
-              itemProp="acceptedAnswer"
-              itemType="https://schema.org/Answer"
-              className="mt-3 mb-0 text-[#A8AEBC]"
-            >
-              <p itemProp="text" className="mb-0">
-                {f.a}
-              </p>
-            </dd>
+            <h3 className="text-lg font-semibold">{f.q}</h3>
+            <p className="mt-3 mb-0 text-sm leading-relaxed text-[#A8AEBC]">{f.a}</p>
           </div>
         ))}
-      </dl>
+      </div>
     </section>
   );
 }

@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
+import { productGraph } from "@/lib/aio";
+import { jsonLdInnerHtml } from "@/lib/json-ld";
 import { FAQ_BANK, FAQ_H1, FAQ_META, FAQ_TITLE } from "@/lib/faq-bank";
 import {
   OG_IMAGE,
@@ -28,13 +32,7 @@ export const metadata: Metadata = {
     "7 motion tv firestick",
     "iptv vs cable usa",
   ],
-  alternates: {
-    canonical: PAGE_URL,
-    languages: {
-      "en-US": PAGE_URL,
-      "x-default": PAGE_URL,
-    },
-  },
+  alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -106,9 +104,10 @@ export default function FaqPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          __html: jsonLdInnerHtml(faqSchema),
         }}
       />
+      <JsonLd data={productGraph()} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -152,25 +151,7 @@ export default function FaqPage() {
           </a>
         </div>
 
-        <section className="mt-14">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            Questions
-          </h2>
-          <div className="mt-6 space-y-3">
-            {faq.map((f, i) => (
-              <details
-                key={f.q}
-                open={i < 2}
-                className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5"
-              >
-                <summary className="cursor-pointer text-base font-semibold">
-                  {f.q}
-                </summary>
-                <p className="mt-3 mb-0 text-[#A8AEBC]">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+        <AioCitationHooks className="mt-14" title="Questions" items={faq} />
 
         <div className="mt-12">
           <WhatsAppCard prefill={WA_PREFILL.faq} surface="faq-contact" />
@@ -181,6 +162,11 @@ export default function FaqPage() {
             Related
           </h2>
           <ul className="mt-4 space-y-2 text-[#93c5fd]">
+            <li>
+              <Link href="/faq/buffering" className="hover:underline">
+                → Buffering FAQ — freezes after 8pm
+              </Link>
+            </li>
             <li>
               <Link href="/firestick" className="hover:underline">
                 → IPTV on Firestick — 7 MOTION TV

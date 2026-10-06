@@ -10,6 +10,32 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 - Prefill: Firestick IPTV USA + trial. City + device.
 - Free trial page: https://iptvforfirestickusa.com/free-trial
 
+## Services
+
+- Firestick IPTV setup for US households. Preferred player: 7 MOTION. Private 24 hour trial and support on WhatsApp: https://wa.me/447307410512
+- No public playlist file. No invented star ratings or review counts.
+- Referral, as published on /refer: when a friend pays the 12 month plan ($55), both people get 1 extra month. The 24 hour trial alone does not trigger the bonus.
+- Website: https://iptvforfirestickusa.com/
+
+## Prices
+
+- 24 hour trial: free (no card)
+- 1 Month: $12
+- 3 Months: $25
+- 6 Months: $30
+- 1 Year: $55
+- Each paid term is paid once. The home page states there is no auto renew contract.
+- Displayed per-month labels on the plan cards: $12/mo, $8.33/mo, $5/mo, $4.58/mo.
+
+## Technical characteristics
+
+- Maximum picture quality: 1080p on a regular Firestick; 4K when the stick, the network, and the feed support it
+- Devices: Amazon Firestick, Smart TV (Samsung / LG), Android TV / phone, iPhone / iPad
+- Activation: usually under 10 minutes after the plan is confirmed on WhatsApp, including weekends; setup walkthrough about 5 to 10 minutes
+- Stream bitrate: not stated
+- Minimum bandwidth stated on the site: 15 Mbps for HD and 25 Mbps for one 4K stick
+- Channel count: not stated
+
 ## 7 MOTION path
 
 1. Message WhatsApp with your US city and that you have a Firestick.
@@ -24,11 +50,53 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 
 - [Home](https://iptvforfirestickusa.com/): Firestick IPTV USA overview, pricing cards, trial.
 - [Free trial](https://iptvforfirestickusa.com/free-trial): Soft 24h Firestick trial on WhatsApp only.
-- [Pricing](https://iptvforfirestickusa.com/#premium-channels): Plan cards on the home page.
+- [Pricing](https://iptvforfirestickusa.com/#plans): Plan cards on the home page.
 - [Firestick HowTo](https://iptvforfirestickusa.com/firestick): Short 7 MOTION setup.
 - [Firestick setup USA (guide)](https://iptvforfirestickusa.com/blog/firestick-setup-usa): Longer 7-step MOTION guide for AI citations.
 - [FAQ](https://iptvforfirestickusa.com/faq): Trial, Firestick, 7 MOTION, WhatsApp.
 - [Full text](https://iptvforfirestickusa.com/llms-full.txt): Longer machine-readable copy.
+
+## Frequently asked questions (10)
+
+### How much does IPTV for Firestick cost in the USA?
+
+The home page lists four paid terms: 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55. Each term is paid once, with no auto renew contract. A private 24 hour trial starts on WhatsApp and needs no card. You choose a duration only after a night on your own TV.
+
+### How do I start the 24-hour trial?
+
+Message WhatsApp with your city and device. A Firestick is enough. You get a private 24 hour test on your screen, with no card and no form. Check it at home or in a hotel before you pick a duration. Access stays in the chat. This site does not publish a public playlist file.
+
+### How do I set up IPTV on Firestick?
+
+Setup is walked on WhatsApp in 5 to 10 minutes. After you confirm a plan, activation is usually under 10 minutes, including weekends. The preferred Firestick player is 7 MOTION, and the steps stay in chat. Use a 5 GHz network or a short Ethernet adapter. Lite is fine at 1080p, and a 4K Max is calmer for sport.
+
+### Why is IPTV buffering on my Firestick?
+
+Buffering is usually the room network, not the stick. Move to a 5 GHz network, pause other 4K streams, or use a short Ethernet adapter. The buffering guide states 15 Mbps for HD and 25 Mbps for one 4K stick. Try a regular show first on the trial. If it still stutters, stay on the same WhatsApp thread.
+
+### Is IPTV legal in the USA?
+
+IPTV is television over your internet connection, the same delivery idea many official US apps already use. Whether a specific catalog is properly licensed depends on the source. This site does not give legal advice. Use the 24 hour trial on your own network and decide if the path feels right for your home.
+
+### How does Firestick IPTV compare to cable?
+
+Cable is a contract, a box, and a bill you already know. Firestick IPTV is one stick on your network and a duration you choose after a night at home. This site does not invent a yearly savings figure. Compare the picture and the guide on the trial, then keep or cancel cable on your own timeline.
+
+### Can I watch live sports on Firestick?
+
+Many US buyers come for a Sunday game or a playoff night. Availability varies by event and week, and this site does not promise every kickoff or PPV. The honest check is the 24 hour trial on your Firestick, in your city, such as New York, Dallas, Los Angeles, or Miami.
+
+### Can I use more than one Firestick or TV?
+
+A living room plus a bedroom is common. How many screens can play at once is set on WhatsApp for your household, and this page does not invent a connection count. Send your city and each device. Credentials stay private in the chat, and the site does not publish a public playlist.
+
+### How do I pay — and can I switch from another provider?
+
+Payment stays on WhatsApp after a night on your own TV. There is no card field and no email checkout on this site. You do not need to wipe the Firestick before switching. Send your city and device. The preferred player is 7 MOTION. Start with the 24 hour trial so you are not paying two services the same week.
+
+### Do I need 4K, a TV guide (EPG), or a VPN?
+
+4K needs a 4K stick, a strong network, and a 4K feed. A regular Firestick at 1080p is enough for most rooms. 7 MOTION includes an EPG. A VPN is not required to start in a typical US home, does not change legality, and can add delay. A required VPN is a forum myth. Test the trial first without one.
 
 ## Optional
 

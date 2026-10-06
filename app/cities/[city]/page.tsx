@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { faqItems, salesGraph } from "@/lib/aio";
 import { CITIES, cityBySlug } from "@/lib/cities";
 import { SITE_URL, whatsappHref } from "@/lib/site";
 
@@ -34,8 +37,11 @@ export default async function CityPage({ params }: Props) {
     `city-${c.slug}`,
   );
 
+  const pageUrl = `${SITE_URL}/cities/${c.slug}`;
+
   return (
     <>
+      <JsonLd data={salesGraph(pageUrl)} />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#6E7585]">
@@ -57,6 +63,7 @@ export default async function CityPage({ params }: Props) {
         >
           24h trial — I am in {c.name}
         </a>
+        <AioCitationHooks items={faqItems()} title="Questions" />
         <p className="mt-8 text-sm text-[#6E7585]">
           <Link href="/firestick" className="text-[#25D366]">
             3-step Firestick setup

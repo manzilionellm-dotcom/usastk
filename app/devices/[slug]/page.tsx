@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { faqItems, howToNode, salesGraph } from "@/lib/aio";
 import { DEVICES, deviceBySlug } from "@/lib/devices";
 import { SITE_URL, whatsappHref } from "@/lib/site";
 
@@ -32,9 +35,20 @@ export default async function DevicePage({ params }: Props) {
     `Hi — 24h trial IPTV USA. Device: ${d.name}. City:`,
     `device-${d.slug}`,
   );
+  const pageUrl = `${SITE_URL}${d.path}`;
+  const steps = d.steps.map((text, i) => ({ name: `Step ${i + 1}`, text }));
 
   return (
     <>
+      <JsonLd
+        data={howToNode({
+          pageUrl,
+          name: `IPTV on ${d.name}`,
+          description: d.summary,
+          steps,
+        })}
+      />
+      <JsonLd data={salesGraph(pageUrl)} />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">
@@ -43,12 +57,13 @@ export default async function DevicePage({ params }: Props) {
         <p className="mt-4 text-lg text-[#A8AEBC]">{d.summary}</p>
         <ol className="mt-10 space-y-4">
           {d.steps.map((step, i) => (
-            <li key={step} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
+            <li id={`step-${i + 1}`} key={step} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
               <span className="text-xs font-semibold text-[#FF4D5C]">Step {i + 1}</span>
               <p className="mt-2">{step}</p>
             </li>
           ))}
         </ol>
+        <AioCitationHooks items={faqItems()} title="Questions" />
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"
           href={href}
@@ -58,14 +73,29 @@ export default async function DevicePage({ params }: Props) {
         >
           Send city + {d.name} on WhatsApp
         </a>
-        <p className="mt-8 text-sm">
+        <p className="mt-8 text-sm text-[#A8AEBC]">
+          If the picture freezes, start with the{" "}
+          <Link className="text-[#25D366]" href="/faq/buffering">
+            buffering FAQ
+          </Link>{" "}
+          and the{" "}
+          <Link className="text-[#25D366]" href="/blog/iptv-buffering-firestick">
+            7 buffering checks
+          </Link>
+          .
+        </p>
+        <p className="mt-4 text-sm">
           <Link className="text-[#25D366]" href="/devices">
             All devices
           </Link>
-          {" · "}
-          <Link className="text-[#25D366]" href="/firestick">
-            Firestick
-          </Link>
+          {DEVICES.filter((other) => other.slug !== d.slug).map((other) => (
+            <span key={other.slug}>
+              {" · "}
+              <Link className="text-[#25D366]" href={other.path}>
+                {other.name}
+              </Link>
+            </span>
+          ))}
         </p>
       </main>
       <SiteFooter />
