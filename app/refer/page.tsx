@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { faqItems, salesGraph } from "@/lib/aio";
 import { SITE_URL, WA_PREFILL, whatsappHref } from "@/lib/site";
 
 const TITLE = "Refer a friend — 1 extra month on the 12-month plan";
@@ -16,6 +19,7 @@ export const metadata: Metadata = {
 export default function ReferPage() {
   return (
     <>
+      <JsonLd data={salesGraph(`${SITE_URL}/refer`)} />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#25D366]">REFERRAL</p>
@@ -39,6 +43,7 @@ export default function ReferPage() {
             <p className="mt-2">When they pay $55 / 12 months, both accounts get +1 month.</p>
           </li>
         </ol>
+        <AioCitationHooks items={faqItems()} title="Questions" />
         <a
           className="mt-10 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"
           href={whatsappHref(WA_PREFILL.refer, "refer")}

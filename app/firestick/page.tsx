@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { AioTranscript } from "@/components/aio-transcript";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
+import { faqItems, salesGraph } from "@/lib/aio";
 import { jsonLdInnerHtml } from "@/lib/json-ld";
 import {
   OG_IMAGE,
@@ -135,6 +139,7 @@ export default function FirestickHowToPage() {
           __html: jsonLdInnerHtml(breadcrumbSchema),
         }}
       />
+      <JsonLd data={salesGraph(PAGE_URL)} />
 
       <SiteHeader active="firestick" />
 
@@ -195,6 +200,7 @@ export default function FirestickHowToPage() {
               </li>
             ))}
           </ol>
+          <AioTranscript transcript={null} />
         </section>
 
         <section className="mt-14">
@@ -228,6 +234,8 @@ export default function FirestickHowToPage() {
         <div className="mt-12">
           <WhatsAppCard prefill={WA_PREFILL.firestick} surface="firestick-contact" />
         </div>
+
+        <AioCitationHooks title="Questions" items={faqItems()} />
 
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">

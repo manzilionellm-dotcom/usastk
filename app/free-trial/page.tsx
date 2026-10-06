@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
+import { productGraph, trialFaqItems } from "@/lib/aio";
 import { jsonLdInnerHtml } from "@/lib/json-ld";
 import {
   MOTION_STEPS,
@@ -68,28 +71,7 @@ export const metadata: Metadata = {
   },
 };
 
-const trialFaqs = [
-  {
-    q: "How do I start the 24h Firestick trial?",
-    a: "Message WhatsApp only. The prefill is ready — add your device. You get a private 24-hour trial, no card. Access stays in the chat; we do not publish a public playlist on this site.",
-  },
-  {
-    q: "Is the trial on WhatsApp only?",
-    a: "Yes. WhatsApp is the only start path for the soft 24h Firestick trial. No email form, no public M3U download on this site.",
-  },
-  {
-    q: "What is 7 MOTION and when do I get it?",
-    a: "On Firestick we soft-sell 7 MOTION when it is offered — a short player start on the same WhatsApp thread. Prefer it for a calmer night at home; you still decide after the trial holds.",
-  },
-  {
-    q: "Do I need a plan before the trial ends?",
-    a: "No. Check an evening on your own TV first. If it holds, pick a duration on the same WhatsApp thread — not before.",
-  },
-  {
-    q: "Where is the Firestick setup guide?",
-    a: "See /firestick for the soft setup steps, and /faq for short answers on trial, buffering, and devices.",
-  },
-];
+const trialFaqs = trialFaqItems();
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -139,6 +121,7 @@ export default function FreeTrialPage() {
           __html: jsonLdInnerHtml(breadcrumbSchema),
         }}
       />
+      <JsonLd data={productGraph()} />
 
       <SiteHeader />
 
@@ -249,25 +232,7 @@ export default function FreeTrialPage() {
           </ol>
         </section>
 
-        <section className="mt-14">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            Trial FAQ
-          </h2>
-          <div className="mt-6 space-y-3">
-            {trialFaqs.map((f, i) => (
-              <details
-                key={f.q}
-                open={i < 2}
-                className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5"
-              >
-                <summary className="cursor-pointer text-base font-semibold">
-                  {f.q}
-                </summary>
-                <p className="mt-3 mb-0 text-[#A8AEBC]">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+        <AioCitationHooks title="Trial FAQ" items={trialFaqs} />
 
         <div className="mt-12">
           <WhatsAppCard prefill={WA_PREFILL.trial} surface="free-trial-contact" />

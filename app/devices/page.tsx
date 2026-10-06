@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AioCitationHooks } from "@/components/aio-citation-hooks";
+import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { faqItems, salesGraph } from "@/lib/aio";
 import { DEVICES } from "@/lib/devices";
 import { SITE_URL } from "@/lib/site";
 
@@ -14,6 +17,7 @@ export const metadata: Metadata = {
 export default function DevicesIndex() {
   return (
     <>
+      <JsonLd data={salesGraph(`${SITE_URL}/devices`)} />
       <SiteHeader />
       <main className="mx-auto max-w-4xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">Devices</h1>
@@ -42,6 +46,7 @@ export default function DevicesIndex() {
           </Link>
           .
         </p>
+        <AioCitationHooks items={faqItems()} title="Questions" />
       </main>
       <SiteFooter />
     </>
