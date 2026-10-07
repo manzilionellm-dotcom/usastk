@@ -42,7 +42,7 @@ lines.push("## Services", "");
 lines.push(
   `- Firestick IPTV setup for US households. Preferred player: 7 MOTION. Private 24 hour trial and support on WhatsApp: ${c.contact.whatsapp}`,
 );
-lines.push("- No public playlist file. No invented star ratings or review counts.");
+lines.push("- Login details stay in the WhatsApp chat. There is no playlist file to download on this site.");
 lines.push(
   `- Referral, as published on /refer: when a friend pays the 12 month plan ($55), both people get 1 extra month. The 24 hour trial alone does not trigger the bonus.`,
 );
@@ -69,7 +69,7 @@ lines.push("6. Check a night at home on your own TV.");
 lines.push("7. Choose a duration on WhatsApp only if it holds.", "");
 lines.push("## Pages", "");
 lines.push(`- [Home](${c.siteUrl}/): Firestick IPTV USA overview, pricing cards, trial.`);
-lines.push(`- [Free trial](${c.siteUrl}/free-trial): Soft 24h Firestick trial on WhatsApp only.`);
+lines.push(`- [Free trial](${c.siteUrl}/free-trial): 24h Firestick trial on WhatsApp only.`);
 lines.push(`- [Pricing](${c.siteUrl}/#plans): Plan cards on the home page.`);
 lines.push(`- [Firestick HowTo](${c.siteUrl}/firestick): Short 7 MOTION setup.`);
 lines.push(`- [Firestick setup USA (guide)](${c.siteUrl}/blog/firestick-setup-usa): Longer 7-step MOTION guide for AI citations.`);
@@ -78,7 +78,7 @@ lines.push(`- [Full text](${c.siteUrl}/llms-full.txt): Longer machine-readable c
 lines.push(`## Frequently asked questions (${i.faq.length})`, "");
 i.faq.forEach((f) => lines.push(`### ${f.q}`, "", f.a, ""));
 lines.push("## Optional", "");
-lines.push("- Contact is WhatsApp only. No public M3U. No invented star ratings.");
+lines.push("- Contact is WhatsApp only: +44 7307 410512.");
 fs.mkdirSync(new URL("../public/", import.meta.url), { recursive: true });
 fs.writeFileSync(new URL("../public/llms.txt", import.meta.url), lines.join("\n").trimEnd() + "\n");
 console.log("public/llms.txt écrit (" + i.faq.length + " Q/R)");

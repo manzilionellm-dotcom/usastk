@@ -59,7 +59,7 @@ export default function BufferingGuide() {
         </ol>
         <AioCitationHooks title="Questions" items={bufferingFaqItems()} />
         <p className="mt-8 text-[#A8AEBC]">
-          If those seven still fail on a 24h trial, the stick or the ISP is the bottleneck — we don’t invent “anti-freeze 6.0”. Test first.
+          If those seven still fail on a 24h trial, the stick or your internet provider is the bottleneck. Test on your own Wi-Fi first.
         </p>
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"

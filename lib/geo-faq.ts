@@ -2,7 +2,7 @@ import { geoFaqItems } from "@/lib/aio";
 
 /**
  * Answer-first FAQ for the Firestick setup guide.
- * Same strings as aio.config.json i18n.en.geoFaq. No invented prices or ratings.
+ * Same strings as aio.config.json i18n.en.geoFaq. Published prices only.
  */
 export const GEO_FAQ: { q: string; a: string }[] = geoFaqItems();
 
