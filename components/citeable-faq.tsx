@@ -3,7 +3,7 @@ import { GEO_FAQ } from "@/lib/geo-faq";
 /** Visible citation hooks. Each question h3 is followed immediately by its answer paragraph. */
 export function CiteableFaq({
   items = GEO_FAQ,
-  title = "Short answers (citeable)",
+  title = "Short answers",
 }: {
   items?: { q: string; a: string }[];
   title?: string;
@@ -14,7 +14,7 @@ export function CiteableFaq({
         {title}
       </h2>
       <p className="mt-3 text-sm text-[#A8AEBC]">
-        First sentence is the answer. Same text as the FAQ schema — no cloaking.
+        Short answers about setup, the 24 hour trial, and WhatsApp.
       </p>
       <div className="mt-6 space-y-4">
         {items.map((f) => (

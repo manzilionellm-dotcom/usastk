@@ -24,7 +24,7 @@ import {
 
 const TITLE = "Firestick setup USA — 7 MOTION path";
 const META =
-  "Set up Firestick IPTV in the USA in 7 MOTION steps. Soft WhatsApp walkthrough, 24h trial, no public playlist, no invented ratings.";
+  "Set up Firestick IPTV in the USA in 7 MOTION steps. WhatsApp walkthrough, 24h trial, and a night at home on your own TV.";
 const H1 = "Firestick setup USA — 7 MOTION, one night at home";
 
 export const metadata: Metadata = {
@@ -122,7 +122,7 @@ export default function FirestickSetupUsaGuidePage() {
         <div className="mt-12">
           <WhatsAppCard prefill={WA_PREFILL.guide} surface="guide-contact" />
         </div>
-        <CiteableFaq title="Citeable answers" />
+        <CiteableFaq title="Short answers" />
         <p className="mt-8 text-sm text-[#A8AEBC]">
           If playback freezes at night, use the{" "}
           <Link href="/faq/buffering" className="text-[#93c5fd] hover:underline">

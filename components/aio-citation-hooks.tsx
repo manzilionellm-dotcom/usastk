@@ -16,7 +16,7 @@ export function AioCitationHooks({
         {title}
       </h2>
       <p className="mt-3 text-sm text-[#A8AEBC]">
-        Direct answers in the page HTML, same wording as the FAQ schema.
+        Short answers about the trial, setup, and WhatsApp.
       </p>
       <div className="mt-6 space-y-4">
         {items.map((item) => (
