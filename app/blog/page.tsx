@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { absolute: "Guides — Firestick IPTV USA" },
   description:
-    "Firestick IPTV USA guides. Setup, buffering checks, Smart TV, 24h trial. WhatsApp only. No invented ratings.",
+    "Firestick IPTV USA guides. Setup, buffering checks, Smart TV, and the 24h trial. WhatsApp only.",
   alternates: { canonical: PAGE_URL },
   robots: { index: true, follow: true },
 };
@@ -21,7 +21,7 @@ const POSTS = [
   {
     href: GUIDE_PATH,
     title: "Firestick setup USA — 7 MOTION path",
-    blurb: "Seven steps, WhatsApp trial, no public playlist, no invented ratings.",
+    blurb: "Seven steps, a WhatsApp trial, and a night at home on your own TV.",
   },
   {
     href: "/blog/iptv-buffering-firestick",

@@ -22,7 +22,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
 const TITLE = "Free 24h Firestick trial USA — WhatsApp only";
 const META =
-  "Soft 24-hour Firestick trial in the USA. WhatsApp only — no public playlist. Prefer 7 MOTION when offered. Link to setup and FAQ.";
+  "24-hour Firestick trial in the USA. WhatsApp only. Prefer 7 MOTION when offered. Links to setup and the FAQ.";
 const H1 = "Free 24h Firestick trial — WhatsApp only";
 
 export const metadata: Metadata = {
@@ -141,8 +141,8 @@ export default function FreeTrialPage() {
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
-          Soft 24-hour Firestick trial for the USA. WhatsApp only — add your
-          device in the prefill. No public playlist on this site. When 7 MOTION
+          A 24-hour Firestick trial for the USA. WhatsApp only — add your
+          device in the prefill. Login details stay in the chat. When 7 MOTION
           is offered, we prefer it for a short, calm start on your stick.
         </p>
 
@@ -167,7 +167,7 @@ export default function FreeTrialPage() {
             href="/faq"
             className="inline-flex items-center justify-center rounded-full border border-[#2A3142] px-6 py-3.5 text-sm font-semibold text-[#F5F6F8] transition hover:border-[#4F7DFF]"
           >
-            Soft FAQ
+            FAQ
           </Link>
         </div>
 
@@ -186,12 +186,12 @@ export default function FreeTrialPage() {
             <div className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
               <h3 className="font-semibold">WhatsApp only</h3>
               <p className="mt-2 text-sm text-[#A8AEBC]">
-                One chat path. We do not publish a public M3U or playlist file
-                on this site.
+                One chat path. Login details stay on WhatsApp. There is no
+                playlist file to download on this site.
               </p>
             </div>
             <div className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
-              <h3 className="font-semibold">Soft-sell 7 MOTION</h3>
+              <h3 className="font-semibold">7 MOTION when offered</h3>
               <p className="mt-2 text-sm text-[#A8AEBC]">
                 When offered, prefer 7 MOTION for Firestick — faster start, less
                 forum sideload. Player steps arrive in the same chat.
@@ -201,7 +201,7 @@ export default function FreeTrialPage() {
               <h3 className="font-semibold">Decide after it holds</h3>
               <p className="mt-2 text-sm text-[#A8AEBC]">
                 If an evening at home holds, then pick a duration — still on
-                WhatsApp. No invented star ratings here.
+                WhatsApp.
               </p>
             </div>
           </div>
@@ -209,7 +209,7 @@ export default function FreeTrialPage() {
 
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            7 MOTION path — soft sell when offered
+            7 MOTION path — when offered
           </h2>
           <p className="mt-4 leading-relaxed text-[#A8AEBC]">
             Same seven short steps as our Firestick setup. Prefer 7 MOTION when
