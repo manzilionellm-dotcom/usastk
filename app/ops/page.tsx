@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { FOLLOWUP } from "@/lib/followup";
 import { WHATSAPP_E164 } from "@/lib/site";
 
@@ -7,7 +8,15 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+/**
+ * Internal closer scripts (lib/followup.ts). Rendered only on a local
+ * `next dev` server; every production/preview build answers 404.
+ */
 export default function OpsPage() {
+  if (process.env.NODE_ENV !== "development") {
+    notFound();
+  }
+
   return (
     <main className="mx-auto max-w-2xl px-5 py-12 font-sans text-[#F5F6F8]">
       <h1 className="text-2xl font-semibold">Scripts — un numéro {WHATSAPP_E164}</h1>
