@@ -1,6 +1,6 @@
 import { SITE_NAME, SITE_URL, WHATSAPP_HREF_BASE } from "@/lib/site";
 
-/** Canonical 7 MOTION path — visible copy and HowTo schema must stay in sync (no cloaking). */
+/** Canonical 7 MOTION path — visible copy and HowTo schema must stay in sync. */
 export const MOTION_STEPS = [
   {
     name: "Message WhatsApp",
@@ -28,14 +28,14 @@ export const MOTION_STEPS = [
   },
   {
     name: "Choose a duration if it holds",
-    text: "Soft next step on the same WhatsApp thread. No invented star ratings, no public file to download, no cloaking.",
+    text: "If the night at home holds, pick a duration on the same WhatsApp thread. Login details stay in that chat.",
   },
 ] as const;
 
 export const MOTION_HOWTO_NAME =
   "How to set up Firestick IPTV USA with 7 MOTION (7 steps)";
 export const MOTION_HOWTO_DESCRIPTION =
-  "Seven short steps for Firestick in the USA: WhatsApp, 24h trial, prep the stick, install 7 MOTION, enter chat details, watch a night at home, then pick a duration if it holds. No public playlist. No invented ratings.";
+  "Seven short steps for Firestick in the USA: WhatsApp, 24h trial, prep the stick, install 7 MOTION, enter chat details, watch a night at home, then pick a duration if it holds.";
 
 export function motionHowToSchema(pageUrl: string) {
   return {
@@ -73,7 +73,7 @@ export function organizationSchema() {
     name: SITE_NAME,
     url: SITE_URL,
     description:
-      "IPTV For Firestick USA — WhatsApp setup for Amazon Firestick in the United States. Prefers 7 MOTION. Private 24-hour trial. No public playlist. No invented ratings.",
+      "IPTV For Firestick USA — WhatsApp setup for Amazon Firestick in the United States. Prefers 7 MOTION. Private 24-hour trial on +44 7307 410512.",
     areaServed: { "@type": "Country", name: "United States" },
     knowsLanguage: ["en-US", "es", "fr"],
     contactPoint: {
@@ -92,7 +92,7 @@ export function websiteSchema() {
     url: SITE_URL,
     name: SITE_NAME,
     description:
-      "Firestick IPTV USA: 7 MOTION setup, 24-hour trial on WhatsApp. No public playlist. No invented star ratings.",
+      "Firestick IPTV USA: 7 MOTION setup and a 24-hour trial on WhatsApp.",
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-US",
   };

@@ -1,8 +1,8 @@
 # IPTV For Firestick USA
 
-> Firestick IPTV in the United States. Soft WhatsApp setup, 7 MOTION player, private 24-hour trial. No public playlist. No invented star ratings.
+> Firestick IPTV in the United States. WhatsApp setup, 7 MOTION player, and a private 24-hour trial. Login details stay in the chat.
 
-IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households start IPTV on Amazon Firestick. Access stays in chat. We do not publish a public playlist file. We do not invent star ratings or review counts.
+IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households start IPTV on Amazon Firestick. Access stays in chat on WhatsApp +44 7307 410512. Send your city and device, then try a night at home.
 
 ## Start
 
@@ -13,7 +13,7 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 ## Services
 
 - Firestick IPTV setup for US households. Preferred player: 7 MOTION. Private 24 hour trial and support on WhatsApp: https://wa.me/447307410512
-- No public playlist file. No invented star ratings or review counts.
+- Login details stay in the WhatsApp chat. There is no playlist file to download on this site.
 - Referral, as published on /refer: when a friend pays the 12 month plan ($55), both people get 1 extra month. The 24 hour trial alone does not trigger the bonus.
 - Website: https://iptvforfirestickusa.com/
 
@@ -49,7 +49,7 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 ## Pages
 
 - [Home](https://iptvforfirestickusa.com/): Firestick IPTV USA overview, pricing cards, trial.
-- [Free trial](https://iptvforfirestickusa.com/free-trial): Soft 24h Firestick trial on WhatsApp only.
+- [Free trial](https://iptvforfirestickusa.com/free-trial): 24h Firestick trial on WhatsApp only.
 - [Pricing](https://iptvforfirestickusa.com/#plans): Plan cards on the home page.
 - [Firestick HowTo](https://iptvforfirestickusa.com/firestick): Short 7 MOTION setup.
 - [Firestick setup USA (guide)](https://iptvforfirestickusa.com/blog/firestick-setup-usa): Longer 7-step MOTION guide for AI citations.
@@ -74,21 +74,21 @@ Setup is walked on WhatsApp in 5 to 10 minutes. After you confirm a plan, activa
 
 Buffering is usually the room network, not the stick. Move to a 5 GHz network, pause other 4K streams, or use a short Ethernet adapter. The buffering guide states 15 Mbps for HD and 25 Mbps for one 4K stick. Try a regular show first on the trial. If it still stutters, stay on the same WhatsApp thread.
 
-### Is IPTV legal in the USA?
+### What should I know before I start?
 
-IPTV is television over your internet connection, the same delivery idea many official US apps already use. Whether a specific catalog is properly licensed depends on the source. This site does not give legal advice. Use the 24 hour trial on your own network and decide if the path feels right for your home.
+Start with a Firestick you already own and the internet in your home. Message WhatsApp with your city and device, then watch a night on your own TV before you pick a duration. The published plans are on the home page. You decide after that night whether the picture fits.
 
 ### How does Firestick IPTV compare to cable?
 
-Cable is a contract, a box, and a bill you already know. Firestick IPTV is one stick on your network and a duration you choose after a night at home. This site does not invent a yearly savings figure. Compare the picture and the guide on the trial, then keep or cancel cable on your own timeline.
+Cable is a contract, a box, and a bill you already know. Firestick IPTV is one stick on your network and a duration you choose after a night at home. Compare the picture on the trial, then keep or cancel cable on your own timeline. Published plans stay on the home page.
 
 ### Can I watch live sports on Firestick?
 
-Many US buyers come for a Sunday game or a playoff night. Availability varies by event and week, and this site does not promise every kickoff or PPV. The honest check is the 24 hour trial on your Firestick, in your city, such as New York, Dallas, Los Angeles, or Miami.
+Many US buyers come for a Sunday game or a playoff night. Availability varies by event and week. Use the 24 hour trial on your Firestick, in your city, such as New York, Dallas, Los Angeles, or Miami, and see whether that night holds before you pick a duration.
 
 ### Can I use more than one Firestick or TV?
 
-A living room plus a bedroom is common. How many screens can play at once is set on WhatsApp for your household, and this page does not invent a connection count. Send your city and each device. Credentials stay private in the chat, and the site does not publish a public playlist.
+A living room plus a bedroom is common. How many screens can play at once is confirmed on WhatsApp for your household. Send your city and each device. Login details stay in that chat. This site does not post a playlist file for you to download.
 
 ### How do I pay — and can I switch from another provider?
 
@@ -96,8 +96,8 @@ Payment stays on WhatsApp after a night on your own TV. There is no card field a
 
 ### Do I need 4K, a TV guide (EPG), or a VPN?
 
-4K needs a 4K stick, a strong network, and a 4K feed. A regular Firestick at 1080p is enough for most rooms. 7 MOTION includes an EPG. A VPN is not required to start in a typical US home, does not change legality, and can add delay. A required VPN is a forum myth. Test the trial first without one.
+4K needs a 4K stick, a strong network, and a 4K feed. A regular Firestick at 1080p is enough for most rooms. 7 MOTION includes an EPG. A VPN is not required to start in a typical US home and can add delay. A required VPN is a forum myth. Test the 24 hour trial first without one.
 
 ## Optional
 
-- Contact is WhatsApp only. No public M3U. No invented star ratings.
+- Contact is WhatsApp only: +44 7307 410512.

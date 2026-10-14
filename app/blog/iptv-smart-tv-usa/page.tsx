@@ -22,7 +22,7 @@ const STEPS = [
   { t: "Check the TV store", d: "Samsung (Tizen) and LG (webOS) both have a Downloader-style app or a browser. We name the player on WhatsApp after you send the TV brand." },
   { t: "If the store is empty", d: "Buy a Firestick (~$25). Unknown sources → Downloader → player. Faster than fighting an old Tizen build." },
   { t: "Wi-Fi vs Ethernet", d: "Smart TVs freeze on 2.4 GHz the same way sticks do. 5 GHz or a LAN port." },
-  { t: "Trial first", d: "24h on your own TV. If a channel buffers, say so — we switch the source. No invented anti-freeze claims." },
+  { t: "Trial first", d: "24h on your own TV. If a channel buffers, say so on WhatsApp and we switch that source." },
 ];
 
 export default function SmartTvGuide() {

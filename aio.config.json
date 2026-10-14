@@ -5,7 +5,7 @@
   "defaultLang": "en",
   "currency": "USD",
   "contact": { "whatsapp": "https://wa.me/447307410512" },
-  "lead": "IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households start IPTV on Amazon Firestick. Access stays in chat. We do not publish a public playlist file. We do not invent star ratings or review counts.",
+  "lead": "IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households start IPTV on Amazon Firestick. Access stays in chat on WhatsApp +44 7307 410512. Send your city and device, then try a night at home.",
   "plans": [
     { "id": "trial-24h", "price": 0, "name": "24 hour trial" },
     { "id": "1-month", "price": 12, "name": "1 Month" },
@@ -23,7 +23,7 @@
   },
   "i18n": {
     "en": {
-      "description": "Firestick IPTV in the United States. Soft WhatsApp setup, 7 MOTION player, private 24-hour trial. No public playlist. No invented star ratings.",
+      "description": "Firestick IPTV in the United States. WhatsApp setup, 7 MOTION player, and a private 24-hour trial. Login details stay in the chat.",
       "productDescription": "IPTV For Firestick USA subscription, term: {name}. Ordered on WhatsApp. Private access, no public playlist.",
       "faq": [
         {
@@ -43,20 +43,20 @@
           "a": "Buffering is usually the room network, not the stick. Move to a 5 GHz network, pause other 4K streams, or use a short Ethernet adapter. The buffering guide states 15 Mbps for HD and 25 Mbps for one 4K stick. Try a regular show first on the trial. If it still stutters, stay on the same WhatsApp thread."
         },
         {
-          "q": "Is IPTV legal in the USA?",
-          "a": "IPTV is television over your internet connection, the same delivery idea many official US apps already use. Whether a specific catalog is properly licensed depends on the source. This site does not give legal advice. Use the 24 hour trial on your own network and decide if the path feels right for your home."
+          "q": "What should I know before I start?",
+          "a": "Start with a Firestick you already own and the internet in your home. Message WhatsApp with your city and device, then watch a night on your own TV before you pick a duration. The published plans are on the home page. You decide after that night whether the picture fits."
         },
         {
           "q": "How does Firestick IPTV compare to cable?",
-          "a": "Cable is a contract, a box, and a bill you already know. Firestick IPTV is one stick on your network and a duration you choose after a night at home. This site does not invent a yearly savings figure. Compare the picture and the guide on the trial, then keep or cancel cable on your own timeline."
+          "a": "Cable is a contract, a box, and a bill you already know. Firestick IPTV is one stick on your network and a duration you choose after a night at home. Compare the picture on the trial, then keep or cancel cable on your own timeline. Published plans stay on the home page."
         },
         {
           "q": "Can I watch live sports on Firestick?",
-          "a": "Many US buyers come for a Sunday game or a playoff night. Availability varies by event and week, and this site does not promise every kickoff or PPV. The honest check is the 24 hour trial on your Firestick, in your city, such as New York, Dallas, Los Angeles, or Miami."
+          "a": "Many US buyers come for a Sunday game or a playoff night. Availability varies by event and week. Use the 24 hour trial on your Firestick, in your city, such as New York, Dallas, Los Angeles, or Miami, and see whether that night holds before you pick a duration."
         },
         {
           "q": "Can I use more than one Firestick or TV?",
-          "a": "A living room plus a bedroom is common. How many screens can play at once is set on WhatsApp for your household, and this page does not invent a connection count. Send your city and each device. Credentials stay private in the chat, and the site does not publish a public playlist."
+          "a": "A living room plus a bedroom is common. How many screens can play at once is confirmed on WhatsApp for your household. Send your city and each device. Login details stay in that chat. This site does not post a playlist file for you to download."
         },
         {
           "q": "How do I pay — and can I switch from another provider?",
@@ -64,21 +64,21 @@
         },
         {
           "q": "Do I need 4K, a TV guide (EPG), or a VPN?",
-          "a": "4K needs a 4K stick, a strong network, and a 4K feed. A regular Firestick at 1080p is enough for most rooms. 7 MOTION includes an EPG. A VPN is not required to start in a typical US home, does not change legality, and can add delay. A required VPN is a forum myth. Test the trial first without one."
+          "a": "4K needs a 4K stick, a strong network, and a 4K feed. A regular Firestick at 1080p is enough for most rooms. 7 MOTION includes an EPG. A VPN is not required to start in a typical US home and can add delay. A required VPN is a forum myth. Test the 24 hour trial first without one."
         }
       ],
       "geoFaq": [
         {
           "q": "How do I get IPTV on Firestick in the USA?",
-          "a": "Message WhatsApp with your US city and that you have a Firestick. The walkthrough follows the 7 MOTION path in about 5 to 10 minutes and starts a private 24 hour trial. Access stays in the chat. This site does not publish a public playlist, and it does not invent star ratings or review counts."
+          "a": "Message WhatsApp with your US city and that you have a Firestick. The walkthrough follows the 7 MOTION path in about 5 to 10 minutes and starts a private 24 hour trial. Access stays in the chat. Login details stay on that thread. This site does not post a playlist file to download."
         },
         {
           "q": "What is the 7 MOTION path?",
-          "a": "The path is seven short steps: message WhatsApp, start the 24 hour trial, prep the Firestick, install 7 MOTION, enter the chat details, watch a night at home, then pick a duration only if it holds. There is no public playlist on this site and no invented star ratings."
+          "a": "The path is seven short steps: message WhatsApp, start the 24 hour trial, prep the Firestick, install 7 MOTION, enter the chat details, watch a night at home, then pick a duration only if it holds. Login details stay in that chat. There is no playlist file to download on this site."
         },
         {
-          "q": "Do you publish a public playlist or fake ratings?",
-          "a": "No. Access stays in WhatsApp. This site does not publish a public playlist file, and it does not invent star ratings or review counts. Credentials are sent privately after the trial or a paid plan. Do not hunt a playlist file on the open web. The same rule is repeated on the home page, the FAQ, and the setup guide."
+          "q": "Where do the login details come from?",
+          "a": "They stay in WhatsApp. After you message with your city and device, the trial details arrive in that same chat. This site does not post a playlist file for you to download, and it does not ask you to hunt one on the open web. Use the thread you already opened."
         },
         {
           "q": "How do I start the 24-hour Firestick trial?",
@@ -100,11 +100,11 @@
         },
         {
           "q": "Is the trial on WhatsApp only?",
-          "a": "Yes. WhatsApp is the only start path for the soft 24 hour Firestick trial. There is no email form and no public playlist download on this site. Send your city and device in that chat. The trial needs no card. You decide on a paid term only after an evening at home holds."
+          "a": "Yes. WhatsApp is the only start path for the 24 hour Firestick trial. There is no email form and no playlist file to download on this site. Send your city and device in that chat. The trial needs no card. You decide on a paid term only after an evening at home holds."
         },
         {
           "q": "What is 7 MOTION and when do I get it?",
-          "a": "On Firestick the site soft sells 7 MOTION when it is offered. It is a short player start on the same WhatsApp thread, preferred for a calmer night at home. You still decide after the trial holds. The player and the steps stay in that chat, with no public playlist to hunt on the open web."
+          "a": "On Firestick we suggest 7 MOTION when it is offered. It is a short player start on the same WhatsApp thread, preferred for a calmer night at home. You still decide after the trial holds. The player and the steps stay in that chat, so you are not hunting a file on the open web."
         },
         {
           "q": "Do I need a plan before the trial ends?",
@@ -122,7 +122,7 @@
         },
         {
           "q": "One channel only?",
-          "a": "If only one channel fails, tell WhatsApp which one. The site switches that source. It does not ship a fake anti freeze update, and the buffering guide says not to invent an anti freeze version. When every other channel is fine, the note on WhatsApp is enough. Stay on the same thread."
+          "a": "If only one channel fails, tell WhatsApp which one. We switch that source on the same thread. When every other channel is fine, that note is enough. Stay in the chat and retest the channel after the switch. You do not need a new app name or a new stick for a single channel."
         },
         {
           "q": "4K Max still buffers?",

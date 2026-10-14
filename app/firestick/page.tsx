@@ -19,9 +19,9 @@ const PAGE_PATH = "/firestick";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
 /* Seo Wa paste-ready USA Firestick site — title + meta */
-const TITLE = "IPTV Firestick USA — soft setup at home or traveling";
+const TITLE = "IPTV Firestick USA — setup at home or traveling";
 const META =
-  "IPTV on Firestick in the USA. Soft WhatsApp setup in 5–10 min, 7 MOTION TV, 24h trial. City + device.";
+  "IPTV on Firestick in the USA. WhatsApp setup in 5–10 min, 7 MOTION TV, 24h trial. City + device.";
 const H1 = "IPTV Firestick USA — at home or traveling";
 
 export const metadata: Metadata = {
@@ -76,7 +76,7 @@ const steps = [
     text: "One note is enough: your US city plus that you have a Firestick. The prefill is ready — no email form.",
   },
   {
-    name: "Take the soft 24h trial",
+    name: "Take the 24h trial",
     text: "You get a 24-hour trial, no card. Check it in your living room at night, not on a screenshot.",
   },
   {
@@ -159,9 +159,9 @@ export default function FirestickHowToPage() {
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
-          Firestick in a US living room or in a hotel. Soft setup is usually 5–10
-          minutes. Prefer 7 MOTION. Trial 24h on WhatsApp — no public playlist
-          link.
+          Firestick in a US living room or in a hotel. Setup is usually 5–10
+          minutes. Prefer 7 MOTION. The 24h trial stays on WhatsApp, and login
+          details stay in that chat.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -177,7 +177,7 @@ export default function FirestickHowToPage() {
             href="/faq"
             className="inline-flex items-center justify-center rounded-full border border-[#2A3142] px-6 py-3.5 text-sm font-semibold text-[#F5F6F8] transition hover:border-[#4F7DFF]"
           >
-            Soft FAQ
+            FAQ
           </Link>
         </div>
 
@@ -223,7 +223,7 @@ export default function FirestickHowToPage() {
             </p>
           </div>
           <div className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
-            <h3 className="font-semibold">Soft trial first</h3>
+            <h3 className="font-semibold">24h trial first</h3>
             <p className="mt-2 text-sm text-[#A8AEBC]">
               24 hours, no card. If an evening at your place holds, then you
               choose a duration — still on WhatsApp.
