@@ -48,7 +48,12 @@ export default async function DevicePage({ params }: Props) {
           steps,
         })}
       />
-      <JsonLd data={salesGraph(pageUrl)} />
+      <JsonLd
+        data={salesGraph(pageUrl, undefined, [
+          { name: "Devices", path: "/devices" },
+          { name: `${d.name} — 24h trial`, path: d.path },
+        ])}
+      />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">

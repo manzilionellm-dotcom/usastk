@@ -5,12 +5,12 @@ import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
 import { productGraph, trialFaqItems } from "@/lib/aio";
 import { jsonLdInnerHtml } from "@/lib/json-ld";
+import { FREE_TRIAL_H1 } from "@/lib/page-copy";
 import {
   MOTION_STEPS,
   motionHowToSchema,
 } from "@/lib/motion-path";
 import {
-  OG_IMAGE,
   SITE_NAME,
   SITE_URL,
   WA_PREFILL,
@@ -23,7 +23,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 const TITLE = "Free 24h Firestick trial USA — WhatsApp only";
 const META =
   "24-hour Firestick trial in the USA. WhatsApp only. Prefer 7 MOTION when offered. Links to setup and the FAQ.";
-const H1 = "Free 24h Firestick trial — WhatsApp only";
+const H1 = FREE_TRIAL_H1;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     description: META,
     images: [
       {
-        url: OG_IMAGE,
+        url: `${PAGE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: TITLE,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: META,
-    images: [OG_IMAGE],
+    images: [`${PAGE_URL}/twitter-image`],
   },
   robots: {
     index: true,

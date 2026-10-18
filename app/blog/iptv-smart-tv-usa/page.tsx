@@ -38,7 +38,12 @@ export default function SmartTvGuide() {
           steps: STEPS.map((c) => ({ name: c.t, text: c.d })),
         })}
       />
-      <JsonLd data={salesGraph(pageUrl)} />
+      <JsonLd
+        data={salesGraph(pageUrl, undefined, [
+          { name: "Guides", path: "/blog" },
+          { name: TITLE, path: PATH },
+        ])}
+      />
       <SiteHeader active="guide" />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDE · 15 SEP 2026</p>

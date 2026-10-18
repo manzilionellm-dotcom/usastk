@@ -41,7 +41,12 @@ export default async function CityPage({ params }: Props) {
 
   return (
     <>
-      <JsonLd data={salesGraph(pageUrl)} />
+      <JsonLd
+        data={salesGraph(pageUrl, undefined, [
+          { name: "US cities", path: "/cities" },
+          { name: `Firestick IPTV in ${c.name}`, path: `/cities/${c.slug}` },
+        ])}
+      />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#6E7585]">

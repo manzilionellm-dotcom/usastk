@@ -66,28 +66,6 @@ export function serviceOfferGraph(opts: {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": `${siteUrl}/#organization`,
-        name: siteName,
-        url: siteUrl,
-        logo: { "@type": "ImageObject", url: `${siteUrl}/icon`, width: 512, height: 512 },
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: `+${whatsappE164}`,
-          contactType: "customer support",
-          availableLanguage: ["English", "Spanish"],
-          areaServed: { "@type": "Country", name: "United States" },
-        },
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${siteUrl}/#website`,
-        url: siteUrl,
-        name: siteName,
-        publisher: { "@id": `${siteUrl}/#organization` },
-        inLanguage: "en-US",
-      },
-      {
         "@type": "Service",
         "@id": `${siteUrl}/#service`,
         name: `${siteName} subscription`,
@@ -96,13 +74,17 @@ export function serviceOfferGraph(opts: {
         provider: { "@id": `${siteUrl}/#organization` },
         areaServed: { "@type": "Country", name: "United States" },
         url: siteUrl,
+        availableChannel: {
+          "@type": "ServiceChannel",
+          serviceUrl: `https://wa.me/${whatsappE164}`,
+        },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "IPTV USA plans",
           itemListElement: plans.map((p) => ({
             "@type": "Offer",
             name: `${p.name} plan`,
-            price: String(p.price),
+            price: p.price.toFixed(2),
             priceCurrency: "USD",
             availability: "https://schema.org/InStock",
             url: `${siteUrl}/#plans`,

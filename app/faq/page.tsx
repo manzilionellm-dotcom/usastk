@@ -7,7 +7,6 @@ import { productGraph } from "@/lib/aio";
 import { jsonLdInnerHtml } from "@/lib/json-ld";
 import { FAQ_BANK, FAQ_H1, FAQ_META, FAQ_TITLE } from "@/lib/faq-bank";
 import {
-  OG_IMAGE,
   SITE_NAME,
   SITE_URL,
   WA_PREFILL,
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     description: META,
     images: [
       {
-        url: OG_IMAGE,
+        url: `${PAGE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: TITLE,
@@ -53,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: META,
-    images: [OG_IMAGE],
+    images: [`${PAGE_URL}/twitter-image`],
   },
   robots: {
     index: true,

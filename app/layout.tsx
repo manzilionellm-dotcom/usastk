@@ -6,6 +6,8 @@ import { CookieConsent } from "@/components/conversion/CookieConsent";
 import { StickyCta } from "@/components/conversion/StickyCta";
 import { WhatsAppFab } from "@/components/conversion/WhatsAppFab";
 import { WaClickDelegate } from "@/components/conversion/WaClickDelegate";
+import { JsonLd } from "@/components/json-ld-script";
+import { organizationSchema, websiteSchema } from "@/lib/motion-path";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -49,6 +51,13 @@ export default function RootLayout({
         className={`${fraunces.variable} ${dmSans.variable}`}
         style={{ backgroundColor: "#0B0E16" }}
       >
+        {/* Organization + WebSite once per page; pages reference them by @id. */}
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [organizationSchema(), websiteSchema()],
+          }}
+        />
         <a className="skip-link" href="#plans">
           Skip to plans
         </a>

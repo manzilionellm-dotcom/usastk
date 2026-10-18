@@ -18,7 +18,12 @@ const QA = bufferingFaqItems();
 export default function BufferingFaq() {
   return (
     <>
-      <JsonLd data={salesGraph(`${SITE_URL}/faq/buffering`, QA)} />
+      <JsonLd
+        data={salesGraph(`${SITE_URL}/faq/buffering`, QA, [
+          { name: "FAQ", path: "/faq" },
+          { name: "Buffering FAQ", path: "/faq/buffering" },
+        ])}
+      />
       <SiteHeader active="faq" />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">Buffering FAQ</h1>

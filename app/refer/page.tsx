@@ -19,7 +19,11 @@ export const metadata: Metadata = {
 export default function ReferPage() {
   return (
     <>
-      <JsonLd data={salesGraph(`${SITE_URL}/refer`)} />
+      <JsonLd
+        data={salesGraph(`${SITE_URL}/refer`, undefined, [
+          { name: "1 extra month for you and a friend", path: "/refer" },
+        ])}
+      />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#25D366]">REFERRAL</p>

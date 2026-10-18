@@ -23,6 +23,16 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Non-page assets only (page HTML caching comes from static rendering).
+      ...["/llms.txt", "/llms-full.txt", "/sitemap.xml", "/manifest.json"].map((source) => ({
+        source,
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+          },
+        ],
+      })),
       {
         source: "/sw.js",
         headers: [
