@@ -1,5 +1,5 @@
 import config from "../aio.config.json";
-import { organizationSchema } from "@/lib/motion-path";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 type Faq = { q: string; a: string };
 
@@ -60,19 +60,45 @@ export function faqPageNode(pageUrl: string, items: readonly Faq[] = faqItems())
   };
 }
 
-/** FAQPage + Product for a sales page that does not already emit those nodes. */
-export function salesGraph(pageUrl: string, items?: readonly Faq[]) {
+export type Crumb = { name: string; path: string };
+
+/**
+ * BreadcrumbList for the real URL hierarchy. The first item is always the home
+ * page (named like the existing /faq, /firestick and /free-trial breadcrumbs).
+ */
+export function breadcrumbNode(crumbs: readonly Crumb[]) {
+  const all: Crumb[] = [{ name: SITE_NAME, path: "/" }, ...crumbs];
   return {
-    "@context": "https://schema.org",
-    "@graph": [organizationSchema(), faqPageNode(pageUrl, items), ...productNodes()],
+    "@type": "BreadcrumbList" as const,
+    itemListElement: all.map((c, i) => ({
+      "@type": "ListItem" as const,
+      position: i + 1,
+      name: c.name,
+      item: c.path === "/" ? SITE_URL : `${SITE_URL}${c.path}`,
+    })),
   };
 }
 
-/** Product nodes only, plus Organization so seller @id resolves. Use when FAQPage already exists. */
+/**
+ * FAQPage + Product (+ BreadcrumbList) for a sales page that does not already emit
+ * those nodes. Organization/WebSite come once from the root layout (seller @id resolves there).
+ */
+export function salesGraph(pageUrl: string, items?: readonly Faq[], crumbs?: readonly Crumb[]) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      faqPageNode(pageUrl, items),
+      ...productNodes(),
+      ...(crumbs ? [breadcrumbNode(crumbs)] : []),
+    ],
+  };
+}
+
+/** Product nodes only. Use when FAQPage already exists. Organization comes from the root layout. */
 export function productGraph() {
   return {
     "@context": "https://schema.org",
-    "@graph": [organizationSchema(), ...productNodes()],
+    "@graph": [...productNodes()],
   };
 }
 

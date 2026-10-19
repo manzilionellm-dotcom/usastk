@@ -1,4 +1,4 @@
-import { SITE_NAME, SITE_URL, WHATSAPP_HREF_BASE } from "@/lib/site";
+import { SITE_NAME, SITE_URL, WHATSAPP_E164, WHATSAPP_HREF_BASE } from "@/lib/site";
 
 /** Canonical 7 MOTION path — visible copy and HowTo schema must stay in sync. */
 export const MOTION_STEPS = [
@@ -76,10 +76,13 @@ export function organizationSchema() {
       "IPTV For Firestick USA — WhatsApp setup for Amazon Firestick in the United States. Prefers 7 MOTION. Private 24-hour trial on +44 7307 410512.",
     areaServed: { "@type": "Country", name: "United States" },
     knowsLanguage: ["en-US", "es", "fr"],
+    // app/icon.tsx is a static metadata route (prerendered PNG at /icon).
+    logo: { "@type": "ImageObject", url: `${SITE_URL}/icon` },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
       url: WHATSAPP_HREF_BASE,
+      telephone: `+${WHATSAPP_E164}`,
       availableLanguage: ["English", "Spanish", "French"],
     },
   };

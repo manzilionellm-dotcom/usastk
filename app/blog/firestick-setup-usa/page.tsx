@@ -4,14 +4,12 @@ import { CiteableFaq } from "@/components/citeable-faq";
 import { RelatedGeoLinks } from "@/components/related-links";
 import { SiteFooter, SiteHeader, WhatsAppCard } from "@/components/site-chrome";
 import { faqPageSchema } from "@/lib/geo-faq";
-import { productNodes } from "@/lib/aio";
+import { breadcrumbNode, productNodes } from "@/lib/aio";
 import { jsonLdInnerHtml } from "@/lib/json-ld";
 import {
   MOTION_HOWTO_DESCRIPTION,
   MOTION_STEPS,
   motionHowToSchema,
-  organizationSchema,
-  websiteSchema,
 } from "@/lib/motion-path";
 import {
   GUIDE_URL,
@@ -47,8 +45,6 @@ export const metadata: Metadata = {
 const graph = {
   "@context": "https://schema.org",
   "@graph": [
-    organizationSchema(),
-    websiteSchema(),
     {
       "@type": "Article",
       "@id": `${GUIDE_URL}#article`,
@@ -62,6 +58,10 @@ const graph = {
     motionHowToSchema(GUIDE_URL),
     faqPageSchema(GUIDE_URL),
     ...productNodes(),
+    breadcrumbNode([
+      { name: "Guides", path: "/blog" },
+      { name: H1, path: "/blog/firestick-setup-usa" },
+    ]),
   ],
 };
 

@@ -17,7 +17,9 @@ export const metadata: Metadata = {
 export default function DevicesIndex() {
   return (
     <>
-      <JsonLd data={salesGraph(`${SITE_URL}/devices`)} />
+      <JsonLd
+        data={salesGraph(`${SITE_URL}/devices`, undefined, [{ name: "Devices", path: "/devices" }])}
+      />
       <SiteHeader />
       <main className="mx-auto max-w-4xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">Devices</h1>

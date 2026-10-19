@@ -1,5 +1,13 @@
 import Link from "next/link";
 import { GUIDE_PATH, PRICING_PATH, SITE_NAME, WA_PREFILL, WHATSAPP_E164, whatsappHref } from "@/lib/site";
+import { LiveStatus, type LiveStatusLabels } from "@/components/LiveStatus";
+
+const LIVE_STATUS_LABELS: LiveStatusLabels = {
+  operational: "Service online",
+  region: "region",
+  online: "online now: {n} (last 2 min)",
+  checked: "checked at",
+};
 
 const waFirestick = whatsappHref(WA_PREFILL.firestick);
 
@@ -102,6 +110,7 @@ export function SiteFooter() {
       <div className="border-t border-[#1F2433]">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-6 text-xs text-[#6E7585] md:flex-row md:items-center md:px-8">
           <p>© {year} {SITE_NAME}.</p>
+          <LiveStatus labels={LIVE_STATUS_LABELS} href={whatsappHref(WA_PREFILL.trial)} />
           <p>WhatsApp only · no public playlist</p>
         </div>
       </div>
