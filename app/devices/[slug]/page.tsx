@@ -7,6 +7,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { faqItems, howToNode, salesGraph } from "@/lib/aio";
 import { DEVICES, deviceBySlug } from "@/lib/devices";
 import { SITE_URL, whatsappHref } from "@/lib/site";
+import { SmartTvSources } from "@/components/smart-tv-sources";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -68,6 +69,7 @@ export default async function DevicePage({ params }: Props) {
             </li>
           ))}
         </ol>
+        {d.slug === "smart-tv" && <SmartTvSources />}
         <AioCitationHooks items={faqItems()} title="Questions" />
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"
