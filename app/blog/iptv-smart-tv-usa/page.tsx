@@ -5,11 +5,12 @@ import { JsonLd } from "@/components/json-ld-script";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { faqItems, howToNode, salesGraph } from "@/lib/aio";
 import { SITE_URL, whatsappHref } from "@/lib/site";
+import { SmartTvSources } from "@/components/smart-tv-sources";
 
 const PATH = "/blog/iptv-smart-tv-usa";
 const TITLE = "IPTV on Samsung / LG Smart TV (USA) — without a Firestick";
 const DESCRIPTION =
-  "Downloader on the TV, or a $25 Firestick. 24h trial on WhatsApp, no card. Same $12–$55 plans.";
+  "Samsung Tizen and LG webOS need compatible TV apps. Check your model and region before the 24h trial. IPTV plans remain $12–$55.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,10 +20,10 @@ export const metadata: Metadata = {
 };
 
 const STEPS = [
-  { t: "Check the TV store", d: "Samsung (Tizen) and LG (webOS) both have a Downloader-style app or a browser. We name the player on WhatsApp after you send the TV brand." },
-  { t: "If the store is empty", d: "Buy a Firestick (~$25). Unknown sources → Downloader → player. Faster than fighting an old Tizen build." },
-  { t: "Wi-Fi vs Ethernet", d: "Smart TVs freeze on 2.4 GHz the same way sticks do. 5 GHz or a LAN port." },
-  { t: "Trial first", d: "24h on your own TV. If a channel buffers, say so on WhatsApp and we switch that source." },
+  { t: "Check the TV and app store", d: "Samsung Tizen and LG webOS need players built for those systems. Check your TV model, software version and region, then look for a compatible player in the TV's app store." },
+  { t: "Use platform-specific installation steps", d: "Do not follow Android APK or Downloader installation steps on Samsung Tizen or LG webOS. A TV browser does not make an Android player compatible. Check the app publisher's supported models and any separate player licence." },
+  { t: "If no compatible TV app is available", d: "Check an external streaming device's exact model, operating system and player support before buying hardware. Do not assume every Fire TV model accepts the same apps or installation method." },
+  { t: "Confirm compatibility before the trial", d: "Once a compatible player is confirmed, request the 24h trial and test video, audio and the TV guide on your own network. Compare Wi-Fi and Ethernet where supported. Report the model, app version and problem without sharing credentials publicly." },
 ];
 
 export default function SmartTvGuide() {
@@ -46,7 +47,7 @@ export default function SmartTvGuide() {
       />
       <SiteHeader active="guide" />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
-        <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDE · 15 SEP 2026</p>
+        <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDE · UPDATED 22 OCT 2026</p>
         <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium">{TITLE}</h1>
         <p className="mt-4 text-lg text-[#A8AEBC]">{DESCRIPTION}</p>
         <ol className="mt-10 space-y-4">
@@ -57,6 +58,7 @@ export default function SmartTvGuide() {
             </li>
           ))}
         </ol>
+        <SmartTvSources />
         <AioCitationHooks items={faqItems()} title="Questions" />
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"
