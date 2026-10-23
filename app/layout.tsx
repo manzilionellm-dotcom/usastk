@@ -8,6 +8,7 @@ import { WhatsAppFab } from "@/components/conversion/WhatsAppFab";
 import { WaClickDelegate } from "@/components/conversion/WaClickDelegate";
 import { JsonLd } from "@/components/json-ld-script";
 import { organizationSchema, websiteSchema } from "@/lib/motion-path";
+import { PRICING_PATH } from "@/lib/site";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -58,7 +59,7 @@ export default function RootLayout({
             "@graph": [organizationSchema(), websiteSchema()],
           }}
         />
-        <a className="skip-link" href="#plans">
+        <a className="skip-link" href={PRICING_PATH}>
           Skip to plans
         </a>
         {children}
@@ -71,3 +72,4 @@ export default function RootLayout({
     </html>
   );
 }
+

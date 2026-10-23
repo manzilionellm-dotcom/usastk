@@ -28,5 +28,9 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run type-check
       - run: pnpm run build
+      - name: Shared pricing navigation regression tests
+        run: pnpm run test:pricing-navigation
+      - name: Smart TV compatibility regression tests
+        run: node --test scripts/smart-tv-compatibility.test.mjs
       - name: WhatsApp attribution and consent regression tests
         run: node --test scripts/whatsapp-placement.test.mjs
