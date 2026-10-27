@@ -64,7 +64,7 @@
         },
         {
           "q": "Do I need 4K, a TV guide (EPG), or a VPN?",
-          "a": "4K needs a 4K stick, a strong network, and a 4K feed. A regular Firestick at 1080p is enough for most rooms. 7 MOTION includes an EPG. A VPN is not required to start in a typical US home and can add delay. A required VPN is a forum myth. Test the 24 hour trial first without one."
+          "a": "Confirm that your exact device, player, display and authorized stream support the intended 4K format before buying hardware. For EPG, confirm the available authorized source and matching channel identifiers for your player; an empty guide alone does not identify the cause. Follow the documented network requirements of your service and player rather than a general VPN rule. Test on your own setup during the 24 hour trial and ask on WhatsApp before paying."
         }
       ],
       "geoFaq": [

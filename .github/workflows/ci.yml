@@ -43,3 +43,6 @@ jobs:
 
       - name: Shared trial setup and buffering FAQ regressions
         run: node --test scripts/shared-faq-source.test.mjs scripts/shared-faq-rendered.test.mjs
+
+      - name: Shared 4K EPG and network requirements FAQ
+        run: node --test scripts/faq-4k-epg-network.test.mjs
