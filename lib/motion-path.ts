@@ -44,7 +44,6 @@ export function motionHowToSchema(pageUrl: string) {
     "@id": `${pageUrl}#howto`,
     name: MOTION_HOWTO_NAME,
     description: MOTION_HOWTO_DESCRIPTION,
-    totalTime: "PT10M",
     inLanguage: "en-US",
     tool: [
       { "@type": "HowToTool", name: "Amazon Firestick" },

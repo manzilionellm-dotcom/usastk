@@ -52,3 +52,6 @@ jobs:
 
       - name: Firestick activation timing and preserved guide journey
         run: node --test scripts/firestick-timing.test.mjs
+
+      - name: Shared seven-step HowTo duration and preserved guide
+        run: node --test scripts/motion-howto-duration.test.mjs
