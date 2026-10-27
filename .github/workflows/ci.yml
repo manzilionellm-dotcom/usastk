@@ -49,3 +49,6 @@ jobs:
 
       - name: Homepage setup visible and HowTo consistency
         run: node --test scripts/home-setup.test.mjs
+
+      - name: Firestick activation timing and preserved guide journey
+        run: node --test scripts/firestick-timing.test.mjs

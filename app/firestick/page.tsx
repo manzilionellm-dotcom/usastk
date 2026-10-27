@@ -21,7 +21,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 /* Seo Wa paste-ready USA Firestick site — title + meta */
 const TITLE = "IPTV Firestick USA — setup at home or traveling";
 const META =
-  "IPTV on Firestick in the USA. WhatsApp setup in 5–10 min, 7 MOTION TV, 24h trial. City + device.";
+  "IPTV on Firestick in the USA: confirm setup and activation timing on WhatsApp before paying. 7 MOTION TV, 24h trial, no card. City + device.";
 const H1 = FIRESTICK_H1;
 
 export const metadata: Metadata = {
@@ -102,7 +102,6 @@ const howToSchema = {
   "@type": "HowTo",
   name: TITLE,
   description: META,
-  totalTime: "PT10M",
   inLanguage: "en-US",
   step: steps.map((s, i) => ({
     "@type": "HowToStep",
@@ -159,9 +158,10 @@ export default function FirestickHowToPage() {
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
-          Firestick in a US living room or in a hotel. Setup is usually 5–10
-          minutes. Prefer 7 MOTION. The 24h trial stays on WhatsApp, and login
-          details stay in that chat.
+          Confirm your exact device, compatible player and current setup and
+          activation timing on WhatsApp before paying. Allow time to test on
+          your own connection during the 24h trial; a successful trial does
+          not guarantee future playback. Login details stay in that chat.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -183,7 +183,7 @@ export default function FirestickHowToPage() {
 
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            6 steps — about 10 minutes
+            6 steps — confirm timing before paying
           </h2>
           <ol className="mt-6 space-y-5">
             {steps.map((s, i) => (
