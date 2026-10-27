@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import test from 'node:test';
 test('Built homepage exposes qualified activation/device guidance with original trial and pricing journey',()=>{
  const html=readFileSync('.next/server/app/index.html','utf8');
- const heroSection=html.match(/<section\\b[\\s\\S]*?<\\/section>/)?.[0];
+ const heroSection=html.match(/<section\b[\s\S]*?<\/section>/)?.[0];
  assert.ok(heroSection);
  const visible=heroSection.replace(/<script\b[\s\S]*?<\/script>/g,' ').replace(/<style\b[\s\S]*?<\/style>/g,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
  assert.match(visible,/Confirm activation timing on WhatsApp before paying/);
