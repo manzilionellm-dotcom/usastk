@@ -34,3 +34,6 @@ jobs:
         run: node --test scripts/smart-tv-compatibility.test.mjs
       - name: WhatsApp attribution and consent regression tests
         run: node --test scripts/whatsapp-placement.test.mjs
+
+      - name: Mobile navigation source and rendered regressions
+        run: node --test scripts/mobile-navigation-source.test.mjs scripts/mobile-navigation-rendered.test.mjs

@@ -49,6 +49,21 @@ export function SiteHeader({
           WhatsApp
         </a>
       </div>
+
+      <details className="mx-auto max-w-6xl border-t border-[#1F2433] px-5 md:hidden">
+        <summary className="min-h-11 cursor-pointer py-3 text-sm font-medium text-[#F5F6F8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400">
+          Menu
+        </summary>
+        <nav aria-label="Mobile navigation" className="grid grid-cols-2 gap-2 pb-4 text-sm text-[#A8AEBC]">
+          <Link href="/firestick" className="flex min-h-11 items-center rounded-lg px-3 hover:bg-[#141824] focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400">Firestick</Link>
+          <Link href="/devices" className="flex min-h-11 items-center rounded-lg px-3 hover:bg-[#141824] focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400">Devices</Link>
+          <Link href="/cities" className="flex min-h-11 items-center rounded-lg px-3 hover:bg-[#141824] focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400">Cities</Link>
+          <Link href="/blog" className="flex min-h-11 items-center rounded-lg px-3 hover:bg-[#141824] focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400">Guides</Link>
+          <Link href="/faq" className="flex min-h-11 items-center rounded-lg px-3 hover:bg-[#141824] focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400">FAQ</Link>
+          <Link href="/refer" className="flex min-h-11 items-center rounded-lg px-3 hover:bg-[#141824] focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400">Refer</Link>
+          <Link href={PRICING_PATH} className="flex min-h-11 items-center rounded-lg px-3 hover:bg-[#141824] focus-visible:outline focus-visible:outline-2 focus-visible:outline-green-400">Pricing</Link>
+        </nav>
+      </details>
     </header>
   );
 }
