@@ -1,0 +1,5 @@
+# Shared FAQ — 27 October 2026
+Base5dfba6c17cea117adf19091b3792d8d9a7e540cc,existingPR22.
+Only3answers in i18n.en.faq change (trial,setup,buffering). Replace device-name sufficiency,activation-time and hardware-ranking claims,network-cause andspeed prescriptions with device/player/login confirmation before payment,current activation timing,diagnostic scope,conditional single-variable comparison andmasked credentials.
+All10questions,7otheranswers,otherconfigkeys/FAQbanks/plans,pricesUSD12/25/30/55,WhatsApp447307410512,exactprefills,attribution,consent,navigation,metadata,HowTo,components,styles,dependencies/lockfile and25tests preserved. Reverse3literals reproduces originalconfigexactly.2newsource+2rendercases=29expected. BothhomeandFAQrender ten answers exactly matchingJSON-LD,canonical/contact/prefill preserved. CI/preview toverify;no browser/physicaldevice/GA4receipttest. No merge,production,DNS/billing change ormanualretry.
+Other FAQanswers(including4K/EPG/VPN)andFireTVHowTo remain outside this correction.

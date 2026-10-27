@@ -40,3 +40,6 @@ jobs:
 
       - name: Homepage activation and device guidance regressions
         run: node --test scripts/home-claims-source.test.mjs scripts/home-claims-rendered.test.mjs
+
+      - name: Shared trial setup and buffering FAQ regressions
+        run: node --test scripts/shared-faq-source.test.mjs scripts/shared-faq-rendered.test.mjs
