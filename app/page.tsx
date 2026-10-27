@@ -95,9 +95,9 @@ export default function Page() {
             </div>
           </div>
           <ul className="grid gap-3 rounded-2xl border border-[#2A3142] bg-[#141824] p-6 text-sm text-[#A8AEBC]">
-            <li>WhatsApp activation — usually under 10 minutes</li>
+            <li>Confirm activation timing on WhatsApp before paying</li>
             <li>No public playlist. Credentials stay private.</li>
-            <li>Works on Firestick, Smart TV, Android, iPhone</li>
+            <li>Confirm your exact model, system and compatible player before paying</li>
             <li>Pay once per term. No auto-renew contract</li>
           </ul>
         </section>

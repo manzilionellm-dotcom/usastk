@@ -37,3 +37,6 @@ jobs:
 
       - name: Mobile navigation source and rendered regressions
         run: node --test scripts/mobile-navigation-source.test.mjs scripts/mobile-navigation-rendered.test.mjs
+
+      - name: Homepage activation and device guidance regressions
+        run: node --test scripts/home-claims-source.test.mjs scripts/home-claims-rendered.test.mjs
