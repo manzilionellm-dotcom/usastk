@@ -24,7 +24,7 @@ if(!process.env.SOURCE_ONLY)test('Built Firestick guide retains six matching vis
  how[0].step.forEach((x,i)=>{
   assert.equal(x.position,i+1);assert.equal(x.url,'https://iptvforfirestickusa.com/firestick#'+cards[i][1]);
   assert.equal(plain(cards[i][2].match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/)[1]),x.name);
-  assert.equal(plain(cards[i][2].match(/<p\b[^>]*>([\s\S]*?)<\/p>/)[1]),x.text);
+  assert.equal(plain(cards[i][2].match(/<h3\b[^>]*>[\s\S]*?<\/h3>\s*<p\b[^>]*>([\s\S]*?)<\/p>/)[1]),x.text);
  });
  const v=plain(h);assert.doesNotMatch(v,/5–10|about 10 minutes/);
  assert.match(v,/activation timing on WhatsApp before paying/);
