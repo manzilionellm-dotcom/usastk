@@ -46,3 +46,6 @@ jobs:
 
       - name: Shared 4K EPG and network requirements FAQ
         run: node --test scripts/faq-4k-epg-network.test.mjs
+
+      - name: Homepage setup visible and HowTo consistency
+        run: node --test scripts/home-setup.test.mjs
