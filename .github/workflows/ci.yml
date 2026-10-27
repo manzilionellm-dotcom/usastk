@@ -55,3 +55,6 @@ jobs:
 
       - name: Shared seven-step HowTo duration and preserved guide
         run: node --test scripts/motion-howto-duration.test.mjs
+
+      - name: Shared guide compatibility and network qualification
+        run: node --test scripts/motion-compatibility-network.test.mjs
