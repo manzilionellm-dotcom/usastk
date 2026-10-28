@@ -5,7 +5,7 @@ export const CITIES = [
   { slug: "miami", name: "Miami", state: "FL", note: "AT&T and Xfinity. Test the 24h trial on the same Wi-Fi you watch at night." },
   { slug: "chicago", name: "Chicago", state: "IL", note: "Xfinity. Record the Firestick model, player, time and error before changing network settings. Compare available Wi-Fi bands or Ethernet only when supported, one variable at a time; a dense building alone does not identify the cause." },
   { slug: "dallas", name: "Dallas", state: "TX", note: "AT&T fiber and Spectrum. Trial first, then pick a plan on WhatsApp." },
-  { slug: "atlanta", name: "Atlanta", state: "GA", note: "Xfinity / AT&T. Same 3-step Firestick setup as the rest of the US." },
+  { slug: "atlanta", name: "Atlanta", state: "GA", note: "Xfinity / AT&T. Same Firestick setup guide as the rest of the US." },
   { slug: "phoenix", name: "Phoenix", state: "AZ", note: "Cox and CenturyLink. 24h trial, no card, city + device on WhatsApp." },
   { slug: "philadelphia", name: "Philadelphia", state: "PA", note: "Xfinity and Verizon. Trial on the same Wi-Fi you use after 8pm." },
   { slug: "seattle", name: "Seattle", state: "WA", note: "Xfinity / Ziply. Note whether one channel or all channels are affected, then check the player requirements and test on your Firestick at viewing time. A Wi-Fi band alone does not prove the cause of a freeze." },
@@ -14,7 +14,7 @@ export const CITIES = [
   { slug: "orlando", name: "Orlando", state: "FL", note: "Spectrum and AT&T. Test live sports at night on the 24h trial first." },
   { slug: "las-vegas", name: "Las Vegas", state: "NV", note: "Cox. 24h trial on your own stick. City + device on WhatsApp." },
   { slug: "san-diego", name: "San Diego", state: "CA", note: "Cox / Spectrum. Test the existing Firestick position and connection before buying hardware. If an adapter is needed, confirm compatibility with the exact device; compare one supported change at a time and restore an unsuccessful change." },
-  { slug: "washington-dc", name: "Washington DC", state: "DC", note: "Xfinity / Verizon. Same 3-step Firestick setup. Trial first." },
+  { slug: "washington-dc", name: "Washington DC", state: "DC", note: "Xfinity / Verizon. Same Firestick setup guide. Trial first." },
 ] as const;
 
 export type CitySlug = (typeof CITIES)[number]["slug"];
