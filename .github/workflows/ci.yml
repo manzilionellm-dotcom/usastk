@@ -67,3 +67,6 @@ jobs:
 
       - name: Shared buffering FAQ source and two rendered journeys
         run: node --test scripts/buffering-faq-diagnostics.test.mjs
+
+      - name: Sitemap modification dates and preserved XML inventory
+        run: node --test scripts/sitemap-lastmod.test.mjs

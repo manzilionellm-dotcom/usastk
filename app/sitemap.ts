@@ -4,7 +4,6 @@ import { DEVICES } from "@/lib/devices";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://iptvforfirestickusa.com";
-  const lastModified = new Date();
 
   const staticPaths = [
     "",
@@ -27,7 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticPaths, ...devicePaths, ...cityPaths].map((path) => ({
     url: `${baseUrl}${path}`,
-    lastModified,
     changeFrequency: path === "" ? "daily" : "weekly",
     priority: path === "" ? 1 : path === "/refer" ? 0.7 : 0.85,
   }));
