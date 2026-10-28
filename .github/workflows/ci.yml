@@ -58,3 +58,6 @@ jobs:
 
       - name: Shared guide compatibility and network qualification
         run: node --test scripts/motion-compatibility-network.test.mjs
+
+      - name: Six-step Firestick device and network qualification
+        run: node --test scripts/firestick-device-network.test.mjs

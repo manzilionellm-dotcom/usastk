@@ -73,7 +73,7 @@ export const metadata: Metadata = {
 const steps = [
   {
     name: "Message WhatsApp",
-    text: "One note is enough: your US city plus that you have a Firestick. The prefill is ready — no email form.",
+    text: "Use the ready WhatsApp prefill with your US city, exact Firestick model and system version. Before paying, confirm the player, regional availability and login format with support. No email form is needed.",
   },
   {
     name: "Take the 24h trial",
@@ -81,11 +81,11 @@ const steps = [
   },
   {
     name: "Prep the stick",
-    text: "Put the Firestick on 5 GHz Wi-Fi, or a short Ethernet adapter if you have one. Lite is fine at 1080p; 4K Max is calmer for sport.",
+    text: "Check the documented requirements for the model, player and authorized stream before changing a setting. Record the time, error and whether one channel or all channels are affected. If your setup supports it, compare Wi-Fi and Ethernet one variable at a time; do not assume the cause or a guaranteed resolution.",
   },
   {
     name: "Install 7 MOTION",
-    text: "On Firestick we prefer 7 MOTION — faster start, less sideload from a forum. The player and steps arrive on WhatsApp.",
+    text: "Confirm that 7 MOTION supports the exact model, system and login format before installing. Check the regional store or a source confirmed by the publisher and follow that version’s instructions. If availability is unclear, ask support. Mask passwords, tokens and private URLs in support screenshots.",
   },
   {
     name: "Enter the chat details",
@@ -208,9 +208,7 @@ export default function FirestickHowToPage() {
             Why 7 MOTION on Firestick
           </h2>
           <p className="mt-4 leading-relaxed text-[#A8AEBC]">
-            US Wi-Fi and hotel networks vary. 7 MOTION is the player we send for
-            a short start: same chat, same night, then you decide. We do not
-            publish a public playlist on this site.
+            Confirm the player and current setup timing for your exact device before paying. Test an authorized stream on the connection you intend to use; a home test does not establish availability on a hotel network or guarantee future playback. Login details stay in the same WhatsApp chat. We do not publish a public playlist on this site.
           </p>
         </section>
 
