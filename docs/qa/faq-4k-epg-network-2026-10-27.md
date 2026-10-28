@@ -1,0 +1,4 @@
+# Shared 4K/EPG/network FAQ —27October2026
+Baseaacf597d4bc19ac4fd84f84623a4a9dfd93b6ab2,existingPR22.
+Oneanswer,i18n.en.faq[9],changes. Removed broad1080p/hardware sufficiency,EPGavailabilityandVPNmyth claims;confirmexactdevice/player/display/authorizedformat,EPGsource/channelmatching,documentednetworkrequirements andtrialonactualsetup beforepayment.
+Tenquestions,nineotheranswers,allotherconfigkeys/FAQbanks,pricesUSD12/25/30/55,447307410512,exactprefills,attribution/consent,navigation,metadata,HowTo,components,styles,dependencies/lockfile and29tests remain exact. One inverse literal restores originalconfig. One newtestfile has1source+2generatedHTMLcases=32expected. SOURCE_ONLY=1 runs source test locally;CI executes all3. Built homepage/FAQanswer must equalJSON-LD andoriginalWhatsAppprefills. No browser/physicaldevice/GA4receipt,merge,production,manualretry,DNS/billingchange.

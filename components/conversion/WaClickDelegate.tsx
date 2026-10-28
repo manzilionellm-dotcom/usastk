@@ -11,7 +11,7 @@ export function WaClickDelegate() {
         'a[href*="wa.me/"], a[href*="api.whatsapp.com/"]',
       ) as HTMLAnchorElement | null;
       if (!el) return;
-      const placement = el.getAttribute("data-cta") || el.getAttribute("data-wa") || "link";
+      const placement = el.getAttribute("data-cta") || el.getAttribute("data-wa") || el.getAttribute("data-surface") || "link";
       trackWhatsAppClick(placement);
     };
     document.addEventListener("click", onClick, { capture: true });

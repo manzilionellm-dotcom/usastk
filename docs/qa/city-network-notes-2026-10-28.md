@@ -1,0 +1,7 @@
+# Six city network notes — 2026-10-28
+
+New York,Los Angeles,Houston,Chicago,Seattle andSan Diego had unconditional connection/band/4K orhardware advice in CITIES.note. The real dynamic city renderer uses note visibly andin the metadata description;the cities index also renders it. Six note literals now request documented requirements,measurement on the playback device,supported one-variable comparisons,reversible changes andcompatibility before hardware purchase. Remove unverified adapter price,25Mbps universal4K threshold andassumed2.4GHz cause;no service price changed.
+
+Actual-data source case:0/1before,1/1after. Six generated city HTML cases compare visible/meta note,identity,H1,canonical,USD12/25/30/55,full447307410512 WhatsApp city/ref andguide/index links. One index case checks all16links andallnotes. Run alongside49unchanged existing cases,lint,independentTypeScript,frozenpnpm andbuild. CI/preview evidence in PR22 andcentral PR63.
+
+Exact inverse of six string replacements restores whole data file. All16slugs/names/states/order,10othernotes,ISPnames,prices USD,contact,prefills/refs,FAQ,renderers,metadatafactory,sitemap32URLs,robots,navigation,tracking/consent,styles,dependencies/lockfile andexistingtests preserved. No new route,PR,manualretry,merge orproduction publication. Source/generatedHTML only;no browser/device/productionHTTP,traffic,indexing orGA4 receipt verified. Other city/device claims remain to review separately.

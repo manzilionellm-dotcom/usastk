@@ -71,7 +71,7 @@ export default async function CityPage({ params }: Props) {
         <AioCitationHooks items={faqItems()} title="Questions" />
         <p className="mt-8 text-sm text-[#6E7585]">
           <Link href="/firestick" className="text-[#25D366]">
-            3-step Firestick setup
+            Firestick setup guide
           </Link>
           {" · "}
           <Link href="/cities" className="text-[#25D366]">

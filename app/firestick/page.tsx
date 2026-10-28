@@ -21,7 +21,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 /* Seo Wa paste-ready USA Firestick site — title + meta */
 const TITLE = "IPTV Firestick USA — setup at home or traveling";
 const META =
-  "IPTV on Firestick in the USA. WhatsApp setup in 5–10 min, 7 MOTION TV, 24h trial. City + device.";
+  "IPTV on Firestick in the USA: confirm setup and activation timing on WhatsApp before paying. 7 MOTION TV, 24h trial, no card. City + device.";
 const H1 = FIRESTICK_H1;
 
 export const metadata: Metadata = {
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
 const steps = [
   {
     name: "Message WhatsApp",
-    text: "One note is enough: your US city plus that you have a Firestick. The prefill is ready — no email form.",
+    text: "Use the ready WhatsApp prefill with your US city, exact Firestick model and system version. Before paying, confirm the player, regional availability and login format with support. No email form is needed.",
   },
   {
     name: "Take the 24h trial",
@@ -81,11 +81,11 @@ const steps = [
   },
   {
     name: "Prep the stick",
-    text: "Put the Firestick on 5 GHz Wi-Fi, or a short Ethernet adapter if you have one. Lite is fine at 1080p; 4K Max is calmer for sport.",
+    text: "Check the documented requirements for the model, player and authorized stream before changing a setting. Record the time, error and whether one channel or all channels are affected. If your setup supports it, compare Wi-Fi and Ethernet one variable at a time; do not assume the cause or a guaranteed resolution.",
   },
   {
     name: "Install 7 MOTION",
-    text: "On Firestick we prefer 7 MOTION — faster start, less sideload from a forum. The player and steps arrive on WhatsApp.",
+    text: "Confirm that 7 MOTION supports the exact model, system and login format before installing. Check the regional store or a source confirmed by the publisher and follow that version’s instructions. If availability is unclear, ask support. Mask passwords, tokens and private URLs in support screenshots.",
   },
   {
     name: "Enter the chat details",
@@ -102,7 +102,6 @@ const howToSchema = {
   "@type": "HowTo",
   name: TITLE,
   description: META,
-  totalTime: "PT10M",
   inLanguage: "en-US",
   step: steps.map((s, i) => ({
     "@type": "HowToStep",
@@ -159,9 +158,10 @@ export default function FirestickHowToPage() {
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
-          Firestick in a US living room or in a hotel. Setup is usually 5–10
-          minutes. Prefer 7 MOTION. The 24h trial stays on WhatsApp, and login
-          details stay in that chat.
+          Confirm your exact device, compatible player and current setup and
+          activation timing on WhatsApp before paying. Allow time to test on
+          your own connection during the 24h trial; a successful trial does
+          not guarantee future playback. Login details stay in that chat.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -183,7 +183,7 @@ export default function FirestickHowToPage() {
 
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            6 steps — about 10 minutes
+            6 steps — confirm timing before paying
           </h2>
           <ol className="mt-6 space-y-5">
             {steps.map((s, i) => (
@@ -208,9 +208,7 @@ export default function FirestickHowToPage() {
             Why 7 MOTION on Firestick
           </h2>
           <p className="mt-4 leading-relaxed text-[#A8AEBC]">
-            US Wi-Fi and hotel networks vary. 7 MOTION is the player we send for
-            a short start: same chat, same night, then you decide. We do not
-            publish a public playlist on this site.
+            Confirm the player and current setup timing for your exact device before paying. Test an authorized stream on the connection you intend to use; a home test does not establish availability on a hotel network or guarantee future playback. Login details stay in the same WhatsApp chat. We do not publish a public playlist on this site.
           </p>
         </section>
 

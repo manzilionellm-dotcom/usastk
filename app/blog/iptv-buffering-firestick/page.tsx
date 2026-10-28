@@ -9,7 +9,7 @@ import { SITE_URL, WA_PREFILL, whatsappHref } from "@/lib/site";
 const PATH = "/blog/iptv-buffering-firestick";
 const TITLE = "Firestick buffering — 7 checks before you blame the stream";
 const DESCRIPTION =
-  "Speed, 5 GHz Wi-Fi, Ethernet adapter, DNS, hardware decoder, peak hours. Then a 24h trial on your own network.";
+  "Seven diagnostic checks for Firestick buffering: record symptoms, confirm device and player requirements, compare supported settings one at a time, and protect private login details.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
 };
 
 const CHECKS = [
-  { t: "Speed", d: "fast.com on the same Wi-Fi. 15 Mbps for HD, 25 Mbps for one 4K stick." },
-  { t: "Band", d: "5 GHz, not 2.4. Apartment 2.4 GHz is usually the freeze." },
-  { t: "Ethernet", d: "Official Firestick USB Ethernet adapter (~$15). Kills 90% of night buffering." },
-  { t: "DNS", d: "1.1.1.1 or 8.8.8.8 on the stick. ISP DNS is often slow at 8–11pm." },
-  { t: "Decoder", d: "In the player: hardware decoder (or hardware+). Software decoder cooks a 4K Max." },
-  { t: "Cache", d: "Settings → Applications → player → Clear cache. Weekly is enough." },
-  { t: "One channel only", d: "If every other channel is fine, say so on WhatsApp — we switch the source, we don’t guess." },
+  { t: "Speed", d: "Record performance on the actual viewing device at the time of the problem. Compare it with the documented requirements of the player and authorized stream; a speed result alone does not identify the cause." },
+  { t: "Band", d: "Note the current band, signal and distance. If the device and router support another band, compare it while keeping other settings unchanged. Do not infer the cause from the band alone." },
+  { t: "Ethernet", d: "Check model and adapter compatibility before buying hardware. If your setup supports Ethernet, compare wired and Wi-Fi playback on the same authorized programme and change one variable at a time; no buffering reduction is guaranteed." },
+  { t: "DNS", d: "Record the error before changing DNS. Follow the documented network requirements of the device and player; ask support if a change is appropriate. Keep the original settings so an unsuccessful test can be reversed." },
+  { t: "Decoder", d: "Confirm the player version, video format and documented decoder support for the exact model. Change a decoder option only when supported, compare the same programme, and restore it if playback worsens. Lag alone does not prove overheating." },
+  { t: "Cache", d: "Check the player instructions and available storage before maintenance. Distinguish clearing cache from clearing app data; do not erase login details or playlists as a routine buffering fix." },
+  { t: "One channel only", d: "Record the affected channel, programme, time, error and whether other channels work. Share these observations with support and confirm the available diagnostic options; do not assume the cause or promise a source replacement." },
 ];
 
 export default function BufferingGuide() {
@@ -64,7 +64,7 @@ export default function BufferingGuide() {
         </ol>
         <AioCitationHooks title="Questions" items={bufferingFaqItems()} />
         <p className="mt-8 text-[#A8AEBC]">
-          If those seven still fail on a 24h trial, the stick or your internet provider is the bottleneck. Test on your own Wi-Fi first.
+          If symptoms remain, report the results from your own device and connection without assuming the device, provider or service is at fault. Mask passwords, tokens and private URLs in support screenshots. A successful trial does not guarantee future playback.
         </p>
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"

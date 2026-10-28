@@ -1,0 +1,42 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import test from 'node:test';
+const source=readFileSync('app/page.tsx','utf8');
+test('Homepage setup starts with compatibility, qualifies installation and protects private access',()=>{
+ const data=source.match(/const homeSetupSteps = (\[[\s\S]*?\]) as const;/);
+ assert.ok(data,'one shared setup data source');
+ const steps=JSON.parse(data[1]);assert.equal(steps.length,3);
+ assert.match(steps[0].text,/Before installing or paying/);
+ assert.match(steps[0].text,/exact Fire TV model, Fire OS or Vega OS version, compatible player and login format/);
+ assert.match(steps[1].text,/regional Amazon Appstore/);
+ assert.match(steps[1].text,/Downloader only when that method is confirmed/);
+ assert.match(steps[1].text,/publisher source and required permission/);
+ assert.match(steps[2].text,/authorized programmes/);
+ assert.match(steps[2].text,/current activation timing before paying/);
+ assert.match(steps[2].text,/hide usernames, passwords, tokens and private playlist or server URLs/);
+ assert.doesNotMatch(source,/totalTime: "PT10M"|Settings → My Fire TV|Unknown sources → Downloader → player/);
+ assert.match(source,/step: homeSetupSteps\.map/);
+ assert.match(source,/\{homeSetupSteps\.map/);
+ assert.match(source,/id=\{`setup-step-\$\{i \+ 1\}`\}/);
+});
+if(!process.env.SOURCE_ONLY)test('Built homepage exposes the same three HowTo steps, resolvable fragments and original purchase journey',()=>{
+ const html=readFileSync('.next/server/app/index.html','utf8');
+ const decode=s=>s.replace(/&quot;/g,'"').replace(/&#x27;/g,"'").replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+ const visible=s=>decode(s.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ')).trim();
+ const nodes=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(m=>{const j=JSON.parse(m[1]);return j['@graph']||[j];});
+ const how=nodes.filter(n=>n['@type']==='HowTo');assert.equal(how.length,1);
+ assert.equal(how[0].totalTime,undefined);assert.equal(how[0].step.length,3);
+ const setup=html.match(/<section id="setup"[\s\S]*?<\/section>/)?.[0];assert.ok(setup);
+ const cards=[...setup.matchAll(/<li\b[^>]*id="(setup-step-\d)"[^>]*>([\s\S]*?)<\/li>/g)];assert.equal(cards.length,3);
+ how[0].step.forEach((s,i)=>{
+  assert.equal(s.position,i+1);assert.equal(s.url,'https://iptvforfirestickusa.com/#'+cards[i][1]);
+  assert.equal(visible(cards[i][2].match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/)[1]),s.name);
+  assert.equal(visible(cards[i][2].match(/<p\b[^>]*>([\s\S]*?)<\/p>/)[1]),s.text);
+ });
+ assert.match(setup,/href="\/firestick"/);assert.match(setup,/href="\/blog\/firestick-setup-usa"/);
+ assert.match(html,/<link rel="canonical" href="https:\/\/iptvforfirestickusa.com"\/>/);
+ const links=[...html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>/g)].map(m=>decode(m[1])).filter(h=>h.startsWith('https://wa.me/'));
+ const messages=links.map(h=>{const u=new URL(h);assert.equal(u.pathname,'/447307410512');return u.searchParams.get('text');});
+ for(const msg of ['Hi — Firestick USA 24h trial. Device:','Hi — I want the 1 month IPTV USA plan for $12. City + device:','Hi — I want the 3 month IPTV USA plan for $25. City + device:','Hi — I want the 6 month IPTV USA plan for $30. City + device:','Hi — I want the 1 year IPTV USA plan for $55. City + device:'])assert.ok(messages.includes(msg),msg);
+ assert.equal((html.match(/id="plans"/g)||[]).length,1);
+});

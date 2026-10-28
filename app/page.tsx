@@ -51,16 +51,32 @@ const jsonLd = serviceOfferGraph({
   products: productNodes(),
 });
 
+const homeSetupSteps = [
+  {
+    "name": "Confirm your model and system",
+    "text": "Before installing or paying, confirm your exact Fire TV model, Fire OS or Vega OS version, compatible player and login format on WhatsApp. The Firestick name alone does not confirm compatibility."
+  },
+  {
+    "name": "Install the confirmed player",
+    "text": "Check your regional Amazon Appstore and the selected player's current instructions. Use Downloader only when that method is confirmed for your compatible Fire OS device; verify the publisher source and required permission before installing."
+  },
+  {
+    "name": "Test your authorized stream",
+    "text": "Enter the confirmed login privately and test authorized programmes on your own setup during the 24h trial, no card. Ask for current activation timing before paying. If you share an error screenshot, hide usernames, passwords, tokens and private playlist or server URLs."
+  }
+] as const;
+
 const howTo = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "Install IPTV on Amazon Firestick",
-  totalTime: "PT10M",
-  step: [
-    { "@type": "HowToStep", name: "Enable unknown sources", text: "Settings → My Fire TV → Developer Options → Apps from Unknown Sources." },
-    { "@type": "HowToStep", name: "Install Downloader", text: "Search the Amazon store for Downloader by AFTVnews and install it." },
-    { "@type": "HowToStep", name: "Add the player + login", text: "We send the player and login on WhatsApp after your trial request." },
-  ],
+  step: homeSetupSteps.map((step, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: step.name,
+    text: step.text,
+    url: `${SITE_URL}/#setup-step-${i + 1}`,
+  })),
 };
 
 export default function Page() {
@@ -95,9 +111,9 @@ export default function Page() {
             </div>
           </div>
           <ul className="grid gap-3 rounded-2xl border border-[#2A3142] bg-[#141824] p-6 text-sm text-[#A8AEBC]">
-            <li>WhatsApp activation — usually under 10 minutes</li>
+            <li>Confirm activation timing on WhatsApp before paying</li>
             <li>No public playlist. Credentials stay private.</li>
-            <li>Works on Firestick, Smart TV, Android, iPhone</li>
+            <li>Confirm your exact model, system and compatible player before paying</li>
             <li>Pay once per term. No auto-renew contract</li>
           </ul>
         </section>
@@ -106,7 +122,7 @@ export default function Page() {
           {[
             { t: "24h trial", d: "Test on your device. No card." },
             { t: "Clear prices", d: "$12 · $25 · $30 · $55" },
-            { t: "3-step setup", d: "Unknown sources → Downloader → player" },
+            { t: "3-step setup", d: "Check model → install → test" },
             { t: "Human support", d: "One WhatsApp number for this brand" },
           ].map((item) => (
             <article key={item.t} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
@@ -143,10 +159,11 @@ export default function Page() {
         <section id="setup" className="mt-20">
           <h2 className="font-[family-name:var(--font-display)] text-3xl font-medium">Firestick setup</h2>
           <ol className="mt-6 grid gap-4 md:grid-cols-3">
-            {["Enable Apps from Unknown Sources", "Install Downloader from the Amazon store", "We send the player + login on WhatsApp"].map((step, i) => (
-              <li key={step} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
+            {homeSetupSteps.map((step, i) => (
+              <li key={step.name} id={`setup-step-${i + 1}`} className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
                 <span className="text-xs font-semibold text-[#FF4D5C]">Step {i + 1}</span>
-                <p className="mt-2 text-[#F5F6F8]">{step}</p>
+                <h3 className="mt-2 font-semibold text-[#F5F6F8]">{step.name}</h3>
+                <p className="mt-2 text-[#A8AEBC]">{step.text}</p>
               </li>
             ))}
           </ol>

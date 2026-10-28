@@ -9,11 +9,12 @@ export const DEVICES = [
     slug: "smart-tv",
     name: "Smart TV (Samsung / LG)",
     path: "/devices/smart-tv",
-    summary: "Downloader or the TV’s browser. We send the player on WhatsApp after the trial request.",
+    summary: "Use a Samsung Tizen or LG webOS player from the TV's app store. Check model and region before the 24h trial.",
     steps: [
-      "Open the app store on the TV (Samsung / LG / Hisense).",
-      "Install Downloader (or the player we name on WhatsApp).",
-      "Message WhatsApp with city + TV brand. We send the login for the 24h trial.",
+      "Check your TV model, system version and region. Samsung Tizen and LG webOS need apps built for those systems.",
+      "Open the TV's Apps store or LG Content Store and check for a compatible player for your exact model and region.",
+      "Do not follow Android APK or Downloader installation steps on Samsung Tizen or LG webOS. A browser download does not make an Android app compatible.",
+      "Message WhatsApp with city + TV brand and model to confirm player and trial compatibility before paying. A separate player licence may be required.",
     ],
   },
   {
@@ -37,6 +38,17 @@ export const DEVICES = [
       "Install the iOS player we name (no TestFlight required).",
       "Enter the trial login. If it works, pick a plan.",
     ],
+  },
+] as const;
+
+export const SMART_TV_SOURCES = [
+  {
+    label: "Samsung: TV application compatibility",
+    href: "https://developer.samsung.com/smarttv/develop/faq/application-testing.html",
+  },
+  {
+    label: "LG: check apps for your TV model and region",
+    href: "https://www.lg.com/au/support/product-support/troubleshoot/help-library/cs-CT52001891-20154548998558/",
   },
 ] as const;
 

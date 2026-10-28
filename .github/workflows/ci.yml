@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint
+      - run: pnpm run type-check
+      - run: pnpm run build
+      - name: Shared pricing navigation regression tests
+        run: pnpm run test:pricing-navigation
+      - name: Smart TV compatibility regression tests
+        run: node --test scripts/smart-tv-compatibility.test.mjs
+      - name: WhatsApp attribution and consent regression tests
+        run: node --test scripts/whatsapp-placement.test.mjs
+
+      - name: Mobile navigation source and rendered regressions
+        run: node --test scripts/mobile-navigation-source.test.mjs scripts/mobile-navigation-rendered.test.mjs
+
+      - name: Homepage activation and device guidance regressions
+        run: node --test scripts/home-claims-source.test.mjs scripts/home-claims-rendered.test.mjs
+
+      - name: Shared trial setup and buffering FAQ regressions
+        run: node --test scripts/shared-faq-source.test.mjs scripts/shared-faq-rendered.test.mjs
+
+      - name: Shared 4K EPG and network requirements FAQ
+        run: node --test scripts/faq-4k-epg-network.test.mjs
+
+      - name: Homepage setup visible and HowTo consistency
+        run: node --test scripts/home-setup.test.mjs
+
+      - name: Firestick activation timing and preserved guide journey
+        run: node --test scripts/firestick-timing.test.mjs
+
+      - name: Shared seven-step HowTo duration and preserved guide
+        run: node --test scripts/motion-howto-duration.test.mjs
+
+      - name: Shared guide compatibility and network qualification
+        run: node --test scripts/motion-compatibility-network.test.mjs
+
+      - name: Six-step Firestick device and network qualification
+        run: node --test scripts/firestick-device-network.test.mjs
+
+      - name: Buffering guide conditional diagnosis and preserved journey
+        run: node --test scripts/buffering-guide-diagnostics.test.mjs
+
+      - name: Shared buffering FAQ source and two rendered journeys
+        run: node --test scripts/buffering-faq-diagnostics.test.mjs
+
+      - name: Sitemap modification dates and preserved XML inventory
+        run: node --test scripts/sitemap-lastmod.test.mjs
+
+      - name: City network notes and preserved local journeys
+        run: node --test scripts/city-network-notes.test.mjs

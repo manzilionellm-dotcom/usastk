@@ -9,7 +9,7 @@ import { SITE_URL, WA_PREFILL, whatsappHref } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "IPTV Firestick buffering FAQ — USA",
-  description: "Why Firestick freezes at night, what to check first, and when we switch the source. 24h trial, no card.",
+  description: "Firestick buffering FAQ: record symptoms, verify device and player requirements, and compare supported settings before buying hardware. 24h trial, no card.",
   alternates: { canonical: `${SITE_URL}/faq/buffering` },
 };
 

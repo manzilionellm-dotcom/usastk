@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_URL, WHATSAPP_E164, WHATSAPP_HREF_BASE } from "@/lib/si
 export const MOTION_STEPS = [
   {
     name: "Message WhatsApp",
-    text: "One note is enough: Firestick IPTV USA + trial, plus your US city and that you have a Firestick. The prefill is ready — no email form.",
+    text: "Use the ready WhatsApp prefill with your US city, exact Firestick model and system version. Before paying, confirm the player, its availability for that model and region, and the login format with support. No email form is needed.",
   },
   {
     name: "Start the 24-hour trial",
@@ -12,11 +12,11 @@ export const MOTION_STEPS = [
   },
   {
     name: "Prep the Firestick",
-    text: "Put the Firestick on 5 GHz Wi-Fi, or a short Ethernet adapter if you have one. Lite is fine at 1080p; 4K Max is calmer for sport.",
+    text: "Check the documented requirements for your model, player and authorized stream before changing the network. Note the time, error and whether one channel or all channels are affected. If your setup supports it, compare Wi-Fi and Ethernet one variable at a time; do not assume the cause or a guaranteed resolution.",
   },
   {
     name: "Install 7 MOTION",
-    text: "On Firestick we prefer 7 MOTION — faster start, less sideload from a forum. The player and steps arrive on the same WhatsApp thread.",
+    text: "Confirm that 7 MOTION supports the exact model, system and login format before installing. Check the regional store or a source confirmed by the publisher, and follow that version’s instructions. Ask support if availability is unclear; do not install an unverified forum file. Mask passwords, tokens and private URLs in support screenshots.",
   },
   {
     name: "Enter the chat details",
@@ -44,7 +44,6 @@ export function motionHowToSchema(pageUrl: string) {
     "@id": `${pageUrl}#howto`,
     name: MOTION_HOWTO_NAME,
     description: MOTION_HOWTO_DESCRIPTION,
-    totalTime: "PT10M",
     inLanguage: "en-US",
     tool: [
       { "@type": "HowToTool", name: "Amazon Firestick" },
