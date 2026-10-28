@@ -61,3 +61,6 @@ jobs:
 
       - name: Six-step Firestick device and network qualification
         run: node --test scripts/firestick-device-network.test.mjs
+
+      - name: Buffering guide conditional diagnosis and preserved journey
+        run: node --test scripts/buffering-guide-diagnostics.test.mjs
