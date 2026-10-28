@@ -70,3 +70,6 @@ jobs:
 
       - name: Sitemap modification dates and preserved XML inventory
         run: node --test scripts/sitemap-lastmod.test.mjs
+
+      - name: City network notes and preserved local journeys
+        run: node --test scripts/city-network-notes.test.mjs
