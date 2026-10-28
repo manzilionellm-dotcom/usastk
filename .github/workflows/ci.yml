@@ -64,3 +64,6 @@ jobs:
 
       - name: Buffering guide conditional diagnosis and preserved journey
         run: node --test scripts/buffering-guide-diagnostics.test.mjs
+
+      - name: Shared buffering FAQ source and two rendered journeys
+        run: node --test scripts/buffering-faq-diagnostics.test.mjs

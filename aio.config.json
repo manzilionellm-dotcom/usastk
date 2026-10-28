@@ -118,19 +118,19 @@
       "bufferingFaq": [
         {
           "q": "Why does it freeze only after 8pm?",
-          "a": "Freezing only after 8pm is usually peak hour wireless and the ISP DNS, not the app. Switch to a 5 GHz network or Ethernet, set the DNS to 1.1.1.1, then retest. The buffering guide says ISP DNS is often slow from 8 to 11pm. Check speed on the same network you watch on."
+          "a": "Record the time, error, exact device and player version, and whether one channel or all channels are affected. A night-time pattern alone does not identify Wi-Fi, DNS, the provider or the app as the cause. Check documented network requirements and compare supported settings one variable at a time, keeping the originals for reversal."
         },
         {
           "q": "One channel only?",
-          "a": "If only one channel fails, tell WhatsApp which one. We switch that source on the same thread. When every other channel is fine, that note is enough. Stay in the chat and retest the channel after the switch. You do not need a new app name or a new stick for a single channel."
+          "a": "Record the channel, programme, time and error, and note whether other channels work. Share these observations with support and confirm the available diagnostic options before changing a source. Mask passwords, tokens and private URLs in screenshots. A single-channel symptom alone does not establish a cause or guarantee a replacement."
         },
         {
           "q": "4K Max still buffers?",
-          "a": "Turn the hardware decoder on and the software decoder off. The buffering FAQ states 25 Mbps for one stick, and an Ethernet adapter around $15 fixes most apartments. The guide says a software decoder overheats a 4K Max. Use a 5 GHz network or Ethernet, then retest on the 24 hour trial."
+          "a": "Confirm the exact model, system, player version and authorized stream format against the documented requirements. Change decoder or network settings only when supported, one variable at a time, and restore an unsuccessful change. A speed result or lag alone does not prove a bottleneck or overheating; test on your own device and connection."
         },
         {
           "q": "Do I need a new Firestick?",
-          "a": "A new Firestick is needed only if the stick is a 2018 second generation model on a 2.4 GHz band. Otherwise trial first on the device you already own. A Lite stick is fine at 1080p and a 4K Max is calmer for sport. Send the model with your city on WhatsApp before you replace it."
+          "a": "Before buying hardware, confirm the existing device’s exact model, system, regional store, player and login format. Age, Wi-Fi band or a model name alone does not determine whether replacement is needed. Test the device you already own first, and ask support to verify compatibility rather than relying on a general promise of smoother playback."
         }
       ]
     }
