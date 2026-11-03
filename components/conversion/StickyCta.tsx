@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { WA_PREFILL, whatsappHref } from "@/lib/site";
+import { isNeutralPath } from "@/lib/neutral";
 
 export function StickyCta() {
   const [visible, setVisible] = useState(false);
+  const path = usePathname();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 420);
@@ -13,7 +16,7 @@ export function StickyCta() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (!visible) return null;
+  if (!visible || isNeutralPath(path)) return null;
 
   return (
     <div className="sticky-cta" role="region" aria-label="Quick actions">

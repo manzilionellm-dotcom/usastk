@@ -11,10 +11,13 @@ const LIVE_STATUS_LABELS: LiveStatusLabels = {
 
 const waFirestick = whatsappHref(WA_PREFILL.firestick);
 
+/** `neutral`: editorial guides about licensed services — no WhatsApp button, no Pricing/Refer links. */
 export function SiteHeader({
   active,
+  neutral = false,
 }: {
   active?: "firestick" | "faq" | "guide";
+  neutral?: boolean;
 }) {
   return (
     <header className="sticky top-0 z-50 border-b border-[#1F2433] bg-[#0B0E16]/85 backdrop-blur-xl">
@@ -35,10 +38,15 @@ export function SiteHeader({
           <Link href="/cities" className="transition hover:text-[#F5F6F8]">Cities</Link>
           <Link href="/blog" className={active === "guide" ? "font-semibold text-[#F5F6F8]" : "transition hover:text-[#F5F6F8]"}>Guides</Link>
           <Link href="/faq" className={active === "faq" ? "font-semibold text-[#F5F6F8]" : "transition hover:text-[#F5F6F8]"}>FAQ</Link>
-          <Link href="/refer" className="transition hover:text-[#F5F6F8]">Refer</Link>
-          <Link href={PRICING_PATH} className="transition hover:text-[#F5F6F8]">Pricing</Link>
+          {neutral ? null : (
+            <>
+              <Link href="/refer" className="transition hover:text-[#F5F6F8]">Refer</Link>
+              <Link href={PRICING_PATH} className="transition hover:text-[#F5F6F8]">Pricing</Link>
+            </>
+          )}
         </nav>
 
+        {neutral ? null : (
         <a
           href={waFirestick}
           target="_blank"
@@ -48,13 +56,28 @@ export function SiteHeader({
         >
           WhatsApp
         </a>
+        )}
       </div>
     </header>
   );
 }
 
-export function SiteFooter() {
+/** `neutral`: compact footer for editorial guides — no WhatsApp, trial or pricing links. */
+export function SiteFooter({ neutral = false }: { neutral?: boolean } = {}) {
   const year = new Date().getFullYear();
+  if (neutral) {
+    return (
+      <footer className="border-t border-[#1F2433] bg-[#0B0E16]">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-8 text-sm text-[#A8AEBC] md:flex-row md:items-center md:px-8">
+          <p>© {year} {SITE_NAME}. Brand names belong to their owners.</p>
+          <nav className="flex flex-wrap gap-4">
+            <Link className="transition hover:text-[#F5F6F8]" href="/blog">Guides</Link>
+            <Link className="transition hover:text-[#F5F6F8]" href="/faq">FAQ</Link>
+          </nav>
+        </div>
+      </footer>
+    );
+  }
   return (
     <footer className="border-t border-[#1F2433] bg-[#0B0E16]">
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-5 py-12 md:grid-cols-4 md:px-8">

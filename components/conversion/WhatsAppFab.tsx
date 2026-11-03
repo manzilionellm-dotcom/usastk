@@ -1,8 +1,12 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { WA_PREFILL, whatsappHref } from "@/lib/site";
+import { isNeutralPath } from "@/lib/neutral";
 
 export function WhatsAppFab() {
+  const path = usePathname();
+  if (isNeutralPath(path)) return null;
   const href = whatsappHref(WA_PREFILL.trial);
   return (
     <a
