@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/iptv-buffering-firestick",
     "/blog/iptv-smart-tv-usa",
     "/blog/firestick-24h-trial",
+    "/blog/best-legal-iptv-firestick-usa",
     "/devices",
     "/cities",
     "/refer",
