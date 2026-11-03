@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/iptv-smart-tv-usa",
     "/blog/firestick-24h-trial",
     "/blog/best-legal-iptv-firestick-usa",
+    "/blog/is-iptv-legal-in-the-us",
     "/devices",
     "/cities",
     "/refer",

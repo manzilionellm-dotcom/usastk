@@ -4,6 +4,7 @@
  */
 export const NEUTRAL_PATHS: ReadonlySet<string> = new Set([
   "/blog/best-legal-iptv-firestick-usa",
+  "/blog/is-iptv-legal-in-the-us",
 ]);
 
 export function isNeutralPath(path: string | null | undefined): boolean {
