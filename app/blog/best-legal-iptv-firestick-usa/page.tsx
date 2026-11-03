@@ -3,25 +3,39 @@ import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { breadcrumbNode } from "@/lib/aio";
 import { jsonLdInnerHtml } from "@/lib/json-ld";
-import { OG_IMAGE, SITE_NAME, SITE_URL, whatsappHref } from "@/lib/site";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
+
+/**
+ * Neutral editorial guide (licensed services only). No WhatsApp link, no trial or pricing CTA,
+ * no affiliate link. Header, footer, floating button, sticky bar and site JSON-LD run in neutral
+ * mode on this path (lib/neutral.ts). Every figure was read on its official page on 2026-11-03.
+ */
 
 const PATH = "/blog/best-legal-iptv-firestick-usa";
 const PAGE_URL = `${SITE_URL}${PATH}`;
 const CHECKED = "2026-11-03";
 const CHECKED_LABEL = "November 3, 2026";
 
-const TITLE = "Best Legal IPTV for Firestick in the USA (2026): 5 Live TV Services Compared";
+const TITLE = "Best Legal IPTV for Firestick 2026: 5 Services Compared";
 const META =
-  "YouTube TV, Hulu + Live TV, Fubo, Sling and Philo compared on Fire TV: list prices, channels, DVR, screens and 12-month cost, checked on official pages on November 3, 2026.";
-const H1 = "Best legal IPTV for Firestick in the USA (2026): 5 licensed live TV services compared";
+  "Is IPTV legal in the USA? The best legal IPTV for Firestick in 2026: YouTube TV, Hulu + Live TV, Fubo, Sling and Philo prices, DVR and screens compared.";
+const H1 = "Best legal IPTV for Firestick in the USA (2026): 5 licensed live TV apps compared";
 
-const WA_PREFILL_COMPARE =
-  "Hi — I read the legal IPTV for Firestick comparison. Question about choosing a service. Device + city:";
+const KEYWORDS = [
+  "best legal iptv for firestick 2026",
+  "is iptv legal in usa",
+  "iptv app for firestick",
+  "iptv app for fire tv",
+  "what is the best iptv player for firestick",
+  "how to install iptv on firestick",
+  "is iptv safe and legal",
+];
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { absolute: TITLE },
   description: META,
+  keywords: KEYWORDS,
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "article",
@@ -48,19 +62,19 @@ const SOURCES: Source[] = [
     id: "s2",
     label: "YouTube TV — plans and FAQ",
     url: "https://tv.youtube.com/welcome/",
-    note: "$82.99/mo, 100+ channels, unlimited DVR kept 9 months, 3 streams",
+    note: "$82.99/mo, 100+ channels, unlimited DVR kept 9 months, 6 accounts, 3 streams, select Fire TV devices",
   },
   {
     id: "s3",
     label: "Hulu + Live TV",
     url: "https://www.hulu.com/live-tv",
-    note: "$99.99/mo with Disney+ and ESPN, 100+ channels, 2 screens, 3-day trial",
+    note: "$99.99/mo with Disney+ and ESPN, 100+ channels, 2 screens, 3-day trial, Fire TV and Fire TV Stick",
   },
   {
     id: "s4",
     label: "Fubo — plans",
     url: "https://www.fubo.tv/welcome",
-    note: "Pro $88.99/mo, 229 channels, regional sports fee $3.99–$16.99, 5-day trial",
+    note: "Pro $88.99/mo, 229 channels, regional sports fee $3.99–$16.99, 5-day trial, Amazon Fire TV app",
   },
   {
     id: "s5",
@@ -84,7 +98,7 @@ const SOURCES: Source[] = [
     id: "s8",
     label: "Philo",
     url: "https://www.philo.com/",
-    note: "Essential $25/mo, 70+ channels, 1-year unlimited DVR, 3 devices, 7-day trial",
+    note: "Essential $25/mo, 70+ channels, 1-year unlimited DVR, 3 devices, 7-day trial, Fire TV listed",
   },
   {
     id: "s9",
@@ -108,83 +122,33 @@ type Row = {
 
 /** List prices from official pages, checked 2026-11-03. 12-month cost = list price x 12, before taxes, promos and fees. */
 const ROWS: Row[] = [
-  {
-    name: "Philo",
-    plan: "Essential",
-    price: "$25.00",
-    yearly: "$300.00",
-    channels: "70+",
-    dvr: "Unlimited, 1 year",
-    screens: "3",
-    trial: "7 days",
-    src: "s8",
-  },
-  {
-    name: "Sling TV",
-    plan: "Orange + Blue",
-    price: "from $60.99",
-    yearly: "from $731.88",
-    channels: "50+ (Sling)",
-    dvr: "50 hours",
-    screens: "up to 4",
-    trial: "—",
-    src: "s5",
-  },
-  {
-    name: "YouTube TV",
-    plan: "Base plan",
-    price: "$82.99",
-    yearly: "$995.88",
-    channels: "100+",
-    dvr: "Unlimited, 9 months",
-    screens: "3",
-    trial: "Yes (see site)",
-    src: "s2",
-  },
-  {
-    name: "Fubo",
-    plan: "Pro",
-    price: "$88.99 + regional sports fee",
-    yearly: "$1,067.88 + fee",
-    channels: "229",
-    dvr: "Unlimited, 9 months",
-    screens: "10 at home + 3 on the go",
-    trial: "5 days",
-    src: "s4",
-  },
-  {
-    name: "Hulu + Live TV",
-    plan: "With Disney+ and ESPN",
-    price: "$99.99",
-    yearly: "$1,199.88",
-    channels: "100+",
-    dvr: "Unlimited, 9 months",
-    screens: "2",
-    trial: "3 days",
-    src: "s3",
-  },
+  { name: "Philo", plan: "Essential", price: "$25.00", yearly: "$300.00", channels: "70+", dvr: "Unlimited, 1 year", screens: "3", trial: "7 days", src: "s8" },
+  { name: "Sling TV", plan: "Orange + Blue", price: "from $60.99", yearly: "from $731.88", channels: "See lineup by ZIP", dvr: "50 hours", screens: "up to 4", trial: "—", src: "s5" },
+  { name: "YouTube TV", plan: "Main plan", price: "$82.99", yearly: "$995.88", channels: "100+", dvr: "Unlimited, 9 months", screens: "3", trial: "See site", src: "s2" },
+  { name: "Fubo", plan: "Pro", price: "$88.99 + regional sports fee", yearly: "$1,067.88 + fee", channels: "229", dvr: "Unlimited, 9 months", screens: "10 at home + 3 on the go", trial: "5 days", src: "s4" },
+  { name: "Hulu + Live TV", plan: "With Disney+ and ESPN", price: "$99.99", yearly: "$1,199.88", channels: "100+", dvr: "Unlimited, 9 months", screens: "2", trial: "3 days", src: "s3" },
 ];
 
 const FAQ = [
   {
-    q: "Is IPTV legal in the US?",
+    q: "Is IPTV legal in the USA?",
     a: "Yes, IPTV as a technology is legal. What matters is whether the provider holds the rights to the channels it streams. Licensed services such as YouTube TV, Hulu + Live TV, Fubo, Sling TV and Philo are legal. The Protecting Lawful Streaming Act of 2020 lets the Department of Justice bring felony charges against commercial providers of illegal streams.",
   },
   {
-    q: "What is the cheapest legal live TV app for Firestick?",
+    q: "What is the cheapest legal IPTV app for Firestick?",
     a: "Of the five services compared here, Philo Essential has the lowest list price at $25 per month (checked November 3, 2026). Sling TV Orange or Blue start at $45.99 per month. Philo focuses on entertainment; check its lineup if you need sports networks.",
   },
   {
-    q: "Which legal service is best for sports on Fire TV?",
+    q: "Which legal IPTV service is best for sports on Fire TV?",
     a: "Fubo Pro lists 229 channels and unlimited DVR at $88.99 per month, plus a regional sports fee of $3.99 to $16.99 depending on your area. YouTube TV ($82.99) and Hulu + Live TV ($99.99) also carry major broadcast and sports networks. Check your ZIP code on each site, because local channels vary.",
   },
   {
-    q: "Does an IPTV player app include channels?",
-    a: "No. A player app only plays streams you already have the right to watch. Channels come from the service you subscribe to. The five services in this comparison each have their own official app for Amazon Fire TV.",
+    q: "What is the best IPTV player for Firestick?",
+    a: "For licensed live TV, the best player is the service’s own official app from the Amazon Appstore. A stand-alone player app includes no channels: it only plays streams you already have the right to watch. All five services in this comparison have an official Fire TV app.",
   },
   {
-    q: "How can I tell if an IPTV service is licensed?",
-    a: "Look for a named company, an official app in the Amazon Appstore, a published channel lineup with local stations by ZIP code, clear terms and normal card billing. Be cautious with services that sell only through private messages and do not name the networks they carry.",
+    q: "Is IPTV safe and legal to use on a Firestick?",
+    a: "It is when the app comes from a licensed provider and the Amazon Appstore. Look for a named company, a published channel lineup with local stations by ZIP code, written terms and normal card billing. Be cautious with services that sell only through private messages and do not name the networks they carry.",
   },
 ];
 
@@ -194,13 +158,14 @@ const graph = {
     {
       "@type": "Article",
       "@id": `${PAGE_URL}#article`,
-      headline: TITLE,
+      headline: H1,
       description: META,
       inLanguage: "en-US",
       datePublished: CHECKED,
       dateModified: CHECKED,
       mainEntityOfPage: PAGE_URL,
       image: OG_IMAGE,
+      keywords: KEYWORDS.join(", "),
       author: { "@id": `${SITE_URL}/#organization` },
       publisher: { "@id": `${SITE_URL}/#organization` },
       citation: SOURCES.map((s) => s.url),
@@ -217,7 +182,7 @@ const graph = {
     },
     breadcrumbNode([
       { name: "Guides", path: "/blog" },
-      { name: "Legal IPTV for Firestick compared", path: PATH },
+      { name: "Best legal IPTV for Firestick", path: PATH },
     ]),
   ],
 };
@@ -238,24 +203,23 @@ function Cite({ id }: { id: string }) {
 }
 
 export default function BestLegalIptvFirestickUsaPage() {
-  const wa = whatsappHref(WA_PREFILL_COMPARE);
   return (
     <main className="min-h-screen bg-[#0B0E16] font-[family-name:var(--font-body)] text-[#F5F6F8] antialiased">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdInnerHtml(graph) }}
       />
-      <SiteHeader active="guide" />
+      <SiteHeader active="guide" neutral />
       <article className="mx-auto max-w-3xl px-5 py-14 md:px-8 md:py-20">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">
-          COMPARISON · FIRE TV · LICENSED SERVICES · CHECKED {CHECKED_LABEL.toUpperCase()}
+          GUIDE · FIRE TV · LICENSED SERVICES ONLY · CHECKED {CHECKED_LABEL.toUpperCase()}
         </p>
         <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal leading-tight tracking-tight md:text-5xl">
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#F5F6F8]">
-          The best legal IPTV for Firestick depends on budget: Philo is cheapest at $25 a month,
-          Sling Orange + Blue starts at $60.99, YouTube TV costs $82.99, Fubo Pro $88.99 plus a
+          The best legal IPTV for Firestick in 2026 depends on budget: Philo is cheapest at $25 a
+          month, Sling Orange + Blue starts at $60.99, YouTube TV costs $82.99, Fubo Pro $88.99 plus a
           regional sports fee, and Hulu + Live TV $99.99. All five are licensed and have an official
           Fire TV app (list prices checked {CHECKED_LABEL}).
         </p>
@@ -265,21 +229,25 @@ export default function BestLegalIptvFirestickUsaPage() {
         </p>
 
         <aside className="mt-8 rounded-2xl border border-[#2A3142] bg-[#141824] p-5 text-sm leading-relaxed text-[#A8AEBC]">
-          <strong className="text-[#F5F6F8]">Disclosure.</strong> {SITE_NAME} also sells its own
-          subscription plans on this website. This page reviews third-party licensed services. None of
-          the links on this page are affiliate links, and we earn no commission from the services
-          compared. If we ever add affiliate links, they will be labeled next to the link.
+          <strong className="text-[#F5F6F8]">Disclosure.</strong> This guide reviews third-party
+          licensed services only. None of the links on this page are affiliate links, and we earn no
+          commission from the services compared; if we ever add an affiliate link, it will be labeled
+          next to the link. The operator of {SITE_NAME} also sells its own IPTV plans elsewhere on this
+          site; they are not reviewed or ranked here.
         </aside>
 
         <section className="mt-14">
-          <h2 className={h2}>Is IPTV legal in the US?</h2>
+          <h2 className={h2}>Is IPTV legal in the USA?</h2>
           <p className={p}>
             Yes. IPTV is simply TV delivered over an internet connection, and it is legal when the
-            provider holds the rights to the channels it streams. The services below are licensed
-            distributors. The risk sits with unlicensed providers: the Protecting Lawful Streaming Act
-            of 2020, signed into law on December 27, 2020, lets the Department of Justice bring felony
-            charges against providers (as opposed to users) who stream copyrighted material illegally
-            for commercial advantage or private financial gain
+            provider holds the rights to the channels it streams. The five services below are licensed
+            distributors with official Fire TV apps, so using them on a Firestick is legal.
+          </p>
+          <p className={p}>
+            The risk sits with unlicensed providers: the Protecting Lawful Streaming Act of 2020,
+            signed into law on December 27, 2020, lets the Department of Justice bring felony charges
+            against providers (as opposed to users) who stream copyrighted material illegally for
+            commercial advantage or private financial gain
             <Cite id="s1" />.
           </p>
           <p className={p}>
@@ -290,11 +258,11 @@ export default function BestLegalIptvFirestickUsaPage() {
         </section>
 
         <section className="mt-14">
-          <h2 className={h2}>Comparison table: 5 licensed live TV services on Fire TV</h2>
+          <h2 className={h2}>What is the best legal IPTV for Firestick in 2026?</h2>
           <p className={p}>
-            Philo has the lowest list price and Hulu + Live TV the highest; Fubo lists the most channels
-            in this table. The 12-month figure is the monthly list price multiplied by 12, before taxes,
-            intro promotions and add-ons.
+            There is no single winner: Philo has the lowest list price, YouTube TV is the best
+            all-rounder, and Fubo lists the most channels in this table. The 12-month figure is the
+            monthly list price multiplied by 12, before taxes, intro promotions and add-ons.
           </p>
           <div className="mt-6 overflow-x-auto rounded-2xl border border-[#2A3142]">
             <table className="w-full min-w-[720px] text-left text-sm">
@@ -310,7 +278,7 @@ export default function BestLegalIptvFirestickUsaPage() {
                   <th scope="col" className="p-3">Channels</th>
                   <th scope="col" className="p-3">Cloud DVR</th>
                   <th scope="col" className="p-3">Screens</th>
-                  <th scope="col" className="p-3">Free trial</th>
+                  <th scope="col" className="p-3">Trial</th>
                 </tr>
               </thead>
               <tbody className="text-[#A8AEBC]">
@@ -340,12 +308,11 @@ export default function BestLegalIptvFirestickUsaPage() {
         </section>
 
         <section className="mt-14">
-          <h2 className={h2}>Best for a tight budget: Philo or Sling TV</h2>
+          <h2 className={h2}>Which is the cheapest legal IPTV app for Firestick?</h2>
           <p className={p}>
             Philo is the cheapest pick at $25 a month for 70+ live channels, with unlimited DVR kept for
-            a year, 3 devices at once and a 7-day free trial
-            <Cite id="s8" />. Its plan description focuses on entertainment and on-demand titles, so
-            check the lineup if sports matter to you.
+            a year, 3 devices at once and a 7-day trial
+            <Cite id="s8" />. Its lineup focuses on entertainment, so check it if sports matter to you.
           </p>
           <p className={p}>
             Sling TV is the budget option with sports networks. Sling Orange costs $45.99 a month,
@@ -359,61 +326,62 @@ export default function BestLegalIptvFirestickUsaPage() {
         </section>
 
         <section className="mt-14">
-          <h2 className={h2}>Best all-round pick: YouTube TV</h2>
+          <h2 className={h2}>Which legal IPTV app for Fire TV is the best all-rounder?</h2>
           <p className={p}>
             YouTube TV is the strongest all-rounder: 100+ channels for $82.99 a month, unlimited DVR
             with recordings kept for 9 months, 6 household accounts and 3 simultaneous streams
             <Cite id="s2" />. It says local networks reach over 98% of US TV households and lists
-            &quot;select Amazon Fire TV devices&quot; among supported devices. It also sells NFL Sunday
-            Ticket as an add-on at extra cost.
+            &quot;select Amazon Fire TV devices&quot; among supported devices.
           </p>
         </section>
 
         <section className="mt-14">
-          <h2 className={h2}>Best for sports fans: Fubo or Hulu + Live TV</h2>
+          <h2 className={h2}>Which legal IPTV service is best for sports on Firestick?</h2>
           <p className={p}>
             Fubo is the sports-first choice. The Pro plan lists 229 channels for $88.99 a month, plus a
             regional sports fee of $3.99 to $16.99 depending on your area, unlimited DVR (9 months) and
             up to 10 devices at home
-            <Cite id="s4" />. It lists Amazon Fire TV among its apps and has a 5-day free trial.
+            <Cite id="s4" />. It lists Amazon Fire TV among its apps and has a 5-day trial.
           </p>
           <p className={p}>
             Hulu + Live TV costs $99.99 a month but bundles 100+ live channels with Disney+ (with ads)
             and ESPN, plus unlimited DVR stored for up to 9 months
-            <Cite id="s3" />. The base plan allows 2 screens at a time, and Fire TV and Fire TV Stick are
-            supported. It offers a 3-day free trial.
+            <Cite id="s3" />. The base plan allows 2 screens at a time, Fire TV and Fire TV Stick are
+            supported, and there is a 3-day trial.
           </p>
         </section>
 
         <section className="mt-14">
-          <h2 className={h2}>How to set it up on a Firestick</h2>
+          <h2 className={h2}>How do you install a legal IPTV app on a Firestick?</h2>
           <p className={p}>
-            Setup takes a few minutes with the official app: search the service name on your Fire TV
-            home screen, install the app from the Amazon Appstore, sign in or start the trial, then
-            enter your ZIP code to load local channels. Our{" "}
-            <Link href="/blog/iptv-buffering-firestick" className={a}>
-              7 buffering checks
-            </Link>{" "}
-            cover Wi-Fi and speed issues. If you are still unsure which plan fits your household,{" "}
-            <a href={wa} target="_blank" rel="noopener noreferrer" className={a} data-cta="article-inline">
-              ask our team on WhatsApp
-            </a>{" "}
-            with your device and city.
+            Install it from the Amazon Appstore in a few minutes: search the service name on your Fire
+            TV home screen, install the official app, sign in or start the trial, then enter your ZIP
+            code to load local channels. You never need to sideload an app or paste a playlist link to
+            use a licensed service.
           </p>
         </section>
 
         <section className="mt-14">
-          <h2 className={h2}>How to spot an unlicensed IPTV offer</h2>
+          <h2 className={h2}>What is the best IPTV player for Firestick?</h2>
+          <p className={p}>
+            For licensed live TV, the best player is the service&apos;s own official app. A stand-alone
+            IPTV player app includes no channels: it only plays streams you already have the right to
+            watch, so the question that matters is which licensed service you subscribe to.
+          </p>
+        </section>
+
+        <section className="mt-14">
+          <h2 className={h2}>How do you spot an unlicensed IPTV offer?</h2>
           <p className={p}>
             An unlicensed offer usually hides who runs it. Licensed services name the company, publish a
             channel lineup with local stations by ZIP code, ship an official app in the Amazon Appstore
-            and bill through normal payment methods with written terms. A media player app, on its own,
-            includes no channels: it only plays streams you already have the right to watch.
+            and bill through normal payment methods with written terms. Be cautious with offers sold
+            only through private messages that do not name the networks they carry.
           </p>
         </section>
 
         <section className="mt-14" id="faq">
-          <h2 className={h2}>FAQ</h2>
+          <h2 className={h2}>FAQ: legal IPTV on Firestick</h2>
           <p className={p}>Short answers to the questions buyers ask most about legal IPTV on Fire TV.</p>
           <div className="mt-6 space-y-4">
             {FAQ.map((f) => (
@@ -423,22 +391,6 @@ export default function BestLegalIptvFirestickUsaPage() {
               </div>
             ))}
           </div>
-        </section>
-
-        <section className="mt-14 rounded-2xl border border-[#2A3142] bg-[#141824] p-6 md:p-8">
-          <h2 className={h2}>Still choosing?</h2>
-          <p className={p}>Send your device and city and we will reply on WhatsApp.</p>
-          <a
-            href={wa}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-event="cta_primary"
-            data-surface="compare-legal-firestick"
-            data-cta="article-end"
-            className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
-          >
-            Message us on WhatsApp
-          </a>
         </section>
 
         <section className="mt-14">
@@ -476,7 +428,7 @@ export default function BestLegalIptvFirestickUsaPage() {
           .
         </p>
       </article>
-      <SiteFooter />
+      <SiteFooter neutral />
     </main>
   );
 }

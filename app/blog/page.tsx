@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const POSTS = [
   {
     href: "/blog/best-legal-iptv-firestick-usa",
-    title: "Best legal IPTV for Firestick USA (2026) — 5 services compared",
+    title: "Best legal IPTV for Firestick (2026): 5 licensed services compared",
     blurb: "YouTube TV, Hulu + Live TV, Fubo, Sling and Philo: prices, DVR, screens, sources.",
   },
   {
