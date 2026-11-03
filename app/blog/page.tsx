@@ -19,6 +19,11 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    href: "/blog/is-iptv-legal-in-the-us",
+    title: "Is IPTV legal in the US? Law, penalties and how to check (2026)",
+    blurb: "Federal streaming law, copyright damages, the Jetflicks case and a 5-step check.",
+  },
+  {
     href: "/blog/best-legal-iptv-firestick-usa",
     title: "Best legal IPTV for Firestick (2026): 5 licensed services compared",
     blurb: "YouTube TV, Hulu + Live TV, Fubo, Sling and Philo: prices, DVR, screens, sources.",
