@@ -6,7 +6,7 @@ import { SITE_NAME, SITE_URL, whatsappHref } from "@/lib/site";
 const pageUrl = `${SITE_URL}/faq/fire-tv-iphone-remote-second-stick`;
 const title = "My iPhone remote sees only one of my Fire TV Sticks";
 const description = "Add the missing Fire TV Stick to Amazon’s iPhone remote app and check that the intended TV responds.";
-const helpUrl = whatsappHref(`Hi, I’m reading ${SITE_NAME}: ${pageUrl}. Can you help me connect the iPhone remote to my second Fire TV Stick?`);
+const helpUrl = whatsappHref(`Hi, can you help me connect the iPhone remote to my second Fire TV Stick? I’m reading ${SITE_NAME}.\n${pageUrl}`);
 
 export const metadata: Metadata = {
   title: { absolute: title },
