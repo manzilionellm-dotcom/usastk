@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { JsonLd } from "@/components/json-ld-script";
 import { organizationSchema, websiteSchema } from "@/lib/motion-path";
-import { isNeutralPath } from "@/lib/neutral";
+import { hidesSalesPromotions } from "@/lib/neutral";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 /** Plain graph for neutral guides: names and URLs only, no contact channel or commercial description. */
@@ -28,7 +28,7 @@ const NEUTRAL_GRAPH = {
  */
 export function SiteGraph() {
   const path = usePathname();
-  if (isNeutralPath(path)) return <JsonLd data={NEUTRAL_GRAPH} />;
+  if (hidesSalesPromotions(path)) return <JsonLd data={NEUTRAL_GRAPH} />;
   return (
     <JsonLd
       data={{

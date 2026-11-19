@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function FireTvRemoteGuide() {
   return (
     <>
-      <SiteHeader active="guide" />
+      <SiteHeader active="guide" neutral />
       <main className="mx-auto max-w-3xl px-5 py-12 pb-32 md:px-8">
         <article className="space-y-6 leading-relaxed">
           <Link className="underline" href="/blog">Fire TV guides</Link>
@@ -41,7 +41,7 @@ export default function FireTvRemoteGuide() {
           <a href={helpUrl} data-cta="guide" className="inline-flex min-h-12 items-center rounded-lg bg-white px-5 font-semibold text-black">Get Fire TV remote help on WhatsApp</a>
         </article>
       </main>
-      <SiteFooter />
+      <SiteFooter neutral />
     </>
   );
 }

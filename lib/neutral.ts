@@ -12,3 +12,8 @@ export function isNeutralPath(path: string | null | undefined): boolean {
   const clean = path.length > 1 ? path.replace(/\/+$/, "") : path;
   return NEUTRAL_PATHS.has(clean);
 }
+
+/** Help guides can provide their own support contact without inheriting sales CTAs. */
+export function hidesSalesPromotions(path: string | null | undefined): boolean {
+  return isNeutralPath(path) || path?.replace(/\/+$/, "") === "/faq/fire-tv-iphone-remote-second-stick";
+}
