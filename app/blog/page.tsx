@@ -57,7 +57,7 @@ export default function BlogIndexPage() {
       <JsonLd data={salesGraph(PAGE_URL, undefined, [{ name: "Guides", path: "/blog" }])} />
       <article className="mx-auto max-w-3xl px-5 py-14 md:px-8 md:py-20">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDES</p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal tracking-tight">Guides</h1>
+        <h1 id="page-heading" tabIndex={-1} className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal tracking-tight">Guides</h1>
         <p className="mt-6 text-lg text-[#A8AEBC]">
           Long-form Firestick USA notes. Compact HowTo on{" "}
           <Link href="/firestick" className="text-[#93c5fd] hover:underline">/firestick</Link>.

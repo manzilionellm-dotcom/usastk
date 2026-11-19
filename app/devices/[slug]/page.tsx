@@ -56,7 +56,7 @@ export default async function DevicePage({ params }: Props) {
       />
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
-        <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">
+        <h1 id="page-heading" tabIndex={-1} className="font-[family-name:var(--font-display)] text-4xl font-medium">
           {d.name} — 24h trial
         </h1>
         <p className="mt-4 text-lg text-[#A8AEBC]">{d.summary}</p>

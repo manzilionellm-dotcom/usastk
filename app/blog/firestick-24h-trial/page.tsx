@@ -47,7 +47,7 @@ export default function TrialGuide() {
       <SiteHeader active="guide" />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">GUIDE · 15 SEP 2026</p>
-        <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium">{TITLE}</h1>
+        <h1 id="page-heading" tabIndex={-1} className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium">{TITLE}</h1>
         <p className="mt-4 text-lg text-[#A8AEBC]">{DESCRIPTION}</p>
         <ol className="mt-10 space-y-4">
           {STEPS.map((c, i) => (

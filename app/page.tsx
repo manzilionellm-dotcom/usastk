@@ -73,7 +73,7 @@ export default function Page() {
         <section className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6E7585]">USA · Firestick</p>
-            <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium leading-tight text-[#F5F6F8] md:text-6xl">
+            <h1 id="page-heading" tabIndex={-1} className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium leading-tight text-[#F5F6F8] md:text-6xl">
               Live US TV on Firestick from $12/mo
             </h1>
             <p className="mt-5 max-w-xl text-lg text-[#A8AEBC]">

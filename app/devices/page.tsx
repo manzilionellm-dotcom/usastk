@@ -22,7 +22,7 @@ export default function DevicesIndex() {
       />
       <SiteHeader />
       <main className="mx-auto max-w-4xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
-        <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">Devices</h1>
+        <h1 id="page-heading" tabIndex={-1} className="font-[family-name:var(--font-display)] text-4xl font-medium">Devices</h1>
         <p className="mt-3 text-[#A8AEBC]">Pick your device. Trial first, then a plan.</p>
         <ul className="mt-10 grid gap-3 sm:grid-cols-2">
           {DEVICES.map((d) => (
