@@ -13,7 +13,6 @@ import {
 import {
   SITE_NAME,
   SITE_URL,
-  WA_PREFILL,
   whatsappHref,
 } from "@/lib/site";
 
@@ -22,7 +21,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
 const TITLE = "Free 24h Firestick trial USA — WhatsApp only";
 const META =
-  "24-hour Firestick trial in the USA. WhatsApp only. Prefer 7 MOTION when offered. Links to setup and the FAQ.";
+  "Request a weekday 24-hour Fire TV trial in the USA. Check your Fire TV Stick model and operating system, then confirm a compatible player and start time on WhatsApp.";
 const H1 = FREE_TRIAL_H1;
 
 export const metadata: Metadata = {
@@ -98,7 +97,8 @@ const breadcrumbSchema = {
 
 const howToSchema = motionHowToSchema(PAGE_URL);
 
-const wa = whatsappHref(WA_PREFILL.trial);
+const trialRequest = "Hi, is a weekday 24-hour trial available? Fire TV model: ___. Fire OS or Vega OS: ___. City: ___. Page: iptvforfirestickusa.com/free-trial";
+const wa = whatsappHref(trialRequest);
 
 export default function FreeTrialPage() {
   return (
@@ -141,9 +141,7 @@ export default function FreeTrialPage() {
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
-          A 24-hour Firestick trial for the USA. WhatsApp only — add your
-          device in the prefill. Login details stay in the chat. When 7 MOTION
-          is offered, we prefer it for a short, calm start on your stick.
+          New 24-hour trials are scheduled Monday through Friday. Send your city and the exact Fire TV model before installing a player. Support will confirm compatibility and the start time on WhatsApp.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -155,7 +153,7 @@ export default function FreeTrialPage() {
             data-surface="free-trial-hero"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1FB855]"
           >
-            Start 24h trial on WhatsApp
+            Check weekday trial availability
           </a>
           <Link
             href="/firestick"
@@ -171,6 +169,14 @@ export default function FreeTrialPage() {
           </Link>
         </div>
 
+        <section className="mt-14">
+          <h2 className="text-2xl font-medium">Which Fire TV Stick do you have?</h2>
+          <p className="mt-3 leading-relaxed text-[#A8AEBC]">
+            Check Settings → My Fire TV → About for the model. For example, the Fire TV Stick 4K Select uses Vega OS.
+            A setup guide written for an Android-based Fire OS model may require a different player on yours.
+            Check the <a href="https://developer.amazon.com/docs/fire-tv/fire-os-overview.html" className="underline">Amazon Fire TV model list</a> before you start the trial.
+          </p>
+        </section>
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
             What you get
@@ -235,7 +241,7 @@ export default function FreeTrialPage() {
         <AioCitationHooks title="Trial FAQ" items={trialFaqs} />
 
         <div className="mt-12">
-          <WhatsAppCard prefill={WA_PREFILL.trial} surface="free-trial-contact" />
+          <WhatsAppCard prefill={trialRequest} surface="free-trial-contact" />
         </div>
 
         <section className="mt-14">
