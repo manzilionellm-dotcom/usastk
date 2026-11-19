@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/free-trial",
     "/faq",
     "/faq/buffering",
+    "/faq/fire-tv-iphone-remote-second-stick",
     "/blog",
     "/blog/firestick-setup-usa",
     "/blog/iptv-buffering-firestick",

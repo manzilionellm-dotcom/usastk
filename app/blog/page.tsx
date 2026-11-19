@@ -19,6 +19,11 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    href: "/faq/fire-tv-iphone-remote-second-stick",
+    title: "When the iPhone remote finds only one Fire TV Stick",
+    blurb: "Add the missing Stick in the Fire TV app and confirm which screen responds.",
+  },
+  {
     href: "/blog/is-iptv-legal-in-the-us",
     title: "Is IPTV legal in the US? Law, penalties and how to check (2026)",
     blurb: "Federal streaming law, copyright damages, the Jetflicks case and a 5-step check.",
