@@ -27,7 +27,7 @@ export default function ReferPage() {
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-[#25D366]">REFERRAL</p>
-        <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium">
+        <h1 id="page-heading" tabIndex={-1} className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium">
           1 extra month for you and a friend
         </h1>
         <p className="mt-4 text-lg text-[#A8AEBC]">

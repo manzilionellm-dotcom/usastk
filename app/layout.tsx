@@ -52,8 +52,8 @@ export default function RootLayout({
       >
         {/* Organization + WebSite once per page; pages reference them by @id. */}
         <SiteGraph />
-        <a className="skip-link" href="#plans">
-          Skip to plans
+        <a className="skip-link" href="#page-heading">
+          Skip to content
         </a>
         {children}
         <WhatsAppFab />

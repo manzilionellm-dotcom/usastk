@@ -214,7 +214,7 @@ export default function BestLegalIptvFirestickUsaPage() {
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">
           GUIDE · FIRE TV · LICENSED SERVICES ONLY · CHECKED {CHECKED_LABEL.toUpperCase()}
         </p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal leading-tight tracking-tight md:text-5xl">
+        <h1 id="page-heading" tabIndex={-1} className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal leading-tight tracking-tight md:text-5xl">
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#F5F6F8]">

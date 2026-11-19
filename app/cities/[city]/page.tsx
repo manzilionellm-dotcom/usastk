@@ -52,7 +52,7 @@ export default async function CityPage({ params }: Props) {
         <p className="text-xs font-semibold tracking-[0.16em] text-[#6E7585]">
           {c.state} · Firestick
         </p>
-        <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium">
+        <h1 id="page-heading" tabIndex={-1} className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium">
           Firestick IPTV in {c.name}
         </h1>
         <p className="mt-4 text-lg text-[#A8AEBC]">{c.note}</p>

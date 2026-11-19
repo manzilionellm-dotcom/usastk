@@ -22,7 +22,7 @@ export default function CitiesIndex() {
       />
       <SiteHeader />
       <main className="mx-auto max-w-4xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
-        <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">US cities</h1>
+        <h1 id="page-heading" tabIndex={-1} className="font-[family-name:var(--font-display)] text-4xl font-medium">US cities</h1>
         <p className="mt-3 text-[#A8AEBC]">Same prices everywhere. Trial on your own Wi-Fi first.</p>
         <ul className="mt-10 grid gap-3 sm:grid-cols-2">
           {CITIES.map((c) => (

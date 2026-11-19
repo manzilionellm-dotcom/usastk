@@ -26,7 +26,7 @@ export default function BufferingFaq() {
       />
       <SiteHeader active="faq" />
       <main className="mx-auto max-w-3xl px-5 pb-28 pt-12 font-[family-name:var(--font-body)] md:px-8">
-        <h1 className="font-[family-name:var(--font-display)] text-4xl font-medium">Buffering FAQ</h1>
+        <h1 id="page-heading" tabIndex={-1} className="font-[family-name:var(--font-display)] text-4xl font-medium">Buffering FAQ</h1>
         <AioCitationHooks className="mt-8" title="Questions" items={QA} />
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"

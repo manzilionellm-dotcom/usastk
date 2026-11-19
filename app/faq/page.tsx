@@ -128,7 +128,7 @@ export default function FaqPage() {
         <p className="text-xs font-semibold tracking-[0.16em] text-[#4F7DFF]">
           FAQ · TRIAL · FIRESTICK · 7 MOTION · WHATSAPP
         </p>
-        <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal leading-tight tracking-tight md:text-5xl">
+        <h1 id="page-heading" tabIndex={-1} className="mt-4 font-[family-name:var(--font-display)] text-4xl font-normal leading-tight tracking-tight md:text-5xl">
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
