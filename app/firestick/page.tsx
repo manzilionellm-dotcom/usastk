@@ -19,9 +19,9 @@ const PAGE_PATH = "/firestick";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
 /* Seo Wa paste-ready USA Firestick site — title + meta */
-const TITLE = "IPTV Firestick USA — setup at home or traveling";
+const TITLE = "Fire TV Stick setup in the US: check your model and player";
 const META =
-  "IPTV on Firestick in the USA. WhatsApp setup in 5–10 min, 7 MOTION TV, 24h trial. City + device.";
+  "Identify your Fire TV Stick, check Fire OS or Vega OS compatibility and test playback on your home network. Ask about your exact model on WhatsApp.";
 const H1 = FIRESTICK_H1;
 
 export const metadata: Metadata = {
@@ -72,20 +72,20 @@ export const metadata: Metadata = {
 
 const steps = [
   {
-    name: "Message WhatsApp",
-    text: "One note is enough: your US city plus that you have a Firestick. The prefill is ready — no email form.",
+    name: "Identify your Fire TV Stick",
+    text: "Open Settings, My Fire TV, then About. Write down the full model and generation. The 4K Select and 2026 Stick HD use Vega OS.",
   },
   {
-    name: "Take the 24h trial",
-    text: "You get a 24-hour trial, no card. Check it in your living room at night, not on a screenshot.",
+    name: "Check player and trial availability",
+    text: "Send your model and city on WhatsApp. Ask which player works and whether a weekday trial is available.",
   },
   {
     name: "Prep the stick",
     text: "Put the Firestick on 5 GHz Wi-Fi, or a short Ethernet adapter if you have one. Lite is fine at 1080p; 4K Max is calmer for sport.",
   },
   {
-    name: "Install 7 MOTION",
-    text: "On Firestick we prefer 7 MOTION — faster start, less sideload from a forum. The player and steps arrive on WhatsApp.",
+    name: "Install a compatible player",
+    text: "Use the listing in the Appstore for your model when available. An Android APK requires a compatible Fire OS stick. On Vega OS, look for a Vega-compatible app.",
   },
   {
     name: "Enter the chat details",
@@ -102,7 +102,6 @@ const howToSchema = {
   "@type": "HowTo",
   name: TITLE,
   description: META,
-  totalTime: "PT10M",
   inLanguage: "en-US",
   step: steps.map((s, i) => ({
     "@type": "HowToStep",
@@ -159,9 +158,8 @@ export default function FirestickHowToPage() {
           {H1}
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-[#A8AEBC]">
-          Firestick in a US living room or in a hotel. Setup is usually 5–10
-          minutes. Prefer 7 MOTION. The 24h trial stays on WhatsApp, and login
-          details stay in that chat.
+          Check the full model in Settings before downloading a player. The 4K Select and 2026 Stick HD use Vega OS. Find your model in the{" "}
+          <a className="underline" href="https://developer.amazon.com/docs/device-specs/identify-fire-tv-devices.html">Amazon device table</a>.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -183,7 +181,7 @@ export default function FirestickHowToPage() {
 
         <section className="mt-14">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-medium">
-            6 steps — about 10 minutes
+            Six setup and playback checks
           </h2>
           <ol className="mt-6 space-y-5">
             {steps.map((s, i) => (
@@ -208,9 +206,7 @@ export default function FirestickHowToPage() {
             Why 7 MOTION on Firestick
           </h2>
           <p className="mt-4 leading-relaxed text-[#A8AEBC]">
-            US Wi-Fi and hotel networks vary. 7 MOTION is the player we send for
-            a short start: same chat, same night, then you decide. We do not
-            publish a public playlist on this site.
+            If your device supports 7 MOTION, test it on the TV and network you will actually use. Tell support the model, your city and whether the test is at home or on hotel Wi-Fi.
           </p>
         </section>
 
