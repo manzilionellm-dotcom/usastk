@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RemoteHelpContact } from "./remote-help-contact";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { SITE_NAME, SITE_URL, whatsappHref } from "@/lib/site";
 
@@ -38,7 +39,7 @@ export default function FireTvRemoteGuide() {
             <a className="underline" href="https://digprjsurvey.amazon.com/csad/help/node/GGKS6F6YNYGHK6YG">Amazon’s Fire TV mobile remote instructions</a>.
           </p>
           <p>Prepared with automated assistance for {SITE_NAME}. For personalized help, describe which step failed. Keep account credentials and pairing codes private.</p>
-          <a href={helpUrl} data-cta="guide" className="inline-flex min-h-12 items-center rounded-lg bg-white px-5 font-semibold text-black">Get Fire TV remote help on WhatsApp</a>
+          <RemoteHelpContact href={helpUrl} />
         </article>
       </main>
       <SiteFooter neutral />
