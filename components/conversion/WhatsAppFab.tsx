@@ -1,13 +1,13 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { WA_PREFILL, whatsappHref } from "@/lib/site";
+import { SITE_URL, WA_PREFILL, whatsappHref } from "@/lib/site";
 import { hidesSalesPromotions } from "@/lib/neutral";
 
 export function WhatsAppFab() {
   const path = usePathname();
   if (hidesSalesPromotions(path)) return null;
-  const href = whatsappHref(WA_PREFILL.trial);
+  const href = whatsappHref(WA_PREFILL.trial, `${SITE_URL}${path || "/"}`);
   return (
     <a
       className="wa-fab"
