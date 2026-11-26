@@ -59,7 +59,7 @@ const howTo = {
   step: [
     { "@type": "HowToStep", name: "Enable unknown sources", text: "Settings → My Fire TV → Developer Options → Apps from Unknown Sources." },
     { "@type": "HowToStep", name: "Install Downloader", text: "Search the Amazon store for Downloader by AFTVnews and install it." },
-    { "@type": "HowToStep", name: "Add the player + login", text: "We send the player and login on WhatsApp after your trial request." },
+    { "@type": "HowToStep", name: "Add the player + login", text: "Confirm the player with support and use your private access details in the app." },
   ],
 };
 

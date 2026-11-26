@@ -19,9 +19,9 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 
 ## Prices
 
-- 24 hours: USD 5
-- 1 Month: USD 15
-- 1 Year: USD 65
+- 24-hour pass: $5
+- 1 month: $15
+- 1 year: $65
 - Each paid term is paid once. The home page states there is no auto renew contract.
 - Displayed per-month labels on the plan cards: USD 5 for 24 hours, USD 15 for one month and USD 65 for a year.
 
@@ -29,7 +29,7 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 
 - Maximum picture quality: 1080p on a regular Firestick; 4K when the stick, the network, and the feed support it
 - Devices: Amazon Firestick, Smart TV (Samsung / LG), Android TV / phone, iPhone / iPad
-- Activation: usually under 10 minutes after the plan is confirmed on WhatsApp, including weekends; setup walkthrough about 5 to 10 minutes
+- Activation: not stated
 - Stream bitrate: not stated
 - Minimum bandwidth stated on the site: 15 Mbps for HD and 25 Mbps for one 4K stick
 - Channel count: not stated
@@ -58,11 +58,11 @@ IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households sta
 
 ### How much does IPTV for Firestick cost in the USA?
 
-The home page lists three prepaid terms: 24 hours for USD 5, one month for USD 15 and one year for USD 65. Each term is paid once, with no auto renew contract. A private 24 hour trial starts on WhatsApp and needs no card. You choose a duration only after a night on your own TV.
+The prepaid prices for one screen are USD 5 for 24 hours, USD 15 for one month and USD 65 for one year. Give support your city and exact Fire TV model on WhatsApp before payment. Ask for the total amount and for the start and end times of the plan.
 
-### How do I start the 24-hour trial?
+### How do I start the 24-hour pass?
 
-Message WhatsApp with your city and device. A Firestick is enough. You get a private 24 hour test on your screen, with no card and no form. Check it at home or in a hotel before you pick a duration. Access stays in the chat. This site does not publish a public playlist file.
+Ask about the USD 5 prepaid day pass on WhatsApp. Give your city and the full model printed on your Fire TV or streaming device. Ask support to confirm the player, the available content and the activation and expiry times before you decide whether to pay.
 
 ### How do I set up IPTV on Firestick?
 
@@ -78,7 +78,7 @@ Start with a Firestick you already own and the internet in your home. Message Wh
 
 ### How does Firestick IPTV compare to cable?
 
-Cable is a contract, a box, and a bill you already know. Firestick IPTV is one stick on your network and a duration you choose after a night at home. Compare the picture on the trial, then keep or cancel cable on your own timeline. Published plans stay on the home page.
+Compare the full cost over the same period, including the device, internet service and any separate player fee. The prepaid totals for one screen are USD 5 for a day, USD 15 for a month and USD 65 for a year. Check local availability before making the comparison.
 
 ### Can I watch live sports on Firestick?
 
@@ -90,7 +90,7 @@ A living room plus a bedroom is common. How many screens can play at once is con
 
 ### How do I pay — and can I switch from another provider?
 
-Payment stays on WhatsApp after a night on your own TV. There is no card field and no email checkout on this site. You do not need to wipe the Firestick before switching. Send your city and device. The preferred player is 7 MOTION. Start with the 24 hour trial so you are not paying two services the same week.
+Ask for the amount, currency, duration and available payment method on WhatsApp. Tell support whether you already have a compatible Fire TV player. Keep passwords, payment details and private playlist addresses out of your initial message. Verify the terms before deciding whether to switch.
 
 ### Do I need 4K, a TV guide (EPG), or a VPN?
 
