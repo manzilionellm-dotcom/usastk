@@ -35,10 +35,12 @@ const usd = (n) => (n === 0 ? "free (no card, $0)" : `$${n}`);
 const lines = [];
 lines.push(`# ${c.siteName}`, "", `> ${i.description}`, "", c.lead, "");
 lines.push("## Start", "");
+lines.push("- [Start here](https://iptvforfirestickusa.com/)", "");
 lines.push(`- WhatsApp: ${c.contact.whatsapp}`);
 lines.push("- Prefill: Firestick IPTV USA + trial. City + device.");
 lines.push(`- Free trial page: ${c.siteUrl}/free-trial`, "");
 lines.push("## Services", "");
+lines.push("- [Trial information](https://iptvforfirestickusa.com/free-trial)", "");
 lines.push(
   `- Firestick IPTV setup for US households. Preferred player: 7 MOTION. Private 24 hour trial and support on WhatsApp: ${c.contact.whatsapp}`,
 );
@@ -48,10 +50,12 @@ lines.push(
 );
 lines.push(`- Website: ${c.siteUrl}/`, "");
 lines.push("## Prices", "");
+lines.push("- [Plans](https://iptvforfirestickusa.com/#plans)", "");
 for (const p of c.plans) lines.push(`- ${p.name}: ${p.price === 0 ? "free (no card)" : usd(p.price)}`);
 lines.push("- Each paid term is paid once. The home page states there is no auto renew contract.");
 lines.push("- Displayed per-month labels on the plan cards: USD 5 for 24 hours, USD 15 for one month and USD 65 for a year.");
 lines.push("", "## Technical characteristics", "");
+lines.push("- [Fire TV setup](https://iptvforfirestickusa.com/firestick)", "");
 const t = c.tech;
 lines.push(`- Maximum picture quality: ${t.maxResolution ?? "not stated"}`);
 lines.push(`- Devices: ${t.devices.join(", ")}`);
@@ -60,6 +64,7 @@ lines.push(`- Stream bitrate: ${t.bitrate ?? "not stated"}`);
 lines.push(`- Minimum bandwidth stated on the site: ${t.minBandwidth ?? "not stated"}`);
 lines.push(`- Channel count: ${t.channelCount ?? "not stated"}`, "");
 lines.push("## 7 MOTION path", "");
+lines.push("- [Firestick guide](https://iptvforfirestickusa.com/firestick)", "");
 lines.push("1. Message WhatsApp with your US city and that you have a Firestick.");
 lines.push("2. Start the private 24-hour trial — no card.");
 lines.push("3. Prep the stick (5 GHz Wi-Fi or a short Ethernet adapter).");
@@ -76,8 +81,10 @@ lines.push(`- [Firestick setup USA (guide)](${c.siteUrl}/blog/firestick-setup-us
 lines.push(`- [FAQ](${c.siteUrl}/faq): Trial, Firestick, 7 MOTION, WhatsApp.`);
 lines.push(`- [Full text](${c.siteUrl}/llms-full.txt): Longer machine-readable copy.`, "");
 lines.push(`## Frequently asked questions (${i.faq.length})`, "");
+lines.push("- [FAQ](https://iptvforfirestickusa.com/faq)", "");
 i.faq.forEach((f) => lines.push(`### ${f.q}`, "", f.a, ""));
 lines.push("## Optional", "");
+lines.push("- [Sitemap](https://iptvforfirestickusa.com/sitemap.xml)", "");
 lines.push("- Contact is WhatsApp only: +44 7307 410512.");
 fs.mkdirSync(new URL("../public/", import.meta.url), { recursive: true });
 fs.writeFileSync(new URL("../public/llms.txt", import.meta.url), lines.join("\n").trimEnd() + "\n");
