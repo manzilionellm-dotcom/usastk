@@ -110,7 +110,7 @@ export function SiteFooter({ neutral = false }: { neutral?: boolean } = {}) {
           <ul className="mt-3 space-y-2 text-sm text-[#A8AEBC]">
             <li>
               <Link className="transition hover:text-[#F5F6F8]" href="/free-trial">
-                Free 24h trial page
+                24-hour day pass
               </Link>
             </li>
             <li>

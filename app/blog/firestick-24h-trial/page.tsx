@@ -9,7 +9,7 @@ import { SITE_URL, WA_PREFILL, whatsappHref } from "@/lib/site";
 const PATH = "/blog/firestick-24h-trial";
 const TITLE = "24h Firestick IPTV trial (USA) — no credit card";
 const DESCRIPTION =
-  "City + device on WhatsApp. Login in minutes. Test tonight, pay only if it holds. $12 / $25 / $30 / $55.";
+  "City + device on WhatsApp. Login in minutes. Test tonight, pay only if it holds. USD 5 / 15 / 65.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -22,7 +22,7 @@ const STEPS = [
   { t: "Send city + device", d: "WhatsApp only. Houston, Firestick 4K Max is enough. No email form, no card." },
   { t: "Install the player", d: "Unknown sources → Downloader → the APK we send. Takes about 10 minutes." },
   { t: "Watch tonight", d: "Test the channels you actually care about at peak hours (8–11pm). Daytime HD is not the test." },
-  { t: "Pay only if it holds", d: "1 month $12, 3 months $25, 6 months $30, 1 year $55. Paid once. No auto-renew." },
+  { t: "Pay only if it holds", d: "24 hours USD 5, one month USD 15, one year USD 65. Paid once. No auto-renew." },
 ];
 
 export default function TrialGuide() {
@@ -68,7 +68,7 @@ export default function TrialGuide() {
           Request the 24h trial
         </a>
         <p className="mt-8 text-sm">
-          <Link className="text-[#25D366]" href="/free-trial">Free 24h trial page</Link>
+          <Link className="text-[#25D366]" href="/free-trial">24-hour day pass</Link>
           {" · "}
           <Link className="text-[#25D366]" href="/faq/buffering">Buffering FAQ — freezes after 8pm</Link>
           {" · "}

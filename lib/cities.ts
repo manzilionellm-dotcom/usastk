@@ -9,7 +9,7 @@ export const CITIES = [
   { slug: "phoenix", name: "Phoenix", state: "AZ", note: "Cox and CenturyLink. 24h trial, no card, city + device on WhatsApp." },
   { slug: "philadelphia", name: "Philadelphia", state: "PA", note: "Xfinity and Verizon. Trial on the same Wi-Fi you use after 8pm." },
   { slug: "seattle", name: "Seattle", state: "WA", note: "Xfinity / Ziply. 5 GHz or Ethernet — apartment 2.4 GHz freezes HD." },
-  { slug: "denver", name: "Denver", state: "CO", note: "Xfinity and CenturyLink. Same $12–$55 plans, 24h trial, no card." },
+  { slug: "denver", name: "Denver", state: "CO", note: "Xfinity and CenturyLink. Same USD 5–65 plans, 24h trial, no card." },
   { slug: "boston", name: "Boston", state: "MA", note: "Xfinity / Verizon. Firestick Downloader setup is identical to the rest of the US." },
   { slug: "orlando", name: "Orlando", state: "FL", note: "Spectrum and AT&T. Test live sports at night on the 24h trial first." },
   { slug: "las-vegas", name: "Las Vegas", state: "NV", note: "Cox. 24h trial on your own stick. City + device on WhatsApp." },

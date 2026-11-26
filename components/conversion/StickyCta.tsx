@@ -21,10 +21,10 @@ export function StickyCta() {
   return (
     <div className="sticky-cta" role="region" aria-label="Quick actions">
       <a className="sticky-cta-primary" href={whatsappHref(WA_PREFILL.trial)} target="_blank" rel="noopener noreferrer" data-cta="sticky">
-        24h free trial
+        24-hour pass · USD 5
       </a>
       <a className="sticky-cta-secondary" href="#plans">
-        Plans from $12/mo
+        Plans from USD 15/mo
       </a>
     </div>
   );

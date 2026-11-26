@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { city } = await params;
   const c = cityBySlug(city);
   if (!c) return {};
-  const title = `IPTV Firestick ${c.name} — 24h trial from $12/mo`;
+  const title = `IPTV Firestick ${c.name} — 24h trial from USD 15/mo`;
   return {
     metadataBase: new URL(SITE_URL),
     title,
@@ -57,7 +57,7 @@ export default async function CityPage({ params }: Props) {
         </h1>
         <p className="mt-4 text-lg text-[#A8AEBC]">{c.note}</p>
         <p className="mt-4 text-[#A8AEBC]">
-          Same plans as the rest of the US: $12 / $25 / $30 / $55. 24h trial, no card. Login stays private.
+          Same plans as the rest of the US: USD 5 / 15 / 65. 24h trial, no card. Login stays private.
         </p>
         <a
           className="mt-8 inline-flex rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white"

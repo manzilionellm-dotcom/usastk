@@ -16,9 +16,9 @@ import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { CITIES } from "@/lib/cities";
 import { DEVICES } from "@/lib/devices";
 
-const TITLE = "IPTV for Firestick USA — From $12/mo";
+const TITLE = "IPTV for Firestick USA — From USD 15/mo";
 const DESCRIPTION =
-  "Watch US live TV on Firestick. 24h trial via WhatsApp, no card. Plans from $12/month. Setup in 3 steps.";
+  "Compare prepaid Firestick plans: USD 5 for 24 hours, USD 15 for one month or USD 65 for one year. Check availability and your model on WhatsApp.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -74,10 +74,10 @@ export default function Page() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6E7585]">USA · Firestick</p>
             <h1 id="page-heading" tabIndex={-1} className="mt-3 font-[family-name:var(--font-display)] text-4xl font-medium leading-tight text-[#F5F6F8] md:text-6xl">
-              Live US TV on Firestick from $12/mo
+              Live US TV on Firestick from USD 15/mo
             </h1>
             <p className="mt-5 max-w-xl text-lg text-[#A8AEBC]">
-              24h trial on WhatsApp. No card. Setup in 3 steps on the stick itself.
+              Confirm your Fire TV model and viewing country on WhatsApp before choosing a prepaid plan.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
@@ -87,7 +87,7 @@ export default function Page() {
                 data-cta="hero"
                 className="rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white hover:bg-[#1FB855]"
               >
-                Start 24h trial
+                Ask about the USD 5 day pass
               </a>
               <a href="#plans" className="rounded-full border border-[#2A3142] px-6 py-3 text-sm font-semibold text-[#F5F6F8]">
                 See prices
@@ -95,7 +95,7 @@ export default function Page() {
             </div>
           </div>
           <ul className="grid gap-3 rounded-2xl border border-[#2A3142] bg-[#141824] p-6 text-sm text-[#A8AEBC]">
-            <li>WhatsApp activation — usually under 10 minutes</li>
+            <li>Ask for the activation time before payment</li>
             <li>No public playlist. Credentials stay private.</li>
             <li>Works on Firestick, Smart TV, Android, iPhone</li>
             <li>Pay once per term. No auto-renew contract</li>
@@ -104,8 +104,8 @@ export default function Page() {
 
         <section className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { t: "24h trial", d: "Test on your device. No card." },
-            { t: "Clear prices", d: "$12 · $25 · $30 · $55" },
+            { t: "24-hour pass", d: "24 hours on one screen for USD 5." },
+            { t: "Clear prices", d: "24h USD 5 · month USD 15 · year USD 65" },
             { t: "3-step setup", d: "Unknown sources → Downloader → player" },
             { t: "Human support", d: "One WhatsApp number for this brand" },
           ].map((item) => (
@@ -119,12 +119,12 @@ export default function Page() {
         <section id="plans" className="mt-20">
           <h2 className="font-[family-name:var(--font-display)] text-3xl font-medium">Plans</h2>
           <p className="mt-2 text-[#A8AEBC]">Paid once. Message WhatsApp with your city and device to buy.</p>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
             {PLANS.map((p) => (
               <article key={p.key} className="flex flex-col rounded-2xl border border-[#2A3142] bg-[#141824] p-6">
                 <p className="text-xs font-semibold uppercase tracking-wider text-[#FF4D5C]">{p.badge}</p>
                 <h3 className="mt-2 text-xl font-semibold">{p.name}</h3>
-                <p className="mt-3 text-4xl font-bold">${p.price}</p>
+                <p className="mt-3 text-4xl font-bold">USD {p.price}</p>
                 <p className="text-sm text-[#6E7585]">{p.perMonth}</p>
                 <a
                   href={whatsappHref(p.prefill)}

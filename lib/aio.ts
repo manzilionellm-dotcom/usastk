@@ -23,7 +23,7 @@ export function bufferingFaqItems(): Faq[] {
   return en.bufferingFaq;
 }
 
-/** Product nodes for the published trial and the four paid terms. No image, no rating. */
+/** Product nodes for the published trial and the three prepaid terms. No image, no rating. */
 export function productNodes() {
   const url = config.siteUrl;
   return config.plans.map((p) => ({

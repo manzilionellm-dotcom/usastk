@@ -3,8 +3,6 @@ export const SITE_NAME = "IPTV For Firestick USA";
 
 /** Single WhatsApp for every brand. Do not split numbers. */
 export const WHATSAPP_E164 =
-  process.env.NEXT_PUBLIC_WHATSAPP_USA ||
-  process.env.NEXT_PUBLIC_WHATSAPP_PHONE ||
   "447307410512";
 
 export const WHATSAPP_HREF_BASE = `https://wa.me/${WHATSAPP_E164}`;
@@ -22,19 +20,17 @@ export const WA_PREFILL = {
   firestick: "Hi — IPTV Firestick USA + 24h trial. City + device:",
   faq: "Hi — IPTV USA question (trial / Firestick). City + device:",
   guide: "Hi — Firestick IPTV USA + trial. City + device:",
-  trial: "Hi — Firestick USA 24h trial. Device:",
-  plan1: "Hi — I want the 1 month IPTV USA plan for $12. City + device:",
-  plan3: "Hi — I want the 3 month IPTV USA plan for $25. City + device:",
-  plan6: "Hi — I want the 6 month IPTV USA plan for $30. City + device:",
-  plan12: "Hi — I want the 1 year IPTV USA plan for $55. City + device:",
+  trial: "Hi, I am interested in the USD 5 day pass. My Fire TV model and city:",
+  day: "Hi, I am interested in the prepaid 24-hour pass at USD 5. Can you confirm my location and device?",
+  plan1: "Hi, I am interested in one month at USD 15. Can you confirm my location and device?",
+  plan12: "Hi, I am interested in one year at USD 65. Can you confirm my location and device?",
   refer: "Hi — referral: 1 extra month on the 12-month plan for me and a friend when they pay. Friend WhatsApp number:",
 } as const;
 
 export const PLANS = [
-  { key: "p1", name: "1 Month", price: 12, months: 1, perMonth: "$12/mo", badge: "Start here", prefill: WA_PREFILL.plan1 },
-  { key: "p3", name: "3 Months", price: 25, months: 3, perMonth: "$8.33/mo", badge: "Popular", prefill: WA_PREFILL.plan3 },
-  { key: "p6", name: "6 Months", price: 30, months: 6, perMonth: "$5/mo", badge: "Best value", prefill: WA_PREFILL.plan6 },
-  { key: "p12", name: "1 Year", price: 55, months: 12, perMonth: "$4.58/mo", badge: "Lowest monthly", prefill: WA_PREFILL.plan12 },
+  { key: "day", name: "24-hour day pass", price: 5, months: 0, perMonth: "24 hours prepaid", badge: "One screen", prefill: WA_PREFILL.day },
+  { key: "p1", name: "1 month", price: 15, months: 1, perMonth: "One month prepaid", badge: "One screen", prefill: WA_PREFILL.plan1 },
+  { key: "p12", name: "1 year", price: 65, months: 12, perMonth: "One year prepaid", badge: "One screen", prefill: WA_PREFILL.plan12 },
 ] as const;
 
 export const PRICING_PATH = "/#plans";

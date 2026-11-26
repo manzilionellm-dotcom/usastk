@@ -7,7 +7,7 @@ import { SITE_URL, WA_PREFILL, whatsappHref } from "@/lib/site";
 
 const TITLE = "Refer a friend — 1 extra month on the 12-month plan";
 const DESCRIPTION =
-  "When a friend pays the 12-month plan ($55), you both get 1 extra month. Same WhatsApp number. No fake codes.";
+  "When a friend pays the 12-month plan (USD 65), you both get 1 extra month. Same WhatsApp number. No fake codes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,7 +31,7 @@ export default function ReferPage() {
           1 extra month for you and a friend
         </h1>
         <p className="mt-4 text-lg text-[#A8AEBC]">
-          Friend pays the 12-month plan ($55). You both get +1 month on that term. The 24h trial alone does not trigger the bonus.
+          Friend pays the 12-month plan (USD 65). You both get +1 month on that term. The 24h trial alone does not trigger the bonus.
         </p>
         <ol className="mt-10 space-y-4 text-[#F5F6F8]">
           <li className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
@@ -44,7 +44,7 @@ export default function ReferPage() {
           </li>
           <li className="rounded-2xl border border-[#2A3142] bg-[#141824] p-5">
             <span className="text-xs font-semibold text-[#FF4D5C]">3</span>
-            <p className="mt-2">When they pay $55 / 12 months, both accounts get +1 month.</p>
+            <p className="mt-2">When they pay USD 65 / 12 months, both accounts get +1 month.</p>
           </li>
         </ol>
         <AioCitationHooks items={faqItems()} title="Questions" />

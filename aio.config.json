@@ -4,19 +4,36 @@
   "siteUrl": "https://iptvforfirestickusa.com",
   "defaultLang": "en",
   "currency": "USD",
-  "contact": { "whatsapp": "https://wa.me/447307410512" },
+  "contact": {
+    "whatsapp": "https://wa.me/447307410512"
+  },
   "lead": "IPTV For Firestick USA (https://iptvforfirestickusa.com) helps US households start IPTV on Amazon Firestick. Access stays in chat on WhatsApp +44 7307 410512. Send your city and device, then try a night at home.",
   "plans": [
-    { "id": "trial-24h", "price": 0, "name": "24 hour trial" },
-    { "id": "1-month", "price": 12, "name": "1 Month" },
-    { "id": "3-months", "price": 25, "name": "3 Months" },
-    { "id": "6-months", "price": 30, "name": "6 Months" },
-    { "id": "1-year", "price": 55, "name": "1 Year" }
+    {
+      "id": "day-pass",
+      "price": 5,
+      "name": "24-hour pass"
+    },
+    {
+      "id": "1-month",
+      "price": 15,
+      "name": "1 month"
+    },
+    {
+      "id": "1-year",
+      "price": 65,
+      "name": "1 year"
+    }
   ],
   "tech": {
     "maxResolution": "1080p on a regular Firestick; 4K when the stick, the network, and the feed support it",
-    "devices": ["Amazon Firestick", "Smart TV (Samsung / LG)", "Android TV / phone", "iPhone / iPad"],
-    "activationMinutes": "usually under 10 minutes after the plan is confirmed on WhatsApp, including weekends; setup walkthrough about 5 to 10 minutes",
+    "devices": [
+      "Amazon Firestick",
+      "Smart TV (Samsung / LG)",
+      "Android TV / phone",
+      "iPhone / iPad"
+    ],
+    "activationMinutes": null,
     "bitrate": null,
     "minBandwidth": "15 Mbps for HD and 25 Mbps for one 4K stick",
     "channelCount": null
@@ -28,7 +45,7 @@
       "faq": [
         {
           "q": "How much does IPTV for Firestick cost in the USA?",
-          "a": "The home page lists four paid terms: 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55. Each term is paid once, with no auto renew contract. A private 24 hour trial starts on WhatsApp and needs no card. You choose a duration only after a night on your own TV."
+          "a": "The prepaid prices for one screen are USD 5 for 24 hours, USD 15 for one month and USD 65 for one year. Give support your city and exact Fire TV model on WhatsApp before payment. Ask for the total amount and for the start and end times of the plan."
         },
         {
           "q": "How do I start the 24-hour trial?",
@@ -82,7 +99,7 @@
         },
         {
           "q": "How do I start the 24-hour Firestick trial?",
-          "a": "WhatsApp is enough: send your city and your device. The 24 hour trial needs no card and no email form. You pay only if a duration fits after a night on your own TV. The home page lists 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55, each paid once."
+          "a": "WhatsApp is enough: send your city and your device. The 24 hour trial needs no card and no email form. You pay only if a duration fits after a night on your own TV. The home page lists 24 hours for USD 5, one month for USD 15 and one year for USD 65, each paid once."
         },
         {
           "q": "Why 7 MOTION instead of a forum player?",
@@ -90,7 +107,7 @@
         },
         {
           "q": "Where do I see pricing and how do I contact you?",
-          "a": "Plan cards are on the home page pricing section at the plans anchor. The published terms are 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55. Questions and the 24 hour trial stay on WhatsApp. Send your city and device. There is no email checkout on this site."
+          "a": "Plan cards are on the home page pricing section at the plans anchor. The published terms are 24 hours for USD 5, one month for USD 15 and one year for USD 65. Questions and the 24 hour trial stay on WhatsApp. Send your city and device. There is no email checkout on this site."
         }
       ],
       "trialFaq": [
@@ -108,7 +125,7 @@
         },
         {
           "q": "Do I need a plan before the trial ends?",
-          "a": "No. Check an evening on your own TV first. If it holds, pick a duration on the same WhatsApp thread, not before. The home page lists 1 month for $12, 3 months for $25, 6 months for $30, and 1 year for $55, each paid once, with no auto renew contract. The trial itself needs no card."
+          "a": "No. Check an evening on your own TV first. If it holds, pick a duration on the same WhatsApp thread, not before. The home page lists 24 hours for USD 5, one month for USD 15 and one year for USD 65, each paid once, with no auto renew contract. The trial itself needs no card."
         },
         {
           "q": "Where is the Firestick setup guide?",

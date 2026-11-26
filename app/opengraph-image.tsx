@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "IPTV For Firestick USA — from $12/mo";
+export const alt = "IPTV For Firestick USA — from USD 15/mo";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,7 +24,7 @@ export default function OgImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ fontSize: 72, fontWeight: 700, lineHeight: 1.05, maxWidth: 980 }}>
-            Live US TV on Firestick from $12/mo
+            Live US TV on Firestick from USD 15/mo
           </div>
           <div style={{ fontSize: 32, color: "#D0D4DE" }}>24h trial on WhatsApp · no card · 3-step setup</div>
         </div>

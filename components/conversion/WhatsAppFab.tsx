@@ -14,7 +14,7 @@ export function WhatsAppFab() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp for a 24h trial"
+      aria-label="Ask about the USD 5 day pass on WhatsApp"
       data-cta="fab"
     >
       <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" fill="currentColor">

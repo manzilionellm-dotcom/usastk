@@ -9,7 +9,7 @@ import { SITE_URL, whatsappHref } from "@/lib/site";
 const PATH = "/blog/iptv-smart-tv-usa";
 const TITLE = "IPTV on Samsung / LG Smart TV (USA) — without a Firestick";
 const DESCRIPTION =
-  "Downloader on the TV, or a $25 Firestick. 24h trial on WhatsApp, no card. Same $12–$55 plans.";
+  "Downloader on the TV, or a $25 Firestick. 24h trial on WhatsApp, no card. Same USD 5–65 plans.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

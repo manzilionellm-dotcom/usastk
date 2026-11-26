@@ -44,13 +44,13 @@ lines.push(
 );
 lines.push("- Login details stay in the WhatsApp chat. There is no playlist file to download on this site.");
 lines.push(
-  `- Referral, as published on /refer: when a friend pays the 12 month plan ($55), both people get 1 extra month. The 24 hour trial alone does not trigger the bonus.`,
+  `- Referral, as published on /refer: when a friend pays the 12 month plan (USD 65), both people get 1 extra month. The 24 hour trial alone does not trigger the bonus.`,
 );
 lines.push(`- Website: ${c.siteUrl}/`, "");
 lines.push("## Prices", "");
 for (const p of c.plans) lines.push(`- ${p.name}: ${p.price === 0 ? "free (no card)" : usd(p.price)}`);
 lines.push("- Each paid term is paid once. The home page states there is no auto renew contract.");
-lines.push("- Displayed per-month labels on the plan cards: $12/mo, $8.33/mo, $5/mo, $4.58/mo.");
+lines.push("- Displayed per-month labels on the plan cards: USD 5 for 24 hours, USD 15 for one month and USD 65 for a year.");
 lines.push("", "## Technical characteristics", "");
 const t = c.tech;
 lines.push(`- Maximum picture quality: ${t.maxResolution ?? "not stated"}`);
