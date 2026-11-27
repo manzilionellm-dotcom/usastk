@@ -3,6 +3,30 @@
 // Complète le llms.txt existant : prix, technique, 10 Q/R. N'invente pas les null.
 import fs from "node:fs";
 
+// llms.txt v2 places explanatory notes before the H2 lists of Markdown links.
+function formatFileLists(source) {
+  const [intro, ...sections] = source.split(/^## ([^\n]+)\n/gm);
+  const notes = [];
+  const lists = [];
+  for (let i = 0; i < sections.length; i += 2) {
+    const heading = sections[i];
+    const links = [];
+    const details = [];
+    for (const line of sections[i + 1].split("\n")) {
+      if (/^\s*[-*+]\s+\[[^\]]+\]\([^\s)]+\)/.test(line)) {
+        links.push(line);
+      } else {
+        details.push(line.replace(/^#{3,6} (.+)$/, "**$1**"));
+      }
+    }
+    const description = details.join("\n").trim();
+    if (description) notes.push(`**${heading}**\n\n${description}`);
+    if (links.length) lists.push(`## ${heading}\n\n${links.join("\n")}`);
+  }
+  return [intro.trimEnd(), ...notes, ...lists].join("\n\n") + "\n";
+}
+
+
 const c = JSON.parse(fs.readFileSync(new URL("../aio.config.json", import.meta.url), "utf8"));
 const L = c.defaultLang;
 const i = c.i18n[L];
@@ -87,5 +111,5 @@ lines.push("## Optional", "");
 lines.push("- [Sitemap](https://iptvforfirestickusa.com/sitemap.xml)", "");
 lines.push("- Contact is WhatsApp only: +44 7307 410512.");
 fs.mkdirSync(new URL("../public/", import.meta.url), { recursive: true });
-fs.writeFileSync(new URL("../public/llms.txt", import.meta.url), lines.join("\n").trimEnd() + "\n");
+fs.writeFileSync(new URL("../public/llms.txt", import.meta.url), formatFileLists(lines.join("\n")));
 console.log("public/llms.txt écrit (" + i.faq.length + " Q/R)");
